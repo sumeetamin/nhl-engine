@@ -1,0 +1,486 @@
+{
+    "yesterday": {
+        "away": {
+            "name": "COL",
+            "record_overall": "16-22-5",
+            "record_split": "8-6-2",
+            "record_l10": "4-6-0",
+            "ml": "+161",
+            "proj": "1.9"
+        },
+        "home": {
+            "name": "VGK",
+            "record_overall": "32-6-3",
+            "record_split": "16-2-1",
+            "record_l10": "8-2-0",
+            "ml": "-161",
+            "proj": "3.1"
+        },
+        "ou_total": "O/U 5.0",
+        "prob": "61.8%",
+        "home_win_prob": 61.8,
+        "away_win_prob": 38.2,
+        "predicted_winner": "VGK",
+        "time": "9:00 PM EST",
+        "tier": "NONE",
+        "edge": "+9.4%",
+        "ai_score": 5.6,
+        "details": {
+            "period_60": {
+                "p1_winner": "VGK (53%)",
+                "p1_over_1_5": "60%",
+                "min_60_tie": "16%"
+            },
+            "period_scores": {
+                "p1": "COL 0.6 - VGK 0.9",
+                "p2": "COL 0.7 - VGK 1.1",
+                "p3": "COL 0.6 - VGK 1.1"
+            },
+            "recent_logs": {
+                "away": [
+                    {
+                        "date": "05/23",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "2-3"
+                    },
+                    {
+                        "date": "05/21",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "2-3"
+                    },
+                    {
+                        "date": "05/21",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "4-1"
+                    },
+                    {
+                        "date": "05/21",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "2-4"
+                    },
+                    {
+                        "date": "05/20",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "2-3"
+                    },
+                    {
+                        "date": "05/20",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-2"
+                    },
+                    {
+                        "date": "05/19",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "1-5"
+                    },
+                    {
+                        "date": "05/18",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-2"
+                    },
+                    {
+                        "date": "05/16",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "4-2"
+                    },
+                    {
+                        "date": "05/14",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "1-5"
+                    }
+                ],
+                "home": [
+                    {
+                        "date": "05/26",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "4-1"
+                    },
+                    {
+                        "date": "05/26",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "5-1"
+                    },
+                    {
+                        "date": "05/24",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-1"
+                    },
+                    {
+                        "date": "05/22",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "5-1"
+                    },
+                    {
+                        "date": "05/21",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-1"
+                    },
+                    {
+                        "date": "05/20",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "1-3"
+                    },
+                    {
+                        "date": "05/18",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-1"
+                    },
+                    {
+                        "date": "05/18",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "1-4"
+                    },
+                    {
+                        "date": "05/17",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "5-2"
+                    },
+                    {
+                        "date": "05/15",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-2"
+                    }
+                ],
+                "h2h": [
+                    {
+                        "date": "05/25",
+                        "opp": "vs COL",
+                        "result": "W",
+                        "score": "5-2"
+                    },
+                    {
+                        "date": "05/25",
+                        "opp": "vs COL",
+                        "result": "L",
+                        "score": "2-4"
+                    },
+                    {
+                        "date": "05/24",
+                        "opp": "vs COL",
+                        "result": "L",
+                        "score": "2-5"
+                    },
+                    {
+                        "date": "05/23",
+                        "opp": "vs COL",
+                        "result": "L",
+                        "score": "1-5"
+                    },
+                    {
+                        "date": "05/22",
+                        "opp": "vs COL",
+                        "result": "L",
+                        "score": "2-3"
+                    },
+                    {
+                        "date": "05/22",
+                        "opp": "vs COL",
+                        "result": "W",
+                        "score": "5-1"
+                    },
+                    {
+                        "date": "05/21",
+                        "opp": "vs COL",
+                        "result": "L",
+                        "score": "2-3"
+                    },
+                    {
+                        "date": "05/17",
+                        "opp": "vs COL",
+                        "result": "W",
+                        "score": "5-1"
+                    },
+                    {
+                        "date": "05/16",
+                        "opp": "vs COL",
+                        "result": "W",
+                        "score": "3-2"
+                    },
+                    {
+                        "date": "05/15",
+                        "opp": "vs COL",
+                        "result": "W",
+                        "score": "5-2"
+                    }
+                ]
+            },
+            "covers": {
+                "best_ml": "VGK ML",
+                "best_spread": "PASS",
+                "best_ou": "UNDER 6.0"
+            },
+            "notes": [
+                "Goalie Edge: COL starting Frederik Andersen (Expected) vs VGK starting 100 (Expected).",
+                "Engine calculates VGK win probability at 61.8% based on V5 goalie adjustments.",
+                "Matchup features an active Elo rating gap of 150 points."
+            ],
+            "best_angle": {
+                "play": "VGK MONEYLINE",
+                "edge": "+9.4%"
+            }
+        }
+    },
+    "today": {
+        "away": {
+            "name": "CAR",
+            "record_overall": "32-6-5",
+            "record_split": "16-2-2",
+            "record_l10": "8-2-0",
+            "ml": "+103",
+            "proj": "2.5"
+        },
+        "home": {
+            "name": "MTL",
+            "record_overall": "20-18-3",
+            "record_split": "10-5-1",
+            "record_l10": "5-5-0",
+            "ml": "-103",
+            "proj": "2.9"
+        },
+        "ou_total": "O/U 5.5",
+        "prob": "50.8%",
+        "home_win_prob": 50.8,
+        "away_win_prob": 49.2,
+        "predicted_winner": "MTL",
+        "time": "8:00 PM EST",
+        "tier": "NONE",
+        "edge": "+-1.6%",
+        "ai_score": 3.2,
+        "details": {
+            "period_60": {
+                "p1_winner": "MTL (43%)",
+                "p1_over_1_5": "68%",
+                "min_60_tie": "22%"
+            },
+            "period_scores": {
+                "p1": "CAR 0.8 - MTL 0.9",
+                "p2": "CAR 0.9 - MTL 1.0",
+                "p3": "CAR 0.8 - MTL 1.0"
+            },
+            "recent_logs": {
+                "away": [
+                    {
+                        "date": "05/26",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "5-1"
+                    },
+                    {
+                        "date": "05/25",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "5-1"
+                    },
+                    {
+                        "date": "05/24",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "4-1"
+                    },
+                    {
+                        "date": "05/22",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "5-2"
+                    },
+                    {
+                        "date": "05/20",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "4-2"
+                    },
+                    {
+                        "date": "05/20",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "4-1"
+                    },
+                    {
+                        "date": "05/20",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "2-5"
+                    },
+                    {
+                        "date": "05/19",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "2-3"
+                    },
+                    {
+                        "date": "05/19",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "4-1"
+                    },
+                    {
+                        "date": "05/18",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "5-2"
+                    }
+                ],
+                "home": [
+                    {
+                        "date": "05/26",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-2"
+                    },
+                    {
+                        "date": "05/25",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-2"
+                    },
+                    {
+                        "date": "05/24",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "1-3"
+                    },
+                    {
+                        "date": "05/24",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "1-3"
+                    },
+                    {
+                        "date": "05/23",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "5-2"
+                    },
+                    {
+                        "date": "05/23",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "2-5"
+                    },
+                    {
+                        "date": "05/23",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "1-5"
+                    },
+                    {
+                        "date": "05/22",
+                        "opp": "@CAR",
+                        "result": "L",
+                        "score": "2-5"
+                    },
+                    {
+                        "date": "05/21",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "3-1"
+                    },
+                    {
+                        "date": "05/15",
+                        "opp": "@CAR",
+                        "result": "W",
+                        "score": "4-1"
+                    }
+                ],
+                "h2h": [
+                    {
+                        "date": "05/26",
+                        "opp": "vs CAR",
+                        "result": "W",
+                        "score": "3-1"
+                    },
+                    {
+                        "date": "05/26",
+                        "opp": "vs CAR",
+                        "result": "L",
+                        "score": "1-5"
+                    },
+                    {
+                        "date": "05/25",
+                        "opp": "vs CAR",
+                        "result": "W",
+                        "score": "4-1"
+                    },
+                    {
+                        "date": "05/24",
+                        "opp": "vs CAR",
+                        "result": "L",
+                        "score": "1-3"
+                    },
+                    {
+                        "date": "05/24",
+                        "opp": "vs CAR",
+                        "result": "L",
+                        "score": "1-5"
+                    },
+                    {
+                        "date": "05/22",
+                        "opp": "vs CAR",
+                        "result": "L",
+                        "score": "2-4"
+                    },
+                    {
+                        "date": "05/22",
+                        "opp": "vs CAR",
+                        "result": "L",
+                        "score": "2-5"
+                    },
+                    {
+                        "date": "05/18",
+                        "opp": "vs CAR",
+                        "result": "W",
+                        "score": "4-2"
+                    },
+                    {
+                        "date": "05/18",
+                        "opp": "vs CAR",
+                        "result": "L",
+                        "score": "1-4"
+                    },
+                    {
+                        "date": "05/16",
+                        "opp": "vs CAR",
+                        "result": "L",
+                        "score": "2-5"
+                    }
+                ]
+            },
+            "covers": {
+                "best_ml": "MTL ML",
+                "best_spread": "PASS",
+                "best_ou": "UNDER 6.0"
+            },
+            "notes": [
+                "Goalie Edge: CAR starting Frederik Andersen (Expected) vs MTL starting 100 (Expected).",
+                "Engine calculates MTL win probability at 50.8% based on V5 goalie adjustments.",
+                "Matchup features an active Elo rating gap of 10 points."
+            ],
+            "best_angle": {
+                "play": "MTL MONEYLINE",
+                "edge": "+-1.6%"
+            }
+        }
+    },
+    "tomorrow": null,
+    "top_plays": []
+}

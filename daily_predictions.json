@@ -1,12 +1,12 @@
 {
     "metadata": {
-        "last_updated": "2026-05-23T22:47:11.148447",
-        "slate_date": "2026-05-23",
+        "last_updated": "2026-05-24T00:22:08.814678",
+        "slate_date": "2026-05-24",
         "total_games": 1
     },
     "games": [
         {
-            "id": "VGK_at_COL_20260523",
+            "id": "VGK_at_COL_20260524",
             "status": "Scheduled",
             "matchup": {
                 "home": {
@@ -24,16 +24,14 @@
             },
             "predictions": {
                 "projected_winner": "COL",
-                "tier": "EDGE",
-                "projected_total": 6.1,
-                "confidence_edge": "+5.1%",
-                "quality": "GOOD"
+                "tier": "BIG",
+                "confidence_edge": "+5.1%"
             },
             "period_projections": {
                 "P1": {
                     "home": 1.0,
                     "away": 0.9,
-                    "total": 1.8
+                    "total": 1.9
                 },
                 "P2": {
                     "home": 1.1,
@@ -47,8 +45,7 @@
                 }
             },
             "game_notes": [
-                "COL is 14-6 ATS in their last 20 games.",
-                "Model identifies EDGE value on the 60-minute Moneyline."
+                "Sumeet's Engine identifies a BIG edge on the COL Moneyline."
             ]
         }
     ]

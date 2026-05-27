@@ -1,116 +1,62 @@
 import requests
-import json
-import pandas as pd
+from bs4 import BeautifulSoup
 from datetime import datetime
 
-# Map ESPN's abbreviations back to our model's official NHL API abbreviations
-TEAM_MAP = {
-    "ANA": "ANA", "ARI": "UTA", "BOS": "BOS", "BUF": "BUF", "CGY": "CGY",
-    "CAR": "CAR", "CHI": "CHI", "COL": "COL", "CBJ": "CBJ", "DAL": "DAL",
-    "DET": "DET", "EDM": "EDM", "FLA": "FLA", "LAK": "LAK", "MIN": "MIN",
-    "MTL": "MTL", "NSH": "NSH", "NJ": "NJD",  "NYI": "NYI", "NYR": "NYR",
-    "OTT": "OTT", "PHI": "PHI", "PIT": "PIT", "SJ": "SJS",  "SEA": "SEA",
-    "STL": "STL", "TB": "TBL",  "TOR": "TOR", "VAN": "VAN", "VGK": "VGK",
-    "WSH": "WSH", "WPG": "WPG", "UTA": "UTA" 
-}
+def fetch_starting_goalies():
+    print(f"🏒 [{datetime.now().strftime('%I:%M %p')}] Connecting to DailyFaceoff...")
+    
+    url = "https://www.dailyfaceoff.com/starting-goalies"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'
+    }
 
-def fetch_espn_goalies():
-    print(f"🏒 Fetching today's goalies via ESPN API...")
-    
-    # 1. Get today's scoreboard to find game IDs
-    today = datetime.now().strftime("%Y%m%d")
-    scoreboard_url = f"https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates={today}"
-    
-    headers = {"User-Agent": "Mozilla/5.0"}
-    
     try:
-        res = requests.get(scoreboard_url, headers=headers, timeout=10)
-        res.raise_for_status()
-        data = res.json()
-    except Exception as e:
-        print(f"❌ Failed to fetch ESPN scoreboard: {e}")
-        return pd.DataFrame()
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
 
-    games = data.get("events", [])
-    if not games:
-        print("⚠️ No NHL games scheduled for today according to ESPN.")
-        return pd.DataFrame()
+        todays_goalies = {}
 
-    games_data = []
-
-    # 2. Loop through each game and get the starting goalies
-    for game in games:
-        try:
-            game_id = game["id"]
-            
-            # The competitions array holds the team data
-            competitors = game["competitions"][0]["competitors"]
-            
-            # ESPN puts home team at index 0 and away at index 1 usually, but let's check homeAway flag
-            home_team_data = next(c for c in competitors if c["homeAway"] == "home")
-            away_team_data = next(c for c in competitors if c["homeAway"] == "away")
-            
-            home_team_raw = home_team_data["team"]["abbreviation"].upper()
-            away_team_raw = away_team_data["team"]["abbreviation"].upper()
-            
-            home_team = TEAM_MAP.get(home_team_raw, home_team_raw)
-            away_team = TEAM_MAP.get(away_team_raw, away_team_raw)
-            
-            # 3. Fetch specific game matchup data for goalies
-            matchup_url = f"https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/summary?event={game_id}"
-            m_res = requests.get(matchup_url, headers=headers, timeout=5)
-            m_data = m_res.json()
-            
-            home_goalie = "TBD"
-            home_status = "Unconfirmed"
-            away_goalie = "TBD"
-            away_status = "Unconfirmed"
-            
-            # ESPN stores starting goalies in the boxscore -> players section if available before puck drop
-            boxscore = m_data.get("boxscore", {}).get("players", [])
-            for team_box in boxscore:
-                is_home = team_box["team"]["abbreviation"].upper() == home_team_raw
-                
-                # Check statistics for goalies
-                stats = team_box.get("statistics", [])
-                goalie_stats = next((s for s in stats if s["name"] == "goaltending"), None)
-                
-                if goalie_stats:
-                    athletes = goalie_stats.get("athletes", [])
-                    if athletes:
-                        # The first athlete listed in goaltending is usually the starter
-                        starter = athletes[0]["athlete"]["shortName"]
-                        if is_home:
-                            home_goalie = starter
-                            home_status = "Expected" # ESPN doesn't strictly define confirmed vs expected via API easily
-                        else:
-                            away_goalie = starter
-                            away_status = "Expected"
-            
-            games_data.append({
-                "Date": datetime.now().strftime("%Y-%m-%d"),
-                "Away_Team": away_team,
-                "Home_Team": home_team,
-                "Away_Goalie": away_goalie,
-                "Away_Status": away_status,
-                "Home_Goalie": home_goalie,
-                "Home_Status": home_status
-            })
-            
-        except Exception as e:
-            continue
-
-    df = pd.DataFrame(games_data)
-    
-    if not df.empty:
-        df.to_json("today_goalies.json", orient="records", indent=4)
-        print(f"✅ Successfully fetched {len(df)} games and saved to 'today_goalies.json'.")
-        print("\nPreview:")
-        print(df[["Away_Team", "Away_Goalie", "Home_Team", "Home_Goalie"]])
-    else:
-        print("⚠️ Could not parse any games from the API.")
+        # The new DailyFaceoff structure puts matchups in an 'article' tag
+        matchups = soup.find_all('article')
         
-    return df
+        if not matchups:
+            print("⚠️ Could not find the main game blocks. Let's try the fallback class.")
+            # Fallback based on your snippet
+            matchups = soup.find_all('div', class_=lambda x: x and 'xl:flex-row-reverse' in x)
+
+        for game in matchups:
+            # Inside the game block, goalies are in spans with text-lg or text-2xl
+            goalie_spans = game.find_all('span', class_=lambda x: x and ('text-lg' in x or 'text-2xl' in x))
+            
+            # The status is kept in a div with text-green-700 (Confirmed) or text-yellow/red (Expected)
+            status_divs = game.find_all('div', class_=lambda x: x and ('text-green-700' in x or 'text-yellow' in x or 'text-red' in x))
+
+            if len(goalie_spans) >= 2 and len(status_divs) >= 2:
+                # Away team is usually the first block, Home is the second
+                away_goalie = goalie_spans[0].get_text(strip=True)
+                home_goalie = goalie_spans[1].get_text(strip=True)
+
+                # Determine status based on the color class they use
+                away_status = "Confirmed" if 'text-green-700' in status_divs[0].get('class', []) else "Expected"
+                home_status = "Confirmed" if 'text-green-700' in status_divs[1].get('class', []) else "Expected"
+                
+                # Note: Because the abbreviation isn't easily visible in the snippet without the parent block, 
+                # we map by Goalie name for now. We can cross-reference the team in the pipeline.
+                todays_goalies[f"Away_Goalie_{away_goalie}"] = {"goalie": away_goalie, "status": away_status}
+                todays_goalies[f"Home_Goalie_{home_goalie}"] = {"goalie": home_goalie, "status": home_status}
+
+        print(f"✅ Successfully mapped {len(todays_goalies)} goalies!")
+        return todays_goalies
+
+    except Exception as e:
+        print(f"❌ Failed to scrape goalies: {e}")
+        return None
 
 if __name__ == "__main__":
-    fetch_espn_goalies()
+    goalie_data = fetch_starting_goalies()
+    if goalie_data:
+        for key, data in goalie_data.items():
+            status_icon = "🟢" if data['status'] == "Confirmed" else "🟡"
+            print(f"{data['goalie']} {status_icon} ({data['status']})")
