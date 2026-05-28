@@ -5,7 +5,7 @@ import PerformanceTracker from '../components/PerformanceTracker';
 
 // The new component that reads the "top_plays" array and builds the mini-cards
 const TopPlaysList = () => {
-  const [plays, setPlays] = useState(null);
+  const [plays, setPlays] = useState<any[] | null>(null);
   
   useEffect(() => {
     fetch('/daily_predictions.json?t=' + new Date().getTime())
