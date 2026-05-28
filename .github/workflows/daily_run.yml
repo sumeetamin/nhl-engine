@@ -2,9 +2,8 @@ name: NHL V5 Engine Automation
 
 on:
   schedule:
-    # This runs at 14:00 UTC every day (which is 10:00 AM EST)
     - cron: '0 14 * * *'
-  workflow_dispatch: # This adds a button to GitHub so you can click "Run Now" anytime
+  workflow_dispatch:
 
 jobs:
   run-math-engine:
@@ -22,13 +21,15 @@ jobs:
           python-version: '3.10'
 
       - name: Install Dependencies
+        working-directory: ./frontend
         run: pip install -r requirements.txt
 
       - name: Run Sumeet's V5 Engine
+        working-directory: ./frontend
         run: python run_pipeline.py
 
       - name: Commit and Push New Data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Automated V5 Engine Data Update"
-          file_pattern: 'public/*.json'
+          file_pattern: 'frontend/public/*.json'
