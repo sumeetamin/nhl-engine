@@ -24,12 +24,16 @@ jobs:
         working-directory: ./frontend
         run: pip install -r requirements.txt
 
-      - name: Run Sumeet's V5 Engine
+      - name: Grade Yesterday's Predictions
+        working-directory: ./frontend
+        run: python track_results.py
+
+      - name: Run Sumeet's V5 Engine (Generate Today)
         working-directory: ./frontend
         run: python run_pipeline.py
 
       - name: Commit and Push New Data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Automated V5 Engine Data Update"
+          commit_message: "Automated V5 Engine Data Update & Ledger Grading"
           file_pattern: 'frontend/public/*.json'
