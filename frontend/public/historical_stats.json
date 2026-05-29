@@ -1,64 +1,82 @@
 {
-  "all_time": {
-    "overall": {
-      "wins": 0,
-      "losses": 0,
-      "win_rate": "0.0%",
-      "avg_edge": "+0.0%",
-      "units": "0.0"
+    "all_time": {
+        "wins": 2838,
+        "losses": 2160,
+        "win_rate": "56.8%",
+        "total_units": 422.58
     },
-    "ml": {
-      "wins": 0,
-      "losses": 0,
-      "pushes": 0,
-      "win_rate": "0.0%",
-      "avg_edge": "+0.0%",
-      "units": "0.0"
-    },
-    "spread": {
-      "wins": 0,
-      "losses": 0,
-      "pushes": 0,
-      "win_rate": "0.0%",
-      "avg_edge": "+0.0%",
-      "units": "0.0"
-    },
-    "ou": {
-      "wins": 0,
-      "losses": 0,
-      "pushes": 0,
-      "win_rate": "0.0%",
-      "avg_edge": "+0.0%",
-      "units": "0.0"
-    },
-    "edge": {
-      "wins": 0,
-      "losses": 0,
-      "pushes": 0,
-      "win_rate": "0.0%",
-      "avg_edge": "+0.0%",
-      "units": "0.0"
+    "snapshot": {
+        "all_time": {
+            "ml": {
+                "wins": 2838,
+                "losses": 2160
+            },
+            "ats": {
+                "wins": 2838,
+                "losses": 2160
+            },
+            "ou": {
+                "wins": 2838,
+                "losses": 2160
+            },
+            "edge": {
+                "wins": 695,
+                "losses": 334
+            }
+        },
+        "month": {
+            "ml": {
+                "wins": 138,
+                "losses": 98
+            },
+            "ats": {
+                "wins": 138,
+                "losses": 98
+            },
+            "ou": {
+                "wins": 138,
+                "losses": 98
+            },
+            "edge": {
+                "wins": 29,
+                "losses": 15
+            }
+        },
+        "week": {
+            "ml": {
+                "wins": 32,
+                "losses": 32
+            },
+            "ats": {
+                "wins": 32,
+                "losses": 32
+            },
+            "ou": {
+                "wins": 32,
+                "losses": 32
+            },
+            "edge": {
+                "wins": 8,
+                "losses": 8
+            }
+        },
+        "yesterday": {
+            "ml": {
+                "wins": 7,
+                "losses": 6
+            },
+            "ats": {
+                "wins": 7,
+                "losses": 6
+            },
+            "ou": {
+                "wins": 7,
+                "losses": 6
+            },
+            "edge": {
+                "wins": 1,
+                "losses": 1
+            }
+        }
     }
-  },
-  "this_month": {
-    "overall": { "wins": 0, "losses": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "ml":      { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "spread":  { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "ou":      { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "edge":    { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" }
-  },
-  "this_week": {
-    "overall": { "wins": 0, "losses": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "ml":      { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "spread":  { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "ou":      { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "edge":    { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" }
-  },
-  "yesterday": {
-    "overall": { "wins": 0, "losses": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "ml":      { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "spread":  { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "ou":      { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" },
-    "edge":    { "wins": 0, "losses": 0, "pushes": 0, "win_rate": "0.0%", "avg_edge": "+0.0%", "units": "0.0" }
-  }
 }
