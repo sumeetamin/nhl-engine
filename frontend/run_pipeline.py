@@ -329,7 +329,7 @@ def build_daily_json():
 
     ledger_payload = run_backtest()
 
-    public_dir = r"C:\NHL\frontend\public"
+    public_dir = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public"
     os.makedirs(public_dir, exist_ok=True)
 
     try:
