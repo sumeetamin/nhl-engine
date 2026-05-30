@@ -132,7 +132,7 @@ const PerformanceTracker = () => {
     const fetchData = async () => {
       try {
         const timestamp = new Date().getTime();
-        const res = await fetch(`/historical_stats.json?t=${timestamp}`);
+        const res = await fetch('/historical_stats.json?t=' + new Date().getTime())
         if (!res.ok) throw new Error('Not found');
         const hist = await res.json();
         setHistoricalData(hist);
