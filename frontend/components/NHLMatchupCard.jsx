@@ -180,26 +180,29 @@ const getTeamFullName = (abbrev) => {
 
 const NHLMatchupCard = ({ dateMode }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [allGames, setAllGames] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [allGames, setAllGames]     = useState(null);
+  const [loading, setLoading]       = useState(true);
   const [activeLogTab, setActiveLogTab] = useState('h2h');
+  const [giftStatsAll, setGiftStatsAll] = useState(null); // from gift_stats.json
 
   useEffect(() => {
-    const fetchGameData = () => {
-      fetch('/daily_predictions.json?t=' + new Date().getTime())
-        .then(async (res) => {
-          if (!res.ok) throw new Error("Could not load daily predictions");
-          return res.json();
-        })
-        .then((json) => {
-          setAllGames(json);
-          setLoading(false);
-        })
-        .catch(() => {
-          setTimeout(fetchGameData, 1500);
-        });
-    };
-    fetchGameData();
+    const ts = new Date().getTime();
+
+    // Fetch daily predictions
+    const fetchGame = fetch('/daily_predictions.json?t=' + ts)
+      .then(r => { if (!r.ok) throw new Error('no data'); return r.json(); })
+      .catch(() => null);
+
+    // Fetch gift_stats.json independently — doesn't block game card
+    const fetchGift = fetch('/gift_stats.json?t=' + ts)
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null);
+
+    Promise.all([fetchGame, fetchGift]).then(([gameData, giftData]) => {
+      if (gameData) setAllGames(gameData);
+      if (giftData)  setGiftStatsAll(giftData);
+      setLoading(false);
+    });
   }, []);
 
   if (loading) {
@@ -457,22 +460,31 @@ const NHLMatchupCard = ({ dateMode }) => {
           </div>
 
           {/* GIFT Stats — Goals In First Ten Minutes */}
-          {game.details.gift_stats && (
-            <GiftStatsSection
-              giftStats={game.details.gift_stats}
-              awayTeam={game.away.name}
-              homeTeam={game.home.name}
-            />
-          )}
-
-          {/* First Period O/U Stats */}
-          {game.details.fp_stats && (
-            <FirstPeriodSection
-              fpStats={game.details.fp_stats}
-              awayTeam={game.away.name}
-              homeTeam={game.home.name}
-            />
-          )}
+          {(() => {
+            const awayAbbr = game.away.name.toUpperCase();
+            const homeAbbr = game.home.name.toUpperCase();
+            // Read from gift_stats.json (fetched separately) — fall back to embedded
+            const awayGift = giftStatsAll?.[awayAbbr]?.gift || game.details.gift_stats?.away;
+            const homeGift = giftStatsAll?.[homeAbbr]?.gift || game.details.gift_stats?.home;
+            const awayFp   = giftStatsAll?.[awayAbbr]?.fp_ou || game.details.fp_stats?.away;
+            const homeFp   = giftStatsAll?.[homeAbbr]?.fp_ou || game.details.fp_stats?.home;
+            const hasGift  = awayGift?.pct_season !== 'N/A' || homeGift?.pct_season !== 'N/A';
+            const hasFp    = awayFp?.pct_season   !== 'N/A' || homeFp?.pct_season   !== 'N/A';
+            return (
+              <>
+                <GiftStatsSection
+                  giftStats={{ away: awayGift, home: homeGift }}
+                  awayTeam={game.away.name}
+                  homeTeam={game.home.name}
+                />
+                <FirstPeriodSection
+                  fpStats={{ away: awayFp, home: homeFp }}
+                  awayTeam={game.away.name}
+                  homeTeam={game.home.name}
+                />
+              </>
+            );
+          })()}
 
           {/* Legends Sports Predictions */}
           <div className="bg-gradient-to-br from-[#1a2e23] to-[#111827] rounded-lg border border-emerald-900/50 p-4 sm:p-5 shadow-lg relative overflow-hidden">
