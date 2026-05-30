@@ -1,6 +1,166 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 
+// ── GIFT Stats Component ───────────────────────────────────────────────────────
+const GiftStatTeamCard = ({ team, data, isHome }) => {
+  const [tab, setTab] = useState('season');
+
+  const pctMap = {
+    season: data?.pct_season || 'N/A',
+    l5:     data?.pct_l5     || 'N/A',
+    l10:    data?.pct_l10    || 'N/A',
+  };
+
+  const pct     = pctMap[tab];
+  const pctNum  = parseFloat(pct) || 0;
+  const pctColor = pctNum >= 65 ? 'text-emerald-400' : pctNum >= 55 ? 'text-yellow-400' : 'text-red-400';
+  const streak  = data?.streak || 0;
+
+  return (
+    <div className="bg-[#0b0f19] border border-gray-800 rounded-lg p-3 sm:p-4 flex-1">
+      {/* Team header */}
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center space-x-2">
+          <img
+            src={`https://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/${team.toLowerCase()}.png`}
+            alt={team}
+            className="w-7 h-7 object-contain"
+            onError={e => { e.target.style.display='none'; }}
+          />
+          <span className="text-sm font-black text-white">{team}</span>
+        </div>
+        {streak > 0 && (
+          <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-yellow-900/30 text-yellow-400 border border-yellow-800/30">
+            🔥 {streak} streak
+          </span>
+        )}
+      </div>
+
+      {/* Season / L5 / L10 tabs */}
+      <div className="flex space-x-1 bg-[#111827] p-0.5 rounded mb-3">
+        {['season','l5','l10'].map(t => (
+          <button
+            key={t}
+            onClick={() => setTab(t)}
+            className={`flex-1 py-1 text-[9px] font-bold uppercase rounded transition-all ${
+              tab === t ? 'bg-yellow-600/80 text-white' : 'text-gray-500 hover:text-gray-300'
+            }`}
+          >
+            {t === 'season' ? 'Season' : t.toUpperCase()}
+          </button>
+        ))}
+      </div>
+
+      {/* Main percentage */}
+      <div className="text-center mb-3">
+        <p className={`text-3xl font-black ${pctColor}`}>{pct}</p>
+        <p className="text-[9px] uppercase tracking-widest text-gray-600 mt-0.5">GIFT Rate</p>
+      </div>
+
+      {/* Record */}
+      {data?.record_season && data.record_season !== 'N/A' && (
+        <div className="flex justify-between text-[10px] border-t border-gray-800 pt-2 mb-2">
+          <span className="text-gray-500">Record</span>
+          <span className="font-bold text-white">{data.record_season}</span>
+        </div>
+      )}
+
+      {/* Home / Away split */}
+      <div className="flex space-x-2">
+        {data?.home_pct && data.home_pct !== 'N/A' && (
+          <div className="flex-1 bg-[#111827] rounded p-1.5 text-center">
+            <p className="text-[8px] uppercase text-gray-600">🏠 Home</p>
+            <p className="text-xs font-black text-emerald-400">{data.home_pct}</p>
+          </div>
+        )}
+        {data?.away_pct && data.away_pct !== 'N/A' && (
+          <div className="flex-1 bg-[#111827] rounded p-1.5 text-center">
+            <p className="text-[8px] uppercase text-gray-600">✈️ Away</p>
+            <p className="text-xs font-black text-blue-400">{data.away_pct}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const GiftStatsSection = ({ giftStats, awayTeam, homeTeam }) => (
+  <div className="bg-[#111827] rounded-lg border border-yellow-900/40 p-3 sm:p-4">
+    <h4 className="text-sm text-yellow-400 uppercase tracking-widest font-black mb-4 border-b border-yellow-900/30 pb-2 flex items-center">
+      <span className="w-1.5 h-4 bg-yellow-500 mr-2 rounded-sm shadow-[0_0_6px_rgba(234,179,8,0.6)]"></span>
+      ⚡ GIFT — Goals In First 10 Min
+    </h4>
+    <p className="text-[9px] text-gray-600 uppercase tracking-widest mb-3 font-mono">
+      % of games with a goal in the first 10 minutes of play
+    </p>
+    <div className="flex space-x-3">
+      <GiftStatTeamCard team={awayTeam} data={giftStats?.away} />
+      <GiftStatTeamCard team={homeTeam} data={giftStats?.home} />
+    </div>
+  </div>
+);
+
+// ── First Period O/U Component ─────────────────────────────────────────────────
+const FirstPeriodSection = ({ fpStats, awayTeam, homeTeam }) => {
+  const away = fpStats?.away;
+  const home = fpStats?.home;
+
+  const TeamFP = ({ team, data }) => {
+    const pct    = data?.pct_season || 'N/A';
+    const pctNum = parseFloat(pct) || 0;
+    const color  = pctNum >= 60 ? 'text-emerald-400' : pctNum >= 50 ? 'text-yellow-400' : 'text-red-400';
+
+    return (
+      <div className="flex-1 bg-[#0b0f19] border border-gray-800 rounded-lg p-3">
+        <div className="flex items-center space-x-2 mb-2">
+          <img
+            src={`https://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/${team.toLowerCase()}.png`}
+            alt={team} className="w-6 h-6 object-contain"
+            onError={e => { e.target.style.display='none'; }}
+          />
+          <span className="text-xs font-black text-white">{team}</span>
+        </div>
+        <p className={`text-2xl font-black ${color} text-center my-2`}>{pct}</p>
+        <p className="text-[9px] uppercase tracking-widest text-gray-600 text-center mb-2">1st Period O/U Rate</p>
+        {data?.record_season && data.record_season !== 'N/A' && (
+          <div className="flex justify-between text-[10px] border-t border-gray-800 pt-2 mb-1">
+            <span className="text-gray-500">Record</span>
+            <span className="font-bold text-white">{data.record_season}</span>
+          </div>
+        )}
+        <div className="flex space-x-1 mt-1">
+          {data?.home_pct && data.home_pct !== 'N/A' && (
+            <div className="flex-1 bg-[#111827] rounded p-1 text-center">
+              <p className="text-[8px] text-gray-600">Home</p>
+              <p className="text-[10px] font-black text-emerald-400">{data.home_pct}</p>
+            </div>
+          )}
+          {data?.away_pct && data.away_pct !== 'N/A' && (
+            <div className="flex-1 bg-[#111827] rounded p-1 text-center">
+              <p className="text-[8px] text-gray-600">Away</p>
+              <p className="text-[10px] font-black text-blue-400">{data.away_pct}</p>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="bg-[#111827] rounded-lg border border-blue-900/40 p-3 sm:p-4">
+      <h4 className="text-sm text-blue-400 uppercase tracking-widest font-black mb-4 border-b border-blue-900/30 pb-2 flex items-center">
+        <span className="w-1.5 h-4 bg-blue-500 mr-2 rounded-sm shadow-[0_0_6px_rgba(59,130,246,0.6)]"></span>
+        📊 1st Period Over/Under Trends
+      </h4>
+      <div className="flex space-x-3">
+        <TeamFP team={awayTeam} data={away} />
+        <TeamFP team={homeTeam} data={home} />
+      </div>
+    </div>
+  );
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 const getTeamFullName = (abbrev) => {
     const teams = {
         'VGK': 'Vegas Golden Knights', 'COL': 'Colorado Avalanche', 'BOS': 'Boston Bruins',
@@ -295,6 +455,24 @@ const NHLMatchupCard = ({ dateMode }) => {
                 ))}
              </div>
           </div>
+
+          {/* GIFT Stats — Goals In First Ten Minutes */}
+          {game.details.gift_stats && (
+            <GiftStatsSection
+              giftStats={game.details.gift_stats}
+              awayTeam={game.away.name}
+              homeTeam={game.home.name}
+            />
+          )}
+
+          {/* First Period O/U Stats */}
+          {game.details.fp_stats && (
+            <FirstPeriodSection
+              fpStats={game.details.fp_stats}
+              awayTeam={game.away.name}
+              homeTeam={game.home.name}
+            />
+          )}
 
           {/* Legends Sports Predictions */}
           <div className="bg-gradient-to-br from-[#1a2e23] to-[#111827] rounded-lg border border-emerald-900/50 p-4 sm:p-5 shadow-lg relative overflow-hidden">

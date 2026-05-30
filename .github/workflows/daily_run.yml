@@ -1,39 +1,143 @@
-name: NHL V5 Engine Automation
+name: Daily NHL Pipeline + Result Tracker
 
 on:
   schedule:
-    - cron: '0 14 * * *'
+    - cron: '0 10 * * *'   # Grade results — 10:00 UTC (3:30pm IST)
+    - cron: '0 14 * * *'   # Generate predictions — 14:00 UTC (7:30pm IST)
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Which step to run'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - grade_only
+          - predict_only
 
 jobs:
-  run-math-engine:
+
+  # ─── JOB 1: Grade Yesterday's Results ───────────────────────────────────────
+  grade-results:
+    name: Grade Yesterday + Update Snapshot
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: |
+      (github.event_name == 'workflow_dispatch' && inputs.mode != 'predict_only') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 10 * * *')
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
+          cache: 'pip'
 
-      - name: Install Dependencies
-        working-directory: ./frontend
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Grade Yesterday's Predictions
-        working-directory: ./frontend
+      - name: Run Result Tracker
         run: python track_results.py
+        env:
+          PYTHONUNBUFFERED: "1"
 
-      - name: Run Sumeet's V5 Engine (Generate Today)
-        working-directory: ./frontend
-        run: python run_pipeline.py
+      - name: Copy historical stats to frontend
+        run: |
+          mkdir -p frontend/public
+          cp frontend/public/historical_stats.json frontend/public/historical_stats.json || true
 
-      - name: Commit and Push New Data
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Commit updated ledger + snapshot
+        run: |
+          git config --global user.name  "NHL Engine Bot"
+          git config --global user.email "bot@nhl-engine.com"
+          git add model_records_ledger.json || true
+          git add frontend/public/historical_stats.json || true
+          git diff --staged --quiet || git commit -m "📊 Auto: Grade results $(date +'%Y-%m-%d')"
+          git push
+
+  # ─── JOB 2: Generate Today's Predictions ────────────────────────────────────
+  generate-predictions:
+    name: Generate Predictions + Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: grade-results
+    if: |
+      always() &&
+      (
+        (github.event_name == 'workflow_dispatch' && inputs.mode != 'grade_only') ||
+        (github.event_name == 'schedule' && github.event.schedule == '0 14 * * *')
+      )
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
-          commit_message: "Automated V5 Engine Data Update & Ledger Grading"
-          file_pattern: 'frontend/public/*.json'
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run NHL Pipeline
+        run: python run_pipeline.py
+        env:
+          PYTHONUNBUFFERED: "1"
+
+      - name: Debug — find generated files
+        run: |
+          echo "=== JSON files in root ==="
+          ls -la *.json 2>/dev/null || echo "No JSON files in root"
+          echo ""
+          echo "=== Searching for daily_predictions.json ==="
+          find . -name "daily_predictions.json" 2>/dev/null || echo "Not found anywhere"
+          echo ""
+          echo "=== Searching for today_goalies.json ==="
+          find . -name "today_goalies.json" 2>/dev/null || echo "Not found anywhere"
+
+      - name: Archive today's predictions
+        run: |
+          DATE=$(date +'%Y%m%d')
+          if [ -f "daily_predictions.json" ]; then
+            cp daily_predictions.json predictions_${DATE}.json
+            echo "✅ Archived predictions_${DATE}.json"
+          else
+            echo "⚠️ daily_predictions.json not found — skipping archive"
+          fi
+
+      - name: Copy outputs to frontend/public
+        run: |
+          mkdir -p frontend/public
+          [ -f "daily_predictions.json" ]    && cp daily_predictions.json    frontend/public/daily_predictions.json    && echo "✅ Copied daily_predictions.json"    || echo "⚠️ Skipped daily_predictions.json"
+          [ -f "today_goalies.json" ]        && cp today_goalies.json        frontend/public/today_goalies.json        && echo "✅ Copied today_goalies.json"        || echo "⚠️ Skipped today_goalies.json"
+          [ -f "model_records_ledger.json" ] && cp model_records_ledger.json frontend/public/model_records_ledger.json && echo "✅ Copied model_records_ledger.json" || echo "⚠️ Skipped model_records_ledger.json"
+
+      - name: Commit and push all updates
+        run: |
+          git config --global user.name  "NHL Engine Bot"
+          git config --global user.email "bot@nhl-engine.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "🤖 Auto: Predictions $(date +'%Y-%m-%d')"
+          git push
+
+  # ─── JOB 3: Notify on Failure ────────────────────────────────────────────────
+  notify-failure:
+    name: Notify on Failure
+    runs-on: ubuntu-latest
+    needs: [grade-results, generate-predictions]
+    if: failure()
+    steps:
+      - name: Log failure
+        run: |
+          echo "❌ Pipeline failed at $(date)"
+          echo "🔗 Check: https://github.com/${{ github.repository }}/actions"
