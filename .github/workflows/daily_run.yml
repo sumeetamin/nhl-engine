@@ -45,6 +45,7 @@ jobs:
         run: python track_results.py
         env:
           PYTHONUNBUFFERED: "1"
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
       - name: Copy historical stats to frontend
         run: |
