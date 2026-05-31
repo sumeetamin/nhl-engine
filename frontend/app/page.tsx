@@ -4,7 +4,7 @@ import NHLMatchupCard from '../components/NHLMatchupCard';
 import PerformanceTracker from '../components/PerformanceTracker';
 
 const TopPlaysList = () => {
-  const [plays, setPlays] = useState<any[] | null>(null);;
+  const [plays, setPlays] = useState<any[] | null>(null);
   useEffect(() => {
     fetch('/daily_predictions.json?t=' + new Date().getTime())
       .then(res => res.json())
@@ -50,16 +50,17 @@ const TopPlaysList = () => {
 
 // Build date labels: 2 days ago → tomorrow
 const buildDateOptions = () => {
-  const today = new Date();
   const fmt = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  const offsets = [
-    { key: 'day_before_yesterday', label: fmt(new Date(today - 2 * 86400000)), sub: '2 Days Ago' },
-    { key: 'yesterday',            label: fmt(new Date(today - 1 * 86400000)), sub: 'Yesterday'  },
-    { key: 'today',                label: fmt(today),                           sub: 'Today'      },
-    { key: 'tomorrow',             label: fmt(new Date(today + 1 * 86400000)), sub: 'Tomorrow'   },
-    { key: 'day_after_tomorrow',   label: fmt(new Date(today + 2 * 86400000)), sub: 'Mon'        },
+  const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+  const today = new Date();
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  return [
+    { key: 'day_before_yesterday', label: fmt(addDays(today, -2)), sub: '2 Days Ago' },
+    { key: 'yesterday',            label: fmt(addDays(today, -1)), sub: 'Yesterday'  },
+    { key: 'today',                label: fmt(today),              sub: 'Today'      },
+    { key: 'tomorrow',             label: fmt(addDays(today,  1)), sub: 'Tomorrow'   },
+    { key: 'day_after_tomorrow',   label: fmt(addDays(today,  2)), sub: days[addDays(today, 2).getDay()] },
   ];
-  return offsets;
 };
 
 export default function NHLDashboard() {
