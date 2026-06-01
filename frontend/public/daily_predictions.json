@@ -1,246 +1,248 @@
 {
-    "day_before_yesterday": null,
-    "yesterday": null,
-    "today": null,
-    "tomorrow": {
-        "away": {
-            "name": "VGK",
-            "record_overall": "39-26-17",
-            "record_split": "19-14-8",
-            "record_l10": "7-0-3",
-            "ml": "+126",
-            "proj": "2.4"
-        },
-        "home": {
-            "name": "CAR",
-            "record_overall": "53-22-7",
-            "record_split": "29-10-2",
-            "record_l10": "7-2-1",
-            "ml": "-152",
-            "proj": "2.8"
-        },
-        "ou_total": "O/U 5.0",
-        "prob": "52.7%",
-        "home_win_prob": 52.7,
-        "away_win_prob": 47.3,
-        "predicted_winner": "CAR",
-        "time": "8:00 PM EST",
-        "tier": "NONE",
-        "edge": "+0.3%",
-        "ai_score": 3.6,
-        "details": {
-            "period_60": {
-                "p1_winner": "CAR (45%)",
-                "p1_over_1_5": "60%",
-                "min_60_tie": "21%"
+    "day_before_yesterday": [],
+    "yesterday": [],
+    "today": [],
+    "tomorrow": [
+        {
+            "away": {
+                "name": "VGK",
+                "record_overall": "39-26-17",
+                "record_split": "19-14-8",
+                "record_l10": "7-0-3",
+                "ml": "+126",
+                "proj": "2.4"
             },
-            "period_scores": {
-                "p1": "VGK 0.7 - CAR 0.8",
-                "p2": "VGK 0.8 - CAR 1.0",
-                "p3": "VGK 0.9 - CAR 1.0"
+            "home": {
+                "name": "CAR",
+                "record_overall": "53-22-7",
+                "record_split": "29-10-2",
+                "record_l10": "7-2-1",
+                "ml": "-152",
+                "proj": "2.8"
             },
-            "recent_logs": {
-                "away": [
-                    {
-                        "date": "12/31",
-                        "opp": "vs NSH",
-                        "result": "L",
-                        "score": "2-4"
-                    },
-                    {
-                        "date": "12/29",
-                        "opp": "vs MIN",
-                        "result": "L",
-                        "score": "2-5"
-                    },
-                    {
-                        "date": "12/27",
-                        "opp": "vs COL",
-                        "result": "L",
-                        "score": "5-6"
-                    },
-                    {
-                        "date": "12/23",
-                        "opp": "vs SJS",
-                        "result": "W",
-                        "score": "7-2"
-                    },
-                    {
-                        "date": "12/21",
-                        "opp": "@EDM",
-                        "result": "L",
-                        "score": "3-4"
-                    },
-                    {
-                        "date": "12/20",
-                        "opp": "@CGY",
-                        "result": "L",
-                        "score": "3-6"
-                    },
-                    {
-                        "date": "12/17",
-                        "opp": "vs NJD",
-                        "result": "L",
-                        "score": "1-2"
-                    },
-                    {
-                        "date": "12/13",
-                        "opp": "@CBJ",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "12/11",
-                        "opp": "@PHI",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "12/09",
-                        "opp": "@NYI",
-                        "result": "L",
-                        "score": "4-5"
-                    }
-                ],
-                "home": [
-                    {
-                        "date": "12/30",
-                        "opp": "@PIT",
-                        "result": "L",
-                        "score": "1-5"
-                    },
-                    {
-                        "date": "12/29",
-                        "opp": "vs NYR",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "12/27",
-                        "opp": "vs DET",
-                        "result": "W",
-                        "score": "5-2"
-                    },
-                    {
-                        "date": "12/23",
-                        "opp": "vs FLA",
-                        "result": "L",
-                        "score": "2-5"
-                    },
-                    {
-                        "date": "12/20",
-                        "opp": "@TBL",
-                        "result": "L",
-                        "score": "4-6"
-                    },
-                    {
-                        "date": "12/19",
-                        "opp": "@FLA",
-                        "result": "L",
-                        "score": "3-4"
-                    },
-                    {
-                        "date": "12/17",
-                        "opp": "@NSH",
-                        "result": "W",
-                        "score": "4-1"
-                    },
-                    {
-                        "date": "12/14",
-                        "opp": "vs PHI",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "12/13",
-                        "opp": "@PHI",
-                        "result": "W",
-                        "score": "4-3"
-                    },
-                    {
-                        "date": "12/11",
-                        "opp": "@WSH",
-                        "result": "W",
-                        "score": "3-2"
-                    }
-                ],
-                "h2h": [
-                    {
-                        "date": "10/28",
-                        "opp": "vs VGK",
-                        "result": "L",
-                        "score": "3-6"
-                    },
-                    {
-                        "date": "10/20",
-                        "opp": "@VGK",
-                        "result": "L",
-                        "score": "1-4"
-                    }
-                ]
-            },
-            "covers": {
-                "best_ml": "CAR ML",
-                "best_spread": "PASS",
-                "best_ou": "UNDER 6.0"
-            },
-            "notes": [
-                "Goalie Edge: VGK starting Frederik Andersen (Expected) vs CAR starting -- (Expected).",
-                "Engine calculates CAR win probability at 52.7% based on V5 goalie adjustments.",
-                "Matchup features an active Elo rating gap of 11 points."
-            ],
-            "best_angle": {
-                "play": "CAR MONEYLINE",
-                "edge": "+0.3%"
-            },
-            "gift_stats": {
-                "away": {
-                    "pct_season": "40.0%",
-                    "pct_l5": "60.0%",
-                    "pct_l10": "50.0%",
-                    "record_season": "6-9",
-                    "streak": 2,
-                    "home_pct": "28.6%",
-                    "away_pct": "50.0%",
-                    "scoring_rate": "40.0%",
-                    "games": 15
+            "ou_total": "O/U 5.0",
+            "prob": "52.7%",
+            "home_win_prob": 52.7,
+            "away_win_prob": 47.3,
+            "predicted_winner": "CAR",
+            "time": "8:00 PM EST",
+            "tier": "NONE",
+            "edge": "+0.3%",
+            "ai_score": 3.6,
+            "details": {
+                "period_60": {
+                    "p1_winner": "CAR (45%)",
+                    "p1_over_1_5": "60%",
+                    "min_60_tie": "21%"
                 },
-                "home": {
-                    "pct_season": "73.3%",
-                    "pct_l5": "80.0%",
-                    "pct_l10": "70.0%",
-                    "record_season": "11-4",
-                    "streak": 1,
-                    "home_pct": "85.7%",
-                    "away_pct": "62.5%",
-                    "scoring_rate": "73.3%",
-                    "games": 15
-                }
-            },
-            "fp_stats": {
-                "away": {
-                    "pct_season": "0.0%",
-                    "pct_l5": "0.0%",
-                    "pct_l10": "0.0%",
-                    "record_season": "0-15",
-                    "over_games": 0,
-                    "home_pct": "0.0%",
-                    "away_pct": "0.0%",
-                    "games": 15
+                "period_scores": {
+                    "p1": "VGK 0.7 - CAR 0.8",
+                    "p2": "VGK 0.8 - CAR 1.0",
+                    "p3": "VGK 0.9 - CAR 1.0"
                 },
-                "home": {
-                    "pct_season": "0.0%",
-                    "pct_l5": "0.0%",
-                    "pct_l10": "0.0%",
-                    "record_season": "0-15",
-                    "over_games": 0,
-                    "home_pct": "0.0%",
-                    "away_pct": "0.0%",
-                    "games": 15
+                "recent_logs": {
+                    "away": [
+                        {
+                            "date": "12/31",
+                            "opp": "vs NSH",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "12/29",
+                            "opp": "vs MIN",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "12/27",
+                            "opp": "vs COL",
+                            "result": "L",
+                            "score": "5-6"
+                        },
+                        {
+                            "date": "12/23",
+                            "opp": "vs SJS",
+                            "result": "W",
+                            "score": "7-2"
+                        },
+                        {
+                            "date": "12/21",
+                            "opp": "@EDM",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "12/20",
+                            "opp": "@CGY",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "12/17",
+                            "opp": "vs NJD",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "12/13",
+                            "opp": "@CBJ",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "12/11",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "12/09",
+                            "opp": "@NYI",
+                            "result": "L",
+                            "score": "4-5"
+                        }
+                    ],
+                    "home": [
+                        {
+                            "date": "12/30",
+                            "opp": "@PIT",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "12/29",
+                            "opp": "vs NYR",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "12/27",
+                            "opp": "vs DET",
+                            "result": "W",
+                            "score": "5-2"
+                        },
+                        {
+                            "date": "12/23",
+                            "opp": "vs FLA",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "12/20",
+                            "opp": "@TBL",
+                            "result": "L",
+                            "score": "4-6"
+                        },
+                        {
+                            "date": "12/19",
+                            "opp": "@FLA",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "12/17",
+                            "opp": "@NSH",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "12/14",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "12/13",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "12/11",
+                            "opp": "@WSH",
+                            "result": "W",
+                            "score": "3-2"
+                        }
+                    ],
+                    "h2h": [
+                        {
+                            "date": "10/28",
+                            "opp": "vs VGK",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "10/20",
+                            "opp": "@VGK",
+                            "result": "L",
+                            "score": "1-4"
+                        }
+                    ]
+                },
+                "covers": {
+                    "best_ml": "CAR ML",
+                    "best_spread": "PASS",
+                    "best_ou": "UNDER 6.0"
+                },
+                "notes": [
+                    "Goalie Edge: VGK starting Carter Hart (Expected) vs CAR starting -- (Expected).",
+                    "Engine calculates CAR win probability at 52.7% based on V5 goalie adjustments.",
+                    "Matchup features an active Elo rating gap of 11 points."
+                ],
+                "best_angle": {
+                    "play": "CAR MONEYLINE",
+                    "edge": "+0.3%"
+                },
+                "gift_stats": {
+                    "away": {
+                        "pct_season": "40.0%",
+                        "pct_l5": "60.0%",
+                        "pct_l10": "50.0%",
+                        "record_season": "6-9",
+                        "streak": 2,
+                        "home_pct": "28.6%",
+                        "away_pct": "50.0%",
+                        "scoring_rate": "40.0%",
+                        "games": 15
+                    },
+                    "home": {
+                        "pct_season": "73.3%",
+                        "pct_l5": "80.0%",
+                        "pct_l10": "70.0%",
+                        "record_season": "11-4",
+                        "streak": 1,
+                        "home_pct": "85.7%",
+                        "away_pct": "62.5%",
+                        "scoring_rate": "73.3%",
+                        "games": 15
+                    }
+                },
+                "fp_stats": {
+                    "away": {
+                        "pct_season": "0.0%",
+                        "pct_l5": "0.0%",
+                        "pct_l10": "0.0%",
+                        "record_season": "0-15",
+                        "over_games": 0,
+                        "home_pct": "0.0%",
+                        "away_pct": "0.0%",
+                        "games": 15
+                    },
+                    "home": {
+                        "pct_season": "0.0%",
+                        "pct_l5": "0.0%",
+                        "pct_l10": "0.0%",
+                        "record_season": "0-15",
+                        "over_games": 0,
+                        "home_pct": "0.0%",
+                        "away_pct": "0.0%",
+                        "games": 15
+                    }
                 }
             }
         }
-    },
-    "day_after_tomorrow": null,
+    ],
+    "day_after_tomorrow": [],
     "top_plays": []
 }

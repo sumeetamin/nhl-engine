@@ -358,35 +358,25 @@ def run_backtest():
         }
     return {"all_time":mp(47,31,4,"60.3%","+4.5%","12.4"),"this_month":mp(12,8,1,"60.0%","+3.9%","3.2"),"this_week":mp(4,2,0,"66.7%","+5.1%","1.8"),"yesterday":mp(1,1,0,"50.0%","+2.1%","0.0")}
 
-def get_best_bet_for_date(target_date_str, scraped_goalies, odds_data, standings, gift_stats_all):
+def get_all_games_for_date(target_date_str, scraped_goalies, odds_data, standings, gift_stats_all):
+    """Returns ALL games for a date as a list, sorted by edge (best first)."""
     url = f"https://api-web.nhle.com/v1/schedule/{target_date_str}"
     try:
-        response = requests.get(url).json()
+        response = requests.get(url, timeout=10).json()
         games    = next((day['games'] for day in response.get('gameWeek',[]) if day['date']==target_date_str),[])
         matchups = [(g['homeTeam']['abbrev'],g['awayTeam']['abbrev'],g.get('startTimeUTC','TBD')) for g in games]
     except: matchups=[]
-    best,highest = None,-100.0
+    all_games=[]
     for i,(home,away,utc) in enumerate(matchups):
         mg  = scraped_goalies[i] if i<len(scraped_goalies) else None
         res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=mg,odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all)
-        if res:
-            ev = float(res['edge'].replace('+','').replace('%',''))
-            if ev > highest: highest,best = ev,res
-    return best
+        if res: all_games.append(res)
+    all_games.sort(key=lambda x:float(x['edge'].replace('+','').replace('%','')),reverse=True)
+    return all_games
 
 def get_top_plays(target_date_str, scraped_goalies, odds_data, standings, gift_stats_all):
-    url = f"https://api-web.nhle.com/v1/schedule/{target_date_str}"
-    try:
-        response = requests.get(url).json()
-        games    = next((day['games'] for day in response.get('gameWeek',[]) if day['date']==target_date_str),[])
-        matchups = [(g['homeTeam']['abbrev'],g['awayTeam']['abbrev'],g.get('startTimeUTC','TBD')) for g in games]
-    except: matchups=[]
-    plays=[]
-    for i,(home,away,utc) in enumerate(matchups):
-        mg  = scraped_goalies[i] if i<len(scraped_goalies) else None
-        res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=mg,odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all)
-        if res and res["tier"] in ["EDGE","BIG"]: plays.append(res)
-    plays.sort(key=lambda x:float(x['edge'].replace('+','').replace('%','')),reverse=True)
+    all_games = get_all_games_for_date(target_date_str, scraped_goalies, odds_data, standings, gift_stats_all)
+    plays = [g for g in all_games if g["tier"] in ["EDGE","BIG"]]
     return plays[:3]
 
 def build_daily_json():
@@ -421,11 +411,11 @@ def build_daily_json():
                  get_top_plays(d(1),scraped_goalies,odds_data,standings,gift_stats_all))
 
     daily_payload = {
-        "day_before_yesterday": get_best_bet_for_date(d(-2),scraped_goalies,odds_data,standings,gift_stats_all),
-        "yesterday":            get_best_bet_for_date(d(-1),scraped_goalies,odds_data,standings,gift_stats_all),
-        "today":                get_best_bet_for_date(d( 0),scraped_goalies,odds_data,standings,gift_stats_all),
-        "tomorrow":             get_best_bet_for_date(d( 1),scraped_goalies,odds_data,standings,gift_stats_all),
-        "day_after_tomorrow":   get_best_bet_for_date(d( 2),scraped_goalies,odds_data,standings,gift_stats_all),
+        "day_before_yesterday": get_all_games_for_date(d(-2),scraped_goalies,odds_data,standings,gift_stats_all),
+        "yesterday":            get_all_games_for_date(d(-1),scraped_goalies,odds_data,standings,gift_stats_all),
+        "today":                get_all_games_for_date(d( 0),scraped_goalies,odds_data,standings,gift_stats_all),
+        "tomorrow":             get_all_games_for_date(d( 1),scraped_goalies,odds_data,standings,gift_stats_all),
+        "day_after_tomorrow":   get_all_games_for_date(d( 2),scraped_goalies,odds_data,standings,gift_stats_all),
         "top_plays": top_today,
     }
 

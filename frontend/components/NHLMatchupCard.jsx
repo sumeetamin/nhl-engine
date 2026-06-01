@@ -178,51 +178,10 @@ const getTeamFullName = (abbrev) => {
     return teams[abbrev] || abbrev;
 };
 
-const NHLMatchupCard = ({ dateMode }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [allGames, setAllGames]     = useState(null);
-  const [loading, setLoading]       = useState(true);
+// ── Single game card (reusable) ─────────────────────────────────────────────
+const SingleMatchupCard = ({ game, giftStatsAll, defaultExpanded = false }) => {
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [activeLogTab, setActiveLogTab] = useState('h2h');
-  const [giftStatsAll, setGiftStatsAll] = useState(null); // from gift_stats.json
-
-  useEffect(() => {
-    const ts = new Date().getTime();
-
-    // Fetch daily predictions
-    const fetchGame = fetch('/daily_predictions.json?t=' + ts)
-      .then(r => { if (!r.ok) throw new Error('no data'); return r.json(); })
-      .catch(() => null);
-
-    // Fetch gift_stats.json independently — doesn't block game card
-    const fetchGift = fetch('/gift_stats.json?t=' + ts)
-      .then(r => r.ok ? r.json() : null)
-      .catch(() => null);
-
-    Promise.all([fetchGame, fetchGift]).then(([gameData, giftData]) => {
-      if (gameData) setAllGames(gameData);
-      if (giftData)  setGiftStatsAll(giftData);
-      setLoading(false);
-    });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="bg-[#151c28] rounded-xl border border-gray-800 shadow-2xl h-80 flex flex-col items-center justify-center">
-        <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mb-3"></div>
-        <p className="text-gray-500 font-mono text-xs uppercase tracking-widest animate-pulse">Running Matchups...</p>
-      </div>
-    );
-  }
-
-  const game = allGames ? allGames[dateMode] : null;
-
-  if (!game) {
-    return (
-      <div className="bg-[#151c28] rounded-xl border border-gray-800 shadow-2xl h-64 flex flex-col items-center justify-center">
-        <p className="text-gray-500 font-mono text-sm uppercase tracking-widest">No scheduled games for {dateMode}</p>
-      </div>
-    );
-  }
 
   const predictedWinner = game.details.best_angle.play.split(' ')[0];
   const maxProb = parseFloat(game.prob);
@@ -528,6 +487,64 @@ const NHLMatchupCard = ({ dateMode }) => {
 
         </div>
       )}
+    </div>
+  );
+}; // end SingleMatchupCard
+
+// ── Main NHLMatchupCard — fetches data, renders multiple game cards ────────────
+const NHLMatchupCard = ({ dateMode }) => {
+  const [allGames, setAllGames]     = useState(null);
+  const [loading, setLoading]       = useState(true);
+  const [giftStatsAll, setGiftStatsAll] = useState(null);
+
+  useEffect(() => {
+    const ts = new Date().getTime();
+    const fetchGame = fetch('/daily_predictions.json?t=' + ts)
+      .then(r => r.ok ? r.json() : null).catch(() => null);
+    const fetchGift = fetch('/gift_stats.json?t=' + ts)
+      .then(r => r.ok ? r.json() : null).catch(() => null);
+
+    Promise.all([fetchGame, fetchGift]).then(([gameData, giftData]) => {
+      if (gameData) setAllGames(gameData);
+      if (giftData)  setGiftStatsAll(giftData);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="bg-[#151c28] rounded-xl border border-gray-800 h-80 flex flex-col items-center justify-center">
+        <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mb-3"></div>
+        <p className="text-gray-500 font-mono text-xs uppercase tracking-widest animate-pulse">Running Matchups...</p>
+      </div>
+    );
+  }
+
+  const raw = allGames ? allGames[dateMode] : null;
+  const games = Array.isArray(raw) ? raw : raw ? [raw] : [];
+
+  if (!games.length) {
+    const offsets = { day_before_yesterday:-2, yesterday:-1, today:0, tomorrow:1, day_after_tomorrow:2 };
+    const d = new Date();
+    d.setDate(d.getDate() + (offsets[dateMode] ?? 0));
+    const friendly = d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+    return (
+      <div className="bg-[#151c28] rounded-xl border border-gray-800 h-64 flex flex-col items-center justify-center">
+        <p className="text-gray-500 font-mono text-sm uppercase tracking-widest">No scheduled games for {friendly}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      {games.map((game, idx) => (
+        <SingleMatchupCard
+          key={`${game.away?.name}-${game.home?.name}-${idx}`}
+          game={game}
+          giftStatsAll={giftStatsAll}
+          defaultExpanded={idx === 0}
+        />
+      ))}
     </div>
   );
 };
