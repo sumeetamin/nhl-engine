@@ -46,18 +46,21 @@ const TopPlaysList = () => {
   );
 };
 
-// ── Always use Eastern Time (EDT) for NHL game dates ──────────────────────────
-// NOTE: computed client-side only (inside useEffect) to avoid SSR caching stale dates.
-// Noon cutoff removed — it was rolling dates back for non-US timezones.
+// ── Eastern Time date helper ──────────────────────────────────────────────────
+// Uses en-CA format (YYYY-MM-DD) to get the current EDT date as a plain string,
+// then parses it with no timezone so offsets don't shift the day.
+// This is safe from any local timezone (IST, PST, etc.).
 const getESTDate = (offsetDays = 0) => {
   const now = new Date();
-  const estDate = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
-  estDate.setDate(estDate.getDate() + offsetDays);
-  return estDate;
+  // "en-CA" gives "2026-06-03" — clean ISO date in EDT, no time component
+  const edtStr = now.toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+  const [year, month, day] = edtStr.split('-').map(Number);
+  // Build as a local date (no timezone math) then apply offset
+  return new Date(year, month - 1, day + offsetDays);
 };
 
 const buildDateOptions = () => {
-  const fmt  = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/New_York' });
+  const fmt  = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   return [
     { key: 'day_before_yesterday', label: fmt(getESTDate(-2)), sub: '2 Days Ago' },
