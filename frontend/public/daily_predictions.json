@@ -1,460 +1,548 @@
 {
-    "day_before_yesterday": null,
-    "yesterday": null,
-    "today": {
-        "away": {
-            "name": "VGK",
-            "record_overall": "39-26-17",
-            "record_split": "19-14-8",
-            "record_l10": "7-0-3",
-            "ml": "+128",
-            "proj": "2.4"
-        },
-        "home": {
-            "name": "CAR",
-            "record_overall": "53-22-7",
-            "record_split": "29-10-2",
-            "record_l10": "7-2-1",
-            "ml": "-154",
-            "proj": "2.8"
-        },
-        "ou_total": "O/U 5.0",
-        "prob": "52.7%",
-        "home_win_prob": 52.7,
-        "away_win_prob": 47.3,
-        "predicted_winner": "CAR",
-        "time": "8:00 PM EST",
-        "tier": "NONE",
-        "edge": "+0.3%",
-        "ai_score": 3.6,
-        "details": {
-            "period_60": {
-                "p1_winner": "CAR (45%)",
-                "p1_over_1_5": "60%",
-                "min_60_tie": "21%"
+    "day_before_yesterday": [],
+    "yesterday": [
+        {
+            "away": {
+                "name": "VGK",
+                "record_overall": "39-26-17",
+                "record_split": "19-14-8",
+                "record_l10": "7-0-3",
+                "ml": "+134",
+                "proj": "2.4"
             },
-            "period_scores": {
-                "p1": "VGK 0.7 - CAR 0.8",
-                "p2": "VGK 0.8 - CAR 1.0",
-                "p3": "VGK 0.9 - CAR 1.0"
+            "home": {
+                "name": "CAR",
+                "record_overall": "53-22-7",
+                "record_split": "29-10-2",
+                "record_l10": "7-2-1",
+                "ml": "-162",
+                "proj": "2.8"
             },
-            "recent_logs": {
-                "away": [
-                    {
-                        "date": "05/26/26",
-                        "opp": "vs COL",
-                        "result": "W",
-                        "score": "2-1"
-                    },
-                    {
-                        "date": "05/24/26",
-                        "opp": "vs COL",
-                        "result": "W",
-                        "score": "5-3"
-                    },
-                    {
-                        "date": "05/22/26",
-                        "opp": "@COL",
-                        "result": "W",
-                        "score": "3-1"
-                    },
-                    {
-                        "date": "05/20/26",
-                        "opp": "@COL",
-                        "result": "W",
-                        "score": "4-2"
-                    },
-                    {
-                        "date": "05/14/26",
-                        "opp": "@ANA",
-                        "result": "W",
-                        "score": "5-1"
-                    },
-                    {
-                        "date": "05/12/26",
-                        "opp": "vs ANA",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/10/26",
-                        "opp": "@ANA",
-                        "result": "L",
-                        "score": "3-4"
-                    },
-                    {
-                        "date": "05/08/26",
-                        "opp": "@ANA",
-                        "result": "W",
-                        "score": "6-2"
-                    },
-                    {
-                        "date": "05/06/26",
-                        "opp": "vs ANA",
-                        "result": "L",
-                        "score": "1-3"
-                    },
-                    {
-                        "date": "05/04/26",
-                        "opp": "vs ANA",
-                        "result": "W",
-                        "score": "3-1"
-                    }
-                ],
-                "home": [
-                    {
-                        "date": "05/29/26",
-                        "opp": "vs MTL",
-                        "result": "W",
-                        "score": "6-1"
-                    },
-                    {
-                        "date": "05/27/26",
-                        "opp": "@MTL",
-                        "result": "W",
-                        "score": "4-0"
-                    },
-                    {
-                        "date": "05/25/26",
-                        "opp": "@MTL",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/23/26",
-                        "opp": "vs MTL",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/21/26",
-                        "opp": "vs MTL",
-                        "result": "L",
-                        "score": "2-6"
-                    },
-                    {
-                        "date": "05/09/26",
-                        "opp": "@PHI",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/07/26",
-                        "opp": "@PHI",
-                        "result": "W",
-                        "score": "4-1"
-                    },
-                    {
-                        "date": "05/04/26",
-                        "opp": "vs PHI",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/02/26",
-                        "opp": "vs PHI",
-                        "result": "W",
-                        "score": "3-0"
-                    },
-                    {
-                        "date": "04/25/26",
-                        "opp": "@OTT",
-                        "result": "W",
-                        "score": "4-2"
-                    }
-                ],
-                "h2h": [
-                    {
-                        "date": "10/28/25",
-                        "opp": "vs VGK",
-                        "result": "L",
-                        "score": "3-6"
-                    },
-                    {
-                        "date": "10/20/25",
-                        "opp": "@VGK",
-                        "result": "L",
-                        "score": "1-4"
-                    }
-                ]
-            },
-            "covers": {
-                "best_ml": "CAR ML",
-                "best_spread": "PASS",
-                "best_ou": "UNDER 6.0"
-            },
-            "notes": [
-                "Goalie Edge: VGK starting Carter Hart (Expected) vs CAR starting -- (Expected).",
-                "Engine calculates CAR win probability at 52.7% based on V5 goalie adjustments.",
-                "Matchup features an active Elo rating gap of 11 points."
-            ],
-            "best_angle": {
-                "play": "CAR MONEYLINE",
-                "edge": "+0.3%"
-            },
-            "gift_stats": {
-                "away": {
-                    "pct_season": "69%",
-                    "pct_l5": "70%",
-                    "pct_l10": "66%",
-                    "record_season": "32-8",
-                    "home_pct": "69%",
-                    "away_pct": "65%",
-                    "streak": 6
+            "ou_total": "O/U 5.0",
+            "prob": "52.7%",
+            "home_win_prob": 52.7,
+            "away_win_prob": 47.3,
+            "predicted_winner": "CAR",
+            "time": "8:00 PM EST",
+            "tier": "NONE",
+            "edge": "+0.3%",
+            "ai_score": 3.6,
+            "details": {
+                "period_60": {
+                    "p1_winner": "CAR (45%)",
+                    "p1_over_1_5": "60%",
+                    "min_60_tie": "21%"
                 },
-                "home": {
-                    "pct_season": "71%",
-                    "pct_l5": "66%",
-                    "pct_l10": "67%",
-                    "record_season": "32-8",
-                    "home_pct": "72%",
-                    "away_pct": "66%",
-                    "streak": 2
-                }
-            },
-            "fp_stats": {
-                "away": {
-                    "pct_season": "62%",
-                    "record_season": "24-6",
-                    "home_pct": "62%",
-                    "away_pct": "58%"
+                "period_scores": {
+                    "p1": "VGK 0.7 - CAR 0.8",
+                    "p2": "VGK 0.8 - CAR 1.0",
+                    "p3": "VGK 0.9 - CAR 1.0"
                 },
-                "home": {
-                    "pct_season": "63%",
-                    "record_season": "24-6",
-                    "home_pct": "65%",
-                    "away_pct": "59%"
-                }
-            }
-        }
-    },
-    "tomorrow": null,
-    "day_after_tomorrow": {
-        "away": {
-            "name": "VGK",
-            "record_overall": "39-26-17",
-            "record_split": "19-14-8",
-            "record_l10": "7-0-3",
-            "ml": "+128",
-            "proj": "2.4"
-        },
-        "home": {
-            "name": "CAR",
-            "record_overall": "53-22-7",
-            "record_split": "29-10-2",
-            "record_l10": "7-2-1",
-            "ml": "-154",
-            "proj": "2.8"
-        },
-        "ou_total": "O/U 5.0",
-        "prob": "52.7%",
-        "home_win_prob": 52.7,
-        "away_win_prob": 47.3,
-        "predicted_winner": "CAR",
-        "time": "8:00 PM EST",
-        "tier": "NONE",
-        "edge": "+0.3%",
-        "ai_score": 3.6,
-        "details": {
-            "period_60": {
-                "p1_winner": "CAR (45%)",
-                "p1_over_1_5": "60%",
-                "min_60_tie": "21%"
-            },
-            "period_scores": {
-                "p1": "VGK 0.7 - CAR 0.8",
-                "p2": "VGK 0.8 - CAR 1.0",
-                "p3": "VGK 0.9 - CAR 1.0"
-            },
-            "recent_logs": {
-                "away": [
-                    {
-                        "date": "05/26/26",
-                        "opp": "vs COL",
-                        "result": "W",
-                        "score": "2-1"
-                    },
-                    {
-                        "date": "05/24/26",
-                        "opp": "vs COL",
-                        "result": "W",
-                        "score": "5-3"
-                    },
-                    {
-                        "date": "05/22/26",
-                        "opp": "@COL",
-                        "result": "W",
-                        "score": "3-1"
-                    },
-                    {
-                        "date": "05/20/26",
-                        "opp": "@COL",
-                        "result": "W",
-                        "score": "4-2"
-                    },
-                    {
-                        "date": "05/14/26",
-                        "opp": "@ANA",
-                        "result": "W",
-                        "score": "5-1"
-                    },
-                    {
-                        "date": "05/12/26",
-                        "opp": "vs ANA",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/10/26",
-                        "opp": "@ANA",
-                        "result": "L",
-                        "score": "3-4"
-                    },
-                    {
-                        "date": "05/08/26",
-                        "opp": "@ANA",
-                        "result": "W",
-                        "score": "6-2"
-                    },
-                    {
-                        "date": "05/06/26",
-                        "opp": "vs ANA",
-                        "result": "L",
-                        "score": "1-3"
-                    },
-                    {
-                        "date": "05/04/26",
-                        "opp": "vs ANA",
-                        "result": "W",
-                        "score": "3-1"
-                    }
+                "recent_logs": {
+                    "away": [
+                        {
+                            "date": "06/02/26",
+                            "opp": "@CAR",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "05/26/26",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "05/24/26",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
+                            "date": "05/22/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
+                            "date": "05/20/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "4-2"
+                        },
+                        {
+                            "date": "05/14/26",
+                            "opp": "@ANA",
+                            "result": "W",
+                            "score": "5-1"
+                        },
+                        {
+                            "date": "05/12/26",
+                            "opp": "vs ANA",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/10/26",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "05/08/26",
+                            "opp": "@ANA",
+                            "result": "W",
+                            "score": "6-2"
+                        },
+                        {
+                            "date": "05/06/26",
+                            "opp": "vs ANA",
+                            "result": "L",
+                            "score": "1-3"
+                        }
+                    ],
+                    "home": [
+                        {
+                            "date": "06/02/26",
+                            "opp": "vs VGK",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "05/29/26",
+                            "opp": "vs MTL",
+                            "result": "W",
+                            "score": "6-1"
+                        },
+                        {
+                            "date": "05/27/26",
+                            "opp": "@MTL",
+                            "result": "W",
+                            "score": "4-0"
+                        },
+                        {
+                            "date": "05/25/26",
+                            "opp": "@MTL",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/23/26",
+                            "opp": "vs MTL",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/21/26",
+                            "opp": "vs MTL",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
+                            "date": "05/09/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/07/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "05/04/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/02/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "3-0"
+                        }
+                    ],
+                    "h2h": [
+                        {
+                            "date": "06/02/26",
+                            "opp": "vs VGK",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "10/28/25",
+                            "opp": "vs VGK",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "10/20/25",
+                            "opp": "@VGK",
+                            "result": "L",
+                            "score": "1-4"
+                        },
+                        {
+                            "date": "01/17/25",
+                            "opp": "vs VGK",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "11/11/24",
+                            "opp": "@VGK",
+                            "result": "W",
+                            "score": "5-2"
+                        },
+                        {
+                            "date": "02/17/24",
+                            "opp": "@VGK",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
+                            "date": "12/19/23",
+                            "opp": "vs VGK",
+                            "result": "W",
+                            "score": "6-3"
+                        }
+                    ]
+                },
+                "covers": {
+                    "best_ml": "CAR ML",
+                    "best_spread": "PASS",
+                    "best_ou": "UNDER 6.0"
+                },
+                "notes": [
+                    "Goalie Edge: VGK starting TBD (TBD) vs CAR starting TBD (TBD).",
+                    "Engine calculates CAR win probability at 52.7% based on V5 goalie adjustments.",
+                    "Matchup features an active Elo rating gap of 11 points."
                 ],
-                "home": [
-                    {
-                        "date": "05/29/26",
-                        "opp": "vs MTL",
-                        "result": "W",
-                        "score": "6-1"
-                    },
-                    {
-                        "date": "05/27/26",
-                        "opp": "@MTL",
-                        "result": "W",
-                        "score": "4-0"
-                    },
-                    {
-                        "date": "05/25/26",
-                        "opp": "@MTL",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/23/26",
-                        "opp": "vs MTL",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/21/26",
-                        "opp": "vs MTL",
-                        "result": "L",
-                        "score": "2-6"
-                    },
-                    {
-                        "date": "05/09/26",
-                        "opp": "@PHI",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/07/26",
-                        "opp": "@PHI",
-                        "result": "W",
-                        "score": "4-1"
-                    },
-                    {
-                        "date": "05/04/26",
-                        "opp": "vs PHI",
-                        "result": "W",
-                        "score": "3-2"
-                    },
-                    {
-                        "date": "05/02/26",
-                        "opp": "vs PHI",
-                        "result": "W",
-                        "score": "3-0"
-                    },
-                    {
-                        "date": "04/25/26",
-                        "opp": "@OTT",
-                        "result": "W",
-                        "score": "4-2"
-                    }
-                ],
-                "h2h": [
-                    {
-                        "date": "10/28/25",
-                        "opp": "vs VGK",
-                        "result": "L",
-                        "score": "3-6"
-                    },
-                    {
-                        "date": "10/20/25",
-                        "opp": "@VGK",
-                        "result": "L",
-                        "score": "1-4"
-                    }
-                ]
-            },
-            "covers": {
-                "best_ml": "CAR ML",
-                "best_spread": "PASS",
-                "best_ou": "UNDER 6.0"
-            },
-            "notes": [
-                "Goalie Edge: VGK starting Carter Hart (Expected) vs CAR starting -- (Expected).",
-                "Engine calculates CAR win probability at 52.7% based on V5 goalie adjustments.",
-                "Matchup features an active Elo rating gap of 11 points."
-            ],
-            "best_angle": {
-                "play": "CAR MONEYLINE",
-                "edge": "+0.3%"
-            },
-            "gift_stats": {
-                "away": {
-                    "pct_season": "69%",
-                    "pct_l5": "70%",
-                    "pct_l10": "66%",
-                    "record_season": "32-8",
-                    "home_pct": "69%",
-                    "away_pct": "65%",
-                    "streak": 6
+                "best_angle": {
+                    "play": "CAR MONEYLINE",
+                    "edge": "+0.3%"
                 },
-                "home": {
-                    "pct_season": "71%",
-                    "pct_l5": "66%",
-                    "pct_l10": "67%",
-                    "record_season": "32-8",
-                    "home_pct": "72%",
-                    "away_pct": "66%",
-                    "streak": 2
-                }
-            },
-            "fp_stats": {
-                "away": {
-                    "pct_season": "62%",
-                    "record_season": "24-6",
-                    "home_pct": "62%",
-                    "away_pct": "58%"
+                "gift_stats": {
+                    "away": {
+                        "pct_season": "53.7%",
+                        "pct_l5": "60.0%",
+                        "pct_l10": "60.0%",
+                        "record_season": "44-38",
+                        "streak": 3,
+                        "home_pct": "53.8%",
+                        "away_pct": "53.5%",
+                        "scoring_rate": "53.7%",
+                        "games": 82
+                    },
+                    "home": {
+                        "pct_season": "67.1%",
+                        "pct_l5": "80.0%",
+                        "pct_l10": "80.0%",
+                        "record_season": "55-27",
+                        "streak": 2,
+                        "home_pct": "72.1%",
+                        "away_pct": "61.5%",
+                        "scoring_rate": "67.1%",
+                        "games": 82
+                    }
                 },
-                "home": {
-                    "pct_season": "63%",
-                    "record_season": "24-6",
-                    "home_pct": "65%",
-                    "away_pct": "59%"
+                "fp_stats": {
+                    "away": {
+                        "pct_season": "47.6%",
+                        "pct_l5": "40.0%",
+                        "pct_l10": "60.0%",
+                        "record_season": "39-43",
+                        "over_games": 39,
+                        "home_pct": "43.6%",
+                        "away_pct": "51.2%",
+                        "games": 82
+                    },
+                    "home": {
+                        "pct_season": "57.3%",
+                        "pct_l5": "100.0%",
+                        "pct_l10": "80.0%",
+                        "record_season": "47-35",
+                        "over_games": 47,
+                        "home_pct": "58.1%",
+                        "away_pct": "56.4%",
+                        "games": 82
+                    }
                 }
             }
         }
-    },
+    ],
+    "today": [],
+    "tomorrow": [
+        {
+            "away": {
+                "name": "VGK",
+                "record_overall": "39-26-17",
+                "record_split": "19-14-8",
+                "record_l10": "7-0-3",
+                "ml": "+134",
+                "proj": "2.4"
+            },
+            "home": {
+                "name": "CAR",
+                "record_overall": "53-22-7",
+                "record_split": "29-10-2",
+                "record_l10": "7-2-1",
+                "ml": "-162",
+                "proj": "2.8"
+            },
+            "ou_total": "O/U 5.0",
+            "prob": "52.7%",
+            "home_win_prob": 52.7,
+            "away_win_prob": 47.3,
+            "predicted_winner": "CAR",
+            "time": "8:00 PM EST",
+            "tier": "NONE",
+            "edge": "+0.3%",
+            "ai_score": 3.6,
+            "details": {
+                "period_60": {
+                    "p1_winner": "CAR (45%)",
+                    "p1_over_1_5": "60%",
+                    "min_60_tie": "21%"
+                },
+                "period_scores": {
+                    "p1": "VGK 0.7 - CAR 0.8",
+                    "p2": "VGK 0.8 - CAR 1.0",
+                    "p3": "VGK 0.9 - CAR 1.0"
+                },
+                "recent_logs": {
+                    "away": [
+                        {
+                            "date": "06/02/26",
+                            "opp": "@CAR",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "05/26/26",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "05/24/26",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
+                            "date": "05/22/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
+                            "date": "05/20/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "4-2"
+                        },
+                        {
+                            "date": "05/14/26",
+                            "opp": "@ANA",
+                            "result": "W",
+                            "score": "5-1"
+                        },
+                        {
+                            "date": "05/12/26",
+                            "opp": "vs ANA",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/10/26",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "05/08/26",
+                            "opp": "@ANA",
+                            "result": "W",
+                            "score": "6-2"
+                        },
+                        {
+                            "date": "05/06/26",
+                            "opp": "vs ANA",
+                            "result": "L",
+                            "score": "1-3"
+                        }
+                    ],
+                    "home": [
+                        {
+                            "date": "06/02/26",
+                            "opp": "vs VGK",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "05/29/26",
+                            "opp": "vs MTL",
+                            "result": "W",
+                            "score": "6-1"
+                        },
+                        {
+                            "date": "05/27/26",
+                            "opp": "@MTL",
+                            "result": "W",
+                            "score": "4-0"
+                        },
+                        {
+                            "date": "05/25/26",
+                            "opp": "@MTL",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/23/26",
+                            "opp": "vs MTL",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/21/26",
+                            "opp": "vs MTL",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
+                            "date": "05/09/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/07/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "05/04/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "05/02/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "3-0"
+                        }
+                    ],
+                    "h2h": [
+                        {
+                            "date": "06/02/26",
+                            "opp": "vs VGK",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "10/28/25",
+                            "opp": "vs VGK",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "10/20/25",
+                            "opp": "@VGK",
+                            "result": "L",
+                            "score": "1-4"
+                        },
+                        {
+                            "date": "01/17/25",
+                            "opp": "vs VGK",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "11/11/24",
+                            "opp": "@VGK",
+                            "result": "W",
+                            "score": "5-2"
+                        },
+                        {
+                            "date": "02/17/24",
+                            "opp": "@VGK",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
+                            "date": "12/19/23",
+                            "opp": "vs VGK",
+                            "result": "W",
+                            "score": "6-3"
+                        }
+                    ]
+                },
+                "covers": {
+                    "best_ml": "CAR ML",
+                    "best_spread": "PASS",
+                    "best_ou": "UNDER 6.0"
+                },
+                "notes": [
+                    "Goalie Edge: VGK starting TBD (TBD) vs CAR starting TBD (TBD).",
+                    "Engine calculates CAR win probability at 52.7% based on V5 goalie adjustments.",
+                    "Matchup features an active Elo rating gap of 11 points."
+                ],
+                "best_angle": {
+                    "play": "CAR MONEYLINE",
+                    "edge": "+0.3%"
+                },
+                "gift_stats": {
+                    "away": {
+                        "pct_season": "53.7%",
+                        "pct_l5": "60.0%",
+                        "pct_l10": "60.0%",
+                        "record_season": "44-38",
+                        "streak": 3,
+                        "home_pct": "53.8%",
+                        "away_pct": "53.5%",
+                        "scoring_rate": "53.7%",
+                        "games": 82
+                    },
+                    "home": {
+                        "pct_season": "67.1%",
+                        "pct_l5": "80.0%",
+                        "pct_l10": "80.0%",
+                        "record_season": "55-27",
+                        "streak": 2,
+                        "home_pct": "72.1%",
+                        "away_pct": "61.5%",
+                        "scoring_rate": "67.1%",
+                        "games": 82
+                    }
+                },
+                "fp_stats": {
+                    "away": {
+                        "pct_season": "47.6%",
+                        "pct_l5": "40.0%",
+                        "pct_l10": "60.0%",
+                        "record_season": "39-43",
+                        "over_games": 39,
+                        "home_pct": "43.6%",
+                        "away_pct": "51.2%",
+                        "games": 82
+                    },
+                    "home": {
+                        "pct_season": "57.3%",
+                        "pct_l5": "100.0%",
+                        "pct_l10": "80.0%",
+                        "record_season": "47-35",
+                        "over_games": 47,
+                        "home_pct": "58.1%",
+                        "away_pct": "56.4%",
+                        "games": 82
+                    }
+                }
+            }
+        }
+    ],
+    "day_after_tomorrow": [],
     "top_plays": []
 }

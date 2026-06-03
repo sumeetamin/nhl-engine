@@ -2,8 +2,9 @@ name: Daily NHL Pipeline + Result Tracker
 
 on:
   schedule:
-    - cron: '0 10 * * *'   # Grade results — 10:00 UTC (3:30pm IST)
-    - cron: '0 14 * * *'   # Generate predictions — 14:00 UTC (7:30pm IST)
+    - cron: '0 10 * * *'   # Run 1 — 10:00 UTC (6:00am EST) — morning update
+    - cron: '0 16 * * *'   # Run 2 — 16:00 UTC (12:00pm EST) — afternoon odds/goalies
+    - cron: '0 22 * * *'   # Run 3 — 22:00 UTC (6:00pm EST) — evening confirmed lineups
   workflow_dispatch:
     inputs:
       mode:
@@ -18,7 +19,6 @@ on:
 
 jobs:
 
-  # ─── JOB 1: Grade Yesterday's Results ───────────────────────────────────────
   grade-results:
     name: Grade Yesterday + Update Snapshot
     runs-on: ubuntu-latest
@@ -47,11 +47,6 @@ jobs:
           PYTHONUNBUFFERED: "1"
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
-      - name: Copy historical stats to frontend
-        run: |
-          mkdir -p frontend/public
-          cp frontend/public/historical_stats.json frontend/public/historical_stats.json || true
-
       - name: Commit updated ledger + snapshot
         run: |
           git config --global user.name  "sumeetamin"
@@ -61,7 +56,6 @@ jobs:
           git diff --staged --quiet || git commit -m "📊 Auto: Grade results $(date +'%Y-%m-%d')"
           git push
 
-  # ─── JOB 2: Generate Today's Predictions ────────────────────────────────────
   generate-predictions:
     name: Generate Predictions + Deploy
     runs-on: ubuntu-latest
@@ -72,7 +66,7 @@ jobs:
       always() &&
       (
         (github.event_name == 'workflow_dispatch' && inputs.mode != 'grade_only') ||
-        (github.event_name == 'schedule' && github.event.schedule == '0 14 * * *')
+        (github.event_name == 'schedule')
       )
 
     steps:
@@ -90,48 +84,27 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Restore GIFT cache
+        uses: actions/cache@v4
+        with:
+          path: gift_cache.json
+          key: gift-cache-${{ hashFiles('gift_cache.json') }}
+          restore-keys: gift-cache-
+
       - name: Run NHL Pipeline
         run: python run_pipeline.py
         env:
           PYTHONUNBUFFERED: "1"
-
-      - name: Debug — find generated files
-        run: |
-          echo "=== JSON files in root ==="
-          ls -la *.json 2>/dev/null || echo "No JSON files in root"
-          echo ""
-          echo "=== Searching for daily_predictions.json ==="
-          find . -name "daily_predictions.json" 2>/dev/null || echo "Not found anywhere"
-          echo ""
-          echo "=== Searching for today_goalies.json ==="
-          find . -name "today_goalies.json" 2>/dev/null || echo "Not found anywhere"
-
-      - name: Archive today's predictions
-        run: |
-          DATE=$(date +'%Y%m%d')
-          if [ -f "daily_predictions.json" ]; then
-            cp daily_predictions.json predictions_${DATE}.json
-            echo "✅ Archived predictions_${DATE}.json"
-          else
-            echo "⚠️ daily_predictions.json not found — skipping archive"
-          fi
-
-      - name: Copy outputs to frontend/public
-        run: |
-          mkdir -p frontend/public
-          [ -f "daily_predictions.json" ]    && cp daily_predictions.json    frontend/public/daily_predictions.json    && echo "✅ Copied daily_predictions.json"    || echo "⚠️ Skipped daily_predictions.json"
-          [ -f "today_goalies.json" ]        && cp today_goalies.json        frontend/public/today_goalies.json        && echo "✅ Copied today_goalies.json"        || echo "⚠️ Skipped today_goalies.json"
-          [ -f "model_records_ledger.json" ] && cp model_records_ledger.json frontend/public/model_records_ledger.json && echo "✅ Copied model_records_ledger.json" || echo "⚠️ Skipped model_records_ledger.json"
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
       - name: Commit and push all updates
         run: |
           git config --global user.name  "sumeetamin"
           git config --global user.email "aminsumeet@gmail.com"
           git add -A
-          git diff --staged --quiet || git commit -m "🤖 Auto: Predictions $(date +'%Y-%m-%d')"
+          git diff --staged --quiet || git commit -m "🤖 Auto: Predictions $(date +'%Y-%m-%d %H:%M UTC')"
           git push
 
-  # ─── JOB 3: Notify on Failure ────────────────────────────────────────────────
   notify-failure:
     name: Notify on Failure
     runs-on: ubuntu-latest

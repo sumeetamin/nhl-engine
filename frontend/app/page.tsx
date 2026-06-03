@@ -4,7 +4,7 @@ import NHLMatchupCard from '../components/NHLMatchupCard';
 import PerformanceTracker from '../components/PerformanceTracker';
 
 const TopPlaysList = () => {
-  const [plays, setPlays] = useState<any[] | null>(null);
+  const [plays, setPlays] = useState(null);
   useEffect(() => {
     fetch('/daily_predictions.json?t=' + new Date().getTime())
       .then(res => res.json())
@@ -17,13 +17,11 @@ const TopPlaysList = () => {
       <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
     </div>
   );
-
   if (plays.length === 0) return (
     <div className="text-center text-gray-500 mt-20 font-mono text-sm px-4">
       No EDGE or BIG plays found today. Check tomorrow's slate.
     </div>
   );
-
   return (
     <div className="space-y-4 max-w-3xl mx-auto px-2">
       <h2 className="text-xl font-bold text-gray-100 uppercase tracking-wide mb-6 text-center">Top Engine Plays</h2>
@@ -48,18 +46,25 @@ const TopPlaysList = () => {
   );
 };
 
-// Build date labels: 2 days ago → tomorrow
+// ── Always use Eastern Time (EDT) for NHL game dates ──────────────────────────
+const getESTDate = (offsetDays = 0) => {
+  // Convert current time to Eastern Time using Intl API (handles DST automatically)
+  const now = new Date();
+  const estDateStr = now.toLocaleString('en-US', { timeZone: 'America/New_York' });
+  const estDate = new Date(estDateStr);
+  estDate.setDate(estDate.getDate() + offsetDays);
+  return estDate;
+};
+
 const buildDateOptions = () => {
-  const fmt = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
-  const today = new Date();
+  const fmt  = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/New_York' });
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   return [
-    { key: 'day_before_yesterday', label: fmt(addDays(today, -2)), sub: '2 Days Ago' },
-    { key: 'yesterday',            label: fmt(addDays(today, -1)), sub: 'Yesterday'  },
-    { key: 'today',                label: fmt(today),              sub: 'Today'      },
-    { key: 'tomorrow',             label: fmt(addDays(today,  1)), sub: 'Tomorrow'   },
-    { key: 'day_after_tomorrow',   label: fmt(addDays(today,  2)), sub: days[addDays(today, 2).getDay()] },
+    { key: 'day_before_yesterday', label: fmt(getESTDate(-2)), sub: '2 Days Ago' },
+    { key: 'yesterday',            label: fmt(getESTDate(-1)), sub: 'Yesterday'  },
+    { key: 'today',                label: fmt(getESTDate( 0)), sub: 'Today'      },
+    { key: 'tomorrow',             label: fmt(getESTDate( 1)), sub: 'Tomorrow'   },
+    { key: 'day_after_tomorrow',   label: fmt(getESTDate( 2)), sub: days[getESTDate(2).getDay()] },
   ];
 };
 
@@ -77,7 +82,7 @@ export default function NHLDashboard() {
             SUMEET<span className="text-blue-500">ENGINE</span> <span className="text-gray-500 text-sm sm:text-lg">NHL</span>
           </h1>
           <div className="flex space-x-1 bg-[#111827] p-1 rounded-lg border border-gray-800">
-            {['daily', 'snapshot', 'top'].map((mode) => (
+            {['daily','snapshot','top'].map((mode) => (
               <button
                 key={mode}
                 onClick={() => setActiveMode(mode)}
@@ -119,8 +124,8 @@ export default function NHLDashboard() {
         {/* CONTENT */}
         <div className="mt-2">
           {activeMode === 'snapshot' && <PerformanceTracker />}
-          {activeMode === 'daily' && <NHLMatchupCard dateMode={activeDate} />}
-          {activeMode === 'top' && <TopPlaysList />}
+          {activeMode === 'daily'    && <NHLMatchupCard dateMode={activeDate} />}
+          {activeMode === 'top'      && <TopPlaysList />}
         </div>
 
       </div>
