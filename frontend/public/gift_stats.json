@@ -1,27 +1,4 @@
 {
-  "CAR": {
-    "gift": {
-      "pct_season": "67.1%",
-      "pct_l5": "80.0%",
-      "pct_l10": "80.0%",
-      "record_season": "55-27",
-      "streak": 2,
-      "home_pct": "72.1%",
-      "away_pct": "61.5%",
-      "scoring_rate": "67.1%",
-      "games": 82
-    },
-    "fp_ou": {
-      "pct_season": "57.3%",
-      "pct_l5": "100.0%",
-      "pct_l10": "80.0%",
-      "record_season": "47-35",
-      "over_games": 47,
-      "home_pct": "58.1%",
-      "away_pct": "56.4%",
-      "games": 82
-    }
-  },
   "VGK": {
     "gift": {
       "pct_season": "53.7%",
@@ -42,6 +19,29 @@
       "over_games": 39,
       "home_pct": "43.6%",
       "away_pct": "51.2%",
+      "games": 82
+    }
+  },
+  "CAR": {
+    "gift": {
+      "pct_season": "67.1%",
+      "pct_l5": "80.0%",
+      "pct_l10": "80.0%",
+      "record_season": "55-27",
+      "streak": 2,
+      "home_pct": "72.1%",
+      "away_pct": "61.5%",
+      "scoring_rate": "67.1%",
+      "games": 82
+    },
+    "fp_ou": {
+      "pct_season": "57.3%",
+      "pct_l5": "100.0%",
+      "pct_l10": "80.0%",
+      "record_season": "47-35",
+      "over_games": 47,
+      "home_pct": "58.1%",
+      "away_pct": "56.4%",
       "games": 82
     }
   }

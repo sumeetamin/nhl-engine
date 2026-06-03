@@ -47,14 +47,11 @@ const TopPlaysList = () => {
 };
 
 // ── Always use Eastern Time (EDT) for NHL game dates ──────────────────────────
-// Sports day cutoff: before noon EDT = still previous sports day (games are 7-10pm ET)
+// NOTE: computed client-side only (inside useEffect) to avoid SSR caching stale dates.
+// Noon cutoff removed — it was rolling dates back for non-US timezones.
 const getESTDate = (offsetDays = 0) => {
   const now = new Date();
   const estDate = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
-  // Before noon EDT = still the previous sports day
-  if (estDate.getHours() < 12) {
-    estDate.setDate(estDate.getDate() - 1);
-  }
   estDate.setDate(estDate.getDate() + offsetDays);
   return estDate;
 };
@@ -74,7 +71,12 @@ const buildDateOptions = () => {
 export default function NHLDashboard() {
   const [activeMode, setActiveMode] = useState('daily');
   const [activeDate, setActiveDate] = useState('today');
-  const dateOptions = buildDateOptions();
+
+  // ── Client-side only: prevents Vercel SSR from caching stale dates ──────────
+  const [dateOptions, setDateOptions] = useState([]);
+  useEffect(() => {
+    setDateOptions(buildDateOptions());
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0b0f19] text-gray-100 font-sans">

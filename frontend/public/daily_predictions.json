@@ -1,7 +1,6 @@
 {
     "day_before_yesterday": [],
-    "yesterday": [],
-    "today": [
+    "yesterday": [
         {
             "away": {
                 "name": "VGK",
@@ -272,8 +271,8 @@
             }
         }
     ],
-    "tomorrow": [],
-    "day_after_tomorrow": [
+    "today": [],
+    "tomorrow": [
         {
             "away": {
                 "name": "VGK",
@@ -544,5 +543,6 @@
             }
         }
     ],
+    "day_after_tomorrow": [],
     "top_plays": []
 }
