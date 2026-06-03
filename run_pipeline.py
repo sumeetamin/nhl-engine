@@ -24,8 +24,12 @@ ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "3109357b0d1e8f884a7864d6b95a5811"
 
 # ── Always use Eastern Time (EDT = UTC-4) for NHL dates ───────────────────────
 def get_est_now():
-    """Returns current datetime in Eastern Time (EDT UTC-4)."""
-    return datetime.utcnow() - timedelta(hours=4)
+    """Returns current sports-day datetime in Eastern Time (EDT UTC-4).
+    Before noon EDT = still previous sports day (NHL games are 7-10pm ET)."""
+    est = datetime.now(timezone.utc) - timedelta(hours=4)
+    if est.hour < 12:
+        est = est - timedelta(days=1)
+    return est.replace(tzinfo=None)
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
 WINDOWS_PATH = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public"

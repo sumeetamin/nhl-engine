@@ -47,11 +47,14 @@ const TopPlaysList = () => {
 };
 
 // ── Always use Eastern Time (EDT) for NHL game dates ──────────────────────────
+// Sports day cutoff: before noon EDT = still previous sports day (games are 7-10pm ET)
 const getESTDate = (offsetDays = 0) => {
-  // Convert current time to Eastern Time using Intl API (handles DST automatically)
   const now = new Date();
-  const estDateStr = now.toLocaleString('en-US', { timeZone: 'America/New_York' });
-  const estDate = new Date(estDateStr);
+  const estDate = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
+  // Before noon EDT = still the previous sports day
+  if (estDate.getHours() < 12) {
+    estDate.setDate(estDate.getDate() - 1);
+  }
   estDate.setDate(estDate.getDate() + offsetDays);
   return estDate;
 };
