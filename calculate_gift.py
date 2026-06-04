@@ -1,5 +1,5 @@
 """
-calculate_gift.py — Real GIFT + First Period Stats via NHL API
+calculate_gift.py — GIFT + First Period + P1 L5/L10 Stats via NHL API
 Full season stats (n_games=82) from play-by-play data.
 """
 
@@ -59,13 +59,24 @@ def fetch_team_game_ids(abbrev, n=82):
     return games[:n]
 
 def fetch_pbp_stats(game_id):
-    """Single play-by-play call returns both GIFT and FP goals."""
+    """
+    Single play-by-play call returns:
+      - gift: bool (any goal in first 10 min of P1)
+      - fp_goals: total P1 goals by both teams
+      - p1_home_goals: goals scored by HOME team in P1
+      - p1_away_goals: goals scored by AWAY team in P1
+    """
     url  = f"https://api-web.nhle.com/v1/gamecenter/{game_id}/play-by-play"
     data = _get(url)
     if not data: return None
 
-    gift     = False
-    fp_goals = 0
+    # Identify which team ID is home
+    home_id = (data.get("homeTeam") or {}).get("id")
+
+    gift          = False
+    fp_goals      = 0
+    p1_home_goals = 0
+    p1_away_goals = 0
 
     for play in data.get("plays", []):
         if play.get("typeDescKey") != "goal": continue
@@ -73,23 +84,53 @@ def fetch_pbp_stats(game_id):
         try:    pd_num = int(pd_num)
         except: continue
         if pd_num != 1: continue
+
         fp_goals += 1
+
+        # Which team scored?
+        scorer_team_id = (play.get("details") or {}).get("eventOwnerTeamId")
+        if scorer_team_id is not None and home_id is not None:
+            if scorer_team_id == home_id:
+                p1_home_goals += 1
+            else:
+                p1_away_goals += 1
+
+        # GIFT: goal within first 10 minutes
         time_str = play.get("timeInPeriod", "99:99")
         try:
             mins, secs = map(int, time_str.split(":"))
             if mins * 60 + secs <= 600: gift = True
         except: pass
 
-    return {"gift": gift, "fp_goals": fp_goals}
+    return {
+        "gift":          gift,
+        "fp_goals":      fp_goals,
+        "p1_home_goals": p1_home_goals,
+        "p1_away_goals": p1_away_goals,
+    }
+
+def _cache_needs_refresh(entry):
+    """Returns True if cache entry is missing the new P1 per-team fields."""
+    return "p1_home_goals" not in entry or "p1_away_goals" not in entry
 
 def fetch_game_data(game_info, cache):
     game_id   = game_info["id"]
     cache_key = str(game_id)
+    is_home   = game_info["is_home"]
 
-    if cache_key in cache:
+    if cache_key in cache and not _cache_needs_refresh(cache[cache_key]):
         c = cache[cache_key]
-        if "gift" in c and "fp_goals" in c:
-            return {"gift":c["gift"],"fp_goals":c["fp_goals"],"is_home":game_info["is_home"],"date":game_info["date"]}
+        p1_for     = c["p1_home_goals"] if is_home else c["p1_away_goals"]
+        p1_against = c["p1_away_goals"] if is_home else c["p1_home_goals"]
+        return {
+            "gift":        c["gift"],
+            "fp_goals":    c["fp_goals"],
+            "p1_for":      p1_for,
+            "p1_against":  p1_against,
+            "p1_win":      p1_for > p1_against,
+            "is_home":     is_home,
+            "date":        game_info["date"],
+        }
 
     print(f"      📡 Game {game_id} ({game_info['date']}) …", end=" ", flush=True)
     stats = fetch_pbp_stats(game_id)
@@ -99,20 +140,47 @@ def fetch_game_data(game_info, cache):
         print("FAILED")
         return None
 
-    print(f"GIFT={'✓' if stats['gift'] else '✗'}  P1={stats['fp_goals']}")
-    cache[cache_key] = {"gift":stats["gift"],"fp_goals":stats["fp_goals"],"date":game_info["date"]}
-    return {"gift":stats["gift"],"fp_goals":stats["fp_goals"],"is_home":game_info["is_home"],"date":game_info["date"]}
+    p1_for     = stats["p1_home_goals"] if is_home else stats["p1_away_goals"]
+    p1_against = stats["p1_away_goals"] if is_home else stats["p1_home_goals"]
+
+    print(
+        f"GIFT={'✓' if stats['gift'] else '✗'}  "
+        f"P1={stats['fp_goals']}  "
+        f"P1-for={p1_for}  P1-against={p1_against}"
+    )
+
+    cache[cache_key] = {
+        "gift":          stats["gift"],
+        "fp_goals":      stats["fp_goals"],
+        "p1_home_goals": stats["p1_home_goals"],
+        "p1_away_goals": stats["p1_away_goals"],
+        "date":          game_info["date"],
+    }
+    return {
+        "gift":       stats["gift"],
+        "fp_goals":   stats["fp_goals"],
+        "p1_for":     p1_for,
+        "p1_against": p1_against,
+        "p1_win":     p1_for > p1_against,
+        "is_home":    is_home,
+        "date":       game_info["date"],
+    }
 
 def _pct(num, den):
     if den == 0: return "N/A"
     return f"{num/den*100:.1f}%"
 
+def _avg(values):
+    if not values: return "N/A"
+    return f"{sum(values)/len(values):.2f}"
+
 def calc_team_stats(games):
     if not games: return _empty_stats()
     gs = sorted(games, key=lambda x: x["date"], reverse=True)
-
-    gift_wins = sum(1 for g in gs if g["gift"])
     ng = len(gs)
+
+    # ── GIFT ─────────────────────────────────────────────────────────────────
+    gift_wins = sum(1 for g in gs if g["gift"])
     streak = 0
     for g in gs:
         if g["gift"]: streak += 1
@@ -120,33 +188,81 @@ def calc_team_stats(games):
 
     gh = [g for g in gs if g["is_home"]]
     ga = [g for g in gs if not g["is_home"]]
+
+    gift_stats = {
+        "pct_season":    _pct(gift_wins, ng),
+        "pct_l5":        _pct(sum(1 for g in gs[:5]  if g["gift"]), min(5,  ng)),
+        "pct_l10":       _pct(sum(1 for g in gs[:10] if g["gift"]), min(10, ng)),
+        "record_season": f"{gift_wins}-{ng-gift_wins}",
+        "streak":        streak,
+        "home_pct":      _pct(sum(1 for g in gh if g["gift"]), len(gh)),
+        "away_pct":      _pct(sum(1 for g in ga if g["gift"]), len(ga)),
+        "scoring_rate":  _pct(gift_wins, ng),
+        "games":         ng,
+    }
+
+    # ── FP O/U (total P1 goals > 1) ──────────────────────────────────────────
     fp_over = sum(1 for g in gs if g["fp_goals"] > 1)
-    nf = len(gs)
-    fh = [g for g in gs if g["is_home"]]
-    fa = [g for g in gs if not g["is_home"]]
+    nf      = ng
+    fh      = [g for g in gs if g["is_home"]]
+    fa      = [g for g in gs if not g["is_home"]]
+
+    fp_ou_stats = {
+        "pct_season":    _pct(fp_over, nf),
+        "pct_l5":        _pct(sum(1 for g in gs[:5]  if g["fp_goals"] > 1), min(5,  nf)),
+        "pct_l10":       _pct(sum(1 for g in gs[:10] if g["fp_goals"] > 1), min(10, nf)),
+        "record_season": f"{fp_over}-{nf-fp_over}",
+        "over_games":    fp_over,
+        "home_pct":      _pct(sum(1 for g in fh if g["fp_goals"] > 1), len(fh)),
+        "away_pct":      _pct(sum(1 for g in fa if g["fp_goals"] > 1), len(fa)),
+        "games":         nf,
+    }
+
+    # ── P1 SCORING (team-specific 1st period goals for/against) ──────────────
+    l5  = gs[:5]
+    l10 = gs[:10]
+
+    p1_wins_season = sum(1 for g in gs  if g["p1_win"])
+    p1_wins_l5     = sum(1 for g in l5  if g["p1_win"])
+    p1_wins_l10    = sum(1 for g in l10 if g["p1_win"])
+
+    p1_scored_season = sum(1 for g in gs  if g["p1_for"] > 0)   # games where team scored in P1
+    p1_scored_l5     = sum(1 for g in l5  if g["p1_for"] > 0)
+    p1_scored_l10    = sum(1 for g in l10 if g["p1_for"] > 0)
+
+    p1_stats = {
+        # Win the 1st period
+        "p1_win_pct_season": _pct(p1_wins_season, ng),
+        "p1_win_pct_l5":     _pct(p1_wins_l5,     min(5,  ng)),
+        "p1_win_pct_l10":    _pct(p1_wins_l10,    min(10, ng)),
+        "p1_win_record":     f"{p1_wins_season}-{ng - p1_wins_season}",
+
+        # Avg goals FOR in P1
+        "p1_gf_avg_season":  _avg([g["p1_for"]     for g in gs]),
+        "p1_gf_avg_l5":      _avg([g["p1_for"]     for g in l5]),
+        "p1_gf_avg_l10":     _avg([g["p1_for"]     for g in l10]),
+
+        # Avg goals AGAINST in P1
+        "p1_ga_avg_season":  _avg([g["p1_against"] for g in gs]),
+        "p1_ga_avg_l5":      _avg([g["p1_against"] for g in l5]),
+        "p1_ga_avg_l10":     _avg([g["p1_against"] for g in l10]),
+
+        # % of games where team scored at least 1 goal in P1
+        "p1_scored_pct_season": _pct(p1_scored_season, ng),
+        "p1_scored_pct_l5":     _pct(p1_scored_l5,     min(5,  ng)),
+        "p1_scored_pct_l10":    _pct(p1_scored_l10,    min(10, ng)),
+
+        # Home/Away splits
+        "p1_win_home_pct":  _pct(sum(1 for g in gh if g["p1_win"]), len(gh)),
+        "p1_win_away_pct":  _pct(sum(1 for g in ga if g["p1_win"]), len(ga)),
+
+        "games": ng,
+    }
 
     return {
-        "gift": {
-            "pct_season":    _pct(gift_wins, ng),
-            "pct_l5":        _pct(sum(1 for g in gs[:5]  if g["gift"]), min(5,  ng)),
-            "pct_l10":       _pct(sum(1 for g in gs[:10] if g["gift"]), min(10, ng)),
-            "record_season": f"{gift_wins}-{ng-gift_wins}",
-            "streak":        streak,
-            "home_pct":      _pct(sum(1 for g in gh if g["gift"]), len(gh)),
-            "away_pct":      _pct(sum(1 for g in ga if g["gift"]), len(ga)),
-            "scoring_rate":  _pct(gift_wins, ng),
-            "games":         ng,
-        },
-        "fp_ou": {
-            "pct_season":    _pct(fp_over, nf),
-            "pct_l5":        _pct(sum(1 for g in gs[:5]  if g["fp_goals"]>1), min(5,  nf)),
-            "pct_l10":       _pct(sum(1 for g in gs[:10] if g["fp_goals"]>1), min(10, nf)),
-            "record_season": f"{fp_over}-{nf-fp_over}",
-            "over_games":    fp_over,
-            "home_pct":      _pct(sum(1 for g in fh if g["fp_goals"]>1), len(fh)),
-            "away_pct":      _pct(sum(1 for g in fa if g["fp_goals"]>1), len(fa)),
-            "games":         nf,
-        },
+        "gift":   gift_stats,
+        "fp_ou":  fp_ou_stats,
+        "p1":     p1_stats,
     }
 
 def build_gift_stats_for_teams(team_abbrevs, n_games=82):
@@ -165,7 +281,10 @@ def build_gift_stats_for_teams(team_abbrevs, n_games=82):
 
         games_data = []
         for game_info in game_list:
-            was_cached = str(game_info["id"]) in cache
+            was_cached = (
+                str(game_info["id"]) in cache and
+                not _cache_needs_refresh(cache.get(str(game_info["id"]), {}))
+            )
             gd = fetch_game_data(game_info, cache)
             if gd:
                 games_data.append(gd)
@@ -174,7 +293,14 @@ def build_gift_stats_for_teams(team_abbrevs, n_games=82):
         result[abbrev] = calc_team_stats(games_data)
         g  = result[abbrev]["gift"]
         fp = result[abbrev]["fp_ou"]
-        print(f"    ✅ {abbrev}: GIFT={g['pct_season']}  L10={g['pct_l10']}  Streak={g['streak']}  |  FP O/U={fp['pct_season']}  ({g['games']} games)")
+        p1 = result[abbrev]["p1"]
+        print(
+            f"    ✅ {abbrev}: "
+            f"GIFT={g['pct_season']}  L10={g['pct_l10']}  Streak={g['streak']}  |  "
+            f"FP O/U={fp['pct_season']}  |  "
+            f"P1-Win={p1['p1_win_pct_season']}  P1-GF/g={p1['p1_gf_avg_season']}  "
+            f"({g['games']} games)"
+        )
 
     if changed: save_cache(cache)
 
@@ -183,27 +309,56 @@ def build_gift_stats_for_teams(team_abbrevs, n_games=82):
     print(f"\n  💾 gift_stats.json → {OUTPUT_FILE} ({len(result)} teams)")
     return result
 
+# ── Public accessors ──────────────────────────────────────────────────────────
 def get_gift_stats(abbr, all_stats):
     return all_stats.get(abbr.upper(), _empty_stats()).get("gift", _empty_gift())
 
 def get_fp_stats(abbr, all_stats):
     return all_stats.get(abbr.upper(), _empty_stats()).get("fp_ou", _empty_fp())
 
+def get_p1_stats(abbr, all_stats):
+    return all_stats.get(abbr.upper(), _empty_stats()).get("p1", _empty_p1())
+
+# ── Empty fallbacks ───────────────────────────────────────────────────────────
 def _empty_gift():
-    return {"pct_season":"N/A","pct_l5":"N/A","pct_l10":"N/A","record_season":"N/A","streak":0,"home_pct":"N/A","away_pct":"N/A","scoring_rate":"N/A"}
+    return {
+        "pct_season":"N/A","pct_l5":"N/A","pct_l10":"N/A",
+        "record_season":"N/A","streak":0,
+        "home_pct":"N/A","away_pct":"N/A","scoring_rate":"N/A",
+    }
 
 def _empty_fp():
-    return {"pct_season":"N/A","pct_l5":"N/A","pct_l10":"N/A","record_season":"N/A","over_games":0,"home_pct":"N/A","away_pct":"N/A"}
+    return {
+        "pct_season":"N/A","pct_l5":"N/A","pct_l10":"N/A",
+        "record_season":"N/A","over_games":0,
+        "home_pct":"N/A","away_pct":"N/A",
+    }
+
+def _empty_p1():
+    return {
+        "p1_win_pct_season":"N/A","p1_win_pct_l5":"N/A","p1_win_pct_l10":"N/A",
+        "p1_win_record":"N/A",
+        "p1_gf_avg_season":"N/A","p1_gf_avg_l5":"N/A","p1_gf_avg_l10":"N/A",
+        "p1_ga_avg_season":"N/A","p1_ga_avg_l5":"N/A","p1_ga_avg_l10":"N/A",
+        "p1_scored_pct_season":"N/A","p1_scored_pct_l5":"N/A","p1_scored_pct_l10":"N/A",
+        "p1_win_home_pct":"N/A","p1_win_away_pct":"N/A",
+        "games":0,
+    }
 
 def _empty_stats():
-    return {"gift":_empty_gift(),"fp_ou":_empty_fp()}
+    return {"gift": _empty_gift(), "fp_ou": _empty_fp(), "p1": _empty_p1()}
+
 
 if __name__ == "__main__":
     teams = sys.argv[1:] if len(sys.argv) > 1 else ["CAR","VGK"]
-    print(f"\n🏒 Building GIFT stats for: {teams} (full season)\n")
+    print(f"\n🏒 Building GIFT+P1 stats for: {teams} (full season)\n")
     stats = build_gift_stats_for_teams(teams, n_games=82)
     print("\n📊 Results:")
     for team, data in stats.items():
         g  = data["gift"]
         fp = data["fp_ou"]
-        print(f"  {team:4s}  GIFT {g['pct_season']:7s}  L10 {g['pct_l10']:7s}  Streak {g['streak']}  |  FP O/U {fp['pct_season']:7s}")
+        p1 = data["p1"]
+        print(f"  {team:4s}  GIFT {g['pct_season']:7s}  L10 {g['pct_l10']:7s}  Streak {g['streak']}")
+        print(f"        P1-Win Season={p1['p1_win_pct_season']}  L5={p1['p1_win_pct_l5']}  L10={p1['p1_win_pct_l10']}")
+        print(f"        P1-GF  Season={p1['p1_gf_avg_season']}  L5={p1['p1_gf_avg_l5']}  L10={p1['p1_gf_avg_l10']}")
+        print(f"        P1-GA  Season={p1['p1_ga_avg_season']}  L5={p1['p1_ga_avg_l5']}  L10={p1['p1_ga_avg_l10']}")
