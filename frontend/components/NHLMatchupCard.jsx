@@ -104,15 +104,20 @@ const GiftStatsSection = ({ giftStats, awayTeam, homeTeam }) => (
 const FirstPeriodSection = ({ fpStats, awayTeam, homeTeam }) => {
   const away = fpStats?.away;
   const home = fpStats?.home;
-
   const TeamFP = ({ team, data }) => {
-    const pct    = data?.pct_season || 'N/A';
+    const [tab, setTab] = React.useState('season');
+    const pctMap = {
+      season: data?.pct_season || 'N/A',
+      l5:     data?.pct_l5     || 'N/A',
+      l10:    data?.pct_l10    || 'N/A',
+    };
+    const pct    = pctMap[tab];
     const pctNum = parseFloat(pct) || 0;
     const color  = pctNum >= 60 ? 'text-emerald-400' : pctNum >= 50 ? 'text-yellow-400' : 'text-red-400';
-
     return (
       <div className="flex-1 bg-[#0b0f19] border border-gray-800 rounded-lg p-3">
-        <div className="flex items-center space-x-2 mb-2">
+        {/* Team header */}
+        <div className="flex items-center space-x-2 mb-3">
           <img
             src={`https://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/${team.toLowerCase()}.png`}
             alt={team} className="w-6 h-6 object-contain"
@@ -120,14 +125,33 @@ const FirstPeriodSection = ({ fpStats, awayTeam, homeTeam }) => {
           />
           <span className="text-xs font-black text-white">{team}</span>
         </div>
-        <p className={`text-2xl font-black ${color} text-center my-2`}>{pct}</p>
-        <p className="text-[9px] uppercase tracking-widest text-gray-600 text-center mb-2">1st Period O/U Rate</p>
+        {/* Season / L5 / L10 tabs */}
+        <div className="flex space-x-1 bg-[#111827] p-0.5 rounded mb-3">
+          {['season', 'l5', 'l10'].map(t => (
+            <button
+              key={t}
+              onClick={() => setTab(t)}
+              className={`flex-1 py-1 text-[9px] font-bold uppercase rounded transition-all ${
+                tab === t ? 'bg-blue-600/80 text-white' : 'text-gray-500 hover:text-gray-300'
+              }`}
+            >
+              {t === 'season' ? 'Season' : t.toUpperCase()}
+            </button>
+          ))}
+        </div>
+        {/* Main percentage */}
+        <div className="text-center mb-3">
+          <p className={`text-2xl font-black ${color}`}>{pct}</p>
+          <p className="text-[9px] uppercase tracking-widest text-gray-600 mt-0.5">1st Period O/U Rate</p>
+        </div>
+        {/* Record */}
         {data?.record_season && data.record_season !== 'N/A' && (
-          <div className="flex justify-between text-[10px] border-t border-gray-800 pt-2 mb-1">
+          <div className="flex justify-between text-[10px] border-t border-gray-800 pt-2 mb-2">
             <span className="text-gray-500">Record</span>
             <span className="font-bold text-white">{data.record_season}</span>
           </div>
         )}
+        {/* Home / Away split */}
         <div className="flex space-x-1 mt-1">
           {data?.home_pct && data.home_pct !== 'N/A' && (
             <div className="flex-1 bg-[#111827] rounded p-1 text-center">
@@ -145,7 +169,6 @@ const FirstPeriodSection = ({ fpStats, awayTeam, homeTeam }) => {
       </div>
     );
   };
-
   return (
     <div className="bg-[#111827] rounded-lg border border-blue-900/40 p-3 sm:p-4">
       <h4 className="text-sm text-blue-400 uppercase tracking-widest font-black mb-4 border-b border-blue-900/30 pb-2 flex items-center">
@@ -427,8 +450,6 @@ const SingleMatchupCard = ({ game, giftStatsAll, defaultExpanded = false }) => {
             const homeGift = giftStatsAll?.[homeAbbr]?.gift || game.details.gift_stats?.home;
             const awayFp   = giftStatsAll?.[awayAbbr]?.fp_ou || game.details.fp_stats?.away;
             const homeFp   = giftStatsAll?.[homeAbbr]?.fp_ou || game.details.fp_stats?.home;
-            const hasGift  = awayGift?.pct_season !== 'N/A' || homeGift?.pct_season !== 'N/A';
-            const hasFp    = awayFp?.pct_season   !== 'N/A' || homeFp?.pct_season   !== 'N/A';
             return (
               <>
                 <GiftStatsSection
