@@ -2,9 +2,9 @@ name: Daily NHL Pipeline + Result Tracker
 
 on:
   schedule:
-    - cron: '0 10 * * *'   # Run 1 — 10:00 UTC (6:00am EST) — morning update
-    - cron: '0 16 * * *'   # Run 2 — 16:00 UTC (12:00pm EST) — afternoon odds/goalies
-    - cron: '0 22 * * *'   # Run 3 — 22:00 UTC (6:00pm EST) — evening confirmed lineups
+    - cron: '0 10 * * *'   # Run 1 — 10:00 UTC (6:00am EDT) — grade overnight results
+    - cron: '0 16 * * *'   # Run 2 — 16:00 UTC (12:00pm EDT) — afternoon odds/goalies
+    - cron: '0 22 * * *'   # Run 3 — 22:00 UTC (6:00pm EDT) — evening confirmed lineups
   workflow_dispatch:
     inputs:
       mode:
@@ -19,6 +19,7 @@ on:
 
 jobs:
 
+  # ── Job 1: Grade yesterday's results, update CSV + result panels ─────────────
   grade-results:
     name: Grade Yesterday + Update Snapshot
     runs-on: ubuntu-latest
@@ -47,15 +48,22 @@ jobs:
           PYTHONUNBUFFERED: "1"
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
-      - name: Commit updated ledger + snapshot
+      - name: Commit all updated files
         run: |
           git config --global user.name  "sumeetamin"
           git config --global user.email "aminsumeet@gmail.com"
-          git add model_records_ledger.json || true
-          git add frontend/public/historical_stats.json || true
+          # past_games.csv — model now has real scores for better projections
+          git add frontend/public/past_games.csv          || true
+          # grade_log.json — full pick history
+          git add frontend/public/grade_log.json          || true
+          # historical_stats.json — real W/L stats for Snapshot tab
+          git add frontend/public/historical_stats.json   || true
+          # results_index.json — powers HIT/MISS result panels on frontend
+          git add frontend/public/results_index.json      || true
           git diff --staged --quiet || git commit -m "📊 Auto: Grade results $(date +'%Y-%m-%d')"
           git push
 
+  # ── Job 2: Run ML pipeline with fresh data, deploy predictions ───────────────
   generate-predictions:
     name: Generate Predictions + Deploy
     runs-on: ubuntu-latest
@@ -70,10 +78,13 @@ jobs:
       )
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repo (gets latest including grade-results commit)
         uses: actions/checkout@v4
         with:
           ref: main
+
+      - name: Pull latest — ensures we have updated past_games.csv from job 1
+        run: git pull origin main
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -97,7 +108,7 @@ jobs:
           PYTHONUNBUFFERED: "1"
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
-      - name: Commit and push all updates
+      - name: Commit and push all prediction files
         run: |
           git config --global user.name  "sumeetamin"
           git config --global user.email "aminsumeet@gmail.com"
@@ -105,6 +116,7 @@ jobs:
           git diff --staged --quiet || git commit -m "🤖 Auto: Predictions $(date +'%Y-%m-%d %H:%M UTC')"
           git push
 
+  # ── Failure notification ──────────────────────────────────────────────────────
   notify-failure:
     name: Notify on Failure
     runs-on: ubuntu-latest
