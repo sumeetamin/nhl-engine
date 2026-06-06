@@ -1,5 +1,4 @@
 "use client";
-export const dynamic = 'force-dynamic'; // skip static pre-render — page uses live JSON data
 import React, { useState, useEffect } from 'react';
 import NHLMatchupCard from '../components/NHLMatchupCard';
 import PerformanceTracker from '../components/PerformanceTracker';
@@ -47,40 +46,43 @@ const TopPlaysList = () => {
   );
 };
 
-// ── Eastern Time date helper ──────────────────────────────────────────────────
-// Uses en-CA format (YYYY-MM-DD) to get the current EDT date as a plain string,
-// then parses it with no timezone so offsets don't shift the day.
-// This is safe from any local timezone (IST, PST, etc.).
+// ── Always use Eastern Time (EDT) for NHL game dates ──────────────────────────
+// Reliably extracts the EDT calendar date using Intl API (works in any timezone)
 const getESTDate = (offsetDays = 0) => {
   const now = new Date();
-  // "en-CA" gives "2026-06-03" — clean ISO date in EDT, no time component
-  const edtStr = now.toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
-  const [year, month, day] = edtStr.split('-').map(Number);
-  // Build as a local date (no timezone math) then apply offset
-  return new Date(year, month - 1, day + offsetDays);
+  // Extract EDT date parts — reliable across all timezones (IST, PST, GMT, etc.)
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    year: "numeric", month: "2-digit", day: "2-digit"
+  }).formatToParts(now);
+  const year  = parseInt(parts.find(p => p.type === "year").value);
+  const month = parseInt(parts.find(p => p.type === "month").value) - 1;
+  const day   = parseInt(parts.find(p => p.type === "day").value);
+  // Build UTC date from EDT parts and apply offset
+  return new Date(Date.UTC(year, month, day + offsetDays));
+};
+
+// Format using UTC methods to avoid local timezone interference
+const fmtDate = (d) => {
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return months[d.getUTCMonth()] + " " + d.getUTCDate();
 };
 
 const buildDateOptions = () => {
-  const fmt  = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   return [
-    { key: 'day_before_yesterday', label: fmt(getESTDate(-2)), sub: '2 Days Ago' },
-    { key: 'yesterday',            label: fmt(getESTDate(-1)), sub: 'Yesterday'  },
-    { key: 'today',                label: fmt(getESTDate( 0)), sub: 'Today'      },
-    { key: 'tomorrow',             label: fmt(getESTDate( 1)), sub: 'Tomorrow'   },
-    { key: 'day_after_tomorrow',   label: fmt(getESTDate( 2)), sub: days[getESTDate(2).getDay()] },
+    { key: 'day_before_yesterday', label: fmtDate(getESTDate(-2)), sub: '2 Days Ago' },
+    { key: 'yesterday',            label: fmtDate(getESTDate(-1)), sub: 'Yesterday'  },
+    { key: 'today',                label: fmtDate(getESTDate( 0)), sub: 'Today'      },
+    { key: 'tomorrow',             label: fmtDate(getESTDate( 1)), sub: 'Tomorrow'   },
+    { key: 'day_after_tomorrow',   label: fmtDate(getESTDate( 2)), sub: days[getESTDate(2).getUTCDay()] },
   ];
 };
 
 export default function NHLDashboard() {
   const [activeMode, setActiveMode] = useState('daily');
   const [activeDate, setActiveDate] = useState('today');
-
-  // ── Client-side only: prevents Vercel SSR from caching stale dates ──────────
-  const [dateOptions, setDateOptions] = useState([]);
-  useEffect(() => {
-    setDateOptions(buildDateOptions());
-  }, []);
+  const dateOptions = buildDateOptions();
 
   return (
     <div className="min-h-screen bg-[#0b0f19] text-gray-100 font-sans">

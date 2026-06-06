@@ -24,9 +24,7 @@ ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "3109357b0d1e8f884a7864d6b95a5811"
 
 # ── Always use Eastern Time (EDT = UTC-4) for NHL dates ───────────────────────
 def get_est_now():
-    """Returns current datetime in Eastern Time (EDT = UTC-4).
-    No noon-cutoff: the pipeline runs at 14:00 UTC (10 AM EDT) which is
-    already the correct sports day — rolling back caused a 1-day lag."""
+    """Returns current datetime in Eastern Time (EDT UTC-4)."""
     est = datetime.now(timezone.utc) - timedelta(hours=4)
     return est.replace(tzinfo=None)
 
