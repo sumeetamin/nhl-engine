@@ -219,7 +219,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: VGK starting Frederik Andersen (Expected) vs CAR starting -- (Expected).",
+                    "Goalie Edge: VGK starting Frederik Andersen (Expected) vs CAR starting 50 (Expected).",
                     "Engine calculates VGK win probability at 62.1% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 11 points."
                 ],
@@ -497,7 +497,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: CAR starting Frederik Andersen (Expected) vs VGK starting -- (Expected).",
+                    "Goalie Edge: CAR starting Frederik Andersen (Expected) vs VGK starting 50 (Expected).",
                     "Engine calculates VGK win probability at 57.8% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 89 points."
                 ],

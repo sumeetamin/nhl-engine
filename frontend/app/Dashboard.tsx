@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import NHLMatchupCard from '../components/NHLMatchupCard';
-import PerformanceTracker from '../components/PerformanceTracker';
+import dynamic from 'next/dynamic';
+
+// ── Dynamic imports with ssr:false — prevents server-side crash ───────────────
+const NHLMatchupCard   = dynamic(() => import('../components/NHLMatchupCard'),   { ssr: false });
+const PerformanceTracker = dynamic(() => import('../components/PerformanceTracker'), { ssr: false });
 
 // ── Top Plays ─────────────────────────────────────────────────────────────────
 const TopPlaysList = () => {
@@ -51,7 +54,7 @@ const TopPlaysList = () => {
   );
 };
 
-// ── Date helper — Eastern Time, safe from any local timezone ──────────────────
+// ── Date helper ───────────────────────────────────────────────────────────────
 const getESTDate = (offsetDays: number = 0): Date => {
   const now    = new Date();
   const edtStr = now.toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
@@ -134,7 +137,6 @@ export default function Dashboard() {
         {/* CONTENT */}
         <div className="mt-2">
           {activeMode === 'snapshot' && <PerformanceTracker />}
-          {/* @ts-ignore */}
           {activeMode === 'daily'    && <NHLMatchupCard dateMode={activeDate} />}
           {activeMode === 'top'      && <TopPlaysList />}
         </div>
