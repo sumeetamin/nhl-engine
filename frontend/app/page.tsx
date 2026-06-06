@@ -1,11 +1,14 @@
 "use client";
-export const dynamic = 'force-dynamic'; // skip static pre-render — page uses live JSON data
+export const dynamic = 'force-dynamic';
+
 import React, { useState, useEffect } from 'react';
 import NHLMatchupCard from '../components/NHLMatchupCard';
 import PerformanceTracker from '../components/PerformanceTracker';
 
+// ── Top Plays ─────────────────────────────────────────────────────────────────
 const TopPlaysList = () => {
   const [plays, setPlays] = useState<any[] | null>(null);
+
   useEffect(() => {
     fetch('/daily_predictions.json?t=' + new Date().getTime())
       .then(res => res.json())
@@ -18,15 +21,17 @@ const TopPlaysList = () => {
       <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
     </div>
   );
+
   if (plays.length === 0) return (
     <div className="text-center text-gray-500 mt-20 font-mono text-sm px-4">
       No EDGE or BIG plays found today. Check tomorrow's slate.
     </div>
   );
+
   return (
     <div className="space-y-4 max-w-3xl mx-auto px-2">
       <h2 className="text-xl font-bold text-gray-100 uppercase tracking-wide mb-6 text-center">Top Engine Plays</h2>
-      {plays.map((game, idx) => (
+      {plays.map((game: any, idx: number) => (
         <div key={idx} className="bg-[#151c28] border border-gray-800 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 shadow-lg hover:border-gray-600 transition-colors">
           <div className="flex items-center space-x-4">
             <div className="text-3xl font-black italic text-[#1f2937]">#{idx + 1}</div>
@@ -47,21 +52,16 @@ const TopPlaysList = () => {
   );
 };
 
-// ── Eastern Time date helper ──────────────────────────────────────────────────
-// Uses en-CA format (YYYY-MM-DD) to get the current EDT date as a plain string,
-// then parses it with no timezone so offsets don't shift the day.
-// This is safe from any local timezone (IST, PST, etc.).
-const getESTDate = (offsetDays = 0) => {
-  const now = new Date();
-  // "en-CA" gives "2026-06-03" — clean ISO date in EDT, no time component
+// ── Date helper — always uses Eastern Time, safe from any timezone ─────────────
+const getESTDate = (offsetDays: number = 0): Date => {
+  const now    = new Date();
   const edtStr = now.toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
   const [year, month, day] = edtStr.split('-').map(Number);
-  // Build as a local date (no timezone math) then apply offset
   return new Date(year, month - 1, day + offsetDays);
 };
 
 const buildDateOptions = () => {
-  const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const fmt  = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   return [
     { key: 'day_before_yesterday', label: fmt(getESTDate(-2)), sub: '2 Days Ago' },
@@ -72,23 +72,25 @@ const buildDateOptions = () => {
   ];
 };
 
+// ── Main Dashboard ────────────────────────────────────────────────────────────
 export default function NHLDashboard() {
-  const [activeMode, setActiveMode] = useState('daily');
-  const [activeDate, setActiveDate] = useState('today');
-
-  // ── Client-side only: prevents Vercel SSR from caching stale dates ──────────
+  const [activeMode, setActiveMode]   = useState<string>('daily');
+  const [activeDate, setActiveDate]   = useState<string>('today');
   const [dateOptions, setDateOptions] = useState<any[]>([]);
+
   useEffect(() => {
     setDateOptions(buildDateOptions());
   }, []);
 
   return (
     <div className="min-h-screen bg-[#0b0f19] text-gray-100 font-sans">
+
       {/* HEADER */}
       <div className="sticky top-0 z-50 bg-[#0b0f19]/95 backdrop-blur border-b border-gray-800">
         <div className="max-w-5xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between gap-2">
           <h1 className="text-lg sm:text-3xl font-black italic tracking-wider text-white whitespace-nowrap">
-            SUMEET<span className="text-blue-500">ENGINE</span> <span className="text-gray-500 text-sm sm:text-lg">NHL</span>
+            SUMEET<span className="text-blue-500">ENGINE</span>{' '}
+            <span className="text-gray-500 text-sm sm:text-lg">NHL</span>
           </h1>
           <div className="flex space-x-1 bg-[#111827] p-1 rounded-lg border border-gray-800">
             {['daily','snapshot','top'].map((mode) => (
@@ -112,7 +114,7 @@ export default function NHLDashboard() {
         {activeMode === 'daily' && (
           <div className="overflow-x-auto pb-1 -mx-3 px-3">
             <div className="flex space-x-2 min-w-max mx-auto w-fit">
-              {dateOptions.map(({ key, label, sub }) => (
+              {dateOptions.map(({ key, label, sub }: { key: string; label: string; sub: string }) => (
                 <button
                   key={key}
                   onClick={() => setActiveDate(key)}
