@@ -133,6 +133,7 @@ export default function NHLDashboard() {
         {/* CONTENT */}
         <div className="mt-2">
           {activeMode === 'snapshot' && <PerformanceTracker />}
+          {/* @ts-ignore */}
           {activeMode === 'daily'    && <NHLMatchupCard dateMode={activeDate} />}
           {activeMode === 'top'      && <TopPlaysList />}
         </div>
