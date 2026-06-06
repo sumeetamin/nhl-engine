@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_OPTIONS='--max_old_space_size=4096' next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
+    "start": "next start"
   },
   "dependencies": {
     "react": "^18",
