@@ -61,7 +61,7 @@ const getESTDate = (offsetDays = 0) => {
 };
 
 const buildDateOptions = () => {
-  const fmt  = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   return [
     { key: 'day_before_yesterday', label: fmt(getESTDate(-2)), sub: '2 Days Ago' },
