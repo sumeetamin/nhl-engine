@@ -77,7 +77,7 @@ export default function NHLDashboard() {
   const [activeDate, setActiveDate] = useState('today');
 
   // ── Client-side only: prevents Vercel SSR from caching stale dates ──────────
-  const [dateOptions, setDateOptions] = useState([]);
+  const [dateOptions, setDateOptions] = useState<any[]>([]);
   useEffect(() => {
     setDateOptions(buildDateOptions());
   }, []);
