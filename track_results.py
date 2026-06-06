@@ -1,17 +1,14 @@
 """
 track_results.py
-Runs daily via GitHub Actions (10:00 UTC, after overnight games finish).
+Runs daily via GitHub Actions (10:00 UTC).
 
-Does three things:
-  1. Appends any new completed games to past_games.csv
-     → ELO + form + score projections update automatically next pipeline run
-  2. Grades yesterday's predictions from daily_predictions.json
-     → Records ML / Spread / O/U pick accuracy
-  3. Writes real cumulative stats to historical_stats.json
-     (replaces the hardcoded mock data in run_backtest())
+1. Appends new completed games to past_games.csv  → model improves
+2. Grades yesterday's picks from daily_predictions.json
+3. Writes real stats to historical_stats.json  (replaces mock data)
+4. Saves results_index.json  → frontend result panels (HIT/MISS display)
 """
 
-import json, os, requests, sys
+import json, os, requests
 import pandas as pd
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -21,11 +18,10 @@ CSV_PATH      = SCRIPT_DIR / "frontend" / "public" / "past_games.csv"
 PRED_PATH     = SCRIPT_DIR / "frontend" / "public" / "daily_predictions.json"
 GRADE_LOG     = SCRIPT_DIR / "frontend" / "public" / "grade_log.json"
 HIST_PATH     = SCRIPT_DIR / "frontend" / "public" / "historical_stats.json"
+RESULTS_PATH  = SCRIPT_DIR / "frontend" / "public" / "results_index.json"
 
-WINDOWS_CSV   = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public\past_games.csv"
-WINDOWS_HIST  = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public\historical_stats.json"
-
-PLAYOFFS_START = "2026-04-19"   # first day of 2026 playoffs
+WINDOWS_BASE  = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public"
+PLAYOFFS_START = "2026-04-19"
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 def get_est_now():
@@ -46,15 +42,20 @@ def load_json(path, default):
             pass
     return default
 
-# ── 1. CSV UPDATE — append new completed games ────────────────────────────────
-def fetch_all_completed_games():
-    """Scan every date from playoffs start to today and collect completed games."""
-    today     = get_est_now()
-    start     = datetime.strptime(PLAYOFFS_START, "%Y-%m-%d")
-    seen      = set()
-    all_games = []
+def all_save_paths(filename):
+    paths = [SCRIPT_DIR / "frontend" / "public" / filename]
+    if os.name == "nt":
+        paths.append(Path(WINDOWS_BASE) / filename)
+    return paths
 
+# ── 1. CSV UPDATE ─────────────────────────────────────────────────────────────
+def fetch_all_completed_games():
+    today   = get_est_now()
+    start   = datetime.strptime(PLAYOFFS_START, "%Y-%m-%d")
+    seen    = set()
+    games   = []
     current = start
+
     while current <= today:
         date_str = current.strftime("%Y-%m-%d")
         url      = f"https://api-web.nhle.com/v1/schedule/{date_str}"
@@ -68,46 +69,35 @@ def fetch_all_completed_games():
                     if gid in seen:
                         continue
                     seen.add(gid)
-
-                    home_abbr  = g["homeTeam"]["abbrev"]
-                    away_abbr  = g["awayTeam"]["abbrev"]
+                    home       = g["homeTeam"]["abbrev"]
+                    away       = g["awayTeam"]["abbrev"]
                     home_score = int(g["homeTeam"].get("score", 0) or 0)
                     away_score = int(g["awayTeam"].get("score", 0) or 0)
-
                     if home_score == 0 and away_score == 0:
                         continue
-
-                    # Use the scheduled game date (already in EDT from NHL API)
-                    game_date  = day.get("date", date_str)
-                    winner     = home_abbr if home_score > away_score else away_abbr
-
-                    all_games.append({
-                        "Date":         game_date,
-                        "Away":         away_abbr,
-                        "Home":         home_abbr,
+                    game_date = day.get("date", date_str)
+                    winner    = home if home_score > away_score else away
+                    games.append({
+                        "Date":          game_date,
+                        "Away":          away,
+                        "Home":          home,
                         "Actual_Winner": winner,
-                        "Away_Score":   away_score,
-                        "Home_Score":   home_score,
+                        "Away_Score":    away_score,
+                        "Home_Score":    home_score,
                     })
         except Exception as e:
             print(f"  ⚠️  Schedule {date_str}: {e}")
-
         current += timedelta(days=1)
 
-    return all_games
+    return games
 
 
 def update_past_games_csv():
-    """Append any new completed games to past_games.csv."""
     print("\n📋 STEP 1: Updating past_games.csv")
 
-    # Load existing CSV — support both 4-col and 6-col formats
-    paths = [CSV_PATH]
-    if os.name == "nt":
-        paths.append(Path(WINDOWS_CSV))
-
+    # Find existing CSV
     csv_path = None
-    for p in paths:
+    for p in all_save_paths("past_games.csv"):
         if p.exists():
             csv_path = p
             break
@@ -115,21 +105,15 @@ def update_past_games_csv():
     if csv_path:
         df = pd.read_csv(csv_path)
     else:
-        df = pd.DataFrame(columns=["Date","Away","Home","Actual_Winner","Away_Score","Home_Score"])
+        df       = pd.DataFrame(columns=["Date","Away","Home","Actual_Winner","Away_Score","Home_Score"])
         csv_path = CSV_PATH
 
-    # Ensure score columns exist (backward compat with old 4-col CSV)
     for col in ["Away_Score", "Home_Score"]:
         if col not in df.columns:
             df[col] = None
 
-    existing_keys = set(zip(
-        df["Date"].astype(str),
-        df["Away"].astype(str),
-        df["Home"].astype(str)
-    ))
+    existing_keys = set(zip(df["Date"].astype(str), df["Away"].astype(str), df["Home"].astype(str)))
 
-    # Fetch all games
     all_games = fetch_all_completed_games()
     new_rows  = []
     for g in all_games:
@@ -139,43 +123,26 @@ def update_past_games_csv():
             existing_keys.add(key)
 
     if not new_rows:
-        print("  ✅ CSV already up to date — no new games found")
+        print("  ✅ CSV already up to date")
         return df
 
-    new_df = pd.DataFrame(new_rows)
-    df     = pd.concat([df, new_df], ignore_index=True)
-    df     = df.sort_values("Date").reset_index(drop=True)
+    df = pd.concat([df, pd.DataFrame(new_rows)], ignore_index=True)
+    df = df.sort_values("Date").reset_index(drop=True)
 
-    for save_path in paths:
-        save_path.parent.mkdir(parents=True, exist_ok=True)
-        df.to_csv(save_path, index=False)
-        print(f"  ✅ Added {len(new_rows)} game(s) → {save_path}")
+    for p in all_save_paths("past_games.csv"):
+        p.parent.mkdir(parents=True, exist_ok=True)
+        df.to_csv(p, index=False)
+        print(f"  ✅ +{len(new_rows)} game(s) → {p}")
 
-    for row in new_rows:
-        score_line = f"{row['Away']} {row['Away_Score']} @ {row['Home']} {row['Home_Score']}"
-        print(f"     ➕ {row['Date']}  {score_line}  → {row['Actual_Winner']} wins")
+    for r in new_rows:
+        print(f"     ➕ {r['Date']}  {r['Away']} {r['Away_Score']} @ {r['Home']} {r['Home_Score']}  → {r['Actual_Winner']}")
 
     return df
 
 
-# ── 2. GRADE PICKS — compare yesterday's predictions to actual ────────────────
-TEAM_NAME_MAP = {
-    "anaheim ducks":"ANA","arizona coyotes":"ARI","boston bruins":"BOS",
-    "buffalo sabres":"BUF","calgary flames":"CGY","carolina hurricanes":"CAR",
-    "chicago blackhawks":"CHI","colorado avalanche":"COL","columbus blue jackets":"CBJ",
-    "dallas stars":"DAL","detroit red wings":"DET","edmonton oilers":"EDM",
-    "florida panthers":"FLA","los angeles kings":"LAK","minnesota wild":"MIN",
-    "montreal canadiens":"MTL","nashville predators":"NSH","new jersey devils":"NJD",
-    "new york islanders":"NYI","new york rangers":"NYR","ottawa senators":"OTT",
-    "philadelphia flyers":"PHI","pittsburgh penguins":"PIT","san jose sharks":"SJS",
-    "seattle kraken":"SEA","st. louis blues":"STL","tampa bay lightning":"TBL",
-    "toronto maple leafs":"TOR","utah hockey club":"UTA","vancouver canucks":"VAN",
-    "vegas golden knights":"VGK","washington capitals":"WSH","winnipeg jets":"WPG",
-}
-
+# ── 2. GRADE PICKS ────────────────────────────────────────────────────────────
 def fetch_actual_scores_for_date(date_str):
-    """Returns dict keyed by frozenset({home, away}) → {winner, home_score, away_score}."""
-    url = f"https://api-web.nhle.com/v1/schedule/{date_str}"
+    url     = f"https://api-web.nhle.com/v1/schedule/{date_str}"
     results = {}
     try:
         resp = requests.get(url, timeout=10).json()
@@ -185,8 +152,8 @@ def fetch_actual_scores_for_date(date_str):
             for g in day.get("games", []):
                 if g.get("gameState") not in ("OFF", "FINAL", "CRIT"):
                     continue
-                h = g["homeTeam"]["abbrev"]
-                a = g["awayTeam"]["abbrev"]
+                h  = g["homeTeam"]["abbrev"]
+                a  = g["awayTeam"]["abbrev"]
                 hs = int(g["homeTeam"].get("score", 0) or 0)
                 as_ = int(g["awayTeam"].get("score", 0) or 0)
                 if hs == 0 and as_ == 0:
@@ -195,93 +162,94 @@ def fetch_actual_scores_for_date(date_str):
                 results[frozenset([h, a])] = {
                     "winner": winner, "home": h, "away": a,
                     "home_score": hs, "away_score": as_,
-                    "total": hs + as_
+                    "total": hs + as_,
                 }
     except Exception as e:
-        print(f"  ⚠️  Scores fetch {date_str}: {e}")
+        print(f"  ⚠️  Scores {date_str}: {e}")
     return results
 
 
 def grade_prediction(pred, actual):
-    """
-    Grade a single game prediction dict against actual result dict.
-    Returns dict of {pick_type: "W"/"L"/"P"}.
-    """
-    pw      = pred.get("predicted_winner", "")
-    aw      = actual["winner"]
-    total   = actual["total"]
-    grades  = {}
+    pw     = pred.get("predicted_winner", "")
+    aw     = actual["winner"]
+    total  = actual["total"]
+    grades = {}
 
-    # ML (moneyline)
+    # ML
     grades["ml"] = "W" if pw == aw else "L"
 
-    # Spread: predicted winner covers -1.5 if they won by 2+
-    h, a = actual["home"], actual["away"]
-    hs, as_ = actual["home_score"], actual["away_score"]
-    winner_margin = abs(hs - as_)
-    grades["spread"] = "W" if (pw == aw and winner_margin >= 2) else ("P" if winner_margin == 1 else "L")
+    # Spread (-1.5)
+    margin = abs(actual["home_score"] - actual["away_score"])
+    if pw == aw and margin >= 2:
+        grades["spread"] = "W"
+    elif margin == 1:
+        grades["spread"] = "P"
+    else:
+        grades["spread"] = "L"
 
-    # O/U — read from prediction
-    covers = pred.get("details", {}).get("covers", {})
-    ou_call = covers.get("best_ou", "PASS")
+    # O/U
+    ou_call = pred.get("details", {}).get("covers", {}).get("best_ou", "PASS")
     if "OVER" in ou_call:
-        threshold = float(ou_call.split()[-1]) if len(ou_call.split()) > 1 else 5.5
-        grades["ou"] = "W" if total > threshold else "L"
+        try:    thresh = float(ou_call.split()[-1])
+        except: thresh = 5.5
+        grades["ou"] = "W" if total > thresh else "L"
     elif "UNDER" in ou_call:
-        threshold = float(ou_call.split()[-1]) if len(ou_call.split()) > 1 else 6.0
-        grades["ou"] = "W" if total < threshold else "L"
+        try:    thresh = float(ou_call.split()[-1])
+        except: thresh = 6.0
+        grades["ou"] = "W" if total < thresh else "L"
     else:
         grades["ou"] = "P"
 
-    # Edge tier
+    # Edge
     tier = pred.get("tier", "NONE")
-    grades["edge"] = "W" if (tier in ("EDGE","BIG") and pw == aw) else ("L" if tier in ("EDGE","BIG") else "P")
+    if tier in ("EDGE", "BIG"):
+        grades["edge"] = "W" if pw == aw else "L"
+    else:
+        grades["edge"] = "P"
 
     return grades
 
 
 def grade_yesterday_picks():
-    """Load daily_predictions.json, grade 'yesterday' slot, save results."""
     print("\n📊 STEP 2: Grading yesterday's picks")
 
     if not PRED_PATH.exists():
-        print("  ⚠️  daily_predictions.json not found — skipping grade")
-        return
+        print("  ⚠️  daily_predictions.json not found")
+        return []
 
-    preds = load_json(PRED_PATH, {})
+    preds           = load_json(PRED_PATH, {})
     yesterday_games = preds.get("yesterday", [])
 
     if not yesterday_games:
         print("  ℹ️  No games in yesterday slot")
-        return
+        return load_json(GRADE_LOG, [])
 
-    # Determine the date from the first game's time field (e.g. "7:00 PM EST")
-    # We can compute yesterday in EDT directly
     yesterday_edt = (get_est_now() - timedelta(days=1)).strftime("%Y-%m-%d")
     actual_scores = fetch_actual_scores_for_date(yesterday_edt)
 
     if not actual_scores:
-        print(f"  ⚠️  No actual scores found for {yesterday_edt}")
-        return
+        print(f"  ⚠️  No scores found for {yesterday_edt}")
+        return load_json(GRADE_LOG, [])
 
     grade_log  = load_json(GRADE_LOG, [])
+    # Avoid double-grading the same date
+    already    = {e["date"] + e["matchup"] for e in grade_log}
     new_grades = []
 
     for pred in yesterday_games:
-        h = pred.get("home", {}).get("name", "")
-        a = pred.get("away", {}).get("name", "")
+        h   = pred.get("home", {}).get("name", "")
+        a   = pred.get("away", {}).get("name", "")
         key = frozenset([h, a])
-
         if key not in actual_scores:
-            print(f"  ⚠️  No actual score for {a} @ {h}")
+            print(f"  ⚠️  No score for {a} @ {h}")
             continue
 
-        actual  = actual_scores[key]
-        grades  = grade_prediction(pred, actual)
-        pw      = pred.get("predicted_winner", "?")
-        aw      = actual["winner"]
+        actual = actual_scores[key]
+        grades = grade_prediction(pred, actual)
+        pw     = pred.get("predicted_winner", "?")
+        aw     = actual["winner"]
 
-        grade_entry = {
+        entry = {
             "date":      yesterday_edt,
             "matchup":   f"{a} @ {h}",
             "predicted": pw,
@@ -291,26 +259,30 @@ def grade_yesterday_picks():
             "edge":      pred.get("edge", "N/A"),
             "grades":    grades,
         }
-        grade_log.append(grade_entry)
-        new_grades.append(grade_entry)
 
-        result_icon = "✅" if grades["ml"] == "W" else "❌"
-        print(f"  {result_icon} {a} @ {h}: predicted {pw}, actual {aw} ({actual['away_score']}-{actual['home_score']}) | ML:{grades['ml']} Spread:{grades['spread']} OU:{grades['ou']}")
+        entry_key = entry["date"] + entry["matchup"]
+        if entry_key in already:
+            continue
+
+        grade_log.append(entry)
+        new_grades.append(entry)
+        icon = "✅" if grades["ml"] == "W" else "❌"
+        print(f"  {icon} {a} @ {h}: predicted {pw}, actual {aw} ({actual['away_score']}-{actual['home_score']}) | ML:{grades['ml']} Spread:{grades['spread']} OU:{grades['ou']}")
 
     if new_grades:
-        save_json(GRADE_LOG, grade_log)
-        print(f"  💾 grade_log.json updated ({len(grade_log)} total graded games)")
+        for p in all_save_paths("grade_log.json"):
+            save_json(p, grade_log)
+        print(f"  💾 grade_log.json — {len(grade_log)} total graded games")
 
     return grade_log
 
 
-# ── 3. HISTORICAL STATS — compute real cumulative performance ─────────────────
+# ── 3. HISTORICAL STATS ───────────────────────────────────────────────────────
 def build_historical_stats(grade_log):
-    """Aggregate grade_log into historical_stats.json for the Snapshot tab."""
+    print("\n📈 STEP 3: Building historical_stats.json")
+
     if not grade_log:
         return {}
-
-    from datetime import date as date_cls
 
     today     = get_est_now().date()
     yesterday = today - timedelta(days=1)
@@ -321,12 +293,12 @@ def build_historical_stats(grade_log):
         try:    return datetime.strptime(s, "%Y-%m-%d").date()
         except: return None
 
-    def calc_period(entries, pick_types=("ml","spread","ou","edge")):
+    def calc_period(entries):
         out = {}
-        for pt in pick_types:
+        for pt in ("ml", "spread", "ou", "edge"):
             picks = [e["grades"].get(pt) for e in entries if e["grades"].get(pt) != "P"]
-            w = sum(1 for p in picks if p == "W")
-            l = sum(1 for p in picks if p == "L")
+            w     = sum(1 for p in picks if p == "W")
+            l     = sum(1 for p in picks if p == "L")
             total = w + l
             out[pt] = {
                 "wins":     w,
@@ -334,7 +306,7 @@ def build_historical_stats(grade_log):
                 "pushes":   sum(1 for e in entries if e["grades"].get(pt) == "P"),
                 "win_rate": f"{w/total*100:.1f}%" if total else "N/A",
                 "avg_edge": "N/A",
-                "units":    str(round(w * 0.91 - l, 1)),  # -110 juice approximation
+                "units":    str(round(w * 0.91 - l, 1)),
             }
         out["overall"] = {
             "wins":     out["ml"]["wins"],
@@ -345,28 +317,55 @@ def build_historical_stats(grade_log):
         }
         return out
 
-    all_entries       = grade_log
-    yesterday_entries = [e for e in all_entries if parse_date(e["date"]) == yesterday]
-    week_entries      = [e for e in all_entries if parse_date(e["date"]) and parse_date(e["date"]) >= week_ago]
-    month_entries     = [e for e in all_entries if parse_date(e["date"]) and parse_date(e["date"]) >= month_ago]
-
     stats = {
-        "all_time":   calc_period(all_entries),
-        "this_month": calc_period(month_entries),
-        "this_week":  calc_period(week_entries),
-        "yesterday":  calc_period(yesterday_entries),
+        "all_time":   calc_period(grade_log),
+        "this_month": calc_period([e for e in grade_log if parse_date(e["date"]) and parse_date(e["date"]) >= month_ago]),
+        "this_week":  calc_period([e for e in grade_log if parse_date(e["date"]) and parse_date(e["date"]) >= week_ago]),
+        "yesterday":  calc_period([e for e in grade_log if parse_date(e["date"]) == yesterday]),
     }
 
-    # Save to both paths
-    for save_path in [HIST_PATH]:
-        save_json(save_path, stats)
-    if os.name == "nt":
-        save_json(WINDOWS_HIST, stats)
+    for p in all_save_paths("historical_stats.json"):
+        save_json(p, stats)
 
     ml = stats["all_time"]["ml"]
-    print(f"\n  📈 All-time: {ml['wins']}W-{ml['losses']}L ({ml['win_rate']}) | units: {ml['units']}")
-    print(f"  💾 historical_stats.json updated")
+    print(f"  ✅ All-time: {ml['wins']}W-{ml['losses']}L ({ml['win_rate']}) | units: {ml['units']}")
     return stats
+
+
+# ── 4. RESULTS INDEX (frontend HIT/MISS panels) ───────────────────────────────
+def build_results_index(grade_log):
+    print("\n🗂️  STEP 4: Building results_index.json")
+
+    index = {}
+    for entry in grade_log:
+        raw = entry.get("matchup", "")
+        if " @ " not in raw:
+            continue
+        away, home = [t.strip() for t in raw.split(" @ ")]
+        key        = f"{away}|{home}"
+
+        score_str   = entry.get("score", "0-0")
+        parts       = score_str.split("-")
+        away_actual = int(parts[0]) if len(parts) == 2 else 0
+        home_actual = int(parts[1]) if len(parts) == 2 else 0
+
+        index[key] = {
+            "date":        entry["date"],
+            "away":        away,
+            "home":        home,
+            "away_actual": away_actual,
+            "home_actual": home_actual,
+            "winner":      entry.get("actual", ""),
+            "predicted":   entry.get("predicted", ""),
+            "tier":        entry.get("tier", "NONE"),
+            "grades":      entry.get("grades", {}),
+        }
+
+    for p in all_save_paths("results_index.json"):
+        save_json(p, index)
+
+    print(f"  ✅ results_index.json — {len(index)} completed games")
+    return index
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -376,4 +375,5 @@ if __name__ == "__main__":
     grade_log = grade_yesterday_picks()
     if grade_log:
         build_historical_stats(grade_log)
+        build_results_index(grade_log)
     print("\n✅ Done.")
