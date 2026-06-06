@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = 'force-dynamic'; // skip static pre-render — page uses live JSON data
 import React, { useState, useEffect } from 'react';
 import NHLMatchupCard from '../components/NHLMatchupCard';
 import PerformanceTracker from '../components/PerformanceTracker';
