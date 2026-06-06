@@ -5,7 +5,7 @@ import NHLMatchupCard from '../components/NHLMatchupCard';
 import PerformanceTracker from '../components/PerformanceTracker';
 
 const TopPlaysList = () => {
-  const [plays, setPlays] = useState(null);
+  const [plays, setPlays] = useState<any[] | null>(null);
   useEffect(() => {
     fetch('/daily_predictions.json?t=' + new Date().getTime())
       .then(res => res.json())
