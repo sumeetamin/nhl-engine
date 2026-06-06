@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd frontend && NODE_OPTIONS='--max-old-space-size=4096' npm run build",
-  "outputDirectory": "frontend/.next",
-  "installCommand": "cd frontend && npm install --legacy-peer-deps",
+  "buildCommand": "NODE_OPTIONS='--max-old-space-size=4096' npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install --legacy-peer-deps",
   "framework": "nextjs",
   "build": {
     "env": {
