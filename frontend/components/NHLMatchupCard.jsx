@@ -566,8 +566,8 @@ const NHLMatchupCard = ({ dateMode }) => {
 
   if (!games.length) {
     const offsets  = { day_before_yesterday:-2, yesterday:-1, today:0, tomorrow:1, day_after_tomorrow:2 };
-    const d        = new Date();
-    d.setDate(d.getDate() + (offsets[dateMode] ?? 0));
+    const now      = new Date();
+    const d        = new Date(now.getFullYear(), now.getMonth(), now.getDate() + (offsets[dateMode] ?? 0));
     const friendly = d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
     return (
       <div className="bg-[#151c28] rounded-xl border border-gray-800 h-64 flex flex-col items-center justify-center">

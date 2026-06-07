@@ -54,23 +54,21 @@ const TopPlaysList = () => {
   );
 };
 
-// ── Date helper ───────────────────────────────────────────────────────────────
-const getESTDate = (offsetDays: number = 0): Date => {
-  const now    = new Date();
-  const edtStr = now.toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
-  const [year, month, day] = edtStr.split('-').map(Number);
-  return new Date(year, month - 1, day + offsetDays);
+// ── Date helper — uses viewer's local date ────────────────────────────────────
+const getLocalDate = (offsetDays: number = 0): Date => {
+  const now = new Date();
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate() + offsetDays);
 };
 
 const buildDateOptions = () => {
   const fmt  = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   return [
-    { key: 'day_before_yesterday', label: fmt(getESTDate(-2)), sub: '2 Days Ago' },
-    { key: 'yesterday',            label: fmt(getESTDate(-1)), sub: 'Yesterday'  },
-    { key: 'today',                label: fmt(getESTDate( 0)), sub: 'Today'      },
-    { key: 'tomorrow',             label: fmt(getESTDate( 1)), sub: 'Tomorrow'   },
-    { key: 'day_after_tomorrow',   label: fmt(getESTDate( 2)), sub: days[getESTDate(2).getDay()] },
+    { key: 'day_before_yesterday', label: fmt(getLocalDate(-2)), sub: '2 Days Ago' },
+    { key: 'yesterday',            label: fmt(getLocalDate(-1)), sub: 'Yesterday'  },
+    { key: 'today',                label: fmt(getLocalDate( 0)), sub: 'Today'      },
+    { key: 'tomorrow',             label: fmt(getLocalDate( 1)), sub: 'Tomorrow'   },
+    { key: 'day_after_tomorrow',   label: fmt(getLocalDate( 2)), sub: days[getLocalDate(2).getDay()] },
   ];
 };
 
@@ -137,6 +135,7 @@ export default function Dashboard() {
         {/* CONTENT */}
         <div className="mt-2">
           {activeMode === 'snapshot' && <PerformanceTracker />}
+          {/* @ts-ignore */}
           {activeMode === 'daily'    && <NHLMatchupCard dateMode={activeDate} />}
           {activeMode === 'top'      && <TopPlaysList />}
         </div>
