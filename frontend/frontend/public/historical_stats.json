@@ -1,0 +1,166 @@
+{
+  "all_time": {
+    "ml": {
+      "wins": 1,
+      "losses": 0,
+      "pushes": 0,
+      "win_rate": "100.0%",
+      "avg_edge": "N/A",
+      "units": "0.9"
+    },
+    "spread": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 1,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "ou": {
+      "wins": 0,
+      "losses": 1,
+      "pushes": 0,
+      "win_rate": "0.0%",
+      "avg_edge": "N/A",
+      "units": "-1.0"
+    },
+    "edge": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 1,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "overall": {
+      "wins": 1,
+      "losses": 0,
+      "win_rate": "100.0%",
+      "avg_edge": "N/A",
+      "units": "0.9"
+    }
+  },
+  "this_month": {
+    "ml": {
+      "wins": 1,
+      "losses": 0,
+      "pushes": 0,
+      "win_rate": "100.0%",
+      "avg_edge": "N/A",
+      "units": "0.9"
+    },
+    "spread": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 1,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "ou": {
+      "wins": 0,
+      "losses": 1,
+      "pushes": 0,
+      "win_rate": "0.0%",
+      "avg_edge": "N/A",
+      "units": "-1.0"
+    },
+    "edge": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 1,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "overall": {
+      "wins": 1,
+      "losses": 0,
+      "win_rate": "100.0%",
+      "avg_edge": "N/A",
+      "units": "0.9"
+    }
+  },
+  "this_week": {
+    "ml": {
+      "wins": 1,
+      "losses": 0,
+      "pushes": 0,
+      "win_rate": "100.0%",
+      "avg_edge": "N/A",
+      "units": "0.9"
+    },
+    "spread": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 1,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "ou": {
+      "wins": 0,
+      "losses": 1,
+      "pushes": 0,
+      "win_rate": "0.0%",
+      "avg_edge": "N/A",
+      "units": "-1.0"
+    },
+    "edge": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 1,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "overall": {
+      "wins": 1,
+      "losses": 0,
+      "win_rate": "100.0%",
+      "avg_edge": "N/A",
+      "units": "0.9"
+    }
+  },
+  "yesterday": {
+    "ml": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 0,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "spread": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 0,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "ou": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 0,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "edge": {
+      "wins": 0,
+      "losses": 0,
+      "pushes": 0,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    },
+    "overall": {
+      "wins": 0,
+      "losses": 0,
+      "win_rate": "N/A",
+      "avg_edge": "N/A",
+      "units": "0.0"
+    }
+  }
+}

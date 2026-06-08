@@ -272,7 +272,7 @@ const SingleMatchupCard = ({ game, giftStatsAll, resultsIndex, defaultExpanded =
   const homeTeam        = game.home.name;
 
   // Look up result from results_index.json
-  const resultKey    = `${awayTeam}|${homeTeam}`;
+  const resultKey = `${game.game_date}|${awayTeam}|${homeTeam}`;
   const gameResult   = resultsIndex?.[resultKey] || null;
   const isCompleted  = !!gameResult;
 

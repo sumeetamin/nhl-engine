@@ -1,0 +1,17 @@
+[
+  {
+    "date": "2026-06-06",
+    "matchup": "CAR @ VGK",
+    "predicted": "VGK",
+    "actual": "VGK",
+    "score": "4-5",
+    "tier": "NONE",
+    "edge": "+5.4%",
+    "grades": {
+      "ml": "W",
+      "spread": "P",
+      "ou": "L",
+      "edge": "P"
+    }
+  }
+]

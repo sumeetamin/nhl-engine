@@ -279,7 +279,8 @@
                         "games": 82
                     }
                 }
-            }
+            },
+            "game_date": "2026-06-06"
         }
     ],
     "yesterday": [],
@@ -564,7 +565,8 @@
                         "games": 82
                     }
                 }
-            }
+            },
+            "game_date": "2026-06-09"
         }
     ],
     "day_after_tomorrow": [],
