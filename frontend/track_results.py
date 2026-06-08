@@ -211,70 +211,84 @@ def grade_prediction(pred, actual):
 
 
 def grade_yesterday_picks():
-    print("\n📊 STEP 2: Grading yesterday's picks")
+    """
+    Grades ALL slots that contain completed games — not just 'yesterday'.
+    The pipeline timing means completed games can land in any slot.
+    """
+    print("\n📊 STEP 2: Grading completed picks across all slots")
 
     if not PRED_PATH.exists():
         print("  ⚠️  daily_predictions.json not found")
         return []
 
-    preds           = load_json(PRED_PATH, {})
-    yesterday_games = preds.get("yesterday", [])
-
-    if not yesterday_games:
-        print("  ℹ️  No games in yesterday slot")
-        return load_json(GRADE_LOG, [])
-
-    yesterday_edt = (get_est_now() - timedelta(days=1)).strftime("%Y-%m-%d")
-    actual_scores = fetch_actual_scores_for_date(yesterday_edt)
-
-    if not actual_scores:
-        print(f"  ⚠️  No scores found for {yesterday_edt}")
-        return load_json(GRADE_LOG, [])
-
+    preds      = load_json(PRED_PATH, {})
     grade_log  = load_json(GRADE_LOG, [])
-    # Avoid double-grading the same date
     already    = {e["date"] + e["matchup"] for e in grade_log}
     new_grades = []
+    today_edt  = get_est_now()
 
-    for pred in yesterday_games:
-        h   = pred.get("home", {}).get("name", "")
-        a   = pred.get("away", {}).get("name", "")
-        key = frozenset([h, a])
-        if key not in actual_scores:
-            print(f"  ⚠️  No score for {a} @ {h}")
+    slots = ["day_before_yesterday", "yesterday", "today", "tomorrow", "day_after_tomorrow"]
+
+    for slot in slots:
+        slot_games = preds.get(slot, [])
+        if not slot_games:
             continue
 
-        actual = actual_scores[key]
-        grades = grade_prediction(pred, actual)
-        pw     = pred.get("predicted_winner", "?")
-        aw     = actual["winner"]
+        for pred in slot_games:
+            h = pred.get("home", {}).get("name", "")
+            a = pred.get("away", {}).get("name", "")
+            if not h or not a:
+                continue
 
-        entry = {
-            "date":      yesterday_edt,
-            "matchup":   f"{a} @ {h}",
-            "predicted": pw,
-            "actual":    aw,
-            "score":     f"{actual['away_score']}-{actual['home_score']}",
-            "tier":      pred.get("tier", "NONE"),
-            "edge":      pred.get("edge", "N/A"),
-            "grades":    grades,
-        }
+            # Search last 7 days for this completed matchup
+            actual = None
+            game_date_str = None
+            for offset in range(0, 7):
+                check_date = (today_edt - timedelta(days=offset)).strftime("%Y-%m-%d")
+                scores = fetch_actual_scores_for_date(check_date)
+                if frozenset([h, a]) in scores:
+                    actual = scores[frozenset([h, a])]
+                    game_date_str = check_date
+                    break
 
-        entry_key = entry["date"] + entry["matchup"]
-        if entry_key in already:
-            continue
+            if not actual:
+                continue  # game hasn't happened yet
 
-        grade_log.append(entry)
-        new_grades.append(entry)
-        icon = "✅" if grades["ml"] == "W" else "❌"
-        print(f"  {icon} {a} @ {h}: predicted {pw}, actual {aw} ({actual['away_score']}-{actual['home_score']}) | ML:{grades['ml']} Spread:{grades['spread']} OU:{grades['ou']}")
+            entry_key = game_date_str + f"{a} @ {h}"
+            if entry_key in already:
+                continue
+
+            grades = grade_prediction(pred, actual)
+            pw     = pred.get("predicted_winner", "?")
+            aw     = actual["winner"]
+
+            entry = {
+                "date":      game_date_str,
+                "matchup":   f"{a} @ {h}",
+                "predicted": pw,
+                "actual":    aw,
+                "score":     f"{actual['away_score']}-{actual['home_score']}",
+                "tier":      pred.get("tier", "NONE"),
+                "edge":      pred.get("edge", "N/A"),
+                "grades":    grades,
+            }
+
+            grade_log.append(entry)
+            new_grades.append(entry)
+            already.add(entry_key)
+            icon = "✅" if grades["ml"] == "W" else "❌"
+            print(f"  {icon} [{slot}] {a} @ {h} ({game_date_str}): {pw} predicted, {aw} won ({actual['away_score']}-{actual['home_score']}) | ML:{grades['ml']} Spread:{grades['spread']} OU:{grades['ou']}")
 
     if new_grades:
         for p in all_save_paths("grade_log.json"):
             save_json(p, grade_log)
         print(f"  💾 grade_log.json — {len(grade_log)} total graded games")
+    else:
+        print("  ℹ️  No new completed games to grade")
 
     return grade_log
+
+
 
 
 # ── 3. HISTORICAL STATS ───────────────────────────────────────────────────────
