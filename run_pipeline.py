@@ -420,7 +420,9 @@ def get_all_games_for_date(target_date_str, scraped_goalies, odds_data, standing
         mg  = scraped_goalies[i] if i<len(scraped_goalies) else None
         res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=mg,
                             odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all)
-        if res: all_games.append(res)
+        if res:
+            res["game_date"] = target_date_str
+            all_games.append(res)
     all_games.sort(key=lambda x:float(x['edge'].replace('+','').replace('%','')),reverse=True)
     return all_games
 
