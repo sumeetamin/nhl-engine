@@ -14,5 +14,21 @@
       "ou": "L",
       "edge": "P"
     }
+  },
+  "2026-06-06|VGK|CAR": {
+    "date": "2026-06-06",
+    "away": "VGK",
+    "home": "CAR",
+    "away_actual": 4,
+    "home_actual": 5,
+    "winner": "VGK",
+    "predicted": "VGK",
+    "tier": "NONE",
+    "grades": {
+      "ml": "W",
+      "spread": "P",
+      "ou": "L",
+      "edge": "P"
+    }
   }
 }
