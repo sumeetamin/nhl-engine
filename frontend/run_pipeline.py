@@ -24,7 +24,9 @@ ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "3109357b0d1e8f884a7864d6b95a5811"
 
 # ── Always use Eastern Time (EDT = UTC-4) for NHL dates ───────────────────────
 def get_est_now():
-    """Returns current datetime in Eastern Time (EDT UTC-4)."""
+    """Returns current datetime in Eastern Time (EDT = UTC-4).
+    No noon-cutoff: the pipeline runs at 14:00 UTC (10 AM EDT) which is
+    already the correct sports day — rolling back caused a 1-day lag."""
     est = datetime.now(timezone.utc) - timedelta(hours=4)
     return est.replace(tzinfo=None)
 
@@ -420,9 +422,7 @@ def get_all_games_for_date(target_date_str, scraped_goalies, odds_data, standing
         mg  = scraped_goalies[i] if i<len(scraped_goalies) else None
         res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=mg,
                             odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all)
-        if res:
-            res["game_date"] = target_date_str
-            all_games.append(res)
+        if res: all_games.append(res)
     all_games.sort(key=lambda x:float(x['edge'].replace('+','').replace('%','')),reverse=True)
     return all_games
 
@@ -473,7 +473,8 @@ def build_daily_json():
     print("\n--- SAVING FILES ---")
     try:
         save_json("daily_predictions.json", daily_payload)
-        save_json("historical_stats.json",  run_backtest())
+        # historical_stats.json is owned exclusively by track_results.py
+        # Never overwrite it here — it contains real graded pick history
         print("✅ Pipeline complete!")
     except Exception as e:
         print(f"❌ CRITICAL ERROR: {e}")

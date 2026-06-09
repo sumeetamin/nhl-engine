@@ -112,7 +112,11 @@ jobs:
         run: |
           git config --global user.name  "sumeetamin"
           git config --global user.email "aminsumeet@gmail.com"
-          git add -A
+          # Only commit prediction files — never historical_stats.json (owned by grade-results job)
+          git add frontend/public/daily_predictions.json || true
+          git add frontend/public/gift_stats.json        || true
+          git add frontend/public/gift_cache.json        || true
+          git add gift_cache.json                        || true
           git diff --staged --quiet || git commit -m "🤖 Auto: Predictions $(date +'%Y-%m-%d %H:%M UTC')"
           git push
 
