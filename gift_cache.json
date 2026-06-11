@@ -1153,5 +1153,12 @@
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2026-06-06"
+  },
+  "2025030414": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 1,
+    "p1_away_goals": 3,
+    "date": "2026-06-09"
   }
 }
