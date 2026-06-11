@@ -1,24 +1,24 @@
 {
-  "2026-06-06|CAR|VGK": {
-    "date": "2026-06-06",
+  "CAR|VGK": {
+    "date": "2026-06-09",
     "away": "CAR",
     "home": "VGK",
-    "away_actual": 4,
-    "home_actual": 5,
-    "winner": "VGK",
+    "away_actual": 5,
+    "home_actual": 3,
+    "winner": "CAR",
     "predicted": "VGK",
     "tier": "NONE",
     "grades": {
-      "ml": "W",
-      "spread": "P",
+      "ml": "L",
+      "spread": "L",
       "ou": "L",
       "edge": "P"
     }
   },
-  "2026-06-09|CAR|VGK": {
+  "VGK|CAR": {
     "date": "2026-06-09",
-    "away": "CAR",
-    "home": "VGK",
+    "away": "VGK",
+    "home": "CAR",
     "away_actual": 5,
     "home_actual": 3,
     "winner": "CAR",

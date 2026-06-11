@@ -356,7 +356,7 @@ def build_results_index(grade_log):
         if " @ " not in raw:
             continue
         away, home = [t.strip() for t in raw.split(" @ ")]
-        key = f"{entry['date']}|{away}|{home}"
+        key        = f"{away}|{home}"
 
         score_str   = entry.get("score", "0-0")
         parts       = score_str.split("-")
