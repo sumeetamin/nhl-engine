@@ -1,0 +1,17 @@
+{
+    "2026-06-11_CAR_VGK": {
+        "date": "2026-06-11",
+        "ml": {
+            "result": "L",
+            "units": -1.0
+        },
+        "spread": {
+            "result": "P",
+            "units": 0.0
+        },
+        "ou": {
+            "result": "P",
+            "units": 0.0
+        }
+    }
+}

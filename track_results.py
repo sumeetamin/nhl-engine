@@ -1,268 +1,200 @@
-"""
-track_results.py - Grade picks + update CSV + build result panels
-"""
-
-import json, os, requests
-import pandas as pd
+import json
+import os
+import requests
 from datetime import datetime, timedelta, timezone
-from pathlib import Path
 
-SCRIPT_DIR   = Path(__file__).resolve().parent
-CSV_PATH     = SCRIPT_DIR / "frontend" / "public" / "past_games.csv"
-PRED_PATH    = SCRIPT_DIR / "frontend" / "public" / "daily_predictions.json"
-GRADE_LOG    = SCRIPT_DIR / "frontend" / "public" / "grade_log.json"
-HIST_PATH    = SCRIPT_DIR / "frontend" / "public" / "historical_stats.json"
-RESULTS_PATH = SCRIPT_DIR / "frontend" / "public" / "results_index.json"
+# ── 1. ENVIRONMENT-AWARE ADAPTIVE PATHS ───────────────────────────────────────
+IS_GITHUB = "GITHUB_ACTIONS" in os.environ
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-PLAYOFFS_START = "2026-04-19"
+if IS_GITHUB:
+    DB_PATH = os.path.join(BASE_DIR, "graded_picks_db.json")
+    PREDICTIONS_PATH = os.path.join(BASE_DIR, "frontend", "public", "daily_predictions.json")
+    FRONTEND_PATH = os.path.join(BASE_DIR, "frontend", "public", "historical_stats.json")
+else:
+    DB_PATH = "graded_picks_db.json"
+    PREDICTIONS_PATH = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public\daily_predictions.json"
+    FRONTEND_PATH = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public\historical_stats.json"
 
-def get_est_now():
-    est = datetime.now(timezone.utc) - timedelta(hours=4)
-    return est.replace(tzinfo=None)
 
-def save_json(path, data):
-    Path(path).parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(data, f, indent=2)
-
-def load_json(path, default):
-    if Path(path).exists():
-        try:
-            with open(path) as f:
-                return json.load(f)
-        except:
-            pass
-    return default
-
-# ── 1. UPDATE past_games.csv ──────────────────────────────────────────────────
-def fetch_all_completed_games():
-    today   = get_est_now()
-    start   = datetime.strptime(PLAYOFFS_START, "%Y-%m-%d")
-    seen    = set()
-    games   = []
-    current = start
-    while current <= today:
-        date_str = current.strftime("%Y-%m-%d")
-        url = f"https://api-web.nhle.com/v1/schedule/{date_str}"
-        try:
-            resp = requests.get(url, timeout=10).json()
-            for day in resp.get("gameWeek", []):
-                for g in day.get("games", []):
-                    if g.get("gameState") not in ("OFF", "FINAL", "CRIT"):
-                        continue
-                    gid = g.get("id")
-                    if gid in seen:
-                        continue
-                    seen.add(gid)
-                    home       = g["homeTeam"]["abbrev"]
-                    away       = g["awayTeam"]["abbrev"]
-                    home_score = int(g["homeTeam"].get("score", 0) or 0)
-                    away_score = int(g["awayTeam"].get("score", 0) or 0)
-                    if home_score == 0 and away_score == 0:
-                        continue
-                    game_date = day.get("date", date_str)
-                    winner    = home if home_score > away_score else away
-                    games.append({
-                        "Date": game_date, "Away": away, "Home": home,
-                        "Actual_Winner": winner,
-                        "Away_Score": away_score, "Home_Score": home_score,
-                    })
-        except Exception as e:
-            print(f"  ⚠️  Schedule {date_str}: {e}")
-        current += timedelta(days=1)
-    return games
-
-def update_csv():
-    print("\n📋 STEP 1: Updating past_games.csv")
-    if CSV_PATH.exists():
-        df = pd.read_csv(CSV_PATH)
-    else:
-        df = pd.DataFrame(columns=["Date","Away","Home","Actual_Winner","Away_Score","Home_Score"])
-    for col in ["Away_Score","Home_Score"]:
-        if col not in df.columns:
-            df[col] = None
-    existing = set(zip(df["Date"].astype(str), df["Away"].astype(str), df["Home"].astype(str)))
-    all_games = fetch_all_completed_games()
-    new_rows  = [g for g in all_games if (g["Date"], g["Away"], g["Home"]) not in existing]
-    if not new_rows:
-        print("  ✅ CSV already up to date")
-        return
-    df = pd.concat([df, pd.DataFrame(new_rows)], ignore_index=True)
-    df = df.sort_values("Date").reset_index(drop=True)
-    CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(CSV_PATH, index=False)
-    print(f"  ✅ Added {len(new_rows)} game(s) → {CSV_PATH}")
-    for r in new_rows:
-        print(f"     ➕ {r['Date']}  {r['Away']} {r['Away_Score']} @ {r['Home']} {r['Home_Score']} → {r['Actual_Winner']}")
-
-# ── 2. GRADE PICKS ────────────────────────────────────────────────────────────
-def fetch_scores_for_date(date_str):
-    results = {}
+# ── 2. UNIT PAYOUT CALCULATION UTILITIES ──────────────────────────────────────
+def calculate_ml_units(odds_str, won):
+    """Parses American odds string to compute exact unit payout changes."""
     try:
-        resp = requests.get(f"https://api-web.nhle.com/v1/schedule/{date_str}", timeout=10).json()
-        for day in resp.get("gameWeek", []):
-            if day.get("date") != date_str:
-                continue
-            for g in day.get("games", []):
-                if g.get("gameState") not in ("OFF","FINAL","CRIT"):
-                    continue
-                h  = g["homeTeam"]["abbrev"]
-                a  = g["awayTeam"]["abbrev"]
-                hs = int(g["homeTeam"].get("score",0) or 0)
-                as_= int(g["awayTeam"].get("score",0) or 0)
-                if hs == 0 and as_ == 0: continue
-                results[frozenset([h,a])] = {
-                    "winner": h if hs > as_ else a,
-                    "home": h, "away": a,
-                    "home_score": hs, "away_score": as_,
-                    "total": hs + as_,
-                }
+        odds = int(odds_str.replace("+", ""))
+        if won:
+            return round(odds / 100, 2) if odds > 0 else round(100 / abs(odds), 2)
+        else:
+            return -1.0
+    except Exception:
+        return 0.0
+
+def calculate_ou_units(won, push=False):
+    """Standard Over/Under juice lines generally track at -110 market baseline."""
+    if push: return 0.0
+    return 0.91 if won else -1.0
+
+
+# ── 3. TIME AND UTILITY HELPERS ───────────────────────────────────────────────
+def get_yesterday_est_str():
+    est = datetime.now(timezone.utc) - timedelta(hours=4)
+    yesterday = est - timedelta(days=1)
+    return yesterday.strftime("%Y-%m-%d")
+
+def load_json_file(path):
+    if os.path.exists(path):
+        with open(path, "r") as f:
+            return json.load(f)
+    return {}
+
+
+# ── 4. THE AUTOMATED GRADER ───────────────────────────────────────────────────
+def auto_grade_yesterday():
+    yesterday_str = get_yesterday_est_str()
+    print(f"Checking results for sports date: {yesterday_str}")
+
+    predictions_payload = load_json_file(PREDICTIONS_PATH)
+    yesterday_predictions = predictions_payload.get("yesterday", [])
+    
+    if not yesterday_predictions:
+        print("⚠️ No predictions discovered for yesterday inside daily_predictions.json. Skipping grading.")
+        return
+
+    # Query official NHL Schedule API for final game data
+    url = f"https://api-web.nhle.com/v1/schedule/{yesterday_str}"
+    try:
+        response = requests.get(url, timeout=10).json()
+        games_list = next((day['games'] for day in response.get('gameWeek', []) if day['date'] == yesterday_str), [])
     except Exception as e:
-        print(f"  ⚠️  Scores {date_str}: {e}")
-    return results
+        print(f"❌ Failed to reach NHL Schedule API: {e}")
+        return
 
-def grade(pred, actual):
-    pw = pred.get("predicted_winner","")
-    aw = actual["winner"]
-    total = actual["total"]
-    grades = {}
-    grades["ml"] = "W" if pw == aw else "L"
-    margin = abs(actual["home_score"] - actual["away_score"])
-    grades["spread"] = "W" if (pw == aw and margin >= 2) else ("P" if margin == 1 else "L")
-    ou = pred.get("details",{}).get("covers",{}).get("best_ou","PASS")
-    if "OVER" in ou:
-        try: thresh = float(ou.split()[-1])
-        except: thresh = 5.5
-        grades["ou"] = "W" if total > thresh else "L"
-    elif "UNDER" in ou:
-        try: thresh = float(ou.split()[-1])
-        except: thresh = 6.0
-        grades["ou"] = "W" if total < thresh else "L"
-    else:
-        grades["ou"] = "P"
-    tier = pred.get("tier","NONE")
-    grades["edge"] = ("W" if pw == aw else "L") if tier in ("EDGE","BIG") else "P"
-    return grades
+    db = load_json_file(DB_PATH)
+    db_updated = False
 
-def grade_picks():
-    print("\n📊 STEP 2: Grading completed picks across all slots")
-    if not PRED_PATH.exists():
-        print("  ⚠️  daily_predictions.json not found")
-        return []
-    preds      = load_json(PRED_PATH, {})
-    grade_log  = load_json(GRADE_LOG, [])
-    already    = {e["date"] + e["matchup"] for e in grade_log}
-    new_grades = []
-    today_edt  = get_est_now()
-    slots = ["day_before_yesterday","yesterday","today","tomorrow","day_after_tomorrow"]
-    for slot in slots:
-        for pred in preds.get(slot, []):
-            h = pred.get("home",{}).get("name","")
-            a = pred.get("away",{}).get("name","")
-            if not h or not a: continue
-            actual = None
-            game_date = None
-            for offset in range(0, 7):
-                check = (today_edt - timedelta(days=offset)).strftime("%Y-%m-%d")
-                scores = fetch_scores_for_date(check)
-                if frozenset([h,a]) in scores:
-                    actual    = scores[frozenset([h,a])]
-                    game_date = check
-                    break
-            if not actual: continue
-            key = game_date + f"{a} @ {h}"
-            if key in already: continue
-            g = grade(pred, actual)
-            entry = {
-                "date": game_date, "matchup": f"{a} @ {h}",
-                "predicted": pred.get("predicted_winner","?"),
-                "actual": actual["winner"],
-                "score": f"{actual['away_score']}-{actual['home_score']}",
-                "tier": pred.get("tier","NONE"),
-                "edge": pred.get("edge","N/A"),
-                "grades": g,
-            }
-            grade_log.append(entry)
-            new_grades.append(entry)
-            already.add(key)
-            icon = "✅" if g["ml"] == "W" else "❌"
-            print(f"  {icon} [{slot}] {a} @ {h} ({game_date}): {entry['predicted']} predicted, {entry['actual']} won ({actual['away_score']}-{actual['home_score']}) | ML:{g['ml']} Spread:{g['spread']} OU:{g['ou']}")
-    if new_grades:
-        save_json(GRADE_LOG, grade_log)
-        print(f"  💾 grade_log.json — {len(grade_log)} total graded games")
-    else:
-        print("  ℹ️  No new completed games to grade")
-    return grade_log
+    for pred in yesterday_predictions:
+        home = pred["home"]["name"]
+        away = pred["away"]["name"]
+        game_id = f"{yesterday_str}_{home}_{away}"
 
-# ── 3. HISTORICAL STATS ───────────────────────────────────────────────────────
-def build_stats(grade_log):
-    print("\n📈 STEP 3: Building historical_stats.json")
-    if not grade_log:
-        return {}
-    today     = get_est_now().date()
-    yesterday = today - timedelta(days=1)
-    week_ago  = today - timedelta(days=7)
-    month_ago = today - timedelta(days=30)
-    def parse_date(s):
-        try: return datetime.strptime(s, "%Y-%m-%d").date()
-        except: return None
-    def calc(entries):
-        out = {}
-        for pt in ("ml","spread","ou","edge"):
-            picks = [e["grades"].get(pt) for e in entries if e["grades"].get(pt) != "P"]
-            w = sum(1 for p in picks if p == "W")
-            l = sum(1 for p in picks if p == "L")
-            total = w + l
-            out[pt] = {
-                "wins": w, "losses": l,
-                "pushes": sum(1 for e in entries if e["grades"].get(pt) == "P"),
-                "win_rate": f"{w/total*100:.1f}%" if total else "N/A",
-                "avg_edge": "N/A",
-                "units": str(round(w * 0.91 - l, 1)),
-            }
-        out["overall"] = {"wins": out["ml"]["wins"], "losses": out["ml"]["losses"],
-                          "win_rate": out["ml"]["win_rate"], "avg_edge": "N/A", "units": out["ml"]["units"]}
-        return out
-    stats = {
-        "all_time":   calc(grade_log),
-        "this_month": calc([e for e in grade_log if parse_date(e["date"]) and parse_date(e["date"]) >= month_ago]),
-        "this_week":  calc([e for e in grade_log if parse_date(e["date"]) and parse_date(e["date"]) >= week_ago]),
-        "yesterday":  calc([e for e in grade_log if parse_date(e["date"]) == yesterday]),
-    }
-    save_json(HIST_PATH, stats)
-    ml = stats["all_time"]["ml"]
-    print(f"  ✅ All-time: {ml['wins']}W-{ml['losses']}L ({ml['win_rate']}) | units: {ml['units']}")
-    return stats
+        # Locate match details inside the API payload
+        api_game = next((g for g in games_list if g["homeTeam"]["abbrev"] == home and g["awayTeam"]["abbrev"] == away), None)
+        
+        if not api_game:
+            continue
+        
+        # Verify the game state is complete
+        if api_game.get("gameState") not in ["OFF", "FINAL"]:
+            print(f"⏳ Game {game_id} is not marked completed yet ({api_game.get('gameState')}). Skipping.")
+            continue
 
-# ── 4. RESULTS INDEX ──────────────────────────────────────────────────────────
-def build_results_index(grade_log):
-    print("\n🗂️  STEP 4: Building results_index.json")
-    index = {}
-    for e in grade_log:
-        raw = e.get("matchup","")
-        if " @ " not in raw: continue
-        away, home = [t.strip() for t in raw.split(" @ ")]
-        key = f"{away}|{home}"
-        parts = e.get("score","0-0").split("-")
-        index[key] = {
-            "date": e["date"], "away": away, "home": home,
-            "away_actual": int(parts[0]) if len(parts)==2 else 0,
-            "home_actual": int(parts[1]) if len(parts)==2 else 0,
-            "winner":    e.get("actual",""),
-            "predicted": e.get("predicted",""),
-            "tier":      e.get("tier","NONE"),
-            "grades":    e.get("grades",{}),
+        home_score = api_game["homeTeam"].get("score", 0)
+        away_score = api_game["awayTeam"].get("score", 0)
+        actual_winner = home if home_score > away_score else away
+        total_goals = home_score + away_score
+
+        # A. Grade Moneyline Market
+        predicted_winner = pred["predicted_winner"]
+        ml_won = predicted_winner == actual_winner
+        ml_res = "W" if ml_won else "L"
+        chosen_odds = pred["home"]["ml"] if predicted_winner == home else pred["away"]["ml"]
+        ml_units = calculate_ml_units(chosen_odds, ml_won)
+
+        # B. Grade Over/Under Market
+        best_ou = pred["details"]["covers"]["best_ou"]
+        ou_res, ou_units = "P", 0.0 # Default state
+        
+        if "OVER" in best_ou:
+            target_line = float(best_ou.replace("OVER ", ""))
+            if total_goals > target_line:
+                ou_res, ou_units = "W", calculate_ou_units(won=True)
+            elif total_goals < target_line:
+                ou_res, ou_units = "L", calculate_ou_units(won=False)
+        elif "UNDER" in best_ou:
+            target_line = float(best_ou.replace("UNDER ", ""))
+            if total_goals < target_line:
+                ou_res, ou_units = "W", calculate_ou_units(won=True)
+            elif total_goals > target_line:
+                ou_res, ou_units = "L", calculate_ou_units(won=False)
+
+        # C. Grade Spread Market (Fallback to Pass if not explicitly evaluated)
+        best_spread = pred["details"]["covers"]["best_spread"]
+        spread_res, spread_units = "P", 0.0
+
+        # Idempotent write operation using unique game composite key
+        db[game_id] = {
+            "date": yesterday_str,
+            "ml": {"result": ml_res, "units": ml_units},
+            "spread": {"result": spread_res, "units": spread_units},
+            "ou": {"result": ou_res, "units": ou_units}
         }
-    save_json(RESULTS_PATH, index)
-    print(f"  ✅ results_index.json — {len(index)} completed games")
-    return index
+        db_updated = True
+        print(f"🎯 Graded {game_id} -> ML: {ml_res} ({ml_units} U) | O/U: {ou_res} ({ou_units} U)")
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+    if db_updated:
+        with open(DB_PATH, "w") as f:
+            json.dump(db, f, indent=4)
+        build_frontend_stats()
+
+
+# ── 5. THE MATH AGGREGATOR ────────────────────────────────────────────────────
+def build_frontend_stats():
+    db = load_json_file(DB_PATH)
+    
+    def empty_stats():
+        return {
+            "ml": {"wins": 0, "losses": 0, "pushes": 0, "units": 0.0},
+            "spread": {"wins": 0, "losses": 0, "pushes": 0, "units": 0.0},
+            "ou": {"wins": 0, "losses": 0, "pushes": 0, "units": 0.0},
+        }
+
+    stats = {
+        "all_time": empty_stats(),
+        "this_month": empty_stats(),
+        "this_week": empty_stats(),
+        "yesterday": empty_stats(),
+    }
+    
+    today = datetime.now()
+    
+    for game_id, data in db.items():
+        game_date = datetime.strptime(data["date"], "%Y-%m-%d")
+        days_ago = (today - game_date).days
+        
+        timeframes = ["all_time"]
+        if days_ago <= 30: timeframes.append("this_month")
+        if days_ago <= 7:  timeframes.append("this_week")
+        if days_ago == 1:  timeframes.append("yesterday")
+        
+        for tf in timeframes:
+            for market in ["ml", "spread", "ou"]:
+                res = data[market]["result"]
+                if res == "W": stats[tf][market]["wins"] += 1
+                elif res == "L": stats[tf][market]["losses"] += 1
+                elif res == "P": stats[tf][market]["pushes"] += 1
+                
+                stats[tf][market]["units"] += data[market]["units"]
+
+    for tf, data in stats.items():
+        o_wins = data["ml"]["wins"] + data["spread"]["wins"] + data["ou"]["wins"]
+        o_losses = data["ml"]["losses"] + data["spread"]["losses"] + data["ou"]["losses"]
+        o_pushes = data["ml"]["pushes"] + data["spread"]["pushes"] + data["ou"]["pushes"]
+        o_units = data["ml"]["units"] + data["spread"]["units"] + data["ou"]["units"]
+        
+        data["overall"] = {
+            "wins": o_wins, "losses": o_losses, "pushes": o_pushes, "units": round(o_units, 2)
+        }
+        
+        for m in ["ml", "spread", "ou", "overall"]:
+            w, l = data[m]["wins"], data[m]["losses"]
+            rate = (w / (w + l) * 100) if (w + l) > 0 else 0
+            data[m]["win_rate"] = f"{round(rate, 1)}%"
+            data[m]["units"] = str(round(float(data[m]["units"]), 2))
+
+    with open(FRONTEND_PATH, "w") as f:
+        json.dump(stats, f, indent=4)
+    print("🚀 Rebuilt frontend stats manifest cleanly without duplicates.")
+
+
 if __name__ == "__main__":
-    print("\n=== TRACK RESULTS PIPELINE ===")
-    update_csv()
-    grade_log = grade_picks()
-    if grade_log:
-        build_stats(grade_log)
-        build_results_index(grade_log)
-    print("\n✅ Done.")
+    auto_grade_yesterday()
