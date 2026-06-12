@@ -232,7 +232,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: VGK starting TBD (TBD) vs CAR starting TBD (TBD).",
+                    "Goalie Edge: VGK starting Carter Hart (Expected) vs CAR starting Frederik Andersen (Expected).",
                     "Engine calculates VGK win probability at 62.1% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 11 points."
                 ],
@@ -298,7 +298,7 @@
                 "record_overall": "53-22-7",
                 "record_split": "24-12-5",
                 "record_l10": "7-2-1",
-                "ml": "-110",
+                "ml": "-115",
                 "proj": "2.1"
             },
             "home": {
@@ -306,7 +306,7 @@
                 "record_overall": "39-26-17",
                 "record_split": "20-12-9",
                 "record_l10": "7-0-3",
-                "ml": "-110",
+                "ml": "-104",
                 "proj": "2.9"
             },
             "ou_total": "O/U 5.0",
@@ -523,7 +523,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: CAR starting TBD (TBD) vs VGK starting TBD (TBD).",
+                    "Goalie Edge: CAR starting Frederik Andersen (Expected) vs VGK starting Carter Hart (Expected).",
                     "Engine calculates VGK win probability at 57.8% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 89 points."
                 ],

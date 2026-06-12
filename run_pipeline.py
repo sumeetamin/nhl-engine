@@ -3,10 +3,26 @@ import __main__
 import pandas as pd
 import numpy as np
 import requests
+import warnings
+from sklearn.exceptions import InconsistentVersionWarning
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
 from engine_classes import NHLStack, NHLElo, NHLBetFilter, NHLFormStore, NHLStatsTracker, TEAM_DIV
+import logging
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+# Import the new goalie fallback scraper
+from goalie_scraper import scrape_goalies
 
+# Suppress scikit-learn pickling version warnings
+warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
+import warnings
+from sklearn.exceptions import InconsistentVersionWarning
+
+# Suppress scikit-learn pickling version warnings
+warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
+
+# Suppress LightGBM feature name warnings caused by sklearn pipelines
+warnings.filterwarnings("ignore", message="X does not have valid feature names")
 __main__.NHLStack = NHLStack
 __main__.NHLElo = NHLElo
 __main__.NHLBetFilter = NHLBetFilter
@@ -219,70 +235,6 @@ def get_odds_for_matchup(home_team, away_team, odds_data):
                             return fmt(h_price), fmt(a_price)
     return None, None
 
-# ── Goalies ───────────────────────────────────────────────────────────────────
-def fetch_todays_goalies():
-    print(f"🏒 [{datetime.now().strftime('%I:%M %p')}] Scraping DailyFaceoff goalies...")
-    url = "https://www.dailyfaceoff.com/starting-goalies"
-    # Full browser headers to bypass bot detection
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Referer': 'https://www.google.com/',
-        'DNT': '1',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'Cache-Control': 'max-age=0',
-    }
-    goalies = []
-    try:
-        session = requests.Session()
-        session.headers.update(headers)
-        resp = session.get(url, timeout=15)
-        soup = BeautifulSoup(resp.text, 'html.parser')
-
-        # Try multiple selectors for different page layouts
-        # Method 1: Look for goalie name links/spans with player names
-        name_candidates = soup.find_all('a', href=lambda h: h and '/players/' in h)
-        goalie_names = [a.get_text(strip=True) for a in name_candidates if a.get_text(strip=True)]
-
-        # Method 2: article or section blocks
-        matchups = (
-            soup.find_all('article') or
-            soup.find_all('section', class_=lambda x: x and 'goalie' in str(x).lower()) or
-            soup.find_all('div', class_=lambda x: x and any(k in str(x) for k in ['xl:flex-row','matchup','goalie-card']))
-        )
-
-        for game in matchups:
-            # Try to find goalie names via text links
-            links = game.find_all('a', href=lambda h: h and '/players/' in str(h))
-            names = [l.get_text(strip=True) for l in links if l.get_text(strip=True)]
-
-            # Try span-based approach as fallback
-            if len(names) < 2:
-                spans = game.find_all('span', class_=lambda x: x and any(k in str(x) for k in ['text-lg','text-xl','text-2xl','font-bold']))
-                names = [s.get_text(strip=True) for s in spans if len(s.get_text(strip=True)) > 5]
-
-            if len(names) >= 2:
-                # Check for confirmed status
-                text = game.get_text().lower()
-                confirmed = 'confirmed' in text
-                status = 'Confirmed' if confirmed else 'Expected'
-                goalies.append({
-                    'away': names[0], 'away_status': status,
-                    'home': names[1], 'home_status': status,
-                })
-
-        if goalies:
-            print(f"✅ {len(goalies)} matchups with goalies")
-        else:
-            print(f"⚠️ Goalie scraper returned 0 — site may have changed HTML structure")
-        return goalies
-    except Exception as e:
-        print(f"⚠️ Goalie scraper: {e}")
-        return []
-
 def get_goalie_stats(name):
     db = {
         # Elite
@@ -335,8 +287,16 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path="past_games.cs
     elo_gap = (h_elo + elo.hfa) - a_elo
     h2h     = form.get_h2h(home_team, away_team)
 
-    ag = (matchup_goalies or {}).get('away','TBD')
-    hg = (matchup_goalies or {}).get('home','TBD')
+    # Use dict access since scrape_goalies returns dict format: {'CAR': {'name': 'X', 'confirmed': True}}
+    ag_dict = matchup_goalies.get(away_team, {}) if matchup_goalies else {}
+    hg_dict = matchup_goalies.get(home_team, {}) if matchup_goalies else {}
+    
+    ag = ag_dict.get('name', 'TBD')
+    hg = hg_dict.get('name', 'TBD')
+    
+    ag_status = "Confirmed" if ag_dict.get("confirmed") else "Expected"
+    hg_status = "Confirmed" if hg_dict.get("confirmed") else "Expected"
+
     a_sv, a_gaa = get_goalie_stats(ag)
     h_sv, h_gaa = get_goalie_stats(hg)
 
@@ -382,8 +342,19 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path="past_games.cs
     }
 
     try:
-        ml_prob = float(model.predict_proba(pd.DataFrame([feat]))[0][1] if hasattr(model,"predict_proba") else model.predict(pd.DataFrame([feat]))[0]) * 100
-    except: ml_prob = 50.0
+        # Resolve LightGBM Feature Warnings by passing a DataFrame with explicitly mapped columns
+        df_feat = pd.DataFrame([feat])
+        if hasattr(model, "feature_name_"):
+             # Ensure the columns match exactly what LightGBM trained on
+             df_feat = df_feat[model.feature_name_]
+             
+        if hasattr(model,"predict_proba"):
+            ml_prob = float(model.predict_proba(df_feat)[0][1]) * 100
+        else:
+            ml_prob = float(model.predict(df_feat)[0]) * 100
+    except Exception as e: 
+        print(f"⚠️ Model prediction error: {e}")
+        ml_prob = 50.0
 
     home_win_prob    = 0.50*ml_prob + 0.50*feat['elo_win_prob']*100
     predicted_winner = home_team if home_win_prob > 50 else away_team
@@ -434,7 +405,7 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path="past_games.cs
             "recent_logs":{"away":get_recent_games(away_team,10),"home":get_recent_games(home_team,10),"h2h":get_h2h_games(home_team,away_team,10)},
             "covers":{"best_ml":f"{predicted_winner} ML","best_spread":f"{predicted_winner} -1.5" if abs(h_proj-a_proj)>=1.5 else "PASS","best_ou":f"OVER 5.5" if total_proj>6.1 else f"UNDER 6.0" if total_proj<5.8 else "PASS"},
             "notes":[
-                f"Goalie Edge: {away_team} starting {ag} ({(matchup_goalies or {}).get('away_status','TBD')}) vs {home_team} starting {hg} ({(matchup_goalies or {}).get('home_status','TBD')}).",
+                f"Goalie Edge: {away_team} starting {ag} ({ag_status}) vs {home_team} starting {hg} ({hg_status}).",
                 f"Engine calculates {predicted_winner} win probability at {max_prob:.1f}% based on V5 goalie adjustments.",
                 f"Matchup features an active Elo rating gap of {abs(elo_gap):.0f} points."
             ],
@@ -456,24 +427,28 @@ def run_backtest():
         }
     return {"all_time":mp(47,31,4,"60.3%","+4.5%","12.4"),"this_month":mp(12,8,1,"60.0%","+3.9%","3.2"),"this_week":mp(4,2,0,"66.7%","+5.1%","1.8"),"yesterday":mp(1,1,0,"50.0%","+2.1%","0.0")}
 
-def get_all_games_for_date(target_date_str, scraped_goalies, odds_data, standings, gift_stats_all):
+def get_all_games_for_date(target_date_str, odds_data, standings, gift_stats_all):
     url = f"https://api-web.nhle.com/v1/schedule/{target_date_str}"
     try:
         response = requests.get(url,timeout=10).json()
         games    = next((day['games'] for day in response.get('gameWeek',[]) if day['date']==target_date_str),[])
         matchups = [(g['homeTeam']['abbrev'],g['awayTeam']['abbrev'],g.get('startTimeUTC','TBD')) for g in games]
     except: matchups=[]
+    
+    # Run the new goalie scraper specific to these games
+    teams_playing = [team for g in matchups for team in (g[0], g[1])]
+    daily_goalies = scrape_goalies(teams=teams_playing, date_str=target_date_str) if teams_playing else {}
+    
     all_games=[]
-    for i,(home,away,utc) in enumerate(matchups):
-        mg  = scraped_goalies[i] if i<len(scraped_goalies) else None
-        res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=mg,
+    for home,away,utc in matchups:
+        res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=daily_goalies,
                             odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all)
         if res: all_games.append(res)
     all_games.sort(key=lambda x:float(x['edge'].replace('+','').replace('%','')),reverse=True)
     return all_games
 
-def get_top_plays(target_date_str, scraped_goalies, odds_data, standings, gift_stats_all):
-    games = get_all_games_for_date(target_date_str,scraped_goalies,odds_data,standings,gift_stats_all)
+def get_top_plays(target_date_str, odds_data, standings, gift_stats_all):
+    games = get_all_games_for_date(target_date_str,odds_data,standings,gift_stats_all)
     return [g for g in games if g["tier"] in ["EDGE","BIG"]][:3]
 
 def build_daily_json():
@@ -484,7 +459,6 @@ def build_daily_json():
     print(f"🕐 EST now: {today.strftime('%Y-%m-%d %H:%M')} EDT")
     d = lambda n: (today + timedelta(days=n)).strftime('%Y-%m-%d')
 
-    scraped_goalies = fetch_todays_goalies()
     odds_data       = fetch_nhl_odds()
     standings       = fetch_standings()
 
@@ -504,15 +478,15 @@ def build_daily_json():
             print(f"\n📊 Fetching GIFT stats for {len(teams_needed)} teams (full season)...")
             gift_stats_all = build_gift_stats_for_teams(list(teams_needed), n_games=82)
 
-    top_today = (get_top_plays(d(0),scraped_goalies,odds_data,standings,gift_stats_all) or
-                 get_top_plays(d(1),scraped_goalies,odds_data,standings,gift_stats_all))
+    top_today = (get_top_plays(d(0),odds_data,standings,gift_stats_all) or
+                 get_top_plays(d(1),odds_data,standings,gift_stats_all))
 
     daily_payload = {
-        "day_before_yesterday": get_all_games_for_date(d(-2),scraped_goalies,odds_data,standings,gift_stats_all),
-        "yesterday":            get_all_games_for_date(d(-1),scraped_goalies,odds_data,standings,gift_stats_all),
-        "today":                get_all_games_for_date(d( 0),scraped_goalies,odds_data,standings,gift_stats_all),
-        "tomorrow":             get_all_games_for_date(d( 1),scraped_goalies,odds_data,standings,gift_stats_all),
-        "day_after_tomorrow":   get_all_games_for_date(d( 2),scraped_goalies,odds_data,standings,gift_stats_all),
+        "day_before_yesterday": get_all_games_for_date(d(-2),odds_data,standings,gift_stats_all),
+        "yesterday":            get_all_games_for_date(d(-1),odds_data,standings,gift_stats_all),
+        "today":                get_all_games_for_date(d( 0),odds_data,standings,gift_stats_all),
+        "tomorrow":             get_all_games_for_date(d( 1),odds_data,standings,gift_stats_all),
+        "day_after_tomorrow":   get_all_games_for_date(d( 2),odds_data,standings,gift_stats_all),
         "top_plays": top_today,
     }
 
