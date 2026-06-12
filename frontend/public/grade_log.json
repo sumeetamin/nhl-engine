@@ -43,5 +43,35 @@
       "ou": "L",
       "edge": "P"
     }
+  },
+  {
+    "date": "2026-06-11",
+    "matchup": "VGK @ CAR",
+    "predicted": "VGK",
+    "actual": "CAR",
+    "score": "2-4",
+    "tier": "NONE",
+    "edge": "+9.7%",
+    "grades": {
+      "ml": "L",
+      "spread": "L",
+      "ou": "L",
+      "edge": "P"
+    }
+  },
+  {
+    "date": "2026-06-11",
+    "matchup": "CAR @ VGK",
+    "predicted": "VGK",
+    "actual": "CAR",
+    "score": "2-4",
+    "tier": "NONE",
+    "edge": "+5.4%",
+    "grades": {
+      "ml": "L",
+      "spread": "L",
+      "ou": "L",
+      "edge": "P"
+    }
   }
 ]

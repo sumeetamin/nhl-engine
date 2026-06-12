@@ -1,10 +1,10 @@
 {
   "CAR|VGK": {
-    "date": "2026-06-09",
+    "date": "2026-06-11",
     "away": "CAR",
     "home": "VGK",
-    "away_actual": 5,
-    "home_actual": 3,
+    "away_actual": 2,
+    "home_actual": 4,
     "winner": "CAR",
     "predicted": "VGK",
     "tier": "NONE",
@@ -16,11 +16,11 @@
     }
   },
   "VGK|CAR": {
-    "date": "2026-06-09",
+    "date": "2026-06-11",
     "away": "VGK",
     "home": "CAR",
-    "away_actual": 5,
-    "home_actual": 3,
+    "away_actual": 2,
+    "home_actual": 4,
     "winner": "CAR",
     "predicted": "VGK",
     "tier": "NONE",

@@ -222,23 +222,62 @@ def get_odds_for_matchup(home_team, away_team, odds_data):
 # ── Goalies ───────────────────────────────────────────────────────────────────
 def fetch_todays_goalies():
     print(f"🏒 [{datetime.now().strftime('%I:%M %p')}] Scraping DailyFaceoff goalies...")
-    url     = "https://www.dailyfaceoff.com/starting-goalies"
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+    url = "https://www.dailyfaceoff.com/starting-goalies"
+    # Full browser headers to bypass bot detection
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Referer': 'https://www.google.com/',
+        'DNT': '1',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+        'Cache-Control': 'max-age=0',
+    }
     goalies = []
     try:
-        soup     = BeautifulSoup(requests.get(url,headers=headers,timeout=10).text, 'html.parser')
-        matchups = soup.find_all('article') or soup.find_all('div', class_=lambda x: x and 'xl:flex-row-reverse' in x)
+        session = requests.Session()
+        session.headers.update(headers)
+        resp = session.get(url, timeout=15)
+        soup = BeautifulSoup(resp.text, 'html.parser')
+
+        # Try multiple selectors for different page layouts
+        # Method 1: Look for goalie name links/spans with player names
+        name_candidates = soup.find_all('a', href=lambda h: h and '/players/' in h)
+        goalie_names = [a.get_text(strip=True) for a in name_candidates if a.get_text(strip=True)]
+
+        # Method 2: article or section blocks
+        matchups = (
+            soup.find_all('article') or
+            soup.find_all('section', class_=lambda x: x and 'goalie' in str(x).lower()) or
+            soup.find_all('div', class_=lambda x: x and any(k in str(x) for k in ['xl:flex-row','matchup','goalie-card']))
+        )
+
         for game in matchups:
-            spans = game.find_all('span', class_=lambda x: x and ('text-lg' in x or 'text-2xl' in x))
-            divs  = game.find_all('div',  class_=lambda x: x and ('text-green-700' in x or 'text-yellow' in x or 'text-red' in x))
-            if len(spans) >= 2 and len(divs) >= 2:
+            # Try to find goalie names via text links
+            links = game.find_all('a', href=lambda h: h and '/players/' in str(h))
+            names = [l.get_text(strip=True) for l in links if l.get_text(strip=True)]
+
+            # Try span-based approach as fallback
+            if len(names) < 2:
+                spans = game.find_all('span', class_=lambda x: x and any(k in str(x) for k in ['text-lg','text-xl','text-2xl','font-bold']))
+                names = [s.get_text(strip=True) for s in spans if len(s.get_text(strip=True)) > 5]
+
+            if len(names) >= 2:
+                # Check for confirmed status
+                text = game.get_text().lower()
+                confirmed = 'confirmed' in text
+                status = 'Confirmed' if confirmed else 'Expected'
                 goalies.append({
-                    "away":spans[0].get_text(strip=True),
-                    "away_status":"Confirmed" if 'text-green-700' in divs[0].get('class',[]) else "Expected",
-                    "home":spans[1].get_text(strip=True),
-                    "home_status":"Confirmed" if 'text-green-700' in divs[1].get('class',[]) else "Expected",
+                    'away': names[0], 'away_status': status,
+                    'home': names[1], 'home_status': status,
                 })
-        print(f"✅ {len(goalies)} matchups with goalies")
+
+        if goalies:
+            print(f"✅ {len(goalies)} matchups with goalies")
+        else:
+            print(f"⚠️ Goalie scraper returned 0 — site may have changed HTML structure")
         return goalies
     except Exception as e:
         print(f"⚠️ Goalie scraper: {e}")
@@ -246,13 +285,20 @@ def fetch_todays_goalies():
 
 def get_goalie_stats(name):
     db = {
+        # Elite
         "Igor Shesterkin":(0.925,2.30),"Connor Hellebuyck":(0.920,2.39),
         "Jeremy Swayman":(0.916,2.53),"Linus Ullmark":(0.915,2.55),
-        "Juuse Saros":(0.906,2.86),"Mackenzie Blackwood":(0.899,3.45),
         "Frederik Andersen":(0.932,1.84),"Sergei Bobrovsky":(0.915,2.37),
+        # 2026 SCF starters
+        "Carter Hart":(0.912,2.58),      # CAR — 2025-26 season stats
+        "Brandon Bussi":(0.912,2.61),    # VGK — 2025-26 season stats
+        # Other current starters
+        "Juuse Saros":(0.906,2.86),"Mackenzie Blackwood":(0.899,3.45),
         "Jake Oettinger":(0.905,2.72),"Stuart Skinner":(0.905,2.62),
         "Joseph Woll":(0.907,2.94),"Ilya Sorokin":(0.909,3.01),
-        "Carter Hart":(0.910,2.75),
+        "Logan Thompson":(0.908,2.65),   # VGK backup
+        "Adin Hill":(0.906,2.80),        # VGK backup
+        "Pyotr Kochetkov":(0.908,2.71),  # CAR backup
     }
     return db.get(name, (0.905, 2.90))
 

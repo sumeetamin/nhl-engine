@@ -2,165 +2,165 @@
   "all_time": {
     "ml": {
       "wins": 1,
-      "losses": 2,
+      "losses": 4,
       "pushes": 0,
-      "win_rate": "33.3%",
+      "win_rate": "20.0%",
       "avg_edge": "N/A",
-      "units": "-1.1"
+      "units": "-3.1"
     },
     "spread": {
       "wins": 0,
-      "losses": 2,
+      "losses": 4,
       "pushes": 1,
       "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "-2.0"
+      "units": "-4.0"
     },
     "ou": {
       "wins": 0,
-      "losses": 3,
+      "losses": 5,
       "pushes": 0,
       "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "-3.0"
+      "units": "-5.0"
     },
     "edge": {
       "wins": 0,
       "losses": 0,
-      "pushes": 3,
+      "pushes": 5,
       "win_rate": "N/A",
       "avg_edge": "N/A",
       "units": "0.0"
     },
     "overall": {
       "wins": 1,
-      "losses": 2,
-      "win_rate": "33.3%",
+      "losses": 4,
+      "win_rate": "20.0%",
       "avg_edge": "N/A",
-      "units": "-1.1"
+      "units": "-3.1"
     }
   },
   "this_month": {
     "ml": {
       "wins": 1,
-      "losses": 2,
+      "losses": 4,
       "pushes": 0,
-      "win_rate": "33.3%",
+      "win_rate": "20.0%",
       "avg_edge": "N/A",
-      "units": "-1.1"
+      "units": "-3.1"
     },
     "spread": {
       "wins": 0,
-      "losses": 2,
+      "losses": 4,
       "pushes": 1,
       "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "-2.0"
+      "units": "-4.0"
     },
     "ou": {
       "wins": 0,
-      "losses": 3,
+      "losses": 5,
       "pushes": 0,
       "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "-3.0"
+      "units": "-5.0"
     },
     "edge": {
       "wins": 0,
       "losses": 0,
-      "pushes": 3,
+      "pushes": 5,
       "win_rate": "N/A",
       "avg_edge": "N/A",
       "units": "0.0"
     },
     "overall": {
       "wins": 1,
-      "losses": 2,
-      "win_rate": "33.3%",
+      "losses": 4,
+      "win_rate": "20.0%",
       "avg_edge": "N/A",
-      "units": "-1.1"
+      "units": "-3.1"
     }
   },
   "this_week": {
     "ml": {
       "wins": 1,
-      "losses": 2,
+      "losses": 4,
       "pushes": 0,
-      "win_rate": "33.3%",
+      "win_rate": "20.0%",
       "avg_edge": "N/A",
-      "units": "-1.1"
+      "units": "-3.1"
     },
     "spread": {
       "wins": 0,
-      "losses": 2,
+      "losses": 4,
       "pushes": 1,
       "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "-2.0"
+      "units": "-4.0"
     },
     "ou": {
       "wins": 0,
-      "losses": 3,
+      "losses": 5,
       "pushes": 0,
       "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "-3.0"
+      "units": "-5.0"
     },
     "edge": {
       "wins": 0,
       "losses": 0,
-      "pushes": 3,
+      "pushes": 5,
       "win_rate": "N/A",
       "avg_edge": "N/A",
       "units": "0.0"
     },
     "overall": {
       "wins": 1,
-      "losses": 2,
-      "win_rate": "33.3%",
+      "losses": 4,
+      "win_rate": "20.0%",
       "avg_edge": "N/A",
-      "units": "-1.1"
+      "units": "-3.1"
     }
   },
   "yesterday": {
     "ml": {
       "wins": 0,
-      "losses": 0,
+      "losses": 2,
       "pushes": 0,
-      "win_rate": "N/A",
+      "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "0.0"
+      "units": "-2.0"
     },
     "spread": {
       "wins": 0,
-      "losses": 0,
+      "losses": 2,
       "pushes": 0,
-      "win_rate": "N/A",
+      "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "0.0"
+      "units": "-2.0"
     },
     "ou": {
       "wins": 0,
-      "losses": 0,
+      "losses": 2,
       "pushes": 0,
-      "win_rate": "N/A",
+      "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "0.0"
+      "units": "-2.0"
     },
     "edge": {
       "wins": 0,
       "losses": 0,
-      "pushes": 0,
+      "pushes": 2,
       "win_rate": "N/A",
       "avg_edge": "N/A",
       "units": "0.0"
     },
     "overall": {
       "wins": 0,
-      "losses": 0,
-      "win_rate": "N/A",
+      "losses": 2,
+      "win_rate": "0.0%",
       "avg_edge": "N/A",
-      "units": "0.0"
+      "units": "-2.0"
     }
   }
 }
