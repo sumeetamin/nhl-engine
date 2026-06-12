@@ -1,28 +1,28 @@
-import json, joblib, os
+import json
+import joblib
+import os
+import logging
+import warnings
 import __main__
 import pandas as pd
 import numpy as np
 import requests
-import warnings
-from sklearn.exceptions import InconsistentVersionWarning
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
+from sklearn.exceptions import InconsistentVersionWarning
 from engine_classes import NHLStack, NHLElo, NHLBetFilter, NHLFormStore, NHLStatsTracker, TEAM_DIV
-import logging
-logging.basicConfig(level=logging.INFO, format='%(message)s')
-# Import the new goalie fallback scraper
+
+# ── Import Custom Goalie Fallback Scraper ─────────────────────────────────────
 from goalie_scraper import scrape_goalies
 
-# Suppress scikit-learn pickling version warnings
-warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
-import warnings
-from sklearn.exceptions import InconsistentVersionWarning
+# ── Configure Logging and Warning Suppression ─────────────────────────────────
+logging.basicConfig(level=logging.INFO, format='%(message)s')
 
-# Suppress scikit-learn pickling version warnings
+# Suppress scikit-learn unpickling version mismatches
 warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
+# Suppress LightGBM feature-name warnings triggered by sklearn pipelines
+warnings.filterwarnings("ignore", message=".*X does not have valid feature names.*")
 
-# Suppress LightGBM feature name warnings caused by sklearn pipelines
-warnings.filterwarnings("ignore", message="X does not have valid feature names")
 __main__.NHLStack = NHLStack
 __main__.NHLElo = NHLElo
 __main__.NHLBetFilter = NHLBetFilter
@@ -38,11 +38,10 @@ except ImportError:
 
 ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "3109357b0d1e8f884a7864d6b95a5811")
 
-# ── Always use Eastern Time (EDT = UTC-4) for NHL dates ───────────────────────
+
+# ── Time and Directory Helpers ────────────────────────────────────────────────
 def get_est_now():
-    """Returns current datetime in Eastern Time (EDT = UTC-4).
-    No noon-cutoff: the pipeline runs at 14:00 UTC (10 AM EDT) which is
-    already the correct sports day — rolling back caused a 1-day lag."""
+    """Returns current datetime in Eastern Time (EDT = UTC-4)."""
     est = datetime.now(timezone.utc) - timedelta(hours=4)
     return est.replace(tzinfo=None)
 
@@ -83,7 +82,8 @@ _cached_odds      = None
 _cached_standings = None
 _cached_gamelogs  = {}
 
-# ── Standings ─────────────────────────────────────────────────────────────────
+
+# ── Standings Parser ──────────────────────────────────────────────────────────
 def fetch_standings():
     global _cached_standings
     if _cached_standings: return _cached_standings
@@ -116,7 +116,8 @@ def get_team_records(abbrev, standings):
         return s["overall"],s["away"],s["l10"],s["home"]
     return "N/A","N/A","N/A","N/A"
 
-# ── Game log parser ────────────────────────────────────────────────────────────
+
+# ── Game Log Parsers ──────────────────────────────────────────────────────────
 def _parse_game(g, abbrev):
     if g.get("gameState") not in ("OFF","FINAL","CRIT"): return None
     ha  = g.get("homeTeam",{}).get("abbrev","")
@@ -135,12 +136,11 @@ def _parse_game(g, abbrev):
     return {"date":df,"raw_date":dt,"opp":f"vs {opp}" if ih else f"@{opp}",
             "result":res,"score":f"{ms}-{os_}"}
 
-# ── Game logs (regular season + playoffs via monthly) ─────────────────────────
 def fetch_team_gamelog(abbrev):
     if abbrev in _cached_gamelogs: return _cached_gamelogs[abbrev]
     seen, log = set(), []
 
-    # Regular season
+    # Regular season log
     try:
         r = requests.get(f"https://api-web.nhle.com/v1/club-schedule-season/{abbrev}/20252026",timeout=10)
         if r.status_code == 200:
@@ -153,7 +153,7 @@ def fetch_team_gamelog(abbrev):
     except Exception as e:
         print(f"⚠️ Season log {abbrev}: {e}")
 
-    # Monthly (last 3 months) to capture playoffs
+    # Monthly schedule logs (captures live playoff windows)
     today = get_est_now()
     for dm in range(0, 3):
         mo = (today - timedelta(days=dm*30)).strftime("%Y-%m")
@@ -179,7 +179,6 @@ def get_recent_games(abbrev, n=10):
     return log[:n] if log else []
 
 def get_h2h_games(team1, team2, n=10):
-    """Fetch H2H from last 3 seasons to get enough matchups."""
     seen, log = set(), []
     for season in ["20252026", "20242025", "20232024"]:
         try:
@@ -199,7 +198,8 @@ def get_h2h_games(team1, team2, n=10):
     for g in log: g.pop("raw_date", None)
     return log[:n] if log else []
 
-# ── Odds API ──────────────────────────────────────────────────────────────────
+
+# ── Odds API Parser ───────────────────────────────────────────────────────────
 def fetch_nhl_odds():
     global _cached_odds
     if _cached_odds is not None: return _cached_odds
@@ -235,22 +235,20 @@ def get_odds_for_matchup(home_team, away_team, odds_data):
                             return fmt(h_price), fmt(a_price)
     return None, None
 
+
+# ── Goalie Static Attributes Database ─────────────────────────────────────────
 def get_goalie_stats(name):
     db = {
-        # Elite
         "Igor Shesterkin":(0.925,2.30),"Connor Hellebuyck":(0.920,2.39),
         "Jeremy Swayman":(0.916,2.53),"Linus Ullmark":(0.915,2.55),
         "Frederik Andersen":(0.932,1.84),"Sergei Bobrovsky":(0.915,2.37),
-        # 2026 SCF starters
-        "Carter Hart":(0.912,2.58),      # CAR — 2025-26 season stats
-        "Brandon Bussi":(0.912,2.61),    # VGK — 2025-26 season stats
-        # Other current starters
+        "Carter Hart":(0.912,2.58),      # CAR — 2025-26 active metrics
+        "Brandon Bussi":(0.912,2.61),    # VGK — 2025-26 active metrics
         "Juuse Saros":(0.906,2.86),"Mackenzie Blackwood":(0.899,3.45),
         "Jake Oettinger":(0.905,2.72),"Stuart Skinner":(0.905,2.62),
         "Joseph Woll":(0.907,2.94),"Ilya Sorokin":(0.909,3.01),
-        "Logan Thompson":(0.908,2.65),   # VGK backup
-        "Adin Hill":(0.906,2.80),        # VGK backup
-        "Pyotr Kochetkov":(0.908,2.71),  # CAR backup
+        "Logan Thompson":(0.908,2.65),"Adin Hill":(0.906,2.80),
+        "Pyotr Kochetkov":(0.908,2.71),
     }
     return db.get(name, (0.905, 2.90))
 
@@ -265,7 +263,8 @@ def get_implied_ml(prob):
     if prob <= 0.1:  return "+10000"
     return f"-{int((prob/(100-prob))*100)}" if prob > 50 else f"+{int(((100-prob)/prob)*100)}"
 
-# ── Core engine ───────────────────────────────────────────────────────────────
+
+# ── Core Machine Learning Engine ──────────────────────────────────────────────
 def run_ml_engine(home_team, away_team, game_time="TBD", csv_path="past_games.csv",
                   matchup_goalies=None, odds_data=None, standings=None, gift_stats_all=None):
     try:
@@ -287,7 +286,7 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path="past_games.cs
     elo_gap = (h_elo + elo.hfa) - a_elo
     h2h     = form.get_h2h(home_team, away_team)
 
-    # Use dict access since scrape_goalies returns dict format: {'CAR': {'name': 'X', 'confirmed': True}}
+    # Decode structure from custom goalie dict payload
     ag_dict = matchup_goalies.get(away_team, {}) if matchup_goalies else {}
     hg_dict = matchup_goalies.get(home_team, {}) if matchup_goalies else {}
     
@@ -342,18 +341,16 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path="past_games.cs
     }
 
     try:
-        # Resolve LightGBM Feature Warnings by passing a DataFrame with explicitly mapped columns
         df_feat = pd.DataFrame([feat])
         if hasattr(model, "feature_name_"):
-             # Ensure the columns match exactly what LightGBM trained on
              df_feat = df_feat[model.feature_name_]
              
-        if hasattr(model,"predict_proba"):
+        if hasattr(model, "predict_proba"):
             ml_prob = float(model.predict_proba(df_feat)[0][1]) * 100
         else:
             ml_prob = float(model.predict(df_feat)[0]) * 100
     except Exception as e: 
-        print(f"⚠️ Model prediction error: {e}")
+        print(f"⚠️ Model prediction mapping error: {e}")
         ml_prob = 50.0
 
     home_win_prob    = 0.50*ml_prob + 0.50*feat['elo_win_prob']*100
@@ -427,15 +424,17 @@ def run_backtest():
         }
     return {"all_time":mp(47,31,4,"60.3%","+4.5%","12.4"),"this_month":mp(12,8,1,"60.0%","+3.9%","3.2"),"this_week":mp(4,2,0,"66.7%","+5.1%","1.8"),"yesterday":mp(1,1,0,"50.0%","+2.1%","0.0")}
 
+
+# ── Pipeline Iteration Logic ──────────────────────────────────────────────────
 def get_all_games_for_date(target_date_str, odds_data, standings, gift_stats_all):
     url = f"https://api-web.nhle.com/v1/schedule/{target_date_str}"
     try:
-        response = requests.get(url,timeout=10).json()
+        response = requests.get(url, timeout=10).json()
         games    = next((day['games'] for day in response.get('gameWeek',[]) if day['date']==target_date_str),[])
         matchups = [(g['homeTeam']['abbrev'],g['awayTeam']['abbrev'],g.get('startTimeUTC','TBD')) for g in games]
     except: matchups=[]
     
-    # Run the new goalie scraper specific to these games
+    # Fire custom goalie scraper dynamically across targeted date teams
     teams_playing = [team for g in matchups for team in (g[0], g[1])]
     daily_goalies = scrape_goalies(teams=teams_playing, date_str=target_date_str) if teams_playing else {}
     
@@ -451,10 +450,11 @@ def get_top_plays(target_date_str, odds_data, standings, gift_stats_all):
     games = get_all_games_for_date(target_date_str,odds_data,standings,gift_stats_all)
     return [g for g in games if g["tier"] in ["EDGE","BIG"]][:3]
 
+
+# ── Core Orchestrator ─────────────────────────────────────────────────────────
 def build_daily_json():
     print("\n--- RUNNING DAILY PIPELINE (V5 GOALIE ENGINE) ---")
 
-    # ── All dates in Eastern Time (EDT = UTC-4) ───────────────────────────────
     today = get_est_now()
     print(f"🕐 EST now: {today.strftime('%Y-%m-%d %H:%M')} EDT")
     d = lambda n: (today + timedelta(days=n)).strftime('%Y-%m-%d')
@@ -493,8 +493,6 @@ def build_daily_json():
     print("\n--- SAVING FILES ---")
     try:
         save_json("daily_predictions.json", daily_payload)
-        # historical_stats.json is owned exclusively by track_results.py
-        # Never overwrite it here — it contains real graded pick history
         print("✅ Pipeline complete!")
     except Exception as e:
         print(f"❌ CRITICAL ERROR: {e}")
