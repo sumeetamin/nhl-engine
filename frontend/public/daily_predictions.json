@@ -1,6 +1,5 @@
 {
-    "day_before_yesterday": [],
-    "yesterday": [
+    "day_before_yesterday": [
         {
             "away": {
                 "name": "CAR",
@@ -289,6 +288,7 @@
             }
         }
     ],
+    "yesterday": [],
     "today": [],
     "tomorrow": [],
     "day_after_tomorrow": [],

@@ -1,45 +1,4 @@
 {
-  "VGK": {
-    "gift": {
-      "pct_season": "54.9%",
-      "pct_l5": "60.0%",
-      "pct_l10": "60.0%",
-      "record_season": "45-37",
-      "streak": 3,
-      "home_pct": "56.1%",
-      "away_pct": "53.7%",
-      "scoring_rate": "54.9%",
-      "games": 82
-    },
-    "fp_ou": {
-      "pct_season": "46.3%",
-      "pct_l5": "40.0%",
-      "pct_l10": "40.0%",
-      "record_season": "38-44",
-      "over_games": 38,
-      "home_pct": "43.9%",
-      "away_pct": "48.8%",
-      "games": 82
-    },
-    "p1": {
-      "p1_win_pct_season": "23.2%",
-      "p1_win_pct_l5": "20.0%",
-      "p1_win_pct_l10": "20.0%",
-      "p1_win_record": "19-63",
-      "p1_gf_avg_season": "0.72",
-      "p1_gf_avg_l5": "0.60",
-      "p1_gf_avg_l10": "0.50",
-      "p1_ga_avg_season": "0.95",
-      "p1_ga_avg_l5": "1.00",
-      "p1_ga_avg_l10": "1.10",
-      "p1_scored_pct_season": "50.0%",
-      "p1_scored_pct_l5": "60.0%",
-      "p1_scored_pct_l10": "50.0%",
-      "p1_win_home_pct": "14.6%",
-      "p1_win_away_pct": "31.7%",
-      "games": 82
-    }
-  },
   "CAR": {
     "gift": {
       "pct_season": "65.9%",
@@ -78,6 +37,47 @@
       "p1_scored_pct_l10": "80.0%",
       "p1_win_home_pct": "47.6%",
       "p1_win_away_pct": "55.0%",
+      "games": 82
+    }
+  },
+  "VGK": {
+    "gift": {
+      "pct_season": "54.9%",
+      "pct_l5": "60.0%",
+      "pct_l10": "60.0%",
+      "record_season": "45-37",
+      "streak": 3,
+      "home_pct": "56.1%",
+      "away_pct": "53.7%",
+      "scoring_rate": "54.9%",
+      "games": 82
+    },
+    "fp_ou": {
+      "pct_season": "46.3%",
+      "pct_l5": "40.0%",
+      "pct_l10": "40.0%",
+      "record_season": "38-44",
+      "over_games": 38,
+      "home_pct": "43.9%",
+      "away_pct": "48.8%",
+      "games": 82
+    },
+    "p1": {
+      "p1_win_pct_season": "23.2%",
+      "p1_win_pct_l5": "20.0%",
+      "p1_win_pct_l10": "20.0%",
+      "p1_win_record": "19-63",
+      "p1_gf_avg_season": "0.72",
+      "p1_gf_avg_l5": "0.60",
+      "p1_gf_avg_l10": "0.50",
+      "p1_ga_avg_season": "0.95",
+      "p1_ga_avg_l5": "1.00",
+      "p1_ga_avg_l10": "1.10",
+      "p1_scored_pct_season": "50.0%",
+      "p1_scored_pct_l5": "60.0%",
+      "p1_scored_pct_l10": "50.0%",
+      "p1_win_home_pct": "14.6%",
+      "p1_win_away_pct": "31.7%",
       "games": 82
     }
   }
