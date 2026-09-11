@@ -1175,691 +1175,145 @@
     "p1_away_goals": 1,
     "date": "2026-06-14"
   },
-  "2025021304": {
+  "2025030186": {
     "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-04-15"
+    "fp_goals": 4,
+    "p1_home_goals": 3,
+    "p1_away_goals": 1,
+    "date": "2026-04-30"
   },
-  "2025021285": {
+  "2025030185": {
     "gift": true,
     "fp_goals": 3,
     "p1_home_goals": 3,
+    "p1_away_goals": 0,
+    "date": "2026-04-28"
+  },
+  "2025030184": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-04-26"
+  },
+  "2025030183": {
+    "gift": false,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-04-24"
+  },
+  "2025030182": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-04-22"
+  },
+  "2025030181": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-04-20"
+  },
+  "2025021311": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 4,
+    "p1_away_goals": 1,
+    "date": "2026-04-16"
+  },
+  "2025021289": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2026-04-13"
   },
-  "2025021270": {
+  "2025021264": {
     "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
     "date": "2026-04-11"
   },
-  "2025021252": {
+  "2025021246": {
     "gift": true,
     "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-04-09"
-  },
-  "2025021245": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
     "date": "2026-04-08"
   },
-  "2025021217": {
+  "2025021241": {
     "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-04-04"
-  },
-  "2025021202": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-04-02"
-  },
-  "2025021176": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-03-30"
-  },
-  "2025021160": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-28"
-  },
-  "2025021136": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-03-25"
-  },
-  "2025021120": {
-    "gift": true,
-    "fp_goals": 1,
+    "fp_goals": 4,
     "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-24"
-  },
-  "2025021106": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-21"
-  },
-  "2025021068": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-03-17"
-  },
-  "2025021060": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-15"
-  },
-  "2025021047": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-03-14"
-  },
-  "2025021029": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-03-12"
-  },
-  "2025021014": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-03-10"
-  },
-  "2025020994": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 1,
-    "p1_away_goals": 4,
-    "date": "2026-03-07"
-  },
-  "2025020975": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-03-05"
-  },
-  "2025020971": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-03-04"
-  },
-  "2025020954": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-03-02"
-  },
-  "2025020939": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-02-28"
-  },
-  "2025020921": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 3,
-    "p1_away_goals": 0,
-    "date": "2026-02-26"
-  },
-  "2025020912": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-02-25"
-  },
-  "2025020891": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-02-03"
-  },
-  "2025020885": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-02-02"
-  },
-  "2025020869": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-31"
-  },
-  "2025020857": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-01-29"
-  },
-  "2025020831": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 2,
     "p1_away_goals": 3,
-    "date": "2026-01-27"
-  },
-  "2025020819": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-01-25"
-  },
-  "2025020788": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-01-21"
-  },
-  "2025020774": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-01-19"
-  },
-  "2025020762": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-17"
-  },
-  "2025020733": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-01-13"
-  },
-  "2025020723": {
-    "gift": false,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-01-12"
-  },
-  "2025020702": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 3,
-    "p1_away_goals": 0,
-    "date": "2026-01-10"
-  },
-  "2025020686": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-08"
-  },
-  "2025020672": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-01-06"
-  },
-  "2025020651": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-03"
-  },
-  "2025020634": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-01-01"
-  },
-  "2025020617": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-30"
-  },
-  "2025020601": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-28"
-  },
-  "2025020590": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2025-12-27"
-  },
-  "2025020575": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2025-12-23"
-  },
-  "2025020568": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-21"
-  },
-  "2025020558": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-20"
-  },
-  "2025020539": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2025-12-18"
-  },
-  "2025020520": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-12-16"
-  },
-  "2025020499": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-12-13"
-  },
-  "2025020480": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-11"
-  },
-  "2025020461": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-08"
-  },
-  "2025020444": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-06"
-  },
-  "2025020413": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-12-02"
-  },
-  "2025020396": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2025-11-29"
-  },
-  "2025020386": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-11-28"
-  },
-  "2025020369": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-26"
-  },
-  "2025020337": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2025-11-22"
-  },
-  "2025020319": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-20"
-  },
-  "2025020307": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-11-18"
-  },
-  "2025020291": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-11-15"
-  },
-  "2025020269": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2025-11-13"
-  },
-  "2025020256": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 3,
-    "p1_away_goals": 1,
-    "date": "2025-11-11"
-  },
-  "2025020234": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 2,
-    "p1_away_goals": 2,
-    "date": "2025-11-08"
-  },
-  "2025020213": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-11-05"
-  },
-  "2025020199": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-11-03"
-  },
-  "2025020188": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-11-01"
-  },
-  "2025020166": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2025-10-29"
-  },
-  "2025020151": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-10-28"
-  },
-  "2025020132": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-10-25"
-  },
-  "2025020123": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 2,
-    "p1_away_goals": 2,
-    "date": "2025-10-24"
-  },
-  "2025020098": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-10-21"
-  },
-  "2025020079": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-10-18"
-  },
-  "2025020061": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-10-16"
-  },
-  "2025020049": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2025-10-14"
-  },
-  "2025020043": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-10-13"
-  },
-  "2025020025": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-10-11"
-  },
-  "2025020004": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-10-08"
-  },
-  "2025030166": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-04-30"
-  },
-  "2025030165": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-04-28"
-  },
-  "2025030164": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-04-25"
-  },
-  "2025030163": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-04-22"
-  },
-  "2025030162": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-04-20"
-  },
-  "2025030161": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-04-18"
-  },
-  "2025021301": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-04-15"
-  },
-  "2025021268": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-04-11"
-  },
-  "2025021254": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-04-09"
-  },
-  "2025021239": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
     "date": "2026-04-07"
   },
-  "2025021209": {
+  "2025021200": {
     "gift": false,
     "fp_goals": 0,
     "p1_home_goals": 0,
     "p1_away_goals": 0,
-    "date": "2026-04-04"
-  },
-  "2025021198": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
     "date": "2026-04-02"
   },
-  "2025021178": {
+  "2025021187": {
     "gift": true,
     "fp_goals": 2,
     "p1_home_goals": 2,
     "p1_away_goals": 0,
     "date": "2026-03-31"
   },
-  "2025021172": {
+  "2025021154": {
     "gift": false,
     "fp_goals": 0,
     "p1_home_goals": 0,
     "p1_away_goals": 0,
-    "date": "2026-03-29"
-  },
-  "2025021156": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
     "date": "2026-03-28"
   },
-  "2025021141": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-26"
-  },
-  "2025021130": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 1,
-    "p1_away_goals": 4,
-    "date": "2026-03-24"
-  },
-  "2025021101": {
+  "2025021132": {
     "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-03-21"
-  },
-  "2025021080": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-18"
-  },
-  "2025021066": {
-    "gift": true,
     "fp_goals": 2,
     "p1_home_goals": 1,
     "p1_away_goals": 1,
-    "date": "2026-03-16"
+    "date": "2026-03-24"
   },
-  "2025021053": {
+  "2025021109": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-21"
+  },
+  "2025021089": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-03-19"
+  },
+  "2025021073": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 3,
+    "p1_away_goals": 1,
+    "date": "2026-03-17"
+  },
+  "2025021061": {
     "gift": true,
     "fp_goals": 1,
     "p1_home_goals": 1,
     "p1_away_goals": 0,
-    "date": "2026-03-14"
+    "date": "2026-03-15"
+  },
+  "2025021042": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-13"
   },
   "2025021034": {
     "gift": true,
@@ -1868,264 +1322,264 @@
     "p1_away_goals": 0,
     "date": "2026-03-12"
   },
-  "2025021004": {
+  "2025021023": {
     "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
+    "fp_goals": 4,
+    "p1_home_goals": 2,
     "p1_away_goals": 2,
-    "date": "2026-03-08"
+    "date": "2026-03-10"
   },
-  "2025020984": {
+  "2025020966": {
     "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 3,
-    "p1_away_goals": 2,
-    "date": "2026-03-06"
-  },
-  "2025020965": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
+    "fp_goals": 4,
+    "p1_home_goals": 2,
     "p1_away_goals": 2,
     "date": "2026-03-03"
   },
-  "2025020956": {
+  "2025020936": {
     "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
+    "fp_goals": 4,
+    "p1_home_goals": 3,
     "p1_away_goals": 1,
-    "date": "2026-03-02"
-  },
-  "2025020945": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
     "date": "2026-02-28"
   },
-  "2025020913": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-02-25"
-  },
-  "2025020899": {
+  "2025020929": {
     "gift": true,
     "fp_goals": 3,
     "p1_home_goals": 1,
     "p1_away_goals": 2,
+    "date": "2026-02-26"
+  },
+  "2025020917": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-02-25"
+  },
+  "2025020900": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
     "date": "2026-02-04"
   },
-  "2025020882": {
+  "2025020891": {
     "gift": false,
     "fp_goals": 0,
     "p1_home_goals": 0,
     "p1_away_goals": 0,
-    "date": "2026-02-02"
+    "date": "2026-02-03"
   },
-  "2025020870": {
+  "2025020871": {
     "gift": true,
     "fp_goals": 4,
-    "p1_home_goals": 1,
-    "p1_away_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 2,
     "date": "2026-01-31"
   },
-  "2025020836": {
-    "gift": false,
-    "fp_goals": 0,
+  "2025020854": {
+    "gift": true,
+    "fp_goals": 3,
     "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-27"
+    "p1_away_goals": 3,
+    "date": "2026-01-29"
   },
-  "2025020804": {
+  "2025020829": {
     "gift": true,
     "fp_goals": 2,
     "p1_home_goals": 1,
     "p1_away_goals": 1,
-    "date": "2026-01-23"
+    "date": "2026-01-26"
   },
-  "2025020797": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-01-22"
-  },
-  "2025020783": {
+  "2025020818": {
     "gift": false,
     "fp_goals": 2,
-    "p1_home_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-01-24"
+  },
+  "2025020800": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 0,
+    "p1_away_goals": 3,
+    "date": "2026-01-22"
+  },
+  "2025020786": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2026-01-20"
   },
-  "2025020767": {
+  "2025020769": {
     "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
+    "fp_goals": 3,
+    "p1_home_goals": 3,
+    "p1_away_goals": 0,
     "date": "2026-01-18"
   },
-  "2025020746": {
+  "2025020764": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-17"
+  },
+  "2025020747": {
     "gift": false,
     "fp_goals": 0,
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2026-01-15"
   },
-  "2025020734": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
+  "2025020731": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
     "date": "2026-01-13"
   },
-  "2025020724": {
-    "gift": true,
+  "2025020722": {
+    "gift": false,
     "fp_goals": 1,
     "p1_home_goals": 0,
     "p1_away_goals": 1,
     "date": "2026-01-12"
   },
-  "2025020700": {
+  "2025020709": {
     "gift": true,
     "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
     "date": "2026-01-10"
   },
-  "2025020677": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-01-07"
-  },
-  "2025020657": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-01-04"
-  },
-  "2025020637": {
+  "2025020690": {
     "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
+    "fp_goals": 4,
+    "p1_home_goals": 3,
     "p1_away_goals": 1,
-    "date": "2026-01-01"
+    "date": "2026-01-08"
   },
-  "2025020628": {
+  "2025020674": {
     "gift": true,
     "fp_goals": 1,
     "p1_home_goals": 1,
     "p1_away_goals": 0,
+    "date": "2026-01-06"
+  },
+  "2025020647": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 1,
+    "p1_away_goals": 3,
+    "date": "2026-01-03"
+  },
+  "2025020631": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
     "date": "2025-12-31"
   },
-  "2025020596": {
+  "2025020609": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-29"
+  },
+  "2025020598": {
     "gift": true,
     "fp_goals": 2,
     "p1_home_goals": 1,
     "p1_away_goals": 1,
     "date": "2025-12-27"
   },
-  "2025020579": {
+  "2025020585": {
     "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
     "date": "2025-12-23"
   },
-  "2025020548": {
+  "2025020552": {
     "gift": true,
     "fp_goals": 5,
-    "p1_home_goals": 1,
-    "p1_away_goals": 4,
-    "date": "2025-12-19"
+    "p1_home_goals": 3,
+    "p1_away_goals": 2,
+    "date": "2025-12-20"
   },
-  "2025020543": {
+  "2025020534": {
     "gift": false,
     "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
     "date": "2025-12-18"
   },
-  "2025020518": {
+  "2025020524": {
+    "gift": false,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2025-12-16"
+  },
+  "2025020512": {
     "gift": false,
     "fp_goals": 0,
     "p1_home_goals": 0,
     "p1_away_goals": 0,
-    "date": "2025-12-15"
+    "date": "2025-12-14"
   },
-  "2025020505": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-13"
-  },
-  "2025020488": {
+  "2025020499": {
     "gift": true,
     "fp_goals": 2,
     "p1_home_goals": 1,
     "p1_away_goals": 1,
+    "date": "2025-12-13"
+  },
+  "2025020491": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
     "date": "2025-12-11"
   },
-  "2025020473": {
-    "gift": true,
+  "2025020474": {
+    "gift": false,
     "fp_goals": 1,
     "p1_home_goals": 0,
     "p1_away_goals": 1,
     "date": "2025-12-09"
   },
-  "2025020456": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-07"
-  },
-  "2025020438": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-05"
-  },
-  "2025020421": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-03"
-  },
-  "2025020415": {
+  "2025020450": {
     "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
+    "fp_goals": 4,
+    "p1_home_goals": 4,
+    "p1_away_goals": 0,
+    "date": "2025-12-06"
+  },
+  "2025020434": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 3,
+    "p1_away_goals": 2,
+    "date": "2025-12-04"
+  },
+  "2025020418": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
     "p1_away_goals": 1,
     "date": "2025-12-02"
   },
-  "2025020405": {
+  "2025020393": {
     "gift": false,
-    "fp_goals": 0,
+    "fp_goals": 1,
     "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-30"
-  },
-  "2025020390": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2025-11-28"
-  },
-  "2025020375": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
     "p1_away_goals": 1,
-    "date": "2025-11-26"
+    "date": "2025-11-29"
   },
   "2025020360": {
     "gift": true,
@@ -2134,68 +1588,61 @@
     "p1_away_goals": 4,
     "date": "2025-11-25"
   },
-  "2025020345": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-11-22"
-  },
-  "2025020328": {
+  "2025020338": {
     "gift": true,
     "fp_goals": 4,
-    "p1_home_goals": 2,
-    "p1_away_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 3,
+    "date": "2025-11-22"
+  },
+  "2025020322": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
     "date": "2025-11-20"
   },
-  "2025020310": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-18"
-  },
-  "2025020293": {
+  "2025020315": {
     "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 3,
+    "p1_away_goals": 2,
+    "date": "2025-11-19"
+  },
+  "2025020302": {
+    "gift": false,
     "fp_goals": 1,
     "p1_home_goals": 1,
     "p1_away_goals": 0,
-    "date": "2025-11-15"
+    "date": "2025-11-17"
   },
-  "2025020270": {
+  "2025020274": {
     "gift": false,
     "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
     "date": "2025-11-13"
   },
-  "2025020258": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2025-11-11"
-  },
-  "2025020248": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
+  "2025020266": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
     "p1_away_goals": 1,
-    "date": "2025-11-09"
+    "date": "2025-11-12"
   },
-  "2025020233": {
-    "gift": true,
+  "2025020254": {
+    "gift": false,
     "fp_goals": 2,
     "p1_home_goals": 1,
     "p1_away_goals": 1,
-    "date": "2025-11-08"
+    "date": "2025-11-10"
   },
-  "2025020224": {
-    "gift": true,
+  "2025020240": {
+    "gift": false,
     "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2025-11-06"
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-11-08"
   },
   "2025020207": {
     "gift": true,
@@ -2204,47 +1651,61 @@
     "p1_away_goals": 2,
     "date": "2025-11-04"
   },
-  "2025020185": {
+  "2025020200": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-11-03"
+  },
+  "2025020192": {
     "gift": false,
     "fp_goals": 0,
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2025-11-01"
   },
-  "2025020169": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
+  "2025020175": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
     "date": "2025-10-30"
   },
-  "2025020159": {
-    "gift": false,
-    "fp_goals": 0,
+  "2025020162": {
+    "gift": true,
+    "fp_goals": 2,
     "p1_home_goals": 0,
-    "p1_away_goals": 0,
+    "p1_away_goals": 2,
     "date": "2025-10-28"
   },
-  "2025020145": {
-    "gift": true,
+  "2025020147": {
+    "gift": false,
     "fp_goals": 1,
     "p1_home_goals": 1,
     "p1_away_goals": 0,
     "date": "2025-10-26"
   },
-  "2025020138": {
+  "2025020139": {
     "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
     "date": "2025-10-25"
   },
-  "2025020119": {
+  "2025020122": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-10-23"
+  },
+  "2025020099": {
     "gift": false,
     "fp_goals": 1,
     "p1_home_goals": 0,
     "p1_away_goals": 1,
-    "date": "2025-10-23"
+    "date": "2025-10-21"
   },
   "2025030217": {
     "gift": true,
@@ -2463,6 +1924,13 @@
     "p1_away_goals": 1,
     "date": "2026-03-11"
   },
+  "2025021014": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-03-10"
+  },
   "2025020997": {
     "gift": false,
     "fp_goals": 1,
@@ -2596,6 +2064,13 @@
     "p1_away_goals": 0,
     "date": "2026-01-07"
   },
+  "2025020657": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-01-04"
+  },
   "2025020648": {
     "gift": false,
     "fp_goals": 1,
@@ -2652,13 +2127,6 @@
     "p1_away_goals": 1,
     "date": "2025-12-16"
   },
-  "2025020512": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-14"
-  },
   "2025020500": {
     "gift": false,
     "fp_goals": 5,
@@ -2687,6 +2155,13 @@
     "p1_away_goals": 1,
     "date": "2025-12-07"
   },
+  "2025020444": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-06"
+  },
   "2025020422": {
     "gift": false,
     "fp_goals": 1,
@@ -2714,6 +2189,13 @@
     "p1_home_goals": 0,
     "p1_away_goals": 2,
     "date": "2025-11-26"
+  },
+  "2025020337": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2025-11-22"
   },
   "2025020320": {
     "gift": true,
@@ -2771,13 +2253,6 @@
     "p1_away_goals": 2,
     "date": "2026-04-13"
   },
-  "2025021264": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-04-11"
-  },
   "2025021260": {
     "gift": true,
     "fp_goals": 3,
@@ -2791,6 +2266,13 @@
     "p1_home_goals": 1,
     "p1_away_goals": 0,
     "date": "2026-04-06"
+  },
+  "2025021217": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-04-04"
   },
   "2025021204": {
     "gift": true,
@@ -2904,13 +2386,6 @@
     "p1_away_goals": 0,
     "date": "2026-02-28"
   },
-  "2025020929": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-02-26"
-  },
   "2025020902": {
     "gift": true,
     "fp_goals": 4,
@@ -2967,12 +2442,12 @@
     "p1_away_goals": 0,
     "date": "2026-01-16"
   },
-  "2025020709": {
+  "2025020724": {
     "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
     "p1_away_goals": 1,
-    "date": "2026-01-10"
+    "date": "2026-01-12"
   },
   "2025020695": {
     "gift": true,
@@ -3050,6 +2525,13 @@
     "p1_home_goals": 0,
     "p1_away_goals": 1,
     "date": "2025-12-17"
+  },
+  "2025020518": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-15"
   },
   "2025020507": {
     "gift": false,
@@ -3142,6 +2624,13 @@
     "p1_away_goals": 1,
     "date": "2025-11-15"
   },
+  "2025020269": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2025-11-13"
+  },
   "2025020257": {
     "gift": false,
     "fp_goals": 1,
@@ -3205,6 +2694,13 @@
     "p1_away_goals": 1,
     "date": "2025-10-25"
   },
+  "2025020119": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-10-23"
+  },
   "2025020104": {
     "gift": false,
     "fp_goals": 0,
@@ -3260,13 +2756,6 @@
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2026-04-04"
-  },
-  "2025021200": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-04-02"
   },
   "2025021186": {
     "gift": true,
@@ -3344,6 +2833,13 @@
     "p1_home_goals": 1,
     "p1_away_goals": 2,
     "date": "2026-03-09"
+  },
+  "2025021004": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-03-08"
   },
   "2025020985": {
     "gift": true,
@@ -3450,13 +2946,6 @@
     "p1_away_goals": 2,
     "date": "2026-01-15"
   },
-  "2025020722": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-01-12"
-  },
   "2025020707": {
     "gift": false,
     "fp_goals": 0,
@@ -3485,6 +2974,13 @@
     "p1_away_goals": 1,
     "date": "2026-01-03"
   },
+  "2025020637": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-01-01"
+  },
   "2025020620": {
     "gift": true,
     "fp_goals": 2,
@@ -3499,6 +2995,13 @@
     "p1_away_goals": 4,
     "date": "2025-12-28"
   },
+  "2025020596": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-12-27"
+  },
   "2025020583": {
     "gift": false,
     "fp_goals": 1,
@@ -3512,6 +3015,13 @@
     "p1_home_goals": 1,
     "p1_away_goals": 0,
     "date": "2025-12-20"
+  },
+  "2025020520": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-12-16"
   },
   "2025020504": {
     "gift": true,
@@ -3590,6 +3100,13 @@
     "p1_away_goals": 0,
     "date": "2025-11-18"
   },
+  "2025020291": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-11-15"
+  },
   "2025020268": {
     "gift": false,
     "fp_goals": 1,
@@ -3624,13 +3141,6 @@
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2025-11-03"
-  },
-  "2025020192": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-01"
   },
   "2025020174": {
     "gift": true,
@@ -3702,1259 +3212,6 @@
     "p1_away_goals": 1,
     "date": "2025-10-07"
   },
-  "2025021311": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 4,
-    "p1_away_goals": 1,
-    "date": "2026-04-16"
-  },
-  "2025021280": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-04-12"
-  },
-  "2025021275": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-04-11"
-  },
-  "2025021216": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-04-04"
-  },
-  "2025021199": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-04-02"
-  },
-  "2025021188": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 2,
-    "p1_away_goals": 3,
-    "date": "2026-04-01"
-  },
-  "2025021165": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-03-28"
-  },
-  "2025021134": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-24"
-  },
-  "2025021107": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-21"
-  },
-  "2025021090": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-03-19"
-  },
-  "2025021074": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 3,
-    "p1_away_goals": 1,
-    "date": "2026-03-17"
-  },
-  "2025021055": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-03-14"
-  },
-  "2025021038": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-03-12"
-  },
-  "2025021011": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-09"
-  },
-  "2025020996": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-03-07"
-  },
-  "2025020946": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-02-28"
-  },
-  "2025020915": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-02-25"
-  },
-  "2025020884": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-02-02"
-  },
-  "2025020855": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-29"
-  },
-  "2025020838": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 1,
-    "p1_away_goals": 3,
-    "date": "2026-01-27"
-  },
-  "2025020822": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-25"
-  },
-  "2025020807": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-01-23"
-  },
-  "2025020792": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 2,
-    "p1_away_goals": 2,
-    "date": "2026-01-21"
-  },
-  "2025020778": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-01-19"
-  },
-  "2025020764": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-17"
-  },
-  "2025020743": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-01-15"
-  },
-  "2025020725": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-01-13"
-  },
-  "2025020684": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-01-08"
-  },
-  "2025020667": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-01-06"
-  },
-  "2025020656": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-01-03"
-  },
-  "2025020642": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-01-02"
-  },
-  "2025020621": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-12-30"
-  },
-  "2025020616": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2025-12-29"
-  },
-  "2025020599": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2025-12-27"
-  },
-  "2025020572": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-22"
-  },
-  "2025020555": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-12-20"
-  },
-  "2025020545": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 0,
-    "p1_away_goals": 3,
-    "date": "2025-12-19"
-  },
-  "2025020523": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-16"
-  },
-  "2025020508": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-12-14"
-  },
-  "2025020492": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-12-11"
-  },
-  "2025020464": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-08"
-  },
-  "2025020451": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-06"
-  },
-  "2025020439": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-05"
-  },
-  "2025020417": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-12-02"
-  },
-  "2025020385": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-11-28"
-  },
-  "2025020374": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-11-26"
-  },
-  "2025020352": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2025-11-23"
-  },
-  "2025020303": {
-    "gift": false,
-    "fp_goals": 4,
-    "p1_home_goals": 2,
-    "p1_away_goals": 2,
-    "date": "2025-11-17"
-  },
-  "2025020297": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-11-16"
-  },
-  "2025020263": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 2,
-    "p1_away_goals": 3,
-    "date": "2025-11-11"
-  },
-  "2025020250": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2025-11-09"
-  },
-  "2025020241": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-08"
-  },
-  "2025020201": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-11-03"
-  },
-  "2025020190": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-11-01"
-  },
-  "2025020172": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-10-30"
-  },
-  "2025020163": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-10-28"
-  },
-  "2025020147": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-10-26"
-  },
-  "2025020136": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-10-25"
-  },
-  "2025020118": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-10-23"
-  },
-  "2025020101": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-10-21"
-  },
-  "2025020089": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 0,
-    "p1_away_goals": 3,
-    "date": "2025-10-19"
-  },
-  "2025020068": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2025-10-16"
-  },
-  "2025020046": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-10-13"
-  },
-  "2025020035": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-10-11"
-  },
-  "2025020019": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-10-09"
-  },
-  "2025030235": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 0,
-    "p1_away_goals": 3,
-    "date": "2026-05-13"
-  },
-  "2025030234": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-05-11"
-  },
-  "2025030233": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-05-09"
-  },
-  "2025030232": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-05-05"
-  },
-  "2025030231": {
-    "gift": false,
-    "fp_goals": 5,
-    "p1_home_goals": 3,
-    "p1_away_goals": 2,
-    "date": "2026-05-03"
-  },
-  "2025021296": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-04-14"
-  },
-  "2025021286": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-04-13"
-  },
-  "2025021267": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-04-11"
-  },
-  "2025021240": {
-    "gift": false,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-04-07"
-  },
-  "2025021222": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-04-05"
-  },
-  "2025021208": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-04-04"
-  },
-  "2025021155": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-03-28"
-  },
-  "2025021140": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-26"
-  },
-  "2025021127": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-03-24"
-  },
-  "2025021046": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-03-14"
-  },
-  "2025021035": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-03-12"
-  },
-  "2025021021": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-10"
-  },
-  "2025021001": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-08"
-  },
-  "2025020967": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-03"
-  },
-  "2025020951": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-01"
-  },
-  "2025020932": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-02-27"
-  },
-  "2025020927": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-02-26"
-  },
-  "2025020896": {
-    "gift": true,
-    "fp_goals": 6,
-    "p1_home_goals": 3,
-    "p1_away_goals": 3,
-    "date": "2026-02-04"
-  },
-  "2025020871": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 2,
-    "p1_away_goals": 2,
-    "date": "2026-01-31"
-  },
-  "2025020853": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-01-29"
-  },
-  "2025020817": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-01-24"
-  },
-  "2025020801": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-01-22"
-  },
-  "2025020754": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-01-17"
-  },
-  "2025020744": {
-    "gift": false,
-    "fp_goals": 3,
-    "p1_home_goals": 0,
-    "p1_away_goals": 3,
-    "date": "2026-01-15"
-  },
-  "2025020721": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-01-12"
-  },
-  "2025020708": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-01-10"
-  },
-  "2025020693": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-01-08"
-  },
-  "2025020643": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2026-01-02"
-  },
-  "2025020625": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-31"
-  },
-  "2025020594": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-12-27"
-  },
-  "2025020582": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2025-12-23"
-  },
-  "2025020563": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-21"
-  },
-  "2025020552": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 3,
-    "p1_away_goals": 2,
-    "date": "2025-12-20"
-  },
-  "2025020540": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-18"
-  },
-  "2025020526": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-16"
-  },
-  "2025020511": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-14"
-  },
-  "2025020496": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-13"
-  },
-  "2025020465": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-08"
-  },
-  "2025020433": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-04"
-  },
-  "2025020418": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-02"
-  },
-  "2025020399": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2025-11-29"
-  },
-  "2025020378": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-11-28"
-  },
-  "2025020348": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-23"
-  },
-  "2025020332": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 0,
-    "p1_away_goals": 3,
-    "date": "2025-11-21"
-  },
-  "2025020284": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-15"
-  },
-  "2025020261": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-11"
-  },
-  "2025020249": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-11-09"
-  },
-  "2025020228": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-11-07"
-  },
-  "2025020222": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 3,
-    "p1_away_goals": 2,
-    "date": "2025-11-06"
-  },
-  "2025020208": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-11-04"
-  },
-  "2025020173": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-10-30"
-  },
-  "2025030186": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 3,
-    "p1_away_goals": 1,
-    "date": "2026-04-30"
-  },
-  "2025030185": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 3,
-    "p1_away_goals": 0,
-    "date": "2026-04-28"
-  },
-  "2025030184": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-04-26"
-  },
-  "2025030183": {
-    "gift": false,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-04-24"
-  },
-  "2025030182": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-04-22"
-  },
-  "2025030181": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-04-20"
-  },
-  "2025021289": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-04-13"
-  },
-  "2025021246": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-04-08"
-  },
-  "2025021241": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 1,
-    "p1_away_goals": 3,
-    "date": "2026-04-07"
-  },
-  "2025021187": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 2,
-    "p1_away_goals": 0,
-    "date": "2026-03-31"
-  },
-  "2025021154": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-28"
-  },
-  "2025021132": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-03-24"
-  },
-  "2025021109": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-21"
-  },
-  "2025021089": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2026-03-19"
-  },
-  "2025021073": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 3,
-    "p1_away_goals": 1,
-    "date": "2026-03-17"
-  },
-  "2025021061": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-03-15"
-  },
-  "2025021042": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-03-13"
-  },
-  "2025021023": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 2,
-    "p1_away_goals": 2,
-    "date": "2026-03-10"
-  },
-  "2025020966": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 2,
-    "p1_away_goals": 2,
-    "date": "2026-03-03"
-  },
-  "2025020936": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 3,
-    "p1_away_goals": 1,
-    "date": "2026-02-28"
-  },
-  "2025020917": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2026-02-25"
-  },
-  "2025020900": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2026-02-04"
-  },
-  "2025020854": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 0,
-    "p1_away_goals": 3,
-    "date": "2026-01-29"
-  },
-  "2025020829": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-01-26"
-  },
-  "2025020818": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-01-24"
-  },
-  "2025020800": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 0,
-    "p1_away_goals": 3,
-    "date": "2026-01-22"
-  },
-  "2025020786": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-20"
-  },
-  "2025020769": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 3,
-    "p1_away_goals": 0,
-    "date": "2026-01-18"
-  },
-  "2025020747": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2026-01-15"
-  },
-  "2025020731": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2026-01-13"
-  },
-  "2025020690": {
-    "gift": false,
-    "fp_goals": 4,
-    "p1_home_goals": 3,
-    "p1_away_goals": 1,
-    "date": "2026-01-08"
-  },
-  "2025020674": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2026-01-06"
-  },
-  "2025020647": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 1,
-    "p1_away_goals": 3,
-    "date": "2026-01-03"
-  },
-  "2025020631": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2025-12-31"
-  },
-  "2025020609": {
-    "gift": false,
-    "fp_goals": 0,
-    "p1_home_goals": 0,
-    "p1_away_goals": 0,
-    "date": "2025-12-29"
-  },
-  "2025020598": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-12-27"
-  },
-  "2025020585": {
-    "gift": true,
-    "fp_goals": 3,
-    "p1_home_goals": 2,
-    "p1_away_goals": 1,
-    "date": "2025-12-23"
-  },
-  "2025020534": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-12-18"
-  },
-  "2025020524": {
-    "gift": false,
-    "fp_goals": 3,
-    "p1_home_goals": 1,
-    "p1_away_goals": 2,
-    "date": "2025-12-16"
-  },
-  "2025020491": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-12-11"
-  },
-  "2025020474": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-12-09"
-  },
-  "2025020450": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 4,
-    "p1_away_goals": 0,
-    "date": "2025-12-06"
-  },
-  "2025020434": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 3,
-    "p1_away_goals": 2,
-    "date": "2025-12-04"
-  },
-  "2025020393": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-11-29"
-  },
-  "2025020338": {
-    "gift": true,
-    "fp_goals": 4,
-    "p1_home_goals": 1,
-    "p1_away_goals": 3,
-    "date": "2025-11-22"
-  },
-  "2025020322": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-11-20"
-  },
-  "2025020315": {
-    "gift": true,
-    "fp_goals": 5,
-    "p1_home_goals": 3,
-    "p1_away_goals": 2,
-    "date": "2025-11-19"
-  },
-  "2025020302": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-11-17"
-  },
-  "2025020274": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-11-13"
-  },
-  "2025020266": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-11-12"
-  },
-  "2025020254": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-11-10"
-  },
-  "2025020240": {
-    "gift": false,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-11-08"
-  },
-  "2025020200": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-11-03"
-  },
-  "2025020175": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-10-30"
-  },
-  "2025020162": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 0,
-    "p1_away_goals": 2,
-    "date": "2025-10-28"
-  },
-  "2025020139": {
-    "gift": true,
-    "fp_goals": 1,
-    "p1_home_goals": 1,
-    "p1_away_goals": 0,
-    "date": "2025-10-25"
-  },
-  "2025020122": {
-    "gift": true,
-    "fp_goals": 2,
-    "p1_home_goals": 1,
-    "p1_away_goals": 1,
-    "date": "2025-10-23"
-  },
-  "2025020099": {
-    "gift": false,
-    "fp_goals": 1,
-    "p1_home_goals": 0,
-    "p1_away_goals": 1,
-    "date": "2025-10-21"
-  },
   "2025021309": {
     "gift": true,
     "fp_goals": 2,
@@ -4968,6 +3225,13 @@
     "p1_home_goals": 1,
     "p1_away_goals": 3,
     "date": "2026-04-14"
+  },
+  "2025021286": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-04-13"
   },
   "2025021253": {
     "gift": true,
@@ -5004,6 +3268,13 @@
     "p1_away_goals": 2,
     "date": "2026-03-30"
   },
+  "2025021160": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-28"
+  },
   "2025021143": {
     "gift": false,
     "fp_goals": 0,
@@ -5017,6 +3288,13 @@
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2026-03-24"
+  },
+  "2025021107": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-21"
   },
   "2025021081": {
     "gift": true,
@@ -5060,6 +3338,13 @@
     "p1_away_goals": 1,
     "date": "2026-03-04"
   },
+  "2025020951": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-01"
+  },
   "2025020943": {
     "gift": false,
     "fp_goals": 0,
@@ -5073,6 +3358,13 @@
     "p1_home_goals": 1,
     "p1_away_goals": 1,
     "date": "2026-02-26"
+  },
+  "2025020899": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-02-04"
   },
   "2025020880": {
     "gift": true,
@@ -5094,6 +3386,20 @@
     "p1_home_goals": 3,
     "p1_away_goals": 2,
     "date": "2026-01-29"
+  },
+  "2025020836": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-27"
+  },
+  "2025020804": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-01-23"
   },
   "2025020785": {
     "gift": true,
@@ -5249,6 +3555,13 @@
     "p1_away_goals": 2,
     "date": "2025-11-20"
   },
+  "2025020307": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-11-18"
+  },
   "2025020292": {
     "gift": false,
     "fp_goals": 2,
@@ -5298,6 +3611,13 @@
     "p1_away_goals": 1,
     "date": "2025-11-01"
   },
+  "2025020172": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-10-30"
+  },
   "2025020158": {
     "gift": true,
     "fp_goals": 3,
@@ -5333,6 +3653,13 @@
     "p1_away_goals": 0,
     "date": "2025-10-18"
   },
+  "2025020046": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-10-13"
+  },
   "2025020023": {
     "gift": false,
     "fp_goals": 1,
@@ -5360,6 +3687,13 @@
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2026-04-11"
+  },
+  "2025021240": {
+    "gift": false,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-04-07"
   },
   "2025021230": {
     "gift": true,
@@ -5424,6 +3758,13 @@
     "p1_away_goals": 1,
     "date": "2026-03-15"
   },
+  "2025021055": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-03-14"
+  },
   "2025021040": {
     "gift": true,
     "fp_goals": 3,
@@ -5445,12 +3786,33 @@
     "p1_away_goals": 2,
     "date": "2026-03-07"
   },
+  "2025020946": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-02-28"
+  },
+  "2025020913": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-02-25"
+  },
   "2025020892": {
     "gift": false,
     "fp_goals": 0,
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2026-02-03"
+  },
+  "2025020857": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-01-29"
   },
   "2025020839": {
     "gift": false,
@@ -5515,6 +3877,13 @@
     "p1_away_goals": 0,
     "date": "2026-01-12"
   },
+  "2025020693": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-01-08"
+  },
   "2025020676": {
     "gift": true,
     "fp_goals": 2,
@@ -5529,12 +3898,26 @@
     "p1_away_goals": 0,
     "date": "2026-01-05"
   },
+  "2025020642": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-01-02"
+  },
   "2025020638": {
     "gift": true,
     "fp_goals": 3,
     "p1_home_goals": 3,
     "p1_away_goals": 0,
     "date": "2026-01-01"
+  },
+  "2025020616": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2025-12-29"
   },
   "2025020605": {
     "gift": false,
@@ -5585,12 +3968,26 @@
     "p1_away_goals": 0,
     "date": "2025-12-12"
   },
+  "2025020465": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-08"
+  },
   "2025020452": {
     "gift": true,
     "fp_goals": 2,
     "p1_home_goals": 1,
     "p1_away_goals": 1,
     "date": "2025-12-06"
+  },
+  "2025020375": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-11-26"
   },
   "2025020349": {
     "gift": false,
@@ -5634,6 +4031,13 @@
     "p1_away_goals": 0,
     "date": "2025-11-11"
   },
+  "2025020248": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2025-11-09"
+  },
   "2025020217": {
     "gift": true,
     "fp_goals": 3,
@@ -5676,6 +4080,13 @@
     "p1_away_goals": 1,
     "date": "2025-10-20"
   },
+  "2025020079": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-10-18"
+  },
   "2025020063": {
     "gift": true,
     "fp_goals": 3,
@@ -5703,6 +4114,440 @@
     "p1_home_goals": 1,
     "p1_away_goals": 1,
     "date": "2025-10-09"
+  },
+  "2025030166": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-04-30"
+  },
+  "2025030165": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-04-28"
+  },
+  "2025030164": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-04-25"
+  },
+  "2025030163": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-04-22"
+  },
+  "2025030162": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-04-20"
+  },
+  "2025030161": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-04-18"
+  },
+  "2025021301": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-04-15"
+  },
+  "2025021285": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 3,
+    "p1_away_goals": 0,
+    "date": "2026-04-13"
+  },
+  "2025021268": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-04-11"
+  },
+  "2025021254": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-04-09"
+  },
+  "2025021239": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-04-07"
+  },
+  "2025021209": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-04-04"
+  },
+  "2025021198": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-04-02"
+  },
+  "2025021178": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-03-31"
+  },
+  "2025021172": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-29"
+  },
+  "2025021156": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-28"
+  },
+  "2025021141": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-26"
+  },
+  "2025021130": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 1,
+    "p1_away_goals": 4,
+    "date": "2026-03-24"
+  },
+  "2025021101": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-03-21"
+  },
+  "2025021080": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-18"
+  },
+  "2025021066": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-03-16"
+  },
+  "2025021053": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-14"
+  },
+  "2025020984": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 3,
+    "p1_away_goals": 2,
+    "date": "2026-03-06"
+  },
+  "2025020965": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-03-03"
+  },
+  "2025020956": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-03-02"
+  },
+  "2025020945": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-02-28"
+  },
+  "2025020882": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-02-02"
+  },
+  "2025020870": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 1,
+    "p1_away_goals": 3,
+    "date": "2026-01-31"
+  },
+  "2025020797": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-01-22"
+  },
+  "2025020783": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-01-20"
+  },
+  "2025020767": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-01-18"
+  },
+  "2025020746": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-15"
+  },
+  "2025020734": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-13"
+  },
+  "2025020700": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-01-10"
+  },
+  "2025020677": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-01-07"
+  },
+  "2025020628": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-31"
+  },
+  "2025020579": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-23"
+  },
+  "2025020568": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-21"
+  },
+  "2025020548": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 1,
+    "p1_away_goals": 4,
+    "date": "2025-12-19"
+  },
+  "2025020543": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-12-18"
+  },
+  "2025020505": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-13"
+  },
+  "2025020488": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-12-11"
+  },
+  "2025020473": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-09"
+  },
+  "2025020456": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-07"
+  },
+  "2025020438": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-05"
+  },
+  "2025020421": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-03"
+  },
+  "2025020415": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-12-02"
+  },
+  "2025020405": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-30"
+  },
+  "2025020390": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2025-11-28"
+  },
+  "2025020345": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-11-22"
+  },
+  "2025020328": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 2,
+    "p1_away_goals": 2,
+    "date": "2025-11-20"
+  },
+  "2025020310": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-18"
+  },
+  "2025020293": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-11-15"
+  },
+  "2025020270": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-11-13"
+  },
+  "2025020258": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2025-11-11"
+  },
+  "2025020233": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-11-08"
+  },
+  "2025020224": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2025-11-06"
+  },
+  "2025020185": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-01"
+  },
+  "2025020169": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-10-30"
+  },
+  "2025020159": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-10-28"
+  },
+  "2025020145": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-10-26"
+  },
+  "2025020138": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-10-25"
   },
   "2025021308": {
     "gift": true,
@@ -5795,6 +4640,13 @@
     "p1_away_goals": 0,
     "date": "2026-03-10"
   },
+  "2025020996": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-03-07"
+  },
   "2025020980": {
     "gift": false,
     "fp_goals": 0,
@@ -5815,6 +4667,13 @@
     "p1_home_goals": 0,
     "p1_away_goals": 1,
     "date": "2026-02-27"
+  },
+  "2025020915": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-02-25"
   },
   "2025020862": {
     "gift": false,
@@ -5851,6 +4710,20 @@
     "p1_away_goals": 0,
     "date": "2026-01-22"
   },
+  "2025020762": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-17"
+  },
+  "2025020744": {
+    "gift": false,
+    "fp_goals": 3,
+    "p1_home_goals": 0,
+    "p1_away_goals": 3,
+    "date": "2026-01-15"
+  },
   "2025020732": {
     "gift": true,
     "fp_goals": 1,
@@ -5872,12 +4745,26 @@
     "p1_away_goals": 1,
     "date": "2026-01-03"
   },
+  "2025020634": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-01-01"
+  },
   "2025020626": {
     "gift": true,
     "fp_goals": 2,
     "p1_home_goals": 2,
     "p1_away_goals": 0,
     "date": "2025-12-31"
+  },
+  "2025020594": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-12-27"
   },
   "2025020569": {
     "gift": true,
@@ -5942,6 +4829,13 @@
     "p1_away_goals": 1,
     "date": "2025-11-26"
   },
+  "2025020348": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-23"
+  },
   "2025020311": {
     "gift": true,
     "fp_goals": 2,
@@ -5955,6 +4849,13 @@
     "p1_home_goals": 0,
     "p1_away_goals": 0,
     "date": "2025-11-15"
+  },
+  "2025020263": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 2,
+    "p1_away_goals": 3,
+    "date": "2025-11-11"
   },
   "2025020251": {
     "gift": true,
@@ -6039,5 +4940,1104 @@
     "p1_home_goals": 1,
     "p1_away_goals": 2,
     "date": "2025-10-09"
+  },
+  "2025030235": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 0,
+    "p1_away_goals": 3,
+    "date": "2026-05-13"
+  },
+  "2025030234": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-05-11"
+  },
+  "2025030233": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-05-09"
+  },
+  "2025030232": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-05-05"
+  },
+  "2025030231": {
+    "gift": false,
+    "fp_goals": 5,
+    "p1_home_goals": 3,
+    "p1_away_goals": 2,
+    "date": "2026-05-03"
+  },
+  "2025021296": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-04-14"
+  },
+  "2025021267": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-04-11"
+  },
+  "2025021222": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-04-05"
+  },
+  "2025021208": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-04-04"
+  },
+  "2025021199": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-04-02"
+  },
+  "2025021155": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-03-28"
+  },
+  "2025021140": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-26"
+  },
+  "2025021127": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-03-24"
+  },
+  "2025021060": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-15"
+  },
+  "2025021046": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-03-14"
+  },
+  "2025021035": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-03-12"
+  },
+  "2025021021": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-10"
+  },
+  "2025021001": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-08"
+  },
+  "2025020967": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-03"
+  },
+  "2025020932": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-02-27"
+  },
+  "2025020927": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-02-26"
+  },
+  "2025020896": {
+    "gift": true,
+    "fp_goals": 6,
+    "p1_home_goals": 3,
+    "p1_away_goals": 3,
+    "date": "2026-02-04"
+  },
+  "2025020853": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-01-29"
+  },
+  "2025020817": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-01-24"
+  },
+  "2025020801": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-01-22"
+  },
+  "2025020774": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-01-19"
+  },
+  "2025020754": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-01-17"
+  },
+  "2025020721": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-01-12"
+  },
+  "2025020708": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-01-10"
+  },
+  "2025020643": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-01-02"
+  },
+  "2025020625": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-31"
+  },
+  "2025020582": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2025-12-23"
+  },
+  "2025020563": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-21"
+  },
+  "2025020540": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-18"
+  },
+  "2025020526": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-16"
+  },
+  "2025020511": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-14"
+  },
+  "2025020496": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-13"
+  },
+  "2025020451": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-06"
+  },
+  "2025020433": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-04"
+  },
+  "2025020399": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2025-11-29"
+  },
+  "2025020378": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-11-28"
+  },
+  "2025020332": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 0,
+    "p1_away_goals": 3,
+    "date": "2025-11-21"
+  },
+  "2025020284": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-15"
+  },
+  "2025020261": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-11"
+  },
+  "2025020249": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-09"
+  },
+  "2025020228": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-11-07"
+  },
+  "2025020222": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 3,
+    "p1_away_goals": 2,
+    "date": "2025-11-06"
+  },
+  "2025020208": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-11-04"
+  },
+  "2025020190": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-11-01"
+  },
+  "2025020173": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-10-30"
+  },
+  "2025021280": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-04-12"
+  },
+  "2025021275": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-04-11"
+  },
+  "2025021216": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-04-04"
+  },
+  "2025021188": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 2,
+    "p1_away_goals": 3,
+    "date": "2026-04-01"
+  },
+  "2025021165": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-03-28"
+  },
+  "2025021134": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-24"
+  },
+  "2025021090": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-03-19"
+  },
+  "2025021074": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 3,
+    "p1_away_goals": 1,
+    "date": "2026-03-17"
+  },
+  "2025021038": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-03-12"
+  },
+  "2025021011": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-03-09"
+  },
+  "2025020884": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-02-02"
+  },
+  "2025020869": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-31"
+  },
+  "2025020855": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-29"
+  },
+  "2025020838": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 1,
+    "p1_away_goals": 3,
+    "date": "2026-01-27"
+  },
+  "2025020822": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-25"
+  },
+  "2025020807": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-01-23"
+  },
+  "2025020792": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 2,
+    "p1_away_goals": 2,
+    "date": "2026-01-21"
+  },
+  "2025020778": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-01-19"
+  },
+  "2025020743": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-01-15"
+  },
+  "2025020725": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-01-13"
+  },
+  "2025020702": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 3,
+    "p1_away_goals": 0,
+    "date": "2026-01-10"
+  },
+  "2025020684": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-01-08"
+  },
+  "2025020667": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-01-06"
+  },
+  "2025020656": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-01-03"
+  },
+  "2025020621": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-12-30"
+  },
+  "2025020599": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2025-12-27"
+  },
+  "2025020572": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-22"
+  },
+  "2025020555": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-12-20"
+  },
+  "2025020545": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 0,
+    "p1_away_goals": 3,
+    "date": "2025-12-19"
+  },
+  "2025020523": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-16"
+  },
+  "2025020508": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-12-14"
+  },
+  "2025020492": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-12-11"
+  },
+  "2025020464": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-08"
+  },
+  "2025020439": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-05"
+  },
+  "2025020417": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-12-02"
+  },
+  "2025020385": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-11-28"
+  },
+  "2025020374": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-11-26"
+  },
+  "2025020352": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2025-11-23"
+  },
+  "2025020303": {
+    "gift": false,
+    "fp_goals": 4,
+    "p1_home_goals": 2,
+    "p1_away_goals": 2,
+    "date": "2025-11-17"
+  },
+  "2025020297": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-11-16"
+  },
+  "2025020250": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2025-11-09"
+  },
+  "2025020241": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-08"
+  },
+  "2025020201": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-11-03"
+  },
+  "2025020163": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-10-28"
+  },
+  "2025020136": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-10-25"
+  },
+  "2025020118": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-10-23"
+  },
+  "2025020101": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-10-21"
+  },
+  "2025020089": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 0,
+    "p1_away_goals": 3,
+    "date": "2025-10-19"
+  },
+  "2025020068": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2025-10-16"
+  },
+  "2025020035": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-10-11"
+  },
+  "2025020019": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-10-09"
+  },
+  "2025021304": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-04-15"
+  },
+  "2025021270": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-04-11"
+  },
+  "2025021252": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-04-09"
+  },
+  "2025021245": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-04-08"
+  },
+  "2025021202": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-04-02"
+  },
+  "2025021176": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-03-30"
+  },
+  "2025021136": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2026-03-25"
+  },
+  "2025021120": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-24"
+  },
+  "2025021106": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-03-21"
+  },
+  "2025021068": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-03-17"
+  },
+  "2025021047": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-03-14"
+  },
+  "2025021029": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2026-03-12"
+  },
+  "2025020994": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 1,
+    "p1_away_goals": 4,
+    "date": "2026-03-07"
+  },
+  "2025020975": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-03-05"
+  },
+  "2025020971": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-03-04"
+  },
+  "2025020954": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-03-02"
+  },
+  "2025020939": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-02-28"
+  },
+  "2025020921": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 3,
+    "p1_away_goals": 0,
+    "date": "2026-02-26"
+  },
+  "2025020912": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-02-25"
+  },
+  "2025020885": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2026-02-02"
+  },
+  "2025020831": {
+    "gift": true,
+    "fp_goals": 5,
+    "p1_home_goals": 2,
+    "p1_away_goals": 3,
+    "date": "2026-01-27"
+  },
+  "2025020819": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2026-01-25"
+  },
+  "2025020788": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2026-01-21"
+  },
+  "2025020733": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-01-13"
+  },
+  "2025020723": {
+    "gift": false,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2026-01-12"
+  },
+  "2025020686": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-08"
+  },
+  "2025020672": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2026-01-06"
+  },
+  "2025020651": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2026-01-03"
+  },
+  "2025020617": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-30"
+  },
+  "2025020601": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-12-28"
+  },
+  "2025020590": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2025-12-27"
+  },
+  "2025020575": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 2,
+    "p1_away_goals": 1,
+    "date": "2025-12-23"
+  },
+  "2025020558": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-12-20"
+  },
+  "2025020539": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2025-12-18"
+  },
+  "2025020480": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-11"
+  },
+  "2025020461": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-12-08"
+  },
+  "2025020413": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-12-02"
+  },
+  "2025020396": {
+    "gift": true,
+    "fp_goals": 3,
+    "p1_home_goals": 1,
+    "p1_away_goals": 2,
+    "date": "2025-11-29"
+  },
+  "2025020386": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-11-28"
+  },
+  "2025020369": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-26"
+  },
+  "2025020319": {
+    "gift": false,
+    "fp_goals": 0,
+    "p1_home_goals": 0,
+    "p1_away_goals": 0,
+    "date": "2025-11-20"
+  },
+  "2025020256": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 3,
+    "p1_away_goals": 1,
+    "date": "2025-11-11"
+  },
+  "2025020234": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 2,
+    "p1_away_goals": 2,
+    "date": "2025-11-08"
+  },
+  "2025020213": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-11-05"
+  },
+  "2025020199": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-11-03"
+  },
+  "2025020188": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-11-01"
+  },
+  "2025020166": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2025-10-29"
+  },
+  "2025020151": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-10-28"
+  },
+  "2025020132": {
+    "gift": false,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-10-25"
+  },
+  "2025020123": {
+    "gift": true,
+    "fp_goals": 4,
+    "p1_home_goals": 2,
+    "p1_away_goals": 2,
+    "date": "2025-10-24"
+  },
+  "2025020098": {
+    "gift": true,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-10-21"
+  },
+  "2025020061": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 1,
+    "p1_away_goals": 0,
+    "date": "2025-10-16"
+  },
+  "2025020049": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 2,
+    "p1_away_goals": 0,
+    "date": "2025-10-14"
+  },
+  "2025020043": {
+    "gift": false,
+    "fp_goals": 1,
+    "p1_home_goals": 0,
+    "p1_away_goals": 1,
+    "date": "2025-10-13"
+  },
+  "2025020025": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 0,
+    "p1_away_goals": 2,
+    "date": "2025-10-11"
+  },
+  "2025020004": {
+    "gift": true,
+    "fp_goals": 2,
+    "p1_home_goals": 1,
+    "p1_away_goals": 1,
+    "date": "2025-10-08"
   }
 }
