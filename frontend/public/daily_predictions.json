@@ -454,68 +454,7 @@
                             "score": "3-2"
                         }
                     ],
-                    "h2h": [
-                        {
-                            "date": "02/25/26",
-                            "opp": "vs VGK",
-                            "result": "L",
-                            "score": "4-6"
-                        },
-                        {
-                            "date": "02/05/26",
-                            "opp": "@VGK",
-                            "result": "L",
-                            "score": "1-4"
-                        },
-                        {
-                            "date": "01/14/26",
-                            "opp": "vs VGK",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "10/08/25",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "6-5"
-                        },
-                        {
-                            "date": "09/23/25",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "3-1"
-                        },
-                        {
-                            "date": "03/09/25",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "6-5"
-                        },
-                        {
-                            "date": "02/24/25",
-                            "opp": "vs VGK",
-                            "result": "W",
-                            "score": "5-2"
-                        },
-                        {
-                            "date": "10/30/24",
-                            "opp": "vs VGK",
-                            "result": "W",
-                            "score": "6-3"
-                        },
-                        {
-                            "date": "10/22/24",
-                            "opp": "@VGK",
-                            "result": "L",
-                            "score": "1-6"
-                        },
-                        {
-                            "date": "09/25/24",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "3-2"
-                        }
-                    ]
+                    "h2h": []
                 },
                 "covers": {
                     "best_ml": "VGK ML",
