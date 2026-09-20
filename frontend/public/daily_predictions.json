@@ -2339,6 +2339,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "2-2"
+                        },
+                        {
                             "date": "04/14/26",
                             "opp": "@CBJ",
                             "result": "W",
@@ -2391,15 +2397,15 @@
                             "opp": "@VGK",
                             "result": "W",
                             "score": "5-4"
-                        },
-                        {
-                            "date": "03/26/26",
-                            "opp": "@UTA",
-                            "result": "W",
-                            "score": "7-4"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "09/20/26",
+                            "opp": "vs WSH",
+                            "result": "L",
+                            "score": "2-2"
+                        },
                         {
                             "date": "05/01/26",
                             "opp": "vs BUF",
@@ -2453,12 +2459,6 @@
                             "opp": "vs TBL",
                             "result": "L",
                             "score": "1-2"
-                        },
-                        {
-                            "date": "04/07/26",
-                            "opp": "@CAR",
-                            "result": "L",
-                            "score": "5-6"
                         }
                     ],
                     "h2h": [
@@ -2626,6 +2626,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@NJD",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
                             "date": "04/14/26",
                             "opp": "vs CAR",
                             "result": "L",
@@ -2678,15 +2684,15 @@
                             "opp": "vs FLA",
                             "result": "W",
                             "score": "5-2"
-                        },
-                        {
-                            "date": "03/26/26",
-                            "opp": "vs DAL",
-                            "result": "W",
-                            "score": "2-1"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "09/20/26",
+                            "opp": "vs NYI",
+                            "result": "W",
+                            "score": "2-1"
+                        },
                         {
                             "date": "04/14/26",
                             "opp": "@BOS",
@@ -2740,12 +2746,6 @@
                             "opp": "@NYR",
                             "result": "L",
                             "score": "1-4"
-                        },
-                        {
-                            "date": "03/29/26",
-                            "opp": "vs CHI",
-                            "result": "W",
-                            "score": "5-3"
                         }
                     ],
                     "h2h": [
@@ -3200,6 +3200,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
                             "date": "04/16/26",
                             "opp": "@WPG",
                             "result": "W",
@@ -3252,15 +3258,15 @@
                             "opp": "vs TOR",
                             "result": "W",
                             "score": "4-1"
-                        },
-                        {
-                            "date": "04/01/26",
-                            "opp": "vs ANA",
-                            "result": "W",
-                            "score": "4-3"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "09/20/26",
+                            "opp": "vs SJS",
+                            "result": "W",
+                            "score": "6-2"
+                        },
                         {
                             "date": "05/14/26",
                             "opp": "vs VGK",
@@ -3314,12 +3320,6 @@
                             "opp": "vs EDM",
                             "result": "W",
                             "score": "4-3"
-                        },
-                        {
-                            "date": "04/24/26",
-                            "opp": "vs EDM",
-                            "result": "W",
-                            "score": "7-4"
                         }
                     ],
                     "h2h": [
@@ -3774,6 +3774,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@TBL",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
                             "date": "04/16/26",
                             "opp": "vs ANA",
                             "result": "L",
@@ -3826,15 +3832,15 @@
                             "opp": "@TBL",
                             "result": "L",
                             "score": "2-3"
-                        },
-                        {
-                            "date": "03/28/26",
-                            "opp": "vs MTL",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "09/20/26",
+                            "opp": "vs NSH",
+                            "result": "W",
+                            "score": "2-1"
+                        },
                         {
                             "date": "05/03/26",
                             "opp": "vs MTL",
@@ -3888,12 +3894,6 @@
                             "opp": "vs DET",
                             "result": "W",
                             "score": "4-3"
-                        },
-                        {
-                            "date": "04/11/26",
-                            "opp": "@BOS",
-                            "result": "W",
-                            "score": "2-1"
                         }
                     ],
                     "h2h": [
@@ -4980,6 +4980,12 @@
                     ],
                     "home": [
                         {
+                            "date": "09/20/26",
+                            "opp": "vs NYI",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
                             "date": "04/14/26",
                             "opp": "@BOS",
                             "result": "L",
@@ -5032,12 +5038,6 @@
                             "opp": "@NYR",
                             "result": "L",
                             "score": "1-4"
-                        },
-                        {
-                            "date": "03/29/26",
-                            "opp": "vs CHI",
-                            "result": "W",
-                            "score": "5-3"
                         }
                     ],
                     "h2h": [
@@ -5841,6 +5841,12 @@
                     ],
                     "home": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "2-2"
+                        },
+                        {
                             "date": "04/14/26",
                             "opp": "@CBJ",
                             "result": "W",
@@ -5893,12 +5899,6 @@
                             "opp": "@VGK",
                             "result": "W",
                             "score": "5-4"
-                        },
-                        {
-                            "date": "03/26/26",
-                            "opp": "@UTA",
-                            "result": "W",
-                            "score": "7-4"
                         }
                     ],
                     "h2h": [
@@ -6417,6 +6417,12 @@
                     ],
                     "home": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
                             "date": "04/16/26",
                             "opp": "@WPG",
                             "result": "W",
@@ -6469,12 +6475,6 @@
                             "opp": "vs TOR",
                             "result": "W",
                             "score": "4-1"
-                        },
-                        {
-                            "date": "04/01/26",
-                            "opp": "vs ANA",
-                            "result": "W",
-                            "score": "4-3"
                         }
                     ],
                     "h2h": [
@@ -7216,6 +7216,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@NJD",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
                             "date": "04/14/26",
                             "opp": "vs CAR",
                             "result": "L",
@@ -7268,12 +7274,6 @@
                             "opp": "vs FLA",
                             "result": "W",
                             "score": "5-2"
-                        },
-                        {
-                            "date": "03/26/26",
-                            "opp": "vs DAL",
-                            "result": "W",
-                            "score": "2-1"
                         }
                     ],
                     "home": [
@@ -8077,6 +8077,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "09/20/26",
+                            "opp": "vs NSH",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
                             "date": "05/03/26",
                             "opp": "vs MTL",
                             "result": "L",
@@ -8129,15 +8135,15 @@
                             "opp": "vs DET",
                             "result": "W",
                             "score": "4-3"
-                        },
-                        {
-                            "date": "04/11/26",
-                            "opp": "@BOS",
-                            "result": "W",
-                            "score": "2-1"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "09/20/26",
+                            "opp": "@TBL",
+                            "result": "L",
+                            "score": "1-2"
+                        },
                         {
                             "date": "04/16/26",
                             "opp": "vs ANA",
@@ -8191,12 +8197,6 @@
                             "opp": "@TBL",
                             "result": "L",
                             "score": "2-3"
-                        },
-                        {
-                            "date": "03/28/26",
-                            "opp": "vs MTL",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "h2h": [
@@ -8426,6 +8426,12 @@
                     ],
                     "home": [
                         {
+                            "date": "09/20/26",
+                            "opp": "vs WSH",
+                            "result": "L",
+                            "score": "2-2"
+                        },
+                        {
                             "date": "05/01/26",
                             "opp": "vs BUF",
                             "result": "L",
@@ -8478,12 +8484,6 @@
                             "opp": "vs TBL",
                             "result": "L",
                             "score": "1-2"
-                        },
-                        {
-                            "date": "04/07/26",
-                            "opp": "@CAR",
-                            "result": "L",
-                            "score": "5-6"
                         }
                     ],
                     "h2h": [
@@ -9508,6 +9508,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "2-2"
+                        },
+                        {
                             "date": "04/14/26",
                             "opp": "@CBJ",
                             "result": "W",
@@ -9560,15 +9566,15 @@
                             "opp": "@VGK",
                             "result": "W",
                             "score": "5-4"
-                        },
-                        {
-                            "date": "03/26/26",
-                            "opp": "@UTA",
-                            "result": "W",
-                            "score": "7-4"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "09/20/26",
+                            "opp": "vs WSH",
+                            "result": "L",
+                            "score": "2-2"
+                        },
                         {
                             "date": "05/01/26",
                             "opp": "vs BUF",
@@ -9622,12 +9628,6 @@
                             "opp": "vs TBL",
                             "result": "L",
                             "score": "1-2"
-                        },
-                        {
-                            "date": "04/07/26",
-                            "opp": "@CAR",
-                            "result": "L",
-                            "score": "5-6"
                         }
                     ],
                     "h2h": [
@@ -9795,6 +9795,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "09/20/26",
+                            "opp": "@NJD",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
                             "date": "04/14/26",
                             "opp": "vs CAR",
                             "result": "L",
@@ -9847,15 +9853,15 @@
                             "opp": "vs FLA",
                             "result": "W",
                             "score": "5-2"
-                        },
-                        {
-                            "date": "03/26/26",
-                            "opp": "vs DAL",
-                            "result": "W",
-                            "score": "2-1"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "09/20/26",
+                            "opp": "vs NYI",
+                            "result": "W",
+                            "score": "2-1"
+                        },
                         {
                             "date": "04/14/26",
                             "opp": "@BOS",
@@ -9909,12 +9915,6 @@
                             "opp": "@NYR",
                             "result": "L",
                             "score": "1-4"
-                        },
-                        {
-                            "date": "03/29/26",
-                            "opp": "vs CHI",
-                            "result": "W",
-                            "score": "5-3"
                         }
                     ],
                     "h2h": [
