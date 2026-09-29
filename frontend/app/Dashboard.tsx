@@ -89,7 +89,7 @@ export default function Dashboard() {
       <div className="sticky top-0 z-50 bg-[#0b0f19]/95 backdrop-blur border-b border-gray-800">
         <div className="max-w-5xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between gap-2">
           <h1 className="text-lg sm:text-3xl font-black italic tracking-wider text-white whitespace-nowrap">
-            SUMEET<span className="text-blue-500">ENGINE</span>{' '}
+            NHL<span className="text-blue-500">ENGINE</span>{' '}
             <span className="text-gray-500 text-sm sm:text-lg">NHL</span>
           </h1>
           <div className="flex space-x-1 bg-[#111827] p-1 rounded-lg border border-gray-800">
