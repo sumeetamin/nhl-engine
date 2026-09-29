@@ -584,7 +584,7 @@ const NHLMatchupCard = ({ dateMode }) => {
           game={game}
           giftStatsAll={giftStatsAll}
           resultsIndex={resultsIndex}
-          defaultExpanded={idx === 0}
+          defaultExpanded={false}
         />
       ))}
     </div>
