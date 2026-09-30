@@ -1,4 +1,5 @@
 pandas
+tzdata
 numpy
 requests
 beautifulsoup4

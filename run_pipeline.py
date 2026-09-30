@@ -9,6 +9,7 @@ import numpy as np
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from sklearn.exceptions import InconsistentVersionWarning
 from engine_classes import NHLStack, NHLElo, NHLBetFilter, NHLFormStore, NHLStatsTracker, TEAM_DIV
 
@@ -40,10 +41,11 @@ ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "3109357b0d1e8f884a7864d6b95a5811"
 
 
 # ── Time and Directory Helpers ────────────────────────────────────────────────
+EASTERN = ZoneInfo("America/New_York")
+
 def get_est_now():
-    """Returns current datetime in Eastern Time (EDT = UTC-4)."""
-    est = datetime.now(timezone.utc) - timedelta(hours=4)
-    return est.replace(tzinfo=None)
+    """Returns current datetime in Eastern Time, accounting for daylight saving."""
+    return datetime.now(EASTERN).replace(tzinfo=None)
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
 WINDOWS_PATH = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public"
@@ -254,9 +256,10 @@ def get_goalie_stats(name):
 
 def convert_to_est(utc_string):
     try:
-        dt = datetime.strptime(utc_string,"%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=4)
-        return dt.strftime("%I:%M %p EST").lstrip("0")
-    except: return "TBD"
+        dt = datetime.strptime(utc_string, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        return dt.astimezone(EASTERN).strftime("%I:%M %p %Z").lstrip("0")
+    except (ValueError, TypeError):
+        return "TBD"
 
 def get_implied_ml(prob):
     if prob >= 99.9: return "-10000"
@@ -430,9 +433,10 @@ def get_all_games_for_date(target_date_str, odds_data, standings, gift_stats_all
     url = f"https://api-web.nhle.com/v1/schedule/{target_date_str}"
     try:
         response = requests.get(url, timeout=10).json()
-        games    = next((day['games'] for day in response.get('gameWeek',[]) if day['date']==target_date_str),[])
+        games = next(day['games'] for day in response['gameWeek'] if day['date'] == target_date_str)
         matchups = [(g['homeTeam']['abbrev'],g['awayTeam']['abbrev'],g.get('startTimeUTC','TBD')) for g in games]
-    except: matchups=[]
+    except (requests.RequestException, ValueError, KeyError, StopIteration, TypeError):
+        return None
     
     # Fire custom goalie scraper dynamically across targeted date teams
     teams_playing = [team for g in matchups for team in (g[0], g[1])]
@@ -442,13 +446,15 @@ def get_all_games_for_date(target_date_str, odds_data, standings, gift_stats_all
     for home,away,utc in matchups:
         res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=daily_goalies,
                             odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all)
-        if res: all_games.append(res)
+        if not res:
+            return None
+        all_games.append(res)
     all_games.sort(key=lambda x:float(x['edge'].replace('+','').replace('%','')),reverse=True)
     return all_games
 
 def get_top_plays(target_date_str, odds_data, standings, gift_stats_all):
     games = get_all_games_for_date(target_date_str,odds_data,standings,gift_stats_all)
-    return [g for g in games if g["tier"] in ["EDGE","BIG"]][:3]
+    return [g for g in (games or []) if g["tier"] in ["EDGE","BIG"]][:3]
 
 
 # ── Core Orchestrator ─────────────────────────────────────────────────────────
@@ -478,16 +484,22 @@ def build_daily_json():
             print(f"\n📊 Fetching GIFT stats for {len(teams_needed)} teams (full season)...")
             gift_stats_all = build_gift_stats_for_teams(list(teams_needed), n_games=82)
 
-    top_today = (get_top_plays(d(0),odds_data,standings,gift_stats_all) or
-                 get_top_plays(d(1),odds_data,standings,gift_stats_all))
-
+    offsets = {"day_before_yesterday": -2, "yesterday": -1, "today": 0,
+               "tomorrow": 1, "day_after_tomorrow": 2}
+    games_by_date = {
+        d(offset): get_all_games_for_date(d(offset), odds_data, standings, gift_stats_all)
+        for offset in offsets.values()
+    }
     daily_payload = {
-        "day_before_yesterday": get_all_games_for_date(d(-2),odds_data,standings,gift_stats_all),
-        "yesterday":            get_all_games_for_date(d(-1),odds_data,standings,gift_stats_all),
-        "today":                get_all_games_for_date(d( 0),odds_data,standings,gift_stats_all),
-        "tomorrow":             get_all_games_for_date(d( 1),odds_data,standings,gift_stats_all),
-        "day_after_tomorrow":   get_all_games_for_date(d( 2),odds_data,standings,gift_stats_all),
-        "top_plays": top_today,
+        "schema_version": 2,
+        "timezone": "America/New_York",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "games_by_date": games_by_date,
+        # Retain relative aliases for older consumers during deployment.
+        **{key: games_by_date[d(offset)] for key, offset in offsets.items()},
+        "top_plays_date": d(0),
+        "top_plays": [g for g in (games_by_date[d(0)] or [])
+                      if g["tier"] in ["EDGE", "BIG"]][:3],
     }
 
     print("\n--- SAVING FILES ---")
