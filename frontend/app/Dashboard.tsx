@@ -2,27 +2,24 @@
 
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { easternDate, dateOptions as buildDateOptions, gamesForDate } from '../lib/predictionDates.mjs';
 
 // ── Dynamic imports with ssr:false — prevents server-side crash ───────────────
 const NHLMatchupCard   = dynamic(() => import('../components/NHLMatchupCard'),   { ssr: false });
 const PerformanceTracker = dynamic(() => import('../components/PerformanceTracker'), { ssr: false });
 
 // ── Top Plays ─────────────────────────────────────────────────────────────────
-const TopPlaysList = () => {
-  const [plays, setPlays] = useState<any[] | null>(null);
+const TopPlaysList = ({ payload, today, loading }: { payload: any; today: string; loading: boolean }) => {
+  const games = gamesForDate(payload, today);
+  const plays = games?.filter((game: any) => ['EDGE', 'BIG'].includes(game.tier)).slice(0, 3);
 
-  useEffect(() => {
-    fetch('/daily_predictions.json?t=' + new Date().getTime())
-      .then(res => res.json())
-      .then(json => setPlays(json.top_plays || []))
-      .catch(err => console.error(err));
-  }, []);
-
-  if (!plays) return (
+  if (loading) return (
     <div className="flex justify-center mt-20">
       <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
     </div>
   );
+
+  if (!plays) return <p className="text-center text-gray-400 mt-20">Predictions unavailable for {today} (Eastern Time). Waiting for an update.</p>;
 
   if (plays.length === 0) return (
     <div className="text-center text-gray-500 mt-20 font-mono text-sm px-4">
@@ -54,33 +51,52 @@ const TopPlaysList = () => {
   );
 };
 
-// ── Date helper — uses viewer's local date ────────────────────────────────────
-const getLocalDate = (offsetDays: number = 0): Date => {
-  const now = new Date();
-  return new Date(now.getFullYear(), now.getMonth(), now.getDate() + offsetDays);
-};
-
-const buildDateOptions = () => {
-  const fmt  = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  return [
-    { key: 'day_before_yesterday', label: fmt(getLocalDate(-2)), sub: '2 Days Ago' },
-    { key: 'yesterday',            label: fmt(getLocalDate(-1)), sub: 'Yesterday'  },
-    { key: 'today',                label: fmt(getLocalDate( 0)), sub: 'Today'      },
-    { key: 'tomorrow',             label: fmt(getLocalDate( 1)), sub: 'Tomorrow'   },
-    { key: 'day_after_tomorrow',   label: fmt(getLocalDate( 2)), sub: days[getLocalDate(2).getDay()] },
-  ];
-};
-
 // ── Main Dashboard ────────────────────────────────────────────────────────────
 export default function Dashboard() {
   const [activeMode, setActiveMode]   = useState<string>('daily');
-  const [activeDate, setActiveDate]   = useState<string>('today');
-  const [dateOptions, setDateOptions] = useState<any[]>([]);
+  const [activeDate, setActiveDate]   = useState<string>('');
+  const [today, setToday] = useState('');
+  const [payload, setPayload] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const dateOptions = today ? buildDateOptions(today) : [];
 
   useEffect(() => {
-    setDateOptions(buildDateOptions());
+    let disposed = false;
+    let pending = false;
+    const controller = new AbortController();
+    const refresh = async () => {
+      const current = easternDate();
+      setToday(current);
+      if (pending) return;
+      pending = true;
+      try {
+        const response = await fetch('/daily_predictions.json?t=' + Date.now(), {
+          cache: 'no-store', signal: controller.signal,
+        });
+        if (!response.ok) throw new Error('Predictions unavailable');
+        const data = await response.json();
+        if (!disposed) setPayload(data);
+      } catch {
+        // Keep the last correctly dated payload during temporary network failures.
+      } finally {
+        pending = false;
+        if (!disposed) setLoading(false);
+      }
+    };
+    void refresh();
+    const timer = window.setInterval(refresh, 30_000);
+    window.addEventListener('focus', refresh);
+    document.addEventListener('visibilitychange', refresh);
+    return () => {
+      disposed = true;
+      controller.abort();
+      window.clearInterval(timer);
+      window.removeEventListener('focus', refresh);
+      document.removeEventListener('visibilitychange', refresh);
+    };
   }, []);
+
+  const selectedDate = dateOptions.some(option => option.key === activeDate) ? activeDate : today;
 
   return (
     <div className="min-h-screen bg-[#0b0f19] text-gray-100 font-sans">
@@ -89,8 +105,7 @@ export default function Dashboard() {
       <div className="sticky top-0 z-50 bg-[#0b0f19]/95 backdrop-blur border-b border-gray-800">
         <div className="max-w-5xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between gap-2">
           <h1 className="text-lg sm:text-3xl font-black italic tracking-wider text-white whitespace-nowrap">
-            LGDS<span className="text-blue-500">Analytics</span>{' '}
-            <span className="text-gray-500 text-sm sm:text-lg">NHL</span>
+            LGDS{' '}<span className="text-blue-500">Analytics</span>
           </h1>
           <div className="flex space-x-1 bg-[#111827] p-1 rounded-lg border border-gray-800">
             {['daily','snapshot','top'].map((mode) => (
@@ -113,13 +128,14 @@ export default function Dashboard() {
         {/* DATE SELECTOR */}
         {activeMode === 'daily' && (
           <div className="overflow-x-auto pb-1 -mx-3 px-3">
+            <p className="text-xs text-gray-400 mb-2 text-center">Dates in Eastern Time</p>
             <div className="flex space-x-2 min-w-max mx-auto w-fit">
               {dateOptions.map(({ key, label, sub }: { key: string; label: string; sub: string }) => (
                 <button
                   key={key}
-                  onClick={() => setActiveDate(key)}
+                  onClick={() => setActiveDate(key === today ? '' : key)}
                   className={`flex flex-col items-center px-3 sm:px-5 py-2 sm:py-3 rounded-xl border transition-all ${
-                    activeDate === key
+                    selectedDate === key
                       ? 'bg-blue-600 border-blue-500 text-white shadow-lg'
                       : 'bg-[#111827] border-gray-800 text-gray-400 hover:border-gray-600 hover:text-gray-200'
                   }`}
@@ -136,8 +152,8 @@ export default function Dashboard() {
         <div className="mt-2">
           {activeMode === 'snapshot' && <PerformanceTracker />}
           {/* @ts-ignore */}
-          {activeMode === 'daily'    && <NHLMatchupCard dateMode={activeDate} />}
-          {activeMode === 'top'      && <TopPlaysList />}
+          {activeMode === 'daily'    && <NHLMatchupCard selectedDate={selectedDate} payload={payload} loading={loading} />}
+          {activeMode === 'top'      && <TopPlaysList payload={payload} today={today} loading={loading} />}
         </div>
 
       </div>
