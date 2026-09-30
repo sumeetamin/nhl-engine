@@ -16,7 +16,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "-110",
+                "ml": "-120",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -233,7 +233,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: NYR starting Igor Shesterkin (Expected) vs BOS starting Jeremy Swayman (Expected).",
+                    "Goalie Edge: NYR starting TBD (Expected) vs BOS starting TBD (Expected).",
                     "Engine calculates NYR win probability at 71.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 49 points."
                 ],
@@ -520,7 +520,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: VAN starting Kevin Lankinen (Expected) vs EDM starting Connor Ingram (Expected).",
+                    "Goalie Edge: VAN starting TBD (Expected) vs EDM starting TBD (Expected).",
                     "Engine calculates VAN win probability at 71.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 49 points."
                 ],
@@ -807,7 +807,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: MTL starting Jakub Dobes (Expected) vs TOR starting Joseph Woll (Expected).",
+                    "Goalie Edge: MTL starting TBD (Expected) vs TOR starting TBD (Expected).",
                     "Engine calculates MTL win probability at 71.2% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 36 points."
                 ],
@@ -866,18 +866,18 @@
         {
             "away": {
                 "name": "FLA",
-                "record_overall": "0-0-0",
-                "record_split": "0-0-0",
-                "record_l10": "0-0-0",
-                "ml": "+110",
+                "record_overall": "1-0-0",
+                "record_split": "1-0-0",
+                "record_l10": "1-0-0",
+                "ml": "-210",
                 "proj": "3.7"
             },
             "home": {
                 "name": "CAR",
-                "record_overall": "0-0-0",
-                "record_split": "0-0-0",
-                "record_l10": "0-0-0",
-                "ml": "-130",
+                "record_overall": "0-0-1",
+                "record_split": "0-0-1",
+                "record_l10": "0-0-1",
+                "ml": "+210",
                 "proj": "1.8"
             },
             "ou_total": "O/U 5.5",
@@ -902,6 +902,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "09/29/26",
+                            "opp": "@CAR",
+                            "result": "W",
+                            "score": "1-0"
+                        },
                         {
                             "date": "09/26/26",
                             "opp": "vs TBL",
@@ -955,15 +961,15 @@
                             "opp": "@MTL",
                             "result": "L",
                             "score": "3-4"
-                        },
-                        {
-                            "date": "04/05/26",
-                            "opp": "@PIT",
-                            "result": "L",
-                            "score": "2-5"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "09/29/26",
+                            "opp": "vs FLA",
+                            "result": "L",
+                            "score": "0-1"
+                        },
                         {
                             "date": "09/26/26",
                             "opp": "@NSH",
@@ -1017,12 +1023,6 @@
                             "opp": "vs VGK",
                             "result": "W",
                             "score": "4-3"
-                        },
-                        {
-                            "date": "06/02/26",
-                            "opp": "vs VGK",
-                            "result": "L",
-                            "score": "4-5"
                         }
                     ],
                     "h2h": [
@@ -1094,7 +1094,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: FLA starting Sergei Bobrovsky (Expected) vs CAR starting Brandon Bussi (Expected).",
+                    "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs CAR starting Brandon Bussi (Expected).",
                     "Engine calculates FLA win probability at 67.7% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 103 points."
                 ],
@@ -1375,7 +1375,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: CHI starting Spencer Knight (Expected) vs VGK starting Akira Schmid (Expected).",
+                    "Goalie Edge: CHI starting TBD (Expected) vs VGK starting TBD (Expected).",
                     "Engine calculates CHI win probability at 55.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 143 points."
                 ],
@@ -1664,7 +1664,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: LAK starting Darcy Kuemper (Expected) vs COL starting Scott Wedgewood (Expected).",
+                    "Goalie Edge: LAK starting TBD (Expected) vs COL starting TBD (Expected).",
                     "Engine calculates COL win probability at 72.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 43 points."
                 ],
@@ -1945,7 +1945,7 @@
                     "best_ou": "PASS"
                 },
                 "notes": [
-                    "Goalie Edge: NYI starting Ilya Sorokin (Expected) vs TOR starting Joseph Woll (Expected).",
+                    "Goalie Edge: NYI starting TBD (Expected) vs TOR starting TBD (Expected).",
                     "Engine calculates NYI win probability at 71.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 50 points."
                 ],
@@ -2232,7 +2232,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: PIT starting Arturs Silovs (Expected) vs PHI starting Dan Vladar (Expected).",
+                    "Goalie Edge: PIT starting TBD (Expected) vs PHI starting TBD (Expected).",
                     "Engine calculates PIT win probability at 62.6% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 8 points."
                 ],
@@ -2509,7 +2509,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: CHI starting Spencer Knight (Expected) vs UTA starting Karel Vejmelka (Expected).",
+                    "Goalie Edge: CHI starting TBD (Expected) vs UTA starting TBD (Expected).",
                     "Engine calculates UTA win probability at 76.1% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 15 points."
                 ],
@@ -2568,9 +2568,9 @@
         {
             "away": {
                 "name": "FLA",
-                "record_overall": "0-0-0",
-                "record_split": "0-0-0",
-                "record_l10": "0-0-0",
+                "record_overall": "1-0-0",
+                "record_split": "1-0-0",
+                "record_l10": "1-0-0",
                 "ml": "-135",
                 "proj": "4.3"
             },
@@ -2604,6 +2604,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "09/29/26",
+                            "opp": "@CAR",
+                            "result": "W",
+                            "score": "1-0"
+                        },
                         {
                             "date": "09/26/26",
                             "opp": "vs TBL",
@@ -2657,12 +2663,6 @@
                             "opp": "@MTL",
                             "result": "L",
                             "score": "3-4"
-                        },
-                        {
-                            "date": "04/05/26",
-                            "opp": "@PIT",
-                            "result": "L",
-                            "score": "2-5"
                         }
                     ],
                     "home": [
@@ -2772,7 +2772,7 @@
                     "best_ou": "PASS"
                 },
                 "notes": [
-                    "Goalie Edge: FLA starting Sergei Bobrovsky (Expected) vs SJS starting Yaroslav Askarov (Expected).",
+                    "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs SJS starting TBD (Expected).",
                     "Engine calculates FLA win probability at 71.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 50 points."
                 ],
@@ -3059,7 +3059,7 @@
                     "best_ou": "PASS"
                 },
                 "notes": [
-                    "Goalie Edge: SEA starting Joey Daccord (Expected) vs CGY starting Dustin Wolf (Expected).",
+                    "Goalie Edge: SEA starting TBD (Expected) vs CGY starting TBD (Expected).",
                     "Engine calculates SEA win probability at 71.2% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 50 points."
                 ],
@@ -3346,7 +3346,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: BUF starting Alex Lyon (Expected) vs CBJ starting Jet Greaves (Expected).",
+                    "Goalie Edge: BUF starting TBD (Expected) vs CBJ starting TBD (Expected).",
                     "Engine calculates BUF win probability at 70.6% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 59 points."
                 ],
@@ -3633,7 +3633,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: MIN starting Filip Gustavsson (Expected) vs NSH starting Juuse Saros (Expected).",
+                    "Goalie Edge: MIN starting TBD (Expected) vs NSH starting TBD (Expected).",
                     "Engine calculates MIN win probability at 70.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 61 points."
                 ],
@@ -3914,7 +3914,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: TBL starting Andrei Vasilevskiy (Expected) vs NYR starting Igor Shesterkin (Expected).",
+                    "Goalie Edge: TBL starting TBD (Expected) vs NYR starting TBD (Expected).",
                     "Engine calculates TBL win probability at 70.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 63 points."
                 ],
@@ -4201,7 +4201,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: PHI starting Dan Vladar (Expected) vs NJD starting Jacob Markstrom (Expected).",
+                    "Goalie Edge: PHI starting TBD (Expected) vs NJD starting TBD (Expected).",
                     "Engine calculates PHI win probability at 68.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 93 points."
                 ],
@@ -4488,7 +4488,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: EDM starting Connor Ingram (Expected) vs VAN starting Kevin Lankinen (Expected).",
+                    "Goalie Edge: EDM starting TBD (Expected) vs VAN starting TBD (Expected).",
                     "Engine calculates EDM win probability at 67.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 51 points."
                 ],
@@ -4560,7 +4560,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "-110",
+                "ml": "-120",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -4777,7 +4777,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: NYR starting Igor Shesterkin (Expected) vs BOS starting Jeremy Swayman (Expected).",
+                    "Goalie Edge: NYR starting TBD (Expected) vs BOS starting TBD (Expected).",
                     "Engine calculates NYR win probability at 71.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 49 points."
                 ],
@@ -5064,7 +5064,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: VAN starting Kevin Lankinen (Expected) vs EDM starting Connor Ingram (Expected).",
+                    "Goalie Edge: VAN starting TBD (Expected) vs EDM starting TBD (Expected).",
                     "Engine calculates VAN win probability at 71.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 49 points."
                 ],
@@ -5351,7 +5351,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: MTL starting Jakub Dobes (Expected) vs TOR starting Joseph Woll (Expected).",
+                    "Goalie Edge: MTL starting TBD (Expected) vs TOR starting TBD (Expected).",
                     "Engine calculates MTL win probability at 71.2% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 36 points."
                 ],
