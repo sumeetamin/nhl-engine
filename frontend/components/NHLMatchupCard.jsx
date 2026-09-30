@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { gamesForDate } from '../lib/predictionDates.mjs';
 
 // ── Result Panel (MLB-style) ──────────────────────────────────────────────────
 const ResultPanel = ({ result, game }) => {
@@ -532,23 +533,18 @@ const SingleMatchupCard = ({ game, giftStatsAll, resultsIndex, defaultExpanded =
 };
 
 // ── Main NHLMatchupCard ───────────────────────────────────────────────────────
-const NHLMatchupCard = ({ dateMode }) => {
-  const [allGames, setAllGames]         = useState(null);
-  const [loading, setLoading]           = useState(true);
+const NHLMatchupCard = ({ selectedDate, payload, loading }) => {
   const [giftStatsAll, setGiftStatsAll] = useState(null);
   const [resultsIndex, setResultsIndex] = useState(null);
 
   useEffect(() => {
     const ts = new Date().getTime();
     Promise.all([
-      fetch('/daily_predictions.json?t=' + ts).then(r => r.ok ? r.json() : null).catch(() => null),
       fetch('/gift_stats.json?t='         + ts).then(r => r.ok ? r.json() : null).catch(() => null),
       fetch('/results_index.json?t='      + ts).then(r => r.ok ? r.json() : null).catch(() => null),
-    ]).then(([gameData, giftData, resultsData]) => {
-      if (gameData)    setAllGames(gameData);
+    ]).then(([giftData, resultsData]) => {
       if (giftData)    setGiftStatsAll(giftData);
       if (resultsData) setResultsIndex(resultsData);
-      setLoading(false);
     });
   }, []);
 
@@ -561,17 +557,15 @@ const NHLMatchupCard = ({ dateMode }) => {
     );
   }
 
-  const raw   = allGames ? allGames[dateMode] : null;
-  const games = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  const games = gamesForDate(payload, selectedDate);
+  const friendly = selectedDate ? new Date(`${selectedDate}T12:00:00Z`).toLocaleDateString(
+    'en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' }
+  ) : 'the selected date';
 
-  if (!games.length) {
-    const offsets  = { day_before_yesterday:-2, yesterday:-1, today:0, tomorrow:1, day_after_tomorrow:2 };
-    const now      = new Date();
-    const d        = new Date(now.getFullYear(), now.getMonth(), now.getDate() + (offsets[dateMode] ?? 0));
-    const friendly = d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+  if (!games?.length) {
     return (
       <div className="bg-[#151c28] rounded-xl border border-gray-800 h-64 flex flex-col items-center justify-center">
-        <p className="text-gray-500 font-mono text-sm uppercase tracking-widest">No scheduled games for {friendly}</p>
+        <p className="text-gray-500 font-mono text-sm uppercase tracking-widest">{games === null ? `Predictions unavailable for ${friendly}. Waiting for an update.` : `No scheduled games for ${friendly}`} </p>
       </div>
     );
   }
@@ -580,7 +574,7 @@ const NHLMatchupCard = ({ dateMode }) => {
     <div className="space-y-4">
       {games.map((game, idx) => (
         <SingleMatchupCard
-          key={`${game.away?.name}-${game.home?.name}-${idx}`}
+          key={`${selectedDate}-${game.away?.name}-${game.home?.name}-${idx}`}
           game={game}
           giftStatsAll={giftStatsAll}
           resultsIndex={resultsIndex}
