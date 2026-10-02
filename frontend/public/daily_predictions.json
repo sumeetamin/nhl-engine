@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-01T21:00:49.329253+00:00",
+    "generated_at": "2026-10-02T01:15:04.843137+00:00",
     "games_by_date": {
         "2026-09-29": [
             {
@@ -3123,7 +3123,7 @@
                     "record_overall": "0-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-0-0",
-                    "ml": "-112",
+                    "ml": "+220",
                     "proj": "3.9"
                 },
                 "home": {
@@ -3131,7 +3131,7 @@
                     "record_overall": "0-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-0-0",
-                    "ml": "-108",
+                    "ml": "-298",
                     "proj": "1.6"
                 },
                 "ou_total": "O/U 5.5",
@@ -3410,7 +3410,7 @@
                     "record_overall": "0-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-0-0",
-                    "ml": "-148",
+                    "ml": "-750",
                     "proj": "3.9"
                 },
                 "home": {
@@ -3418,7 +3418,7 @@
                     "record_overall": "0-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-0-0",
-                    "ml": "+124",
+                    "ml": "+470",
                     "proj": "1.6"
                 },
                 "ou_total": "O/U 5.5",
@@ -3697,7 +3697,7 @@
                     "record_overall": "0-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-0-0",
-                    "ml": "-148",
+                    "ml": "+1500",
                     "proj": "3.9"
                 },
                 "home": {
@@ -3705,7 +3705,7 @@
                     "record_overall": "0-1-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-1-0",
-                    "ml": "+124",
+                    "ml": "-4000",
                     "proj": "1.6"
                 },
                 "ou_total": "O/U 5.5",
@@ -3978,7 +3978,7 @@
                     "record_overall": "0-1-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-1-0",
-                    "ml": "+142",
+                    "ml": "-315",
                     "proj": "3.8"
                 },
                 "home": {
@@ -3986,7 +3986,7 @@
                     "record_overall": "0-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-0-0",
-                    "ml": "-170",
+                    "ml": "+230",
                     "proj": "1.7"
                 },
                 "ou_total": "O/U 5.5",
@@ -5128,7 +5128,7 @@
                     "record_overall": "0-1-0",
                     "record_split": "0-1-0",
                     "record_l10": "0-1-0",
-                    "ml": "+120",
+                    "ml": "+114",
                     "proj": "4.3"
                 },
                 "home": {
@@ -5136,7 +5136,7 @@
                     "record_overall": "0-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "0-0-0",
-                    "ml": "-142",
+                    "ml": "-135",
                     "proj": "1.7"
                 },
                 "ou_total": "O/U 6.0",
@@ -12718,7 +12718,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "-112",
+                "ml": "+220",
                 "proj": "3.9"
             },
             "home": {
@@ -12726,7 +12726,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "-108",
+                "ml": "-298",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -13005,7 +13005,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "-148",
+                "ml": "-750",
                 "proj": "3.9"
             },
             "home": {
@@ -13013,7 +13013,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "+124",
+                "ml": "+470",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -13292,7 +13292,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "-148",
+                "ml": "+1500",
                 "proj": "3.9"
             },
             "home": {
@@ -13300,7 +13300,7 @@
                 "record_overall": "0-1-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-1-0",
-                "ml": "+124",
+                "ml": "-4000",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -13573,7 +13573,7 @@
                 "record_overall": "0-1-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-1-0",
-                "ml": "+142",
+                "ml": "-315",
                 "proj": "3.8"
             },
             "home": {
@@ -13581,7 +13581,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "-170",
+                "ml": "+230",
                 "proj": "1.7"
             },
             "ou_total": "O/U 5.5",
@@ -14723,7 +14723,7 @@
                 "record_overall": "0-1-0",
                 "record_split": "0-1-0",
                 "record_l10": "0-1-0",
-                "ml": "+120",
+                "ml": "+114",
                 "proj": "4.3"
             },
             "home": {
@@ -14731,7 +14731,7 @@
                 "record_overall": "0-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "0-0-0",
-                "ml": "-142",
+                "ml": "-135",
                 "proj": "1.7"
             },
             "ou_total": "O/U 6.0",
