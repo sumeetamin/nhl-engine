@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-05T11:54:37.382714+00:00",
+    "generated_at": "2026-10-05T19:00:21.583334+00:00",
     "games_by_date": {
         "2026-10-03": [
             {
@@ -618,7 +618,32 @@
                     "recent_logs": {
                         "away": [],
                         "home": [],
-                        "h2h": []
+                        "h2h": [
+                            {
+                                "date": "03/19/24",
+                                "opp": "@STL",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "12/29/23",
+                                "opp": "@STL",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "11/11/23",
+                                "opp": "vs STL",
+                                "result": "L",
+                                "score": "2-8"
+                            },
+                            {
+                                "date": "11/01/23",
+                                "opp": "vs STL",
+                                "result": "W",
+                                "score": "4-1"
+                            }
+                        ]
                     },
                     "covers": {
                         "best_ml": "COL ML",
@@ -1926,18 +1951,6 @@
                                 "opp": "@UTA",
                                 "result": "W",
                                 "score": "3-2"
-                            },
-                            {
-                                "date": "02/06/25",
-                                "opp": "vs UTA",
-                                "result": "L",
-                                "score": "2-3"
-                            },
-                            {
-                                "date": "01/31/25",
-                                "opp": "@UTA",
-                                "result": "W",
-                                "score": "3-2"
                             }
                         ]
                     },
@@ -3009,7 +3022,32 @@
                 "recent_logs": {
                     "away": [],
                     "home": [],
-                    "h2h": []
+                    "h2h": [
+                        {
+                            "date": "03/19/24",
+                            "opp": "@STL",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "12/29/23",
+                            "opp": "@STL",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "11/11/23",
+                            "opp": "vs STL",
+                            "result": "L",
+                            "score": "2-8"
+                        },
+                        {
+                            "date": "11/01/23",
+                            "opp": "vs STL",
+                            "result": "W",
+                            "score": "4-1"
+                        }
+                    ]
                 },
                 "covers": {
                     "best_ml": "COL ML",
@@ -4314,18 +4352,6 @@
                         },
                         {
                             "date": "01/11/26",
-                            "opp": "@UTA",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "02/06/25",
-                            "opp": "vs UTA",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "01/31/25",
                             "opp": "@UTA",
                             "result": "W",
                             "score": "3-2"
