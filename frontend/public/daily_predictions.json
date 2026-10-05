@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-04T19:31:38.410329+00:00",
+    "generated_at": "2026-10-05T00:23:05.677456+00:00",
     "games_by_date": {
         "2026-10-02": [
             {
@@ -589,9 +589,9 @@
                 },
                 "home": {
                     "name": "DET",
-                    "record_overall": "0-1-0",
-                    "record_split": "0-1-0",
-                    "record_l10": "0-1-0",
+                    "record_overall": "0-2-0",
+                    "record_split": "0-2-0",
+                    "record_l10": "0-2-0",
                     "ml": "+249",
                     "proj": "1.7"
                 },
@@ -680,6 +680,12 @@
                         ],
                         "home": [
                             {
+                                "date": "10/04/26",
+                                "opp": "vs WPG",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
                                 "date": "10/02/26",
                                 "opp": "vs NYR",
                                 "result": "L",
@@ -732,12 +738,6 @@
                                 "opp": "vs PHI",
                                 "result": "W",
                                 "score": "6-3"
-                            },
-                            {
-                                "date": "04/07/26",
-                                "opp": "vs CBJ",
-                                "result": "L",
-                                "score": "3-4"
                             }
                         ],
                         "h2h": [
@@ -870,9 +870,9 @@
                 },
                 "home": {
                     "name": "WPG",
-                    "record_overall": "0-0-1",
+                    "record_overall": "1-0-1",
                     "record_split": "0-0-1",
-                    "record_l10": "0-0-1",
+                    "record_l10": "1-0-1",
                     "ml": "+248",
                     "proj": "1.6"
                 },
@@ -961,6 +961,12 @@
                         ],
                         "home": [
                             {
+                                "date": "10/04/26",
+                                "opp": "@DET",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
                                 "date": "10/02/26",
                                 "opp": "vs BOS",
                                 "result": "L",
@@ -1013,12 +1019,6 @@
                                 "opp": "vs PHI",
                                 "result": "L",
                                 "score": "1-7"
-                            },
-                            {
-                                "date": "04/09/26",
-                                "opp": "@STL",
-                                "result": "W",
-                                "score": "3-2"
                             }
                         ],
                         "h2h": [
@@ -5344,18 +5344,18 @@
             {
                 "away": {
                     "name": "WPG",
-                    "record_overall": "0-0-1",
-                    "record_split": "0-0-0",
-                    "record_l10": "0-0-1",
-                    "ml": "-810",
+                    "record_overall": "1-0-1",
+                    "record_split": "1-0-0",
+                    "record_l10": "1-0-1",
+                    "ml": "-249",
                     "proj": "4.3"
                 },
                 "home": {
                     "name": "DET",
-                    "record_overall": "0-1-0",
-                    "record_split": "0-1-0",
-                    "record_l10": "0-1-0",
-                    "ml": "+500",
+                    "record_overall": "0-2-0",
+                    "record_split": "0-2-0",
+                    "record_l10": "0-2-0",
+                    "ml": "+249",
                     "proj": "1.7"
                 },
                 "ou_total": "O/U 6.0",
@@ -5380,6 +5380,12 @@
                     },
                     "recent_logs": {
                         "away": [
+                            {
+                                "date": "10/04/26",
+                                "opp": "@DET",
+                                "result": "W",
+                                "score": "3-2"
+                            },
                             {
                                 "date": "10/02/26",
                                 "opp": "vs BOS",
@@ -5433,15 +5439,15 @@
                                 "opp": "vs PHI",
                                 "result": "L",
                                 "score": "1-7"
-                            },
-                            {
-                                "date": "04/09/26",
-                                "opp": "@STL",
-                                "result": "W",
-                                "score": "3-2"
                             }
                         ],
                         "home": [
+                            {
+                                "date": "10/04/26",
+                                "opp": "vs WPG",
+                                "result": "L",
+                                "score": "2-3"
+                            },
                             {
                                 "date": "10/02/26",
                                 "opp": "vs NYR",
@@ -5495,12 +5501,6 @@
                                 "opp": "vs PHI",
                                 "result": "W",
                                 "score": "6-3"
-                            },
-                            {
-                                "date": "04/07/26",
-                                "opp": "vs CBJ",
-                                "result": "L",
-                                "score": "3-4"
                             }
                         ],
                         "h2h": [
@@ -5610,7 +5610,7 @@
                     "record_overall": "0-2-0",
                     "record_split": "0-1-0",
                     "record_l10": "0-2-0",
-                    "ml": "+130",
+                    "ml": "+220",
                     "proj": "4.3"
                 },
                 "home": {
@@ -5618,7 +5618,7 @@
                     "record_overall": "1-1-0",
                     "record_split": "0-0-0",
                     "record_l10": "1-1-0",
-                    "ml": "-155",
+                    "ml": "-298",
                     "proj": "1.7"
                 },
                 "ou_total": "O/U 6.0",
@@ -5905,7 +5905,7 @@
                     "record_overall": "1-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "1-0-0",
-                    "ml": "+114",
+                    "ml": "+105",
                     "proj": "1.6"
                 },
                 "ou_total": "O/U 5.5",
@@ -6978,9 +6978,9 @@
             {
                 "away": {
                     "name": "WPG",
-                    "record_overall": "0-0-1",
-                    "record_split": "0-0-0",
-                    "record_l10": "0-0-1",
+                    "record_overall": "1-0-1",
+                    "record_split": "1-0-0",
+                    "record_l10": "1-0-1",
                     "ml": "+142",
                     "proj": "3.9"
                 },
@@ -7014,6 +7014,12 @@
                     },
                     "recent_logs": {
                         "away": [
+                            {
+                                "date": "10/04/26",
+                                "opp": "@DET",
+                                "result": "W",
+                                "score": "3-2"
+                            },
                             {
                                 "date": "10/02/26",
                                 "opp": "vs BOS",
@@ -7067,12 +7073,6 @@
                                 "opp": "vs PHI",
                                 "result": "L",
                                 "score": "1-7"
-                            },
-                            {
-                                "date": "04/09/26",
-                                "opp": "@STL",
-                                "result": "W",
-                                "score": "3-2"
                             }
                         ],
                         "home": [
@@ -7244,7 +7244,7 @@
                     "record_overall": "0-1-2",
                     "record_split": "0-0-1",
                     "record_l10": "0-1-2",
-                    "ml": "+145",
+                    "ml": "+160",
                     "proj": "3.4"
                 },
                 "home": {
@@ -7252,7 +7252,7 @@
                     "record_overall": "1-1-0",
                     "record_split": "1-0-0",
                     "record_l10": "1-1-0",
-                    "ml": "-175",
+                    "ml": "-192",
                     "proj": "1.6"
                 },
                 "ou_total": "O/U 5.0",
@@ -8638,9 +8638,9 @@
                 },
                 "home": {
                     "name": "DET",
-                    "record_overall": "0-1-0",
-                    "record_split": "0-1-0",
-                    "record_l10": "0-1-0",
+                    "record_overall": "0-2-0",
+                    "record_split": "0-2-0",
+                    "record_l10": "0-2-0",
                     "ml": "+247",
                     "proj": "1.7"
                 },
@@ -8729,6 +8729,12 @@
                         ],
                         "home": [
                             {
+                                "date": "10/04/26",
+                                "opp": "vs WPG",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
                                 "date": "10/02/26",
                                 "opp": "vs NYR",
                                 "result": "L",
@@ -8781,12 +8787,6 @@
                                 "opp": "vs PHI",
                                 "result": "W",
                                 "score": "6-3"
-                            },
-                            {
-                                "date": "04/07/26",
-                                "opp": "vs CBJ",
-                                "result": "L",
-                                "score": "3-4"
                             }
                         ],
                         "h2h": [
@@ -10590,9 +10590,9 @@
             },
             "home": {
                 "name": "DET",
-                "record_overall": "0-1-0",
-                "record_split": "0-1-0",
-                "record_l10": "0-1-0",
+                "record_overall": "0-2-0",
+                "record_split": "0-2-0",
+                "record_l10": "0-2-0",
                 "ml": "+249",
                 "proj": "1.7"
             },
@@ -10681,6 +10681,12 @@
                     ],
                     "home": [
                         {
+                            "date": "10/04/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
                             "date": "10/02/26",
                             "opp": "vs NYR",
                             "result": "L",
@@ -10733,12 +10739,6 @@
                             "opp": "vs PHI",
                             "result": "W",
                             "score": "6-3"
-                        },
-                        {
-                            "date": "04/07/26",
-                            "opp": "vs CBJ",
-                            "result": "L",
-                            "score": "3-4"
                         }
                     ],
                     "h2h": [
@@ -10871,9 +10871,9 @@
             },
             "home": {
                 "name": "WPG",
-                "record_overall": "0-0-1",
+                "record_overall": "1-0-1",
                 "record_split": "0-0-1",
-                "record_l10": "0-0-1",
+                "record_l10": "1-0-1",
                 "ml": "+248",
                 "proj": "1.6"
             },
@@ -10962,6 +10962,12 @@
                     ],
                     "home": [
                         {
+                            "date": "10/04/26",
+                            "opp": "@DET",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
                             "date": "10/02/26",
                             "opp": "vs BOS",
                             "result": "L",
@@ -11014,12 +11020,6 @@
                             "opp": "vs PHI",
                             "result": "L",
                             "score": "1-7"
-                        },
-                        {
-                            "date": "04/09/26",
-                            "opp": "@STL",
-                            "result": "W",
-                            "score": "3-2"
                         }
                     ],
                     "h2h": [
@@ -15345,18 +15345,18 @@
         {
             "away": {
                 "name": "WPG",
-                "record_overall": "0-0-1",
-                "record_split": "0-0-0",
-                "record_l10": "0-0-1",
-                "ml": "-810",
+                "record_overall": "1-0-1",
+                "record_split": "1-0-0",
+                "record_l10": "1-0-1",
+                "ml": "-249",
                 "proj": "4.3"
             },
             "home": {
                 "name": "DET",
-                "record_overall": "0-1-0",
-                "record_split": "0-1-0",
-                "record_l10": "0-1-0",
-                "ml": "+500",
+                "record_overall": "0-2-0",
+                "record_split": "0-2-0",
+                "record_l10": "0-2-0",
+                "ml": "+249",
                 "proj": "1.7"
             },
             "ou_total": "O/U 6.0",
@@ -15381,6 +15381,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "10/04/26",
+                            "opp": "@DET",
+                            "result": "W",
+                            "score": "3-2"
+                        },
                         {
                             "date": "10/02/26",
                             "opp": "vs BOS",
@@ -15434,15 +15440,15 @@
                             "opp": "vs PHI",
                             "result": "L",
                             "score": "1-7"
-                        },
-                        {
-                            "date": "04/09/26",
-                            "opp": "@STL",
-                            "result": "W",
-                            "score": "3-2"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "10/04/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "2-3"
+                        },
                         {
                             "date": "10/02/26",
                             "opp": "vs NYR",
@@ -15496,12 +15502,6 @@
                             "opp": "vs PHI",
                             "result": "W",
                             "score": "6-3"
-                        },
-                        {
-                            "date": "04/07/26",
-                            "opp": "vs CBJ",
-                            "result": "L",
-                            "score": "3-4"
                         }
                     ],
                     "h2h": [
@@ -15611,7 +15611,7 @@
                 "record_overall": "0-2-0",
                 "record_split": "0-1-0",
                 "record_l10": "0-2-0",
-                "ml": "+130",
+                "ml": "+220",
                 "proj": "4.3"
             },
             "home": {
@@ -15619,7 +15619,7 @@
                 "record_overall": "1-1-0",
                 "record_split": "0-0-0",
                 "record_l10": "1-1-0",
-                "ml": "-155",
+                "ml": "-298",
                 "proj": "1.7"
             },
             "ou_total": "O/U 6.0",
@@ -15906,7 +15906,7 @@
                 "record_overall": "1-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "1-0-0",
-                "ml": "+114",
+                "ml": "+105",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -16979,9 +16979,9 @@
         {
             "away": {
                 "name": "WPG",
-                "record_overall": "0-0-1",
-                "record_split": "0-0-0",
-                "record_l10": "0-0-1",
+                "record_overall": "1-0-1",
+                "record_split": "1-0-0",
+                "record_l10": "1-0-1",
                 "ml": "+142",
                 "proj": "3.9"
             },
@@ -17015,6 +17015,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "10/04/26",
+                            "opp": "@DET",
+                            "result": "W",
+                            "score": "3-2"
+                        },
                         {
                             "date": "10/02/26",
                             "opp": "vs BOS",
@@ -17068,12 +17074,6 @@
                             "opp": "vs PHI",
                             "result": "L",
                             "score": "1-7"
-                        },
-                        {
-                            "date": "04/09/26",
-                            "opp": "@STL",
-                            "result": "W",
-                            "score": "3-2"
                         }
                     ],
                     "home": [
@@ -17245,7 +17245,7 @@
                 "record_overall": "0-1-2",
                 "record_split": "0-0-1",
                 "record_l10": "0-1-2",
-                "ml": "+145",
+                "ml": "+160",
                 "proj": "3.4"
             },
             "home": {
@@ -17253,7 +17253,7 @@
                 "record_overall": "1-1-0",
                 "record_split": "1-0-0",
                 "record_l10": "1-1-0",
-                "ml": "-175",
+                "ml": "-192",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.0",
@@ -18639,9 +18639,9 @@
             },
             "home": {
                 "name": "DET",
-                "record_overall": "0-1-0",
-                "record_split": "0-1-0",
-                "record_l10": "0-1-0",
+                "record_overall": "0-2-0",
+                "record_split": "0-2-0",
+                "record_l10": "0-2-0",
                 "ml": "+247",
                 "proj": "1.7"
             },
@@ -18730,6 +18730,12 @@
                     ],
                     "home": [
                         {
+                            "date": "10/04/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
                             "date": "10/02/26",
                             "opp": "vs NYR",
                             "result": "L",
@@ -18782,12 +18788,6 @@
                             "opp": "vs PHI",
                             "result": "W",
                             "score": "6-3"
-                        },
-                        {
-                            "date": "04/07/26",
-                            "opp": "vs CBJ",
-                            "result": "L",
-                            "score": "3-4"
                         }
                     ],
                     "h2h": [
@@ -20296,18 +20296,18 @@
         {
             "away": {
                 "name": "WPG",
-                "record_overall": "0-0-1",
-                "record_split": "0-0-0",
-                "record_l10": "0-0-1",
-                "ml": "-810",
+                "record_overall": "1-0-1",
+                "record_split": "1-0-0",
+                "record_l10": "1-0-1",
+                "ml": "-249",
                 "proj": "4.3"
             },
             "home": {
                 "name": "DET",
-                "record_overall": "0-1-0",
-                "record_split": "0-1-0",
-                "record_l10": "0-1-0",
-                "ml": "+500",
+                "record_overall": "0-2-0",
+                "record_split": "0-2-0",
+                "record_l10": "0-2-0",
+                "ml": "+249",
                 "proj": "1.7"
             },
             "ou_total": "O/U 6.0",
@@ -20332,6 +20332,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "10/04/26",
+                            "opp": "@DET",
+                            "result": "W",
+                            "score": "3-2"
+                        },
                         {
                             "date": "10/02/26",
                             "opp": "vs BOS",
@@ -20385,15 +20391,15 @@
                             "opp": "vs PHI",
                             "result": "L",
                             "score": "1-7"
-                        },
-                        {
-                            "date": "04/09/26",
-                            "opp": "@STL",
-                            "result": "W",
-                            "score": "3-2"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "10/04/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "2-3"
+                        },
                         {
                             "date": "10/02/26",
                             "opp": "vs NYR",
@@ -20447,12 +20453,6 @@
                             "opp": "vs PHI",
                             "result": "W",
                             "score": "6-3"
-                        },
-                        {
-                            "date": "04/07/26",
-                            "opp": "vs CBJ",
-                            "result": "L",
-                            "score": "3-4"
                         }
                     ],
                     "h2h": [
@@ -20562,7 +20562,7 @@
                 "record_overall": "0-2-0",
                 "record_split": "0-1-0",
                 "record_l10": "0-2-0",
-                "ml": "+130",
+                "ml": "+220",
                 "proj": "4.3"
             },
             "home": {
@@ -20570,7 +20570,7 @@
                 "record_overall": "1-1-0",
                 "record_split": "0-0-0",
                 "record_l10": "1-1-0",
-                "ml": "-155",
+                "ml": "-298",
                 "proj": "1.7"
             },
             "ou_total": "O/U 6.0",
