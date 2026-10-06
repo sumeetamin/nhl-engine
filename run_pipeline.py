@@ -430,37 +430,53 @@ def run_backtest():
 
 
 # ── Pipeline Iteration Logic ──────────────────────────────────────────────────
-def get_all_games_for_date(target_date_str, odds_data, standings, gift_stats_all):
-    url = f"https://api-web.nhle.com/v1/schedule/{target_date_str}"
-    matchups = None
+def get_schedule_window(target_dates):
+    """Fetch one NHL schedule window for all requested dates, retrying throttles."""
+    first_date = min(target_dates)
+    url = f"https://api-web.nhle.com/v1/schedule/{first_date}"
     for attempt in range(3):
         try:
             response = requests.get(url, timeout=15)
             response.raise_for_status()
             schedule = response.json()
-            date_entry = next(
-                (day for day in schedule.get('gameWeek', []) if day.get('date') == target_date_str),
-                None,
-            )
-            if date_entry is None or not isinstance(date_entry.get('games'), list):
-                raise ValueError(f"NHL schedule response omitted {target_date_str}")
-            games = date_entry['games']
-            matchups = [
-                (g['homeTeam']['abbrev'], g['awayTeam']['abbrev'], g.get('startTimeUTC', 'TBD'))
-                for g in games
-            ]
-            break
+            days = {
+                day.get('date'): day.get('games')
+                for day in schedule.get('gameWeek', [])
+                if isinstance(day.get('games'), list)
+            }
+            missing = [date for date in target_dates if date not in days]
+            if missing:
+                raise ValueError("NHL schedule response omitted dates: " + ", ".join(missing))
+            return {date: days[date] for date in target_dates}
         except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
             if attempt == 2:
-                logging.error("NHL schedule lookup failed for %s after 3 attempts: %s", target_date_str, exc)
+                logging.error("NHL schedule window lookup failed after 3 attempts: %s", exc)
                 return None
+            retry_after = getattr(getattr(exc, 'response', None), 'headers', {}).get('Retry-After')
+            try:
+                delay = min(60, float(retry_after)) if retry_after else (5 * (2 ** attempt))
+            except (ValueError, TypeError):
+                delay = 5 * (2 ** attempt)
             logging.warning(
-                "NHL schedule lookup failed for %s (attempt %s/3): %s; retrying",
-                target_date_str, attempt + 1, exc,
+                "NHL schedule lookup failed (attempt %s/3): %s; retrying in %ss",
+                attempt + 1, exc, delay,
             )
-            time.sleep(attempt + 1)
+            time.sleep(delay)
 
-    if matchups is None:
+    return None
+
+
+def get_all_games_for_date(target_date_str, scheduled_games, odds_data, standings, gift_stats_all):
+    if scheduled_games is None:
+        return None
+
+    try:
+        matchups = [
+            (game['homeTeam']['abbrev'], game['awayTeam']['abbrev'], game.get('startTimeUTC', 'TBD'))
+            for game in scheduled_games
+        ]
+    except (KeyError, TypeError):
+        logging.error("Invalid NHL schedule entries for %s", target_date_str)
         return None
     
     # Fire custom goalie scraper dynamically across targeted date teams
@@ -478,7 +494,16 @@ def get_all_games_for_date(target_date_str, odds_data, standings, gift_stats_all
     return all_games
 
 def get_top_plays(target_date_str, odds_data, standings, gift_stats_all):
-    games = get_all_games_for_date(target_date_str,odds_data,standings,gift_stats_all)
+    schedule = get_schedule_window([target_date_str])
+    games = get_all_games_for_date(
+        target_date_str,
+        schedule.get(target_date_str) if schedule else None,
+        odds_data,
+        standings,
+        gift_stats_all,
+    )
+    if games is None:
+        return None
     return [g for g in (games or []) if g["tier"] in ["EDGE","BIG"]][:3]
 
 
@@ -490,32 +515,34 @@ def build_daily_json():
     print(f"🕐 EST now: {today.strftime('%Y-%m-%d %H:%M')} EDT")
     d = lambda n: (today + timedelta(days=n)).strftime('%Y-%m-%d')
 
+    offsets = {"day_before_yesterday": -2, "yesterday": -1, "today": 0,
+               "tomorrow": 1, "day_after_tomorrow": 2}
+    dates = {key: d(offset) for key, offset in offsets.items()}
+    schedule_by_date = get_schedule_window(list(dates.values()))
+    if schedule_by_date is None:
+        raise RuntimeError("NHL schedule could not be loaded; existing predictions were left untouched.")
+
     odds_data       = fetch_nhl_odds()
     standings       = fetch_standings()
 
     gift_stats_all = {}
     if GIFT_AVAILABLE:
         teams_needed = set()
-        for offset in range(-2, 3):
-            url = f"https://api-web.nhle.com/v1/schedule/{d(offset)}"
-            try:
-                resp = requests.get(url, timeout=8).json()
-                for day in resp.get('gameWeek',[]):
-                    for g in day.get('games',[]):
-                        teams_needed.add(g['homeTeam']['abbrev'])
-                        teams_needed.add(g['awayTeam']['abbrev'])
-            except: pass
+        for games in schedule_by_date.values():
+            for game in games:
+                teams_needed.add(game['homeTeam']['abbrev'])
+                teams_needed.add(game['awayTeam']['abbrev'])
         if teams_needed:
             print(f"\n📊 Fetching GIFT stats for {len(teams_needed)} teams (full season)...")
             gift_stats_all = build_gift_stats_for_teams(list(teams_needed), n_games=82)
 
-    offsets = {"day_before_yesterday": -2, "yesterday": -1, "today": 0,
-               "tomorrow": 1, "day_after_tomorrow": 2}
     games_by_date = {}
     failed_dates = []
-    for offset in offsets.values():
-        target_date = d(offset)
-        games = get_all_games_for_date(target_date, odds_data, standings, gift_stats_all)
+    for key, offset in offsets.items():
+        target_date = dates[key]
+        games = get_all_games_for_date(
+            target_date, schedule_by_date[target_date], odds_data, standings, gift_stats_all
+        )
         if games is None:
             failed_dates.append(target_date)
         games_by_date[target_date] = games
