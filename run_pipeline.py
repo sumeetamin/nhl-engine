@@ -4,6 +4,7 @@ import os
 import logging
 import warnings
 import __main__
+import time
 import pandas as pd
 import numpy as np
 import requests
@@ -431,11 +432,35 @@ def run_backtest():
 # ── Pipeline Iteration Logic ──────────────────────────────────────────────────
 def get_all_games_for_date(target_date_str, odds_data, standings, gift_stats_all):
     url = f"https://api-web.nhle.com/v1/schedule/{target_date_str}"
-    try:
-        response = requests.get(url, timeout=10).json()
-        games = next(day['games'] for day in response['gameWeek'] if day['date'] == target_date_str)
-        matchups = [(g['homeTeam']['abbrev'],g['awayTeam']['abbrev'],g.get('startTimeUTC','TBD')) for g in games]
-    except (requests.RequestException, ValueError, KeyError, StopIteration, TypeError):
+    matchups = None
+    for attempt in range(3):
+        try:
+            response = requests.get(url, timeout=15)
+            response.raise_for_status()
+            schedule = response.json()
+            date_entry = next(
+                (day for day in schedule.get('gameWeek', []) if day.get('date') == target_date_str),
+                None,
+            )
+            if date_entry is None or not isinstance(date_entry.get('games'), list):
+                raise ValueError(f"NHL schedule response omitted {target_date_str}")
+            games = date_entry['games']
+            matchups = [
+                (g['homeTeam']['abbrev'], g['awayTeam']['abbrev'], g.get('startTimeUTC', 'TBD'))
+                for g in games
+            ]
+            break
+        except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
+            if attempt == 2:
+                logging.error("NHL schedule lookup failed for %s after 3 attempts: %s", target_date_str, exc)
+                return None
+            logging.warning(
+                "NHL schedule lookup failed for %s (attempt %s/3): %s; retrying",
+                target_date_str, attempt + 1, exc,
+            )
+            time.sleep(attempt + 1)
+
+    if matchups is None:
         return None
     
     # Fire custom goalie scraper dynamically across targeted date teams
@@ -486,10 +511,21 @@ def build_daily_json():
 
     offsets = {"day_before_yesterday": -2, "yesterday": -1, "today": 0,
                "tomorrow": 1, "day_after_tomorrow": 2}
-    games_by_date = {
-        d(offset): get_all_games_for_date(d(offset), odds_data, standings, gift_stats_all)
-        for offset in offsets.values()
-    }
+    games_by_date = {}
+    failed_dates = []
+    for offset in offsets.values():
+        target_date = d(offset)
+        games = get_all_games_for_date(target_date, odds_data, standings, gift_stats_all)
+        if games is None:
+            failed_dates.append(target_date)
+        games_by_date[target_date] = games
+
+    if failed_dates:
+        raise RuntimeError(
+            "Prediction run aborted because schedule/prediction data was incomplete for: "
+            + ", ".join(failed_dates)
+            + ". The existing daily_predictions.json was left untouched."
+        )
     daily_payload = {
         "schema_version": 2,
         "timezone": "America/New_York",
