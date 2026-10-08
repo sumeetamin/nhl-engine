@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-07T21:13:38.658364+00:00",
+    "generated_at": "2026-10-08T01:29:36.929275+00:00",
     "games_by_date": {
         "2026-10-05": [
             {
@@ -3607,7 +3607,7 @@
                     "record_overall": "2-0-1",
                     "record_split": "1-0-0",
                     "record_l10": "2-0-1",
-                    "ml": "-130",
+                    "ml": "-131",
                     "proj": "3.6"
                 },
                 "home": {
@@ -3615,7 +3615,7 @@
                     "record_overall": "2-0-0",
                     "record_split": "1-0-0",
                     "record_l10": "2-0-0",
-                    "ml": "+115",
+                    "ml": "+116",
                     "proj": "1.4"
                 },
                 "ou_total": "O/U 5.0",
@@ -3894,7 +3894,7 @@
                     "record_overall": "2-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "2-0-0",
-                    "ml": "-205",
+                    "ml": "+170",
                     "proj": "3.9"
                 },
                 "home": {
@@ -3902,7 +3902,7 @@
                     "record_overall": "2-0-1",
                     "record_split": "0-0-1",
                     "record_l10": "2-0-1",
-                    "ml": "+170",
+                    "ml": "-220",
                     "proj": "1.6"
                 },
                 "ou_total": "O/U 5.5",
@@ -4181,7 +4181,7 @@
                     "record_overall": "2-1-0",
                     "record_split": "1-0-0",
                     "record_l10": "2-1-0",
-                    "ml": "+136",
+                    "ml": "+260",
                     "proj": "3.7"
                 },
                 "home": {
@@ -4189,7 +4189,7 @@
                     "record_overall": "1-1-0",
                     "record_split": "0-0-0",
                     "record_l10": "1-1-0",
-                    "ml": "-162",
+                    "ml": "-360",
                     "proj": "1.8"
                 },
                 "ou_total": "O/U 5.5",
@@ -5540,7 +5540,7 @@
                     "record_overall": "2-0-0",
                     "record_split": "0-0-0",
                     "record_l10": "2-0-0",
-                    "ml": "-238",
+                    "ml": "-225",
                     "proj": "3.9"
                 },
                 "home": {
@@ -5548,7 +5548,7 @@
                     "record_overall": "0-3-0",
                     "record_split": "0-1-0",
                     "record_l10": "0-3-0",
-                    "ml": "+195",
+                    "ml": "+185",
                     "proj": "1.6"
                 },
                 "ou_total": "O/U 5.5",
@@ -6616,7 +6616,7 @@
                     "record_overall": "1-2-0",
                     "record_split": "0-1-0",
                     "record_l10": "1-2-0",
-                    "ml": "-112",
+                    "ml": "-115",
                     "proj": "3.2"
                 },
                 "home": {
@@ -6624,7 +6624,7 @@
                     "record_overall": "2-1-0",
                     "record_split": "2-0-0",
                     "record_l10": "2-1-0",
-                    "ml": "-108",
+                    "ml": "-105",
                     "proj": "1.8"
                 },
                 "ou_total": "O/U 5.0",
@@ -11862,7 +11862,7 @@
                 "record_overall": "2-0-1",
                 "record_split": "1-0-0",
                 "record_l10": "2-0-1",
-                "ml": "-130",
+                "ml": "-131",
                 "proj": "3.6"
             },
             "home": {
@@ -11870,7 +11870,7 @@
                 "record_overall": "2-0-0",
                 "record_split": "1-0-0",
                 "record_l10": "2-0-0",
-                "ml": "+115",
+                "ml": "+116",
                 "proj": "1.4"
             },
             "ou_total": "O/U 5.0",
@@ -12149,7 +12149,7 @@
                 "record_overall": "2-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "2-0-0",
-                "ml": "-205",
+                "ml": "+170",
                 "proj": "3.9"
             },
             "home": {
@@ -12157,7 +12157,7 @@
                 "record_overall": "2-0-1",
                 "record_split": "0-0-1",
                 "record_l10": "2-0-1",
-                "ml": "+170",
+                "ml": "-220",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -12436,7 +12436,7 @@
                 "record_overall": "2-1-0",
                 "record_split": "1-0-0",
                 "record_l10": "2-1-0",
-                "ml": "+136",
+                "ml": "+260",
                 "proj": "3.7"
             },
             "home": {
@@ -12444,7 +12444,7 @@
                 "record_overall": "1-1-0",
                 "record_split": "0-0-0",
                 "record_l10": "1-1-0",
-                "ml": "-162",
+                "ml": "-360",
                 "proj": "1.8"
             },
             "ou_total": "O/U 5.5",
@@ -13795,7 +13795,7 @@
                 "record_overall": "2-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "2-0-0",
-                "ml": "-238",
+                "ml": "-225",
                 "proj": "3.9"
             },
             "home": {
@@ -13803,7 +13803,7 @@
                 "record_overall": "0-3-0",
                 "record_split": "0-1-0",
                 "record_l10": "0-3-0",
-                "ml": "+195",
+                "ml": "+185",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -14871,7 +14871,7 @@
                 "record_overall": "1-2-0",
                 "record_split": "0-1-0",
                 "record_l10": "1-2-0",
-                "ml": "-112",
+                "ml": "-115",
                 "proj": "3.2"
             },
             "home": {
@@ -14879,7 +14879,7 @@
                 "record_overall": "2-1-0",
                 "record_split": "2-0-0",
                 "record_l10": "2-1-0",
-                "ml": "-108",
+                "ml": "-105",
                 "proj": "1.8"
             },
             "ou_total": "O/U 5.0",
@@ -16520,7 +16520,7 @@
                 "record_overall": "2-0-1",
                 "record_split": "1-0-0",
                 "record_l10": "2-0-1",
-                "ml": "-130",
+                "ml": "-131",
                 "proj": "3.6"
             },
             "home": {
@@ -16528,7 +16528,7 @@
                 "record_overall": "2-0-0",
                 "record_split": "1-0-0",
                 "record_l10": "2-0-0",
-                "ml": "+115",
+                "ml": "+116",
                 "proj": "1.4"
             },
             "ou_total": "O/U 5.0",
@@ -16807,7 +16807,7 @@
                 "record_overall": "2-0-0",
                 "record_split": "0-0-0",
                 "record_l10": "2-0-0",
-                "ml": "-205",
+                "ml": "+170",
                 "proj": "3.9"
             },
             "home": {
@@ -16815,7 +16815,7 @@
                 "record_overall": "2-0-1",
                 "record_split": "0-0-1",
                 "record_l10": "2-0-1",
-                "ml": "+170",
+                "ml": "-220",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.5",
@@ -17094,7 +17094,7 @@
                 "record_overall": "2-1-0",
                 "record_split": "1-0-0",
                 "record_l10": "2-1-0",
-                "ml": "+136",
+                "ml": "+260",
                 "proj": "3.7"
             },
             "home": {
@@ -17102,7 +17102,7 @@
                 "record_overall": "1-1-0",
                 "record_split": "0-0-0",
                 "record_l10": "1-1-0",
-                "ml": "-162",
+                "ml": "-360",
                 "proj": "1.8"
             },
             "ou_total": "O/U 5.5",
