@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-10T15:41:27.696077+00:00",
+    "generated_at": "2026-10-10T20:01:05.068342+00:00",
     "games_by_date": {
         "2026-10-08": [
             {
@@ -1366,9 +1366,9 @@
                 },
                 "home": {
                     "name": "BOS",
-                    "record_overall": "3-2-0",
-                    "record_split": "2-1-0",
-                    "record_l10": "3-2-0",
+                    "record_overall": "4-2-0",
+                    "record_split": "3-1-0",
+                    "record_l10": "4-2-0",
                     "ml": "+221",
                     "proj": "1.6"
                 },
@@ -1457,6 +1457,12 @@
                         ],
                         "home": [
                             {
+                                "date": "10/10/26",
+                                "opp": "vs PHI",
+                                "result": "W",
+                                "score": "5-1"
+                            },
+                            {
                                 "date": "10/08/26",
                                 "opp": "vs UTA",
                                 "result": "W",
@@ -1509,12 +1515,6 @@
                                 "opp": "vs WSH",
                                 "result": "W",
                                 "score": "3-2"
-                            },
-                            {
-                                "date": "05/01/26",
-                                "opp": "vs BUF",
-                                "result": "L",
-                                "score": "1-4"
                             }
                         ],
                         "h2h": [
@@ -1609,9 +1609,9 @@
             {
                 "away": {
                     "name": "PHI",
-                    "record_overall": "0-3-2",
-                    "record_split": "0-2-1",
-                    "record_l10": "0-3-2",
+                    "record_overall": "0-4-2",
+                    "record_split": "0-3-1",
+                    "record_l10": "0-4-2",
                     "ml": "-217",
                     "proj": "3.8"
                 },
@@ -1645,6 +1645,12 @@
                     },
                     "recent_logs": {
                         "away": [
+                            {
+                                "date": "10/10/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "1-5"
+                            },
                             {
                                 "date": "10/08/26",
                                 "opp": "@OTT",
@@ -1698,12 +1704,6 @@
                                 "opp": "@WSH",
                                 "result": "L",
                                 "score": "2-5"
-                            },
-                            {
-                                "date": "05/09/26",
-                                "opp": "vs CAR",
-                                "result": "L",
-                                "score": "2-3"
                             }
                         ],
                         "home": [
@@ -1831,7 +1831,7 @@
                         "best_ou": "UNDER 6.0"
                     },
                     "notes": [
-                        "Goalie Edge: PHI starting Joseph Woll (Expected) vs OTT starting Linus Ullmark (Expected).",
+                        "Goalie Edge: PHI starting Dan Vladar (Expected) vs OTT starting Linus Ullmark (Expected).",
                         "Engine calculates PHI win probability at 68.5% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 93 points."
                     ],
@@ -3804,7 +3804,7 @@
                     "record_overall": "0-2-1",
                     "record_split": "0-1-1",
                     "record_l10": "0-2-1",
-                    "ml": "+136",
+                    "ml": "+142",
                     "proj": "0.9"
                 },
                 "home": {
@@ -3812,7 +3812,7 @@
                     "record_overall": "4-1-0",
                     "record_split": "2-1-0",
                     "record_l10": "4-1-0",
-                    "ml": "-162",
+                    "ml": "-170",
                     "proj": "4.6"
                 },
                 "ou_total": "O/U 5.5",
@@ -5191,7 +5191,7 @@
                     "record_overall": "2-3-0",
                     "record_split": "1-1-0",
                     "record_l10": "2-3-0",
-                    "ml": "+240",
+                    "ml": "+220",
                     "proj": "4.3"
                 },
                 "home": {
@@ -7059,18 +7059,18 @@
             {
                 "away": {
                     "name": "PHI",
-                    "record_overall": "0-3-2",
-                    "record_split": "0-2-1",
-                    "record_l10": "0-3-2",
-                    "ml": "+114",
+                    "record_overall": "0-4-2",
+                    "record_split": "0-3-1",
+                    "record_l10": "0-4-2",
+                    "ml": "-217",
                     "proj": "3.4"
                 },
                 "home": {
                     "name": "BOS",
-                    "record_overall": "3-2-0",
-                    "record_split": "2-1-0",
-                    "record_l10": "3-2-0",
-                    "ml": "-135",
+                    "record_overall": "4-2-0",
+                    "record_split": "3-1-0",
+                    "record_l10": "4-2-0",
+                    "ml": "+217",
                     "proj": "1.6"
                 },
                 "ou_total": "O/U 5.0",
@@ -7095,6 +7095,12 @@
                     },
                     "recent_logs": {
                         "away": [
+                            {
+                                "date": "10/10/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "1-5"
+                            },
                             {
                                 "date": "10/08/26",
                                 "opp": "@OTT",
@@ -7148,15 +7154,15 @@
                                 "opp": "@WSH",
                                 "result": "L",
                                 "score": "2-5"
-                            },
-                            {
-                                "date": "05/09/26",
-                                "opp": "vs CAR",
-                                "result": "L",
-                                "score": "2-3"
                             }
                         ],
                         "home": [
+                            {
+                                "date": "10/10/26",
+                                "opp": "vs PHI",
+                                "result": "W",
+                                "score": "5-1"
+                            },
                             {
                                 "date": "10/08/26",
                                 "opp": "vs UTA",
@@ -7210,12 +7216,6 @@
                                 "opp": "vs WSH",
                                 "result": "W",
                                 "score": "3-2"
-                            },
-                            {
-                                "date": "05/01/26",
-                                "opp": "vs BUF",
-                                "result": "L",
-                                "score": "1-4"
                             }
                         ],
                         "h2h": [
@@ -7287,7 +7287,7 @@
                         "best_ou": "UNDER 6.0"
                     },
                     "notes": [
-                        "Goalie Edge: PHI starting Joseph Woll (Expected) vs BOS starting Jeremy Swayman (Expected).",
+                        "Goalie Edge: PHI starting Dan Vladar (Expected) vs BOS starting Jeremy Swayman (Expected).",
                         "Engine calculates PHI win probability at 68.5% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 92 points."
                     ],
@@ -7638,15 +7638,15 @@
                     "record_overall": "3-1-1",
                     "record_split": "2-0-0",
                     "record_l10": "3-1-1",
-                    "ml": "-155",
+                    "ml": "-166",
                     "proj": "3.9"
                 },
                 "home": {
                     "name": "PHI",
-                    "record_overall": "0-3-2",
+                    "record_overall": "0-4-2",
                     "record_split": "0-1-1",
-                    "record_l10": "0-3-2",
-                    "ml": "+130",
+                    "record_l10": "0-4-2",
+                    "ml": "+140",
                     "proj": "1.1"
                 },
                 "ou_total": "O/U 5.0",
@@ -7734,6 +7734,12 @@
                         ],
                         "home": [
                             {
+                                "date": "10/10/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
                                 "date": "10/08/26",
                                 "opp": "@OTT",
                                 "result": "L",
@@ -7786,12 +7792,6 @@
                                 "opp": "@WSH",
                                 "result": "L",
                                 "score": "2-5"
-                            },
-                            {
-                                "date": "05/09/26",
-                                "opp": "vs CAR",
-                                "result": "L",
-                                "score": "2-3"
                             }
                         ],
                         "h2h": [
@@ -7863,7 +7863,7 @@
                         "best_ou": "UNDER 6.0"
                     },
                     "notes": [
-                        "Goalie Edge: CAR starting Brandon Bussi (Expected) vs PHI starting Joseph Woll (Expected).",
+                        "Goalie Edge: CAR starting Brandon Bussi (Expected) vs PHI starting Dan Vladar (Expected).",
                         "Engine calculates CAR win probability at 77.5% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 46 points."
                     ],
@@ -7925,7 +7925,7 @@
                     "record_overall": "3-2-0",
                     "record_split": "2-1-0",
                     "record_l10": "3-2-0",
-                    "ml": "+170",
+                    "ml": "+180",
                     "proj": "4.3"
                 },
                 "home": {
@@ -7933,7 +7933,7 @@
                     "record_overall": "3-1-0",
                     "record_split": "2-0-0",
                     "record_l10": "3-1-0",
-                    "ml": "-205",
+                    "ml": "-218",
                     "proj": "1.7"
                 },
                 "ou_total": "O/U 6.0",
@@ -10673,9 +10673,9 @@
             },
             "home": {
                 "name": "BOS",
-                "record_overall": "3-2-0",
-                "record_split": "2-1-0",
-                "record_l10": "3-2-0",
+                "record_overall": "4-2-0",
+                "record_split": "3-1-0",
+                "record_l10": "4-2-0",
                 "ml": "+221",
                 "proj": "1.6"
             },
@@ -10764,6 +10764,12 @@
                     ],
                     "home": [
                         {
+                            "date": "10/10/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "5-1"
+                        },
+                        {
                             "date": "10/08/26",
                             "opp": "vs UTA",
                             "result": "W",
@@ -10816,12 +10822,6 @@
                             "opp": "vs WSH",
                             "result": "W",
                             "score": "3-2"
-                        },
-                        {
-                            "date": "05/01/26",
-                            "opp": "vs BUF",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "h2h": [
@@ -10916,9 +10916,9 @@
         {
             "away": {
                 "name": "PHI",
-                "record_overall": "0-3-2",
-                "record_split": "0-2-1",
-                "record_l10": "0-3-2",
+                "record_overall": "0-4-2",
+                "record_split": "0-3-1",
+                "record_l10": "0-4-2",
                 "ml": "-217",
                 "proj": "3.8"
             },
@@ -10952,6 +10952,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "10/10/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "1-5"
+                        },
                         {
                             "date": "10/08/26",
                             "opp": "@OTT",
@@ -11005,12 +11011,6 @@
                             "opp": "@WSH",
                             "result": "L",
                             "score": "2-5"
-                        },
-                        {
-                            "date": "05/09/26",
-                            "opp": "vs CAR",
-                            "result": "L",
-                            "score": "2-3"
                         }
                     ],
                     "home": [
@@ -11138,7 +11138,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: PHI starting Joseph Woll (Expected) vs OTT starting Linus Ullmark (Expected).",
+                    "Goalie Edge: PHI starting Dan Vladar (Expected) vs OTT starting Linus Ullmark (Expected).",
                     "Engine calculates PHI win probability at 68.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 93 points."
                 ],
@@ -13111,7 +13111,7 @@
                 "record_overall": "0-2-1",
                 "record_split": "0-1-1",
                 "record_l10": "0-2-1",
-                "ml": "+136",
+                "ml": "+142",
                 "proj": "0.9"
             },
             "home": {
@@ -13119,7 +13119,7 @@
                 "record_overall": "4-1-0",
                 "record_split": "2-1-0",
                 "record_l10": "4-1-0",
-                "ml": "-162",
+                "ml": "-170",
                 "proj": "4.6"
             },
             "ou_total": "O/U 5.5",
@@ -14498,7 +14498,7 @@
                 "record_overall": "2-3-0",
                 "record_split": "1-1-0",
                 "record_l10": "2-3-0",
-                "ml": "+240",
+                "ml": "+220",
                 "proj": "4.3"
             },
             "home": {
@@ -16366,18 +16366,18 @@
         {
             "away": {
                 "name": "PHI",
-                "record_overall": "0-3-2",
-                "record_split": "0-2-1",
-                "record_l10": "0-3-2",
-                "ml": "+114",
+                "record_overall": "0-4-2",
+                "record_split": "0-3-1",
+                "record_l10": "0-4-2",
+                "ml": "-217",
                 "proj": "3.4"
             },
             "home": {
                 "name": "BOS",
-                "record_overall": "3-2-0",
-                "record_split": "2-1-0",
-                "record_l10": "3-2-0",
-                "ml": "-135",
+                "record_overall": "4-2-0",
+                "record_split": "3-1-0",
+                "record_l10": "4-2-0",
+                "ml": "+217",
                 "proj": "1.6"
             },
             "ou_total": "O/U 5.0",
@@ -16402,6 +16402,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "10/10/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "1-5"
+                        },
                         {
                             "date": "10/08/26",
                             "opp": "@OTT",
@@ -16455,15 +16461,15 @@
                             "opp": "@WSH",
                             "result": "L",
                             "score": "2-5"
-                        },
-                        {
-                            "date": "05/09/26",
-                            "opp": "vs CAR",
-                            "result": "L",
-                            "score": "2-3"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "10/10/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "5-1"
+                        },
                         {
                             "date": "10/08/26",
                             "opp": "vs UTA",
@@ -16517,12 +16523,6 @@
                             "opp": "vs WSH",
                             "result": "W",
                             "score": "3-2"
-                        },
-                        {
-                            "date": "05/01/26",
-                            "opp": "vs BUF",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "h2h": [
@@ -16594,7 +16594,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: PHI starting Joseph Woll (Expected) vs BOS starting Jeremy Swayman (Expected).",
+                    "Goalie Edge: PHI starting Dan Vladar (Expected) vs BOS starting Jeremy Swayman (Expected).",
                     "Engine calculates PHI win probability at 68.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 92 points."
                 ],
@@ -16945,15 +16945,15 @@
                 "record_overall": "3-1-1",
                 "record_split": "2-0-0",
                 "record_l10": "3-1-1",
-                "ml": "-155",
+                "ml": "-166",
                 "proj": "3.9"
             },
             "home": {
                 "name": "PHI",
-                "record_overall": "0-3-2",
+                "record_overall": "0-4-2",
                 "record_split": "0-1-1",
-                "record_l10": "0-3-2",
-                "ml": "+130",
+                "record_l10": "0-4-2",
+                "ml": "+140",
                 "proj": "1.1"
             },
             "ou_total": "O/U 5.0",
@@ -17041,6 +17041,12 @@
                     ],
                     "home": [
                         {
+                            "date": "10/10/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
                             "date": "10/08/26",
                             "opp": "@OTT",
                             "result": "L",
@@ -17093,12 +17099,6 @@
                             "opp": "@WSH",
                             "result": "L",
                             "score": "2-5"
-                        },
-                        {
-                            "date": "05/09/26",
-                            "opp": "vs CAR",
-                            "result": "L",
-                            "score": "2-3"
                         }
                     ],
                     "h2h": [
@@ -17170,7 +17170,7 @@
                     "best_ou": "UNDER 6.0"
                 },
                 "notes": [
-                    "Goalie Edge: CAR starting Brandon Bussi (Expected) vs PHI starting Joseph Woll (Expected).",
+                    "Goalie Edge: CAR starting Brandon Bussi (Expected) vs PHI starting Dan Vladar (Expected).",
                     "Engine calculates CAR win probability at 77.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 46 points."
                 ],
@@ -17232,7 +17232,7 @@
                 "record_overall": "3-2-0",
                 "record_split": "2-1-0",
                 "record_l10": "3-2-0",
-                "ml": "+170",
+                "ml": "+180",
                 "proj": "4.3"
             },
             "home": {
@@ -17240,7 +17240,7 @@
                 "record_overall": "3-1-0",
                 "record_split": "2-0-0",
                 "record_l10": "3-1-0",
-                "ml": "-205",
+                "ml": "-218",
                 "proj": "1.7"
             },
             "ou_total": "O/U 6.0",
@@ -18624,7 +18624,7 @@
                 "record_overall": "0-2-1",
                 "record_split": "0-1-1",
                 "record_l10": "0-2-1",
-                "ml": "+136",
+                "ml": "+142",
                 "proj": "0.9"
             },
             "home": {
@@ -18632,7 +18632,7 @@
                 "record_overall": "4-1-0",
                 "record_split": "2-1-0",
                 "record_l10": "4-1-0",
-                "ml": "-162",
+                "ml": "-170",
                 "proj": "4.6"
             },
             "ou_total": "O/U 5.5",
