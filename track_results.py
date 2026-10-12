@@ -57,6 +57,9 @@ def _game_to_history_row(game):
     """Return a completed NHL schedule game in the model's canonical CSV schema."""
     if game.get("gameState") not in {"OFF", "FINAL", "CRIT"}:
         return None
+    game_type = game.get("gameType")
+    if game_type is not None and str(game_type) not in {"2", "3"}:
+        return None
     home = game.get("homeTeam", {})
     away = game.get("awayTeam", {})
     date = game.get("gameDate")
