@@ -255,11 +255,11 @@ def _american_implied_probability(odds):
 
 
 def blend_home_win_probability(model_home_probability, home_moneyline=None,
-                               away_moneyline=None, market_weight=0.90):
+                               away_moneyline=None, market_weight=0.95):
     """Anchor model probability to the no-vig market when both prices exist.
 
     NHL moneylines are generally a better calibrated prior than an early-season
-    model. Keep the model as a 10% adjustment, and retain its full output when
+    model. Keep the model as a 5% adjustment, and retain its full output when
     odds are unavailable.
     """
     model_probability = max(0.0, min(100.0, float(model_home_probability)))
