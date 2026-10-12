@@ -232,12 +232,43 @@ def get_odds_for_matchup(home_team, away_team, odds_data):
                 for mkt in bk.get("markets",[]):
                     if mkt["key"] == "h2h":
                         outcomes = {o["name"].lower():o["price"] for o in mkt["outcomes"]}
-                        h_price = next((v for k,v in outcomes.items() if h_name[:4] in k), None)
-                        a_price = next((v for k,v in outcomes.items() if a_name[:4] in k), None)
+                        normalize = lambda name: "".join(ch for ch in name if ch.isalnum())
+                        normalized_outcomes = {normalize(name): price for name, price in outcomes.items()}
+                        h_price = normalized_outcomes.get(normalize(h_name))
+                        a_price = normalized_outcomes.get(normalize(a_name))
                         if h_price and a_price:
                             fmt = lambda p: f"+{p}" if p > 0 else str(p)
                             return fmt(h_price), fmt(a_price)
     return None, None
+
+
+def _american_implied_probability(odds):
+    """Convert American moneyline odds to an implied probability in percent."""
+    try:
+        value = float(str(odds).strip().replace("+", ""))
+    except (TypeError, ValueError):
+        return None
+    if value == 0:
+        return None
+    return (100.0 / (value + 100.0) * 100.0 if value > 0
+            else -value / (-value + 100.0) * 100.0)
+
+
+def blend_home_win_probability(model_home_probability, home_moneyline=None,
+                               away_moneyline=None, market_weight=0.80):
+    """Anchor model probability to the no-vig market when both prices exist.
+
+    NHL moneylines are generally a better calibrated prior than an early-season
+    model. Keep the model as a 20% adjustment, and retain its full output when
+    odds are unavailable.
+    """
+    model_probability = max(0.0, min(100.0, float(model_home_probability)))
+    home_implied = _american_implied_probability(home_moneyline)
+    away_implied = _american_implied_probability(away_moneyline)
+    if home_implied is None or away_implied is None or home_implied + away_implied == 0:
+        return model_probability
+    market_home_probability = 100.0 * home_implied / (home_implied + away_implied)
+    return market_weight * market_home_probability + (1.0 - market_weight) * model_probability
 
 
 # ── Goalie Static Attributes Database ─────────────────────────────────────────
@@ -358,7 +389,9 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path=HISTORY_CSV_PA
         print(f"⚠️ Model prediction mapping error: {e}")
         ml_prob = 50.0
 
-    home_win_prob    = 0.50*ml_prob + 0.50*feat['elo_win_prob']*100
+    model_home_prob = 0.50*ml_prob + 0.50*feat['elo_win_prob']*100
+    real_h, real_a = get_odds_for_matchup(home_team, away_team, odds_data or [])
+    home_win_prob = blend_home_win_probability(model_home_prob, real_h, real_a)
     predicted_winner = home_team if home_win_prob > 50 else away_team
     max_prob         = max(home_win_prob, 100-home_win_prob)
     tier = "BIG" if max_prob>=78.0 or abs(elo_gap)>240 else "EDGE" if max_prob>=65.0 or abs(elo_gap)>160 else "NONE"
@@ -377,7 +410,6 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path=HISTORY_CSV_PA
     if predicted_winner==home_team: h_p1,a_p1,h_p2,a_p2,h_p3,a_p3=wp1,lp1,wp2,lp2,wp3,lp3
     else:                           h_p1,a_p1,h_p2,a_p2,h_p3,a_p3=lp1,wp1,lp2,wp2,lp3,wp3
 
-    real_h,real_a = get_odds_for_matchup(home_team,away_team,odds_data or [])
     h_ml = real_h or get_implied_ml(home_win_prob)
     a_ml = real_a or get_implied_ml(100-home_win_prob)
 
