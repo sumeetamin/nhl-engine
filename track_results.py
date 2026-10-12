@@ -1,20 +1,27 @@
 import json
 import os
+import csv
+import time
 import requests
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
-# ── 1. ENVIRONMENT-AWARE ADAPTIVE PATHS ───────────────────────────────────────
-IS_GITHUB = "GITHUB_ACTIONS" in os.environ
+# ── 1. REPOSITORY-RELATIVE DATA PATHS ─────────────────────────────────────────
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PUBLIC_DIR = os.path.join(BASE_DIR, "frontend", "public")
+HISTORY_PATH = os.path.join(PUBLIC_DIR, "past_games.csv")
+TEAM_ABBREVS = (
+    "ANA", "BOS", "BUF", "CGY", "CAR", "CHI", "COL", "CBJ", "DAL", "DET",
+    "EDM", "FLA", "LAK", "MIN", "MTL", "NSH", "NJD", "NYI", "NYR", "OTT",
+    "PHI", "PIT", "SJS", "SEA", "STL", "TBL", "TOR", "UTA", "VAN", "VGK",
+    "WSH", "WPG",
+)
+HISTORY_FIELDS = ["Date", "Away", "Home", "Actual_Winner", "Away_Score", "Home_Score"]
+EASTERN = ZoneInfo("America/New_York")
 
-if IS_GITHUB:
-    DB_PATH = os.path.join(BASE_DIR, "graded_picks_db.json")
-    PREDICTIONS_PATH = os.path.join(BASE_DIR, "frontend", "public", "daily_predictions.json")
-    FRONTEND_PATH = os.path.join(BASE_DIR, "frontend", "public", "historical_stats.json")
-else:
-    DB_PATH = "graded_picks_db.json"
-    PREDICTIONS_PATH = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public\daily_predictions.json"
-    FRONTEND_PATH = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public\historical_stats.json"
+DB_PATH = os.path.join(BASE_DIR, "graded_picks_db.json")
+PREDICTIONS_PATH = os.path.join(PUBLIC_DIR, "daily_predictions.json")
+FRONTEND_PATH = os.path.join(PUBLIC_DIR, "historical_stats.json")
 
 
 # ── 2. UNIT PAYOUT CALCULATION UTILITIES ──────────────────────────────────────
@@ -37,9 +44,7 @@ def calculate_ou_units(won, push=False):
 
 # ── 3. TIME AND UTILITY HELPERS ───────────────────────────────────────────────
 def get_yesterday_est_str():
-    est = datetime.now(timezone.utc) - timedelta(hours=4)
-    yesterday = est - timedelta(days=1)
-    return yesterday.strftime("%Y-%m-%d")
+    return (datetime.now(EASTERN).date() - timedelta(days=1)).isoformat()
 
 def load_json_file(path):
     if os.path.exists(path):
@@ -48,25 +53,147 @@ def load_json_file(path):
     return {}
 
 
+def _game_to_history_row(game):
+    """Return a completed NHL schedule game in the model's canonical CSV schema."""
+    if game.get("gameState") not in {"OFF", "FINAL", "CRIT"}:
+        return None
+    home = game.get("homeTeam", {})
+    away = game.get("awayTeam", {})
+    date = game.get("gameDate")
+    if not date or not home.get("abbrev") or not away.get("abbrev"):
+        return None
+    try:
+        home_score = int(home["score"])
+        away_score = int(away["score"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    if home_score == away_score:
+        return None
+    return {
+        "Date": date[:10], "Away": away["abbrev"], "Home": home["abbrev"],
+        "Actual_Winner": home["abbrev"] if home_score > away_score else away["abbrev"],
+        "Away_Score": away_score, "Home_Score": home_score,
+    }
+
+
+def _read_history(path=HISTORY_PATH):
+    if not os.path.exists(path):
+        return {}
+    with open(path, newline="", encoding="utf-8") as history_file:
+        rows = csv.DictReader(history_file)
+        return {
+            (row.get("Date", ""), row.get("Away", ""), row.get("Home", "")): row
+            for row in rows
+            if row.get("Date") and row.get("Away") and row.get("Home")
+        }
+
+
+def _write_history(rows, path=HISTORY_PATH):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as history_file:
+        writer = csv.DictWriter(history_file, fieldnames=HISTORY_FIELDS, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(sorted(rows.values(), key=lambda row: (row["Date"], row["Away"], row["Home"])))
+
+
+def merge_final_games(games, path=HISTORY_PATH):
+    """Upsert completed schedule games by date and matchup; safe to rerun."""
+    history = _read_history(path)
+    before = len(history)
+    changed = False
+    for game in games:
+        row = _game_to_history_row(game)
+        if row:
+            key = (row["Date"], row["Away"], row["Home"])
+            if history.get(key) != row:
+                history[key] = row
+                changed = True
+    if changed:
+        _write_history(history, path)
+    return len(history) - before
+
+
+def _previous_nhl_season(now=None):
+    now = now or datetime.now(EASTERN)
+    current_start_year = now.year if now.month >= 7 else now.year - 1
+    return f"{current_start_year - 1}{current_start_year:04d}"
+
+
+def bootstrap_previous_season(path=HISTORY_PATH, get=requests.get):
+    """Fill a missing history baseline from the official completed-season club logs.
+
+    The 32 API calls happen only while the stored history has fewer than 500 games;
+    a complete baseline is committed by the workflow and won't be fetched daily.
+    """
+    history = _read_history(path)
+    if len(history) >= 500:
+        return 0
+
+    season = _previous_nhl_season()
+    season_rows = {}
+    failed_teams = []
+    for team in TEAM_ABBREVS:
+        url = f"https://api-web.nhle.com/v1/club-schedule-season/{team}/{season}"
+        try:
+            response = get(url, timeout=15)
+            response.raise_for_status()
+            games = response.json().get("games", [])
+            for game in games:
+                row = _game_to_history_row(game)
+                if row:
+                    season_rows[(row["Date"], row["Away"], row["Home"])] = row
+        except (requests.RequestException, ValueError, TypeError, AttributeError) as exc:
+            failed_teams.append(team)
+            print(f"⚠️ Could not load {team} {season} schedule: {exc}")
+        time.sleep(0.15)
+
+    # Do not install a partial season snapshot: retry on the next tracker run.
+    if failed_teams:
+        print(f"⚠️ Season history bootstrap incomplete ({len(failed_teams)} teams); preserving existing CSV.")
+        return 0
+    if len(season_rows) < 500:
+        print(f"⚠️ Season history returned only {len(season_rows)} completed games; preserving existing CSV.")
+        return 0
+
+    before = len(history)
+    history.update(season_rows)
+    _write_history(history, path)
+    added = len(history) - before
+    print(f"✅ Seeded history from {season}: {len(season_rows)} completed games ({added} added).")
+    return added
+
+
+def fetch_schedule_games(date_str, get=requests.get):
+    url = f"https://api-web.nhle.com/v1/schedule/{date_str}"
+    response = get(url, timeout=15)
+    response.raise_for_status()
+    day = next((item for item in response.json().get("gameWeek", []) if item.get("date") == date_str), None)
+    if day is None:
+        raise ValueError(f"NHL schedule response omitted {date_str}")
+    return day.get("games", [])
+
+
 # ── 4. THE AUTOMATED GRADER ───────────────────────────────────────────────────
 def auto_grade_yesterday():
     yesterday_str = get_yesterday_est_str()
     print(f"Checking results for sports date: {yesterday_str}")
 
-    predictions_payload = load_json_file(PREDICTIONS_PATH)
-    yesterday_predictions = predictions_payload.get("yesterday", [])
-    
-    if not yesterday_predictions:
-        print("⚠️ No predictions discovered for yesterday inside daily_predictions.json. Skipping grading.")
-        return
-
     # Query official NHL Schedule API for final game data
-    url = f"https://api-web.nhle.com/v1/schedule/{yesterday_str}"
     try:
-        response = requests.get(url, timeout=10).json()
-        games_list = next((day['games'] for day in response.get('gameWeek', []) if day['date'] == yesterday_str), [])
+        games_list = fetch_schedule_games(yesterday_str)
     except Exception as e:
         print(f"❌ Failed to reach NHL Schedule API: {e}")
+        return
+
+    # Bootstrap a complete model baseline once, then incorporate each day's final scores.
+    bootstrap_previous_season()
+    added = merge_final_games(games_list)
+    print(f"📚 Model game history refreshed ({added} newly completed games).")
+
+    predictions_payload = load_json_file(PREDICTIONS_PATH)
+    yesterday_predictions = predictions_payload.get("yesterday", [])
+    if not yesterday_predictions:
+        print("⚠️ No predictions discovered for yesterday inside daily_predictions.json. Skipping grading.")
         return
 
     db = load_json_file(DB_PATH)
@@ -198,3 +325,4 @@ def build_frontend_stats():
 
 if __name__ == "__main__":
     auto_grade_yesterday()
+
