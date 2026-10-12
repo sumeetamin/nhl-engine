@@ -10,6 +10,7 @@ class HistorySyncTests(unittest.TestCase):
     def test_final_games_are_upserted_once_with_real_scores(self):
         game = {
             "gameState": "FINAL",
+            "gameType": 2,
             "gameDate": "2026-10-11",
             "awayTeam": {"abbrev": "BOS", "score": 2},
             "homeTeam": {"abbrev": "BUF", "score": 4},
@@ -26,6 +27,16 @@ class HistorySyncTests(unittest.TestCase):
         self.assertEqual(rows[0]["Actual_Winner"], "BUF")
         self.assertEqual(rows[0]["Away_Score"], "2")
         self.assertEqual(rows[0]["Home_Score"], "4")
+
+    def test_preseason_games_are_excluded(self):
+        game = {
+            "gameState": "FINAL",
+            "gameType": 1,
+            "gameDate": "2025-09-20",
+            "awayTeam": {"abbrev": "BOS", "score": 2},
+            "homeTeam": {"abbrev": "BUF", "score": 4},
+        }
+        self.assertIsNone(track_results._game_to_history_row(game))
 
     def test_model_history_path_is_the_frontend_published_csv(self):
         source = Path("run_pipeline.py").read_text(encoding="utf-8")
