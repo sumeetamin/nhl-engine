@@ -33,9 +33,16 @@ class ProbabilityBlendTests(unittest.TestCase):
         blend = self.helpers["blend_home_win_probability"]
         # NJD -135 / OTT +114 implies about 55% for NJD after removing vig.
         adjusted = blend(27.0, "-135", "+114")
-        self.assertAlmostEqual(adjusted, 52.3, delta=0.2)
+        self.assertAlmostEqual(adjusted, 53.7, delta=0.2)
         self.assertGreater(adjusted, 50.0)
         self.assertLess(abs(adjusted - 55.1), abs(27.0 - 55.1))
+
+    def test_small_home_market_favorite_is_not_flipped_by_extreme_model(self):
+        blend = self.helpers["blend_home_win_probability"]
+        # MIN -118 / VGK -102 is only a small no-vig home edge.
+        adjusted = blend(28.5, "-118", "-102")
+        self.assertAlmostEqual(adjusted, 50.6, delta=0.2)
+        self.assertGreater(adjusted, 50.0)
 
     def test_probability_falls_back_to_model_without_both_prices(self):
         blend = self.helpers["blend_home_win_probability"]
