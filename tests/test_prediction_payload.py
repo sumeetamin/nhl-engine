@@ -14,10 +14,11 @@ class PredictionPayloadTests(unittest.TestCase):
 
         def games(date, *args):
             calls.append(date)
-            return None if date == '2026-10-01' else [{'date': date, 'tier': 'EDGE'}]
+            return [{'date': date, 'tier': 'EDGE'}]
 
         ns = dict(datetime=datetime, timedelta=timedelta, timezone=timezone,
                   get_est_now=lambda: datetime(2026, 9, 30, 23, 59),
+                  get_schedule_window=lambda dates: {date: [] for date in dates},
                   fetch_nhl_odds=lambda: {}, fetch_standings=lambda: {},
                   GIFT_AVAILABLE=False, get_all_games_for_date=games,
                   save_json=lambda name, payload: saved.update(payload), print=lambda *a: None)
@@ -26,7 +27,7 @@ class PredictionPayloadTests(unittest.TestCase):
         self.assertEqual(calls, ['2026-09-28', '2026-09-29', '2026-09-30', '2026-10-01', '2026-10-02'])
         self.assertEqual(saved['timezone'], 'America/New_York')
         self.assertEqual(saved['today'], saved['games_by_date']['2026-09-30'])
-        self.assertIsNone(saved['games_by_date']['2026-10-01'])
+        self.assertEqual(saved['games_by_date']['2026-10-01'][0]['date'], '2026-10-01')
         self.assertEqual(saved['top_plays_date'], '2026-09-30')
         self.assertEqual(saved['top_plays'][0]['date'], '2026-09-30')
         self.assertIsNotNone(datetime.fromisoformat(saved['generated_at']).tzinfo)
@@ -34,3 +35,4 @@ class PredictionPayloadTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
