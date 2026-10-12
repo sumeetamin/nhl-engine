@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-12T05:17:00.981239+00:00",
+    "generated_at": "2026-10-12T12:35:10.311867+00:00",
     "games_by_date": {
         "2026-10-10": [
             {
@@ -6676,128 +6676,67 @@
                         ],
                         "home": [
                             {
-                                "date": "10/09/26",
-                                "opp": "vs ANA",
-                                "result": "L",
-                                "score": "1-5"
-                            },
-                            {
-                                "date": "10/07/26",
-                                "opp": "vs COL",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "10/05/26",
-                                "opp": "@PIT",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "10/04/26",
-                                "opp": "@DET",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "10/02/26",
-                                "opp": "vs BOS",
-                                "result": "L",
-                                "score": "3-4"
-                            },
-                            {
-                                "date": "09/25/26",
-                                "opp": "@COL",
-                                "result": "L",
-                                "score": "2-5"
-                            },
-                            {
-                                "date": "09/22/26",
-                                "opp": "vs EDM",
-                                "result": "L",
-                                "score": "1-2"
-                            },
-                            {
-                                "date": "09/21/26",
-                                "opp": "vs COL",
-                                "result": "W",
-                                "score": "3-1"
-                            },
-                            {
-                                "date": "09/19/26",
-                                "opp": "@EDM",
-                                "result": "L",
-                                "score": "2-5"
-                            },
-                            {
                                 "date": "04/16/26",
                                 "opp": "vs SJS",
                                 "result": "L",
                                 "score": "1-6"
-                            }
-                        ],
-                        "h2h": [
+                            },
                             {
-                                "date": "01/15/26",
-                                "opp": "@MIN",
+                                "date": "04/14/26",
+                                "opp": "@UTA",
+                                "result": "L",
+                                "score": "3-5"
+                            },
+                            {
+                                "date": "04/13/26",
+                                "opp": "@VGK",
+                                "result": "L",
+                                "score": "2-6"
+                            },
+                            {
+                                "date": "04/11/26",
+                                "opp": "vs PHI",
+                                "result": "L",
+                                "score": "1-7"
+                            },
+                            {
+                                "date": "04/09/26",
+                                "opp": "@STL",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "04/06/26",
+                                "opp": "vs SEA",
                                 "result": "W",
                                 "score": "6-2"
                             },
                             {
-                                "date": "12/27/25",
-                                "opp": "vs MIN",
-                                "result": "L",
-                                "score": "3-4"
-                            },
-                            {
-                                "date": "11/23/25",
-                                "opp": "vs MIN",
-                                "result": "L",
-                                "score": "0-3"
-                            },
-                            {
-                                "date": "10/28/25",
-                                "opp": "@MIN",
-                                "result": "W",
-                                "score": "4-3"
-                            },
-                            {
-                                "date": "09/30/25",
-                                "opp": "@MIN",
-                                "result": "L",
-                                "score": "2-3"
-                            },
-                            {
-                                "date": "09/21/25",
-                                "opp": "vs MIN",
-                                "result": "L",
-                                "score": "2-3"
-                            },
-                            {
-                                "date": "12/21/24",
-                                "opp": "vs MIN",
-                                "result": "W",
-                                "score": "5-0"
-                            },
-                            {
-                                "date": "11/25/24",
-                                "opp": "@MIN",
-                                "result": "W",
-                                "score": "4-1"
-                            },
-                            {
-                                "date": "10/13/24",
-                                "opp": "vs MIN",
+                                "date": "04/04/26",
+                                "opp": "@CBJ",
                                 "result": "W",
                                 "score": "2-1"
                             },
                             {
-                                "date": "09/27/24",
-                                "opp": "@MIN",
+                                "date": "04/02/26",
+                                "opp": "@DAL",
                                 "result": "L",
-                                "score": "5-8"
+                                "score": "0-3"
+                            },
+                            {
+                                "date": "03/31/26",
+                                "opp": "@CHI",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "03/28/26",
+                                "opp": "@COL",
+                                "result": "W",
+                                "score": "4-2"
                             }
-                        ]
+                        ],
+                        "h2h": []
                     },
                     "covers": {
                         "best_ml": "MIN ML",
@@ -8400,42 +8339,6 @@
                         ],
                         "h2h": [
                             {
-                                "date": "04/04/26",
-                                "opp": "vs COL",
-                                "result": "L",
-                                "score": "0-2"
-                            },
-                            {
-                                "date": "03/18/26",
-                                "opp": "@COL",
-                                "result": "W",
-                                "score": "2-1"
-                            },
-                            {
-                                "date": "03/06/26",
-                                "opp": "vs COL",
-                                "result": "L",
-                                "score": "4-5"
-                            },
-                            {
-                                "date": "10/11/25",
-                                "opp": "@COL",
-                                "result": "W",
-                                "score": "5-4"
-                            },
-                            {
-                                "date": "10/04/25",
-                                "opp": "vs COL",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "09/27/25",
-                                "opp": "@COL",
-                                "result": "L",
-                                "score": "1-4"
-                            },
-                            {
                                 "date": "05/03/25",
                                 "opp": "vs COL",
                                 "result": "W",
@@ -8458,6 +8361,42 @@
                                 "opp": "@COL",
                                 "result": "L",
                                 "score": "0-4"
+                            },
+                            {
+                                "date": "04/23/25",
+                                "opp": "@COL",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "04/21/25",
+                                "opp": "vs COL",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "04/19/25",
+                                "opp": "vs COL",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
+                                "date": "03/16/25",
+                                "opp": "@COL",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "01/18/25",
+                                "opp": "@COL",
+                                "result": "L",
+                                "score": "3-6"
+                            },
+                            {
+                                "date": "11/29/24",
+                                "opp": "vs COL",
+                                "result": "W",
+                                "score": "5-3"
                             }
                         ]
                     },
@@ -17185,128 +17124,67 @@
                     ],
                     "home": [
                         {
-                            "date": "10/09/26",
-                            "opp": "vs ANA",
-                            "result": "L",
-                            "score": "1-5"
-                        },
-                        {
-                            "date": "10/07/26",
-                            "opp": "vs COL",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/05/26",
-                            "opp": "@PIT",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/04/26",
-                            "opp": "@DET",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/02/26",
-                            "opp": "vs BOS",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "09/25/26",
-                            "opp": "@COL",
-                            "result": "L",
-                            "score": "2-5"
-                        },
-                        {
-                            "date": "09/22/26",
-                            "opp": "vs EDM",
-                            "result": "L",
-                            "score": "1-2"
-                        },
-                        {
-                            "date": "09/21/26",
-                            "opp": "vs COL",
-                            "result": "W",
-                            "score": "3-1"
-                        },
-                        {
-                            "date": "09/19/26",
-                            "opp": "@EDM",
-                            "result": "L",
-                            "score": "2-5"
-                        },
-                        {
                             "date": "04/16/26",
                             "opp": "vs SJS",
                             "result": "L",
                             "score": "1-6"
-                        }
-                    ],
-                    "h2h": [
+                        },
                         {
-                            "date": "01/15/26",
-                            "opp": "@MIN",
+                            "date": "04/14/26",
+                            "opp": "@UTA",
+                            "result": "L",
+                            "score": "3-5"
+                        },
+                        {
+                            "date": "04/13/26",
+                            "opp": "@VGK",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
+                            "date": "04/11/26",
+                            "opp": "vs PHI",
+                            "result": "L",
+                            "score": "1-7"
+                        },
+                        {
+                            "date": "04/09/26",
+                            "opp": "@STL",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "04/06/26",
+                            "opp": "vs SEA",
                             "result": "W",
                             "score": "6-2"
                         },
                         {
-                            "date": "12/27/25",
-                            "opp": "vs MIN",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "11/23/25",
-                            "opp": "vs MIN",
-                            "result": "L",
-                            "score": "0-3"
-                        },
-                        {
-                            "date": "10/28/25",
-                            "opp": "@MIN",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "09/30/25",
-                            "opp": "@MIN",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "09/21/25",
-                            "opp": "vs MIN",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "12/21/24",
-                            "opp": "vs MIN",
-                            "result": "W",
-                            "score": "5-0"
-                        },
-                        {
-                            "date": "11/25/24",
-                            "opp": "@MIN",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "10/13/24",
-                            "opp": "vs MIN",
+                            "date": "04/04/26",
+                            "opp": "@CBJ",
                             "result": "W",
                             "score": "2-1"
                         },
                         {
-                            "date": "09/27/24",
-                            "opp": "@MIN",
+                            "date": "04/02/26",
+                            "opp": "@DAL",
                             "result": "L",
-                            "score": "5-8"
+                            "score": "0-3"
+                        },
+                        {
+                            "date": "03/31/26",
+                            "opp": "@CHI",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "03/28/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "4-2"
                         }
-                    ]
+                    ],
+                    "h2h": []
                 },
                 "covers": {
                     "best_ml": "MIN ML",
@@ -18909,42 +18787,6 @@
                     ],
                     "h2h": [
                         {
-                            "date": "04/04/26",
-                            "opp": "vs COL",
-                            "result": "L",
-                            "score": "0-2"
-                        },
-                        {
-                            "date": "03/18/26",
-                            "opp": "@COL",
-                            "result": "W",
-                            "score": "2-1"
-                        },
-                        {
-                            "date": "03/06/26",
-                            "opp": "vs COL",
-                            "result": "L",
-                            "score": "4-5"
-                        },
-                        {
-                            "date": "10/11/25",
-                            "opp": "@COL",
-                            "result": "W",
-                            "score": "5-4"
-                        },
-                        {
-                            "date": "10/04/25",
-                            "opp": "vs COL",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "09/27/25",
-                            "opp": "@COL",
-                            "result": "L",
-                            "score": "1-4"
-                        },
-                        {
                             "date": "05/03/25",
                             "opp": "vs COL",
                             "result": "W",
@@ -18967,6 +18809,42 @@
                             "opp": "@COL",
                             "result": "L",
                             "score": "0-4"
+                        },
+                        {
+                            "date": "04/23/25",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "04/21/25",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "04/19/25",
+                            "opp": "vs COL",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "03/16/25",
+                            "opp": "@COL",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "01/18/25",
+                            "opp": "@COL",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "11/29/24",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "5-3"
                         }
                     ]
                 },
