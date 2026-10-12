@@ -49,6 +49,7 @@ def get_est_now():
     return datetime.now(EASTERN).replace(tzinfo=None)
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
+HISTORY_CSV_PATH = os.path.join(SCRIPT_DIR, "frontend", "public", "past_games.csv")
 WINDOWS_PATH = r"C:\Users\amins\OneDrive\Desktop\NHL\frontend\public"
 
 def get_save_dirs():
@@ -269,7 +270,7 @@ def get_implied_ml(prob):
 
 
 # ── Core Machine Learning Engine ──────────────────────────────────────────────
-def run_ml_engine(home_team, away_team, game_time="TBD", csv_path="past_games.csv",
+def run_ml_engine(home_team, away_team, game_time="TBD", csv_path=HISTORY_CSV_PATH,
                   matchup_goalies=None, odds_data=None, standings=None, gift_stats_all=None):
     try:
         model = joblib.load("sumeets_engine_v5.pkl")
@@ -575,3 +576,4 @@ def build_daily_json():
 
 if __name__ == "__main__":
     build_daily_json()
+
