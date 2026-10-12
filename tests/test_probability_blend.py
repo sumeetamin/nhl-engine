@@ -29,11 +29,12 @@ class ProbabilityBlendTests(unittest.TestCase):
     def setUpClass(cls):
         cls.helpers = load_helpers()
 
-    def test_no_vig_market_anchor_limits_extreme_model_disagreement(self):
+    def test_market_anchor_limits_extreme_model_disagreement_and_respects_favorite(self):
         blend = self.helpers["blend_home_win_probability"]
         # NJD -135 / OTT +114 implies about 55% for NJD after removing vig.
         adjusted = blend(27.0, "-135", "+114")
-        self.assertAlmostEqual(adjusted, 49.5, delta=0.2)
+        self.assertAlmostEqual(adjusted, 52.3, delta=0.2)
+        self.assertGreater(adjusted, 50.0)
         self.assertLess(abs(adjusted - 55.1), abs(27.0 - 55.1))
 
     def test_probability_falls_back_to_model_without_both_prices(self):
