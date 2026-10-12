@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-12T04:55:48.633856+00:00",
+    "generated_at": "2026-10-12T05:06:29.625628+00:00",
     "games_by_date": {
         "2026-10-10": [
             {
@@ -4655,299 +4655,12 @@
         "2026-10-12": [
             {
                 "away": {
-                    "name": "OTT",
-                    "record_overall": "4-1-0",
-                    "record_split": "2-1-0",
-                    "record_l10": "4-1-0",
-                    "ml": "+114",
-                    "proj": "4.3"
-                },
-                "home": {
-                    "name": "NJD",
-                    "record_overall": "2-2-0",
-                    "record_split": "2-1-0",
-                    "record_l10": "2-2-0",
-                    "ml": "-135",
-                    "proj": "1.6"
-                },
-                "ou_total": "O/U 6.0",
-                "prob": "73.0%",
-                "home_win_prob": 27.0,
-                "away_win_prob": 73.0,
-                "predicted_winner": "OTT",
-                "time": "7:00 PM EDT",
-                "tier": "EDGE",
-                "edge": "+20.6%",
-                "ai_score": 8.1,
-                "details": {
-                    "period_60": {
-                        "p1_winner": "OTT (62%)",
-                        "p1_over_1_5": "72%",
-                        "min_60_tie": "10%"
-                    },
-                    "period_scores": {
-                        "p1": "OTT 1.3 - NJD 0.5",
-                        "p2": "OTT 1.5 - NJD 0.6",
-                        "p3": "OTT 1.5 - NJD 0.5"
-                    },
-                    "recent_logs": {
-                        "away": [
-                            {
-                                "date": "10/10/26",
-                                "opp": "vs NSH",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "10/08/26",
-                                "opp": "vs PHI",
-                                "result": "W",
-                                "score": "2-1"
-                            },
-                            {
-                                "date": "10/06/26",
-                                "opp": "@DET",
-                                "result": "L",
-                                "score": "3-5"
-                            },
-                            {
-                                "date": "10/05/26",
-                                "opp": "@BOS",
-                                "result": "W",
-                                "score": "4-1"
-                            },
-                            {
-                                "date": "10/03/26",
-                                "opp": "@TOR",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "09/26/26",
-                                "opp": "vs MTL",
-                                "result": "W",
-                                "score": "4-3"
-                            },
-                            {
-                                "date": "09/26/26",
-                                "opp": "@MTL",
-                                "result": "L",
-                                "score": "2-4"
-                            },
-                            {
-                                "date": "09/23/26",
-                                "opp": "@TOR",
-                                "result": "L",
-                                "score": "1-6"
-                            },
-                            {
-                                "date": "09/23/26",
-                                "opp": "vs TOR",
-                                "result": "L",
-                                "score": "2-4"
-                            },
-                            {
-                                "date": "09/21/26",
-                                "opp": "@MTL",
-                                "result": "L",
-                                "score": "2-3"
-                            }
-                        ],
-                        "home": [
-                            {
-                                "date": "10/10/26",
-                                "opp": "vs VAN",
-                                "result": "W",
-                                "score": "4-1"
-                            },
-                            {
-                                "date": "10/06/26",
-                                "opp": "vs UTA",
-                                "result": "L",
-                                "score": "3-5"
-                            },
-                            {
-                                "date": "10/03/26",
-                                "opp": "@NYI",
-                                "result": "L",
-                                "score": "0-6"
-                            },
-                            {
-                                "date": "10/01/26",
-                                "opp": "vs PHI",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "09/26/26",
-                                "opp": "@NYI",
-                                "result": "W",
-                                "score": "4-1"
-                            },
-                            {
-                                "date": "09/24/26",
-                                "opp": "@NYR",
-                                "result": "L",
-                                "score": "3-4"
-                            },
-                            {
-                                "date": "09/21/26",
-                                "opp": "vs NYR",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "09/20/26",
-                                "opp": "vs NYI",
-                                "result": "W",
-                                "score": "2-1"
-                            },
-                            {
-                                "date": "04/14/26",
-                                "opp": "@BOS",
-                                "result": "L",
-                                "score": "0-4"
-                            },
-                            {
-                                "date": "04/12/26",
-                                "opp": "vs OTT",
-                                "result": "W",
-                                "score": "4-3"
-                            }
-                        ],
-                        "h2h": [
-                            {
-                                "date": "04/12/26",
-                                "opp": "vs OTT",
-                                "result": "W",
-                                "score": "4-3"
-                            },
-                            {
-                                "date": "01/31/26",
-                                "opp": "@OTT",
-                                "result": "L",
-                                "score": "1-4"
-                            },
-                            {
-                                "date": "12/09/25",
-                                "opp": "@OTT",
-                                "result": "W",
-                                "score": "4-3"
-                            },
-                            {
-                                "date": "09/28/25",
-                                "opp": "@OTT",
-                                "result": "L",
-                                "score": "0-2"
-                            },
-                            {
-                                "date": "03/22/25",
-                                "opp": "vs OTT",
-                                "result": "L",
-                                "score": "2-3"
-                            },
-                            {
-                                "date": "01/19/25",
-                                "opp": "vs OTT",
-                                "result": "L",
-                                "score": "1-2"
-                            },
-                            {
-                                "date": "10/17/24",
-                                "opp": "@OTT",
-                                "result": "W",
-                                "score": "3-1"
-                            },
-                            {
-                                "date": "04/06/24",
-                                "opp": "@OTT",
-                                "result": "W",
-                                "score": "4-3"
-                            },
-                            {
-                                "date": "03/23/24",
-                                "opp": "vs OTT",
-                                "result": "L",
-                                "score": "2-5"
-                            },
-                            {
-                                "date": "12/29/23",
-                                "opp": "@OTT",
-                                "result": "W",
-                                "score": "6-2"
-                            }
-                        ]
-                    },
-                    "covers": {
-                        "best_ml": "OTT ML",
-                        "best_spread": "OTT -1.5",
-                        "best_ou": "PASS"
-                    },
-                    "notes": [
-                        "Goalie Edge: OTT starting Linus Ullmark (Expected) vs NJD starting Jake Allen (Expected).",
-                        "Engine calculates OTT win probability at 73.0% based on V5 goalie adjustments.",
-                        "Matchup features an active Elo rating gap of 26 points."
-                    ],
-                    "best_angle": {
-                        "play": "OTT MONEYLINE",
-                        "edge": "+20.6%"
-                    },
-                    "gift_stats": {
-                        "away": {
-                            "pct_season": "62.2%",
-                            "pct_l5": "60.0%",
-                            "pct_l10": "60.0%",
-                            "record_season": "51-31",
-                            "streak": 0,
-                            "home_pct": "59.5%",
-                            "away_pct": "65.0%",
-                            "scoring_rate": "62.2%",
-                            "games": 82
-                        },
-                        "home": {
-                            "pct_season": "57.3%",
-                            "pct_l5": "100.0%",
-                            "pct_l10": "80.0%",
-                            "record_season": "47-35",
-                            "streak": 5,
-                            "home_pct": "63.4%",
-                            "away_pct": "51.2%",
-                            "scoring_rate": "57.3%",
-                            "games": 82
-                        }
-                    },
-                    "fp_stats": {
-                        "away": {
-                            "pct_season": "56.1%",
-                            "pct_l5": "0.0%",
-                            "pct_l10": "30.0%",
-                            "record_season": "46-36",
-                            "over_games": 46,
-                            "home_pct": "57.1%",
-                            "away_pct": "55.0%",
-                            "games": 82
-                        },
-                        "home": {
-                            "pct_season": "48.8%",
-                            "pct_l5": "80.0%",
-                            "pct_l10": "70.0%",
-                            "record_season": "40-42",
-                            "over_games": 40,
-                            "home_pct": "56.1%",
-                            "away_pct": "41.5%",
-                            "games": 82
-                        }
-                    }
-                }
-            },
-            {
-                "away": {
                     "name": "VGK",
                     "record_overall": "5-1-0",
                     "record_split": "2-0-0",
                     "record_l10": "5-1-0",
                     "ml": "-102",
-                    "proj": "4.9"
+                    "proj": "3.6"
                 },
                 "home": {
                     "name": "MIN",
@@ -4955,27 +4668,27 @@
                     "record_split": "1-0-0",
                     "record_l10": "3-1-1",
                     "ml": "-118",
-                    "proj": "1.9"
+                    "proj": "3.2"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "71.5%",
-                "home_win_prob": 28.5,
-                "away_win_prob": 71.5,
+                "prob": "52.9%",
+                "home_win_prob": 47.1,
+                "away_win_prob": 52.9,
                 "predicted_winner": "VGK",
                 "time": "8:00 PM EDT",
-                "tier": "EDGE",
-                "edge": "+19.1%",
-                "ai_score": 7.8,
+                "tier": "NONE",
+                "edge": "+0.5%",
+                "ai_score": 3.6,
                 "details": {
                     "period_60": {
-                        "p1_winner": "VGK (61%)",
+                        "p1_winner": "VGK (45%)",
                         "p1_over_1_5": "84%",
-                        "min_60_tie": "11%"
+                        "min_60_tie": "21%"
                     },
                     "period_scores": {
-                        "p1": "VGK 1.5 - MIN 0.6",
-                        "p2": "VGK 1.7 - MIN 0.7",
-                        "p3": "VGK 1.7 - MIN 0.6"
+                        "p1": "VGK 1.1 - MIN 1.0",
+                        "p2": "VGK 1.3 - MIN 1.1",
+                        "p3": "VGK 1.2 - MIN 1.1"
                     },
                     "recent_logs": {
                         "away": [
@@ -5167,17 +4880,17 @@
                     },
                     "covers": {
                         "best_ml": "VGK ML",
-                        "best_spread": "VGK -1.5",
+                        "best_spread": "PASS",
                         "best_ou": "OVER 5.5"
                     },
                     "notes": [
                         "Goalie Edge: VGK starting Carter Hart (Expected) vs MIN starting Jesper Wallstedt (Expected).",
-                        "Engine calculates VGK win probability at 71.5% based on V5 goalie adjustments.",
+                        "Engine calculates VGK win probability at 52.9% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 7 points."
                     ],
                     "best_angle": {
                         "play": "VGK MONEYLINE",
-                        "edge": "+19.1%"
+                        "edge": "+0.5%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5234,7 +4947,7 @@
                     "record_split": "2-0-2",
                     "record_l10": "2-1-2",
                     "ml": "-112",
-                    "proj": "4.1"
+                    "proj": "3.6"
                 },
                 "home": {
                     "name": "BUF",
@@ -5242,27 +4955,27 @@
                     "record_split": "2-2-0",
                     "record_l10": "2-3-0",
                     "ml": "-108",
-                    "proj": "2.7"
+                    "proj": "3.2"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "59.8%",
-                "home_win_prob": 40.2,
-                "away_win_prob": 59.8,
+                "prob": "52.3%",
+                "home_win_prob": 47.7,
+                "away_win_prob": 52.3,
                 "predicted_winner": "FLA",
                 "time": "1:00 PM EDT",
                 "tier": "EDGE",
-                "edge": "+7.4%",
-                "ai_score": 5.2,
+                "edge": "+-0.1%",
+                "ai_score": 3.5,
                 "details": {
                     "period_60": {
-                        "p1_winner": "FLA (51%)",
-                        "p1_over_1_5": "80%",
-                        "min_60_tie": "17%"
+                        "p1_winner": "FLA (44%)",
+                        "p1_over_1_5": "84%",
+                        "min_60_tie": "21%"
                     },
                     "period_scores": {
-                        "p1": "FLA 1.2 - BUF 0.8",
-                        "p2": "FLA 1.4 - BUF 0.9",
-                        "p3": "FLA 1.5 - BUF 1.0"
+                        "p1": "FLA 1.1 - BUF 1.0",
+                        "p2": "FLA 1.3 - BUF 1.1",
+                        "p3": "FLA 1.2 - BUF 1.1"
                     },
                     "recent_logs": {
                         "away": [
@@ -5459,12 +5172,12 @@
                     },
                     "notes": [
                         "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs BUF starting Ukko-Pekka Luukkonen (Expected).",
-                        "Engine calculates FLA win probability at 59.8% based on V5 goalie adjustments.",
+                        "Engine calculates FLA win probability at 52.3% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 168 points."
                     ],
                     "best_angle": {
                         "play": "FLA MONEYLINE",
-                        "edge": "+7.4%"
+                        "edge": "+-0.1%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5509,6 +5222,293 @@
                             "over_games": 50,
                             "home_pct": "56.4%",
                             "away_pct": "65.1%",
+                            "games": 82
+                        }
+                    }
+                }
+            },
+            {
+                "away": {
+                    "name": "OTT",
+                    "record_overall": "4-1-0",
+                    "record_split": "2-1-0",
+                    "record_l10": "4-1-0",
+                    "ml": "+114",
+                    "proj": "3.3"
+                },
+                "home": {
+                    "name": "NJD",
+                    "record_overall": "2-2-0",
+                    "record_split": "2-1-0",
+                    "record_l10": "2-2-0",
+                    "ml": "-135",
+                    "proj": "2.9"
+                },
+                "ou_total": "O/U 6.0",
+                "prob": "50.5%",
+                "home_win_prob": 49.5,
+                "away_win_prob": 50.5,
+                "predicted_winner": "OTT",
+                "time": "7:00 PM EDT",
+                "tier": "NONE",
+                "edge": "+-1.9%",
+                "ai_score": 3.1,
+                "details": {
+                    "period_60": {
+                        "p1_winner": "OTT (43%)",
+                        "p1_over_1_5": "76%",
+                        "min_60_tie": "22%"
+                    },
+                    "period_scores": {
+                        "p1": "OTT 1.0 - NJD 0.9",
+                        "p2": "OTT 1.2 - NJD 1.0",
+                        "p3": "OTT 1.1 - NJD 1.0"
+                    },
+                    "recent_logs": {
+                        "away": [
+                            {
+                                "date": "10/10/26",
+                                "opp": "vs NSH",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/08/26",
+                                "opp": "vs PHI",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "10/06/26",
+                                "opp": "@DET",
+                                "result": "L",
+                                "score": "3-5"
+                            },
+                            {
+                                "date": "10/05/26",
+                                "opp": "@BOS",
+                                "result": "W",
+                                "score": "4-1"
+                            },
+                            {
+                                "date": "10/03/26",
+                                "opp": "@TOR",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "09/26/26",
+                                "opp": "vs MTL",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "09/26/26",
+                                "opp": "@MTL",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "09/23/26",
+                                "opp": "@TOR",
+                                "result": "L",
+                                "score": "1-6"
+                            },
+                            {
+                                "date": "09/23/26",
+                                "opp": "vs TOR",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "09/21/26",
+                                "opp": "@MTL",
+                                "result": "L",
+                                "score": "2-3"
+                            }
+                        ],
+                        "home": [
+                            {
+                                "date": "10/10/26",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "4-1"
+                            },
+                            {
+                                "date": "10/06/26",
+                                "opp": "vs UTA",
+                                "result": "L",
+                                "score": "3-5"
+                            },
+                            {
+                                "date": "10/03/26",
+                                "opp": "@NYI",
+                                "result": "L",
+                                "score": "0-6"
+                            },
+                            {
+                                "date": "10/01/26",
+                                "opp": "vs PHI",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "09/26/26",
+                                "opp": "@NYI",
+                                "result": "W",
+                                "score": "4-1"
+                            },
+                            {
+                                "date": "09/24/26",
+                                "opp": "@NYR",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "09/21/26",
+                                "opp": "vs NYR",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "09/20/26",
+                                "opp": "vs NYI",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "04/14/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "0-4"
+                            },
+                            {
+                                "date": "04/12/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "4-3"
+                            }
+                        ],
+                        "h2h": [
+                            {
+                                "date": "04/12/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "01/31/26",
+                                "opp": "@OTT",
+                                "result": "L",
+                                "score": "1-4"
+                            },
+                            {
+                                "date": "12/09/25",
+                                "opp": "@OTT",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "09/28/25",
+                                "opp": "@OTT",
+                                "result": "L",
+                                "score": "0-2"
+                            },
+                            {
+                                "date": "03/22/25",
+                                "opp": "vs OTT",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "01/19/25",
+                                "opp": "vs OTT",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "10/17/24",
+                                "opp": "@OTT",
+                                "result": "W",
+                                "score": "3-1"
+                            },
+                            {
+                                "date": "04/06/24",
+                                "opp": "@OTT",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "03/23/24",
+                                "opp": "vs OTT",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "12/29/23",
+                                "opp": "@OTT",
+                                "result": "W",
+                                "score": "6-2"
+                            }
+                        ]
+                    },
+                    "covers": {
+                        "best_ml": "OTT ML",
+                        "best_spread": "PASS",
+                        "best_ou": "OVER 5.5"
+                    },
+                    "notes": [
+                        "Goalie Edge: OTT starting Linus Ullmark (Expected) vs NJD starting Jake Allen (Expected).",
+                        "Engine calculates OTT win probability at 50.5% based on V5 goalie adjustments.",
+                        "Matchup features an active Elo rating gap of 26 points."
+                    ],
+                    "best_angle": {
+                        "play": "OTT MONEYLINE",
+                        "edge": "+-1.9%"
+                    },
+                    "gift_stats": {
+                        "away": {
+                            "pct_season": "62.2%",
+                            "pct_l5": "60.0%",
+                            "pct_l10": "60.0%",
+                            "record_season": "51-31",
+                            "streak": 0,
+                            "home_pct": "59.5%",
+                            "away_pct": "65.0%",
+                            "scoring_rate": "62.2%",
+                            "games": 82
+                        },
+                        "home": {
+                            "pct_season": "57.3%",
+                            "pct_l5": "100.0%",
+                            "pct_l10": "80.0%",
+                            "record_season": "47-35",
+                            "streak": 5,
+                            "home_pct": "63.4%",
+                            "away_pct": "51.2%",
+                            "scoring_rate": "57.3%",
+                            "games": 82
+                        }
+                    },
+                    "fp_stats": {
+                        "away": {
+                            "pct_season": "56.1%",
+                            "pct_l5": "0.0%",
+                            "pct_l10": "30.0%",
+                            "record_season": "46-36",
+                            "over_games": 46,
+                            "home_pct": "57.1%",
+                            "away_pct": "55.0%",
+                            "games": 82
+                        },
+                        "home": {
+                            "pct_season": "48.8%",
+                            "pct_l5": "80.0%",
+                            "pct_l10": "70.0%",
+                            "record_season": "40-42",
+                            "over_games": 40,
+                            "home_pct": "56.1%",
+                            "away_pct": "41.5%",
                             "games": 82
                         }
                     }
@@ -15164,299 +15164,12 @@
     "today": [
         {
             "away": {
-                "name": "OTT",
-                "record_overall": "4-1-0",
-                "record_split": "2-1-0",
-                "record_l10": "4-1-0",
-                "ml": "+114",
-                "proj": "4.3"
-            },
-            "home": {
-                "name": "NJD",
-                "record_overall": "2-2-0",
-                "record_split": "2-1-0",
-                "record_l10": "2-2-0",
-                "ml": "-135",
-                "proj": "1.6"
-            },
-            "ou_total": "O/U 6.0",
-            "prob": "73.0%",
-            "home_win_prob": 27.0,
-            "away_win_prob": 73.0,
-            "predicted_winner": "OTT",
-            "time": "7:00 PM EDT",
-            "tier": "EDGE",
-            "edge": "+20.6%",
-            "ai_score": 8.1,
-            "details": {
-                "period_60": {
-                    "p1_winner": "OTT (62%)",
-                    "p1_over_1_5": "72%",
-                    "min_60_tie": "10%"
-                },
-                "period_scores": {
-                    "p1": "OTT 1.3 - NJD 0.5",
-                    "p2": "OTT 1.5 - NJD 0.6",
-                    "p3": "OTT 1.5 - NJD 0.5"
-                },
-                "recent_logs": {
-                    "away": [
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs NSH",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/08/26",
-                            "opp": "vs PHI",
-                            "result": "W",
-                            "score": "2-1"
-                        },
-                        {
-                            "date": "10/06/26",
-                            "opp": "@DET",
-                            "result": "L",
-                            "score": "3-5"
-                        },
-                        {
-                            "date": "10/05/26",
-                            "opp": "@BOS",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "10/03/26",
-                            "opp": "@TOR",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "09/26/26",
-                            "opp": "vs MTL",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "09/26/26",
-                            "opp": "@MTL",
-                            "result": "L",
-                            "score": "2-4"
-                        },
-                        {
-                            "date": "09/23/26",
-                            "opp": "@TOR",
-                            "result": "L",
-                            "score": "1-6"
-                        },
-                        {
-                            "date": "09/23/26",
-                            "opp": "vs TOR",
-                            "result": "L",
-                            "score": "2-4"
-                        },
-                        {
-                            "date": "09/21/26",
-                            "opp": "@MTL",
-                            "result": "L",
-                            "score": "2-3"
-                        }
-                    ],
-                    "home": [
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs VAN",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "10/06/26",
-                            "opp": "vs UTA",
-                            "result": "L",
-                            "score": "3-5"
-                        },
-                        {
-                            "date": "10/03/26",
-                            "opp": "@NYI",
-                            "result": "L",
-                            "score": "0-6"
-                        },
-                        {
-                            "date": "10/01/26",
-                            "opp": "vs PHI",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "09/26/26",
-                            "opp": "@NYI",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "09/24/26",
-                            "opp": "@NYR",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "09/21/26",
-                            "opp": "vs NYR",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "09/20/26",
-                            "opp": "vs NYI",
-                            "result": "W",
-                            "score": "2-1"
-                        },
-                        {
-                            "date": "04/14/26",
-                            "opp": "@BOS",
-                            "result": "L",
-                            "score": "0-4"
-                        },
-                        {
-                            "date": "04/12/26",
-                            "opp": "vs OTT",
-                            "result": "W",
-                            "score": "4-3"
-                        }
-                    ],
-                    "h2h": [
-                        {
-                            "date": "04/12/26",
-                            "opp": "vs OTT",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "01/31/26",
-                            "opp": "@OTT",
-                            "result": "L",
-                            "score": "1-4"
-                        },
-                        {
-                            "date": "12/09/25",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "09/28/25",
-                            "opp": "@OTT",
-                            "result": "L",
-                            "score": "0-2"
-                        },
-                        {
-                            "date": "03/22/25",
-                            "opp": "vs OTT",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "01/19/25",
-                            "opp": "vs OTT",
-                            "result": "L",
-                            "score": "1-2"
-                        },
-                        {
-                            "date": "10/17/24",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "3-1"
-                        },
-                        {
-                            "date": "04/06/24",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "03/23/24",
-                            "opp": "vs OTT",
-                            "result": "L",
-                            "score": "2-5"
-                        },
-                        {
-                            "date": "12/29/23",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "6-2"
-                        }
-                    ]
-                },
-                "covers": {
-                    "best_ml": "OTT ML",
-                    "best_spread": "OTT -1.5",
-                    "best_ou": "PASS"
-                },
-                "notes": [
-                    "Goalie Edge: OTT starting Linus Ullmark (Expected) vs NJD starting Jake Allen (Expected).",
-                    "Engine calculates OTT win probability at 73.0% based on V5 goalie adjustments.",
-                    "Matchup features an active Elo rating gap of 26 points."
-                ],
-                "best_angle": {
-                    "play": "OTT MONEYLINE",
-                    "edge": "+20.6%"
-                },
-                "gift_stats": {
-                    "away": {
-                        "pct_season": "62.2%",
-                        "pct_l5": "60.0%",
-                        "pct_l10": "60.0%",
-                        "record_season": "51-31",
-                        "streak": 0,
-                        "home_pct": "59.5%",
-                        "away_pct": "65.0%",
-                        "scoring_rate": "62.2%",
-                        "games": 82
-                    },
-                    "home": {
-                        "pct_season": "57.3%",
-                        "pct_l5": "100.0%",
-                        "pct_l10": "80.0%",
-                        "record_season": "47-35",
-                        "streak": 5,
-                        "home_pct": "63.4%",
-                        "away_pct": "51.2%",
-                        "scoring_rate": "57.3%",
-                        "games": 82
-                    }
-                },
-                "fp_stats": {
-                    "away": {
-                        "pct_season": "56.1%",
-                        "pct_l5": "0.0%",
-                        "pct_l10": "30.0%",
-                        "record_season": "46-36",
-                        "over_games": 46,
-                        "home_pct": "57.1%",
-                        "away_pct": "55.0%",
-                        "games": 82
-                    },
-                    "home": {
-                        "pct_season": "48.8%",
-                        "pct_l5": "80.0%",
-                        "pct_l10": "70.0%",
-                        "record_season": "40-42",
-                        "over_games": 40,
-                        "home_pct": "56.1%",
-                        "away_pct": "41.5%",
-                        "games": 82
-                    }
-                }
-            }
-        },
-        {
-            "away": {
                 "name": "VGK",
                 "record_overall": "5-1-0",
                 "record_split": "2-0-0",
                 "record_l10": "5-1-0",
                 "ml": "-102",
-                "proj": "4.9"
+                "proj": "3.6"
             },
             "home": {
                 "name": "MIN",
@@ -15464,27 +15177,27 @@
                 "record_split": "1-0-0",
                 "record_l10": "3-1-1",
                 "ml": "-118",
-                "proj": "1.9"
+                "proj": "3.2"
             },
             "ou_total": "O/U 7.0",
-            "prob": "71.5%",
-            "home_win_prob": 28.5,
-            "away_win_prob": 71.5,
+            "prob": "52.9%",
+            "home_win_prob": 47.1,
+            "away_win_prob": 52.9,
             "predicted_winner": "VGK",
             "time": "8:00 PM EDT",
-            "tier": "EDGE",
-            "edge": "+19.1%",
-            "ai_score": 7.8,
+            "tier": "NONE",
+            "edge": "+0.5%",
+            "ai_score": 3.6,
             "details": {
                 "period_60": {
-                    "p1_winner": "VGK (61%)",
+                    "p1_winner": "VGK (45%)",
                     "p1_over_1_5": "84%",
-                    "min_60_tie": "11%"
+                    "min_60_tie": "21%"
                 },
                 "period_scores": {
-                    "p1": "VGK 1.5 - MIN 0.6",
-                    "p2": "VGK 1.7 - MIN 0.7",
-                    "p3": "VGK 1.7 - MIN 0.6"
+                    "p1": "VGK 1.1 - MIN 1.0",
+                    "p2": "VGK 1.3 - MIN 1.1",
+                    "p3": "VGK 1.2 - MIN 1.1"
                 },
                 "recent_logs": {
                     "away": [
@@ -15676,17 +15389,17 @@
                 },
                 "covers": {
                     "best_ml": "VGK ML",
-                    "best_spread": "VGK -1.5",
+                    "best_spread": "PASS",
                     "best_ou": "OVER 5.5"
                 },
                 "notes": [
                     "Goalie Edge: VGK starting Carter Hart (Expected) vs MIN starting Jesper Wallstedt (Expected).",
-                    "Engine calculates VGK win probability at 71.5% based on V5 goalie adjustments.",
+                    "Engine calculates VGK win probability at 52.9% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 7 points."
                 ],
                 "best_angle": {
                     "play": "VGK MONEYLINE",
-                    "edge": "+19.1%"
+                    "edge": "+0.5%"
                 },
                 "gift_stats": {
                     "away": {
@@ -15743,7 +15456,7 @@
                 "record_split": "2-0-2",
                 "record_l10": "2-1-2",
                 "ml": "-112",
-                "proj": "4.1"
+                "proj": "3.6"
             },
             "home": {
                 "name": "BUF",
@@ -15751,27 +15464,27 @@
                 "record_split": "2-2-0",
                 "record_l10": "2-3-0",
                 "ml": "-108",
-                "proj": "2.7"
+                "proj": "3.2"
             },
             "ou_total": "O/U 7.0",
-            "prob": "59.8%",
-            "home_win_prob": 40.2,
-            "away_win_prob": 59.8,
+            "prob": "52.3%",
+            "home_win_prob": 47.7,
+            "away_win_prob": 52.3,
             "predicted_winner": "FLA",
             "time": "1:00 PM EDT",
             "tier": "EDGE",
-            "edge": "+7.4%",
-            "ai_score": 5.2,
+            "edge": "+-0.1%",
+            "ai_score": 3.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "FLA (51%)",
-                    "p1_over_1_5": "80%",
-                    "min_60_tie": "17%"
+                    "p1_winner": "FLA (44%)",
+                    "p1_over_1_5": "84%",
+                    "min_60_tie": "21%"
                 },
                 "period_scores": {
-                    "p1": "FLA 1.2 - BUF 0.8",
-                    "p2": "FLA 1.4 - BUF 0.9",
-                    "p3": "FLA 1.5 - BUF 1.0"
+                    "p1": "FLA 1.1 - BUF 1.0",
+                    "p2": "FLA 1.3 - BUF 1.1",
+                    "p3": "FLA 1.2 - BUF 1.1"
                 },
                 "recent_logs": {
                     "away": [
@@ -15968,12 +15681,12 @@
                 },
                 "notes": [
                     "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs BUF starting Ukko-Pekka Luukkonen (Expected).",
-                    "Engine calculates FLA win probability at 59.8% based on V5 goalie adjustments.",
+                    "Engine calculates FLA win probability at 52.3% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 168 points."
                 ],
                 "best_angle": {
                     "play": "FLA MONEYLINE",
-                    "edge": "+7.4%"
+                    "edge": "+-0.1%"
                 },
                 "gift_stats": {
                     "away": {
@@ -16018,6 +15731,293 @@
                         "over_games": 50,
                         "home_pct": "56.4%",
                         "away_pct": "65.1%",
+                        "games": 82
+                    }
+                }
+            }
+        },
+        {
+            "away": {
+                "name": "OTT",
+                "record_overall": "4-1-0",
+                "record_split": "2-1-0",
+                "record_l10": "4-1-0",
+                "ml": "+114",
+                "proj": "3.3"
+            },
+            "home": {
+                "name": "NJD",
+                "record_overall": "2-2-0",
+                "record_split": "2-1-0",
+                "record_l10": "2-2-0",
+                "ml": "-135",
+                "proj": "2.9"
+            },
+            "ou_total": "O/U 6.0",
+            "prob": "50.5%",
+            "home_win_prob": 49.5,
+            "away_win_prob": 50.5,
+            "predicted_winner": "OTT",
+            "time": "7:00 PM EDT",
+            "tier": "NONE",
+            "edge": "+-1.9%",
+            "ai_score": 3.1,
+            "details": {
+                "period_60": {
+                    "p1_winner": "OTT (43%)",
+                    "p1_over_1_5": "76%",
+                    "min_60_tie": "22%"
+                },
+                "period_scores": {
+                    "p1": "OTT 1.0 - NJD 0.9",
+                    "p2": "OTT 1.2 - NJD 1.0",
+                    "p3": "OTT 1.1 - NJD 1.0"
+                },
+                "recent_logs": {
+                    "away": [
+                        {
+                            "date": "10/10/26",
+                            "opp": "vs NSH",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/08/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "10/06/26",
+                            "opp": "@DET",
+                            "result": "L",
+                            "score": "3-5"
+                        },
+                        {
+                            "date": "10/05/26",
+                            "opp": "@BOS",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "10/03/26",
+                            "opp": "@TOR",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "09/26/26",
+                            "opp": "vs MTL",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "09/26/26",
+                            "opp": "@MTL",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "09/23/26",
+                            "opp": "@TOR",
+                            "result": "L",
+                            "score": "1-6"
+                        },
+                        {
+                            "date": "09/23/26",
+                            "opp": "vs TOR",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "09/21/26",
+                            "opp": "@MTL",
+                            "result": "L",
+                            "score": "2-3"
+                        }
+                    ],
+                    "home": [
+                        {
+                            "date": "10/10/26",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "10/06/26",
+                            "opp": "vs UTA",
+                            "result": "L",
+                            "score": "3-5"
+                        },
+                        {
+                            "date": "10/03/26",
+                            "opp": "@NYI",
+                            "result": "L",
+                            "score": "0-6"
+                        },
+                        {
+                            "date": "10/01/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "09/26/26",
+                            "opp": "@NYI",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "09/24/26",
+                            "opp": "@NYR",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "09/21/26",
+                            "opp": "vs NYR",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "09/20/26",
+                            "opp": "vs NYI",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "04/14/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "0-4"
+                        },
+                        {
+                            "date": "04/12/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "4-3"
+                        }
+                    ],
+                    "h2h": [
+                        {
+                            "date": "04/12/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "01/31/26",
+                            "opp": "@OTT",
+                            "result": "L",
+                            "score": "1-4"
+                        },
+                        {
+                            "date": "12/09/25",
+                            "opp": "@OTT",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "09/28/25",
+                            "opp": "@OTT",
+                            "result": "L",
+                            "score": "0-2"
+                        },
+                        {
+                            "date": "03/22/25",
+                            "opp": "vs OTT",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "01/19/25",
+                            "opp": "vs OTT",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "10/17/24",
+                            "opp": "@OTT",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
+                            "date": "04/06/24",
+                            "opp": "@OTT",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "03/23/24",
+                            "opp": "vs OTT",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "12/29/23",
+                            "opp": "@OTT",
+                            "result": "W",
+                            "score": "6-2"
+                        }
+                    ]
+                },
+                "covers": {
+                    "best_ml": "OTT ML",
+                    "best_spread": "PASS",
+                    "best_ou": "OVER 5.5"
+                },
+                "notes": [
+                    "Goalie Edge: OTT starting Linus Ullmark (Expected) vs NJD starting Jake Allen (Expected).",
+                    "Engine calculates OTT win probability at 50.5% based on V5 goalie adjustments.",
+                    "Matchup features an active Elo rating gap of 26 points."
+                ],
+                "best_angle": {
+                    "play": "OTT MONEYLINE",
+                    "edge": "+-1.9%"
+                },
+                "gift_stats": {
+                    "away": {
+                        "pct_season": "62.2%",
+                        "pct_l5": "60.0%",
+                        "pct_l10": "60.0%",
+                        "record_season": "51-31",
+                        "streak": 0,
+                        "home_pct": "59.5%",
+                        "away_pct": "65.0%",
+                        "scoring_rate": "62.2%",
+                        "games": 82
+                    },
+                    "home": {
+                        "pct_season": "57.3%",
+                        "pct_l5": "100.0%",
+                        "pct_l10": "80.0%",
+                        "record_season": "47-35",
+                        "streak": 5,
+                        "home_pct": "63.4%",
+                        "away_pct": "51.2%",
+                        "scoring_rate": "57.3%",
+                        "games": 82
+                    }
+                },
+                "fp_stats": {
+                    "away": {
+                        "pct_season": "56.1%",
+                        "pct_l5": "0.0%",
+                        "pct_l10": "30.0%",
+                        "record_season": "46-36",
+                        "over_games": 46,
+                        "home_pct": "57.1%",
+                        "away_pct": "55.0%",
+                        "games": 82
+                    },
+                    "home": {
+                        "pct_season": "48.8%",
+                        "pct_l5": "80.0%",
+                        "pct_l10": "70.0%",
+                        "record_season": "40-42",
+                        "over_games": 40,
+                        "home_pct": "56.1%",
+                        "away_pct": "41.5%",
                         "games": 82
                     }
                 }
@@ -21024,586 +21024,12 @@
     "top_plays": [
         {
             "away": {
-                "name": "OTT",
-                "record_overall": "4-1-0",
-                "record_split": "2-1-0",
-                "record_l10": "4-1-0",
-                "ml": "+114",
-                "proj": "4.3"
-            },
-            "home": {
-                "name": "NJD",
-                "record_overall": "2-2-0",
-                "record_split": "2-1-0",
-                "record_l10": "2-2-0",
-                "ml": "-135",
-                "proj": "1.6"
-            },
-            "ou_total": "O/U 6.0",
-            "prob": "73.0%",
-            "home_win_prob": 27.0,
-            "away_win_prob": 73.0,
-            "predicted_winner": "OTT",
-            "time": "7:00 PM EDT",
-            "tier": "EDGE",
-            "edge": "+20.6%",
-            "ai_score": 8.1,
-            "details": {
-                "period_60": {
-                    "p1_winner": "OTT (62%)",
-                    "p1_over_1_5": "72%",
-                    "min_60_tie": "10%"
-                },
-                "period_scores": {
-                    "p1": "OTT 1.3 - NJD 0.5",
-                    "p2": "OTT 1.5 - NJD 0.6",
-                    "p3": "OTT 1.5 - NJD 0.5"
-                },
-                "recent_logs": {
-                    "away": [
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs NSH",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/08/26",
-                            "opp": "vs PHI",
-                            "result": "W",
-                            "score": "2-1"
-                        },
-                        {
-                            "date": "10/06/26",
-                            "opp": "@DET",
-                            "result": "L",
-                            "score": "3-5"
-                        },
-                        {
-                            "date": "10/05/26",
-                            "opp": "@BOS",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "10/03/26",
-                            "opp": "@TOR",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "09/26/26",
-                            "opp": "vs MTL",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "09/26/26",
-                            "opp": "@MTL",
-                            "result": "L",
-                            "score": "2-4"
-                        },
-                        {
-                            "date": "09/23/26",
-                            "opp": "@TOR",
-                            "result": "L",
-                            "score": "1-6"
-                        },
-                        {
-                            "date": "09/23/26",
-                            "opp": "vs TOR",
-                            "result": "L",
-                            "score": "2-4"
-                        },
-                        {
-                            "date": "09/21/26",
-                            "opp": "@MTL",
-                            "result": "L",
-                            "score": "2-3"
-                        }
-                    ],
-                    "home": [
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs VAN",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "10/06/26",
-                            "opp": "vs UTA",
-                            "result": "L",
-                            "score": "3-5"
-                        },
-                        {
-                            "date": "10/03/26",
-                            "opp": "@NYI",
-                            "result": "L",
-                            "score": "0-6"
-                        },
-                        {
-                            "date": "10/01/26",
-                            "opp": "vs PHI",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "09/26/26",
-                            "opp": "@NYI",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "09/24/26",
-                            "opp": "@NYR",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "09/21/26",
-                            "opp": "vs NYR",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "09/20/26",
-                            "opp": "vs NYI",
-                            "result": "W",
-                            "score": "2-1"
-                        },
-                        {
-                            "date": "04/14/26",
-                            "opp": "@BOS",
-                            "result": "L",
-                            "score": "0-4"
-                        },
-                        {
-                            "date": "04/12/26",
-                            "opp": "vs OTT",
-                            "result": "W",
-                            "score": "4-3"
-                        }
-                    ],
-                    "h2h": [
-                        {
-                            "date": "04/12/26",
-                            "opp": "vs OTT",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "01/31/26",
-                            "opp": "@OTT",
-                            "result": "L",
-                            "score": "1-4"
-                        },
-                        {
-                            "date": "12/09/25",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "09/28/25",
-                            "opp": "@OTT",
-                            "result": "L",
-                            "score": "0-2"
-                        },
-                        {
-                            "date": "03/22/25",
-                            "opp": "vs OTT",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "01/19/25",
-                            "opp": "vs OTT",
-                            "result": "L",
-                            "score": "1-2"
-                        },
-                        {
-                            "date": "10/17/24",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "3-1"
-                        },
-                        {
-                            "date": "04/06/24",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "03/23/24",
-                            "opp": "vs OTT",
-                            "result": "L",
-                            "score": "2-5"
-                        },
-                        {
-                            "date": "12/29/23",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "6-2"
-                        }
-                    ]
-                },
-                "covers": {
-                    "best_ml": "OTT ML",
-                    "best_spread": "OTT -1.5",
-                    "best_ou": "PASS"
-                },
-                "notes": [
-                    "Goalie Edge: OTT starting Linus Ullmark (Expected) vs NJD starting Jake Allen (Expected).",
-                    "Engine calculates OTT win probability at 73.0% based on V5 goalie adjustments.",
-                    "Matchup features an active Elo rating gap of 26 points."
-                ],
-                "best_angle": {
-                    "play": "OTT MONEYLINE",
-                    "edge": "+20.6%"
-                },
-                "gift_stats": {
-                    "away": {
-                        "pct_season": "62.2%",
-                        "pct_l5": "60.0%",
-                        "pct_l10": "60.0%",
-                        "record_season": "51-31",
-                        "streak": 0,
-                        "home_pct": "59.5%",
-                        "away_pct": "65.0%",
-                        "scoring_rate": "62.2%",
-                        "games": 82
-                    },
-                    "home": {
-                        "pct_season": "57.3%",
-                        "pct_l5": "100.0%",
-                        "pct_l10": "80.0%",
-                        "record_season": "47-35",
-                        "streak": 5,
-                        "home_pct": "63.4%",
-                        "away_pct": "51.2%",
-                        "scoring_rate": "57.3%",
-                        "games": 82
-                    }
-                },
-                "fp_stats": {
-                    "away": {
-                        "pct_season": "56.1%",
-                        "pct_l5": "0.0%",
-                        "pct_l10": "30.0%",
-                        "record_season": "46-36",
-                        "over_games": 46,
-                        "home_pct": "57.1%",
-                        "away_pct": "55.0%",
-                        "games": 82
-                    },
-                    "home": {
-                        "pct_season": "48.8%",
-                        "pct_l5": "80.0%",
-                        "pct_l10": "70.0%",
-                        "record_season": "40-42",
-                        "over_games": 40,
-                        "home_pct": "56.1%",
-                        "away_pct": "41.5%",
-                        "games": 82
-                    }
-                }
-            }
-        },
-        {
-            "away": {
-                "name": "VGK",
-                "record_overall": "5-1-0",
-                "record_split": "2-0-0",
-                "record_l10": "5-1-0",
-                "ml": "-102",
-                "proj": "4.9"
-            },
-            "home": {
-                "name": "MIN",
-                "record_overall": "3-1-1",
-                "record_split": "1-0-0",
-                "record_l10": "3-1-1",
-                "ml": "-118",
-                "proj": "1.9"
-            },
-            "ou_total": "O/U 7.0",
-            "prob": "71.5%",
-            "home_win_prob": 28.5,
-            "away_win_prob": 71.5,
-            "predicted_winner": "VGK",
-            "time": "8:00 PM EDT",
-            "tier": "EDGE",
-            "edge": "+19.1%",
-            "ai_score": 7.8,
-            "details": {
-                "period_60": {
-                    "p1_winner": "VGK (61%)",
-                    "p1_over_1_5": "84%",
-                    "min_60_tie": "11%"
-                },
-                "period_scores": {
-                    "p1": "VGK 1.5 - MIN 0.6",
-                    "p2": "VGK 1.7 - MIN 0.7",
-                    "p3": "VGK 1.7 - MIN 0.6"
-                },
-                "recent_logs": {
-                    "away": [
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs LAK",
-                            "result": "W",
-                            "score": "2-1"
-                        },
-                        {
-                            "date": "10/08/26",
-                            "opp": "vs TOR",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "10/06/26",
-                            "opp": "@SEA",
-                            "result": "W",
-                            "score": "6-2"
-                        },
-                        {
-                            "date": "10/04/26",
-                            "opp": "@VAN",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/02/26",
-                            "opp": "vs ANA",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "09/29/26",
-                            "opp": "vs CHI",
-                            "result": "W",
-                            "score": "5-2"
-                        },
-                        {
-                            "date": "09/26/26",
-                            "opp": "vs SJS",
-                            "result": "L",
-                            "score": "2-4"
-                        },
-                        {
-                            "date": "09/24/26",
-                            "opp": "vs UTA",
-                            "result": "W",
-                            "score": "5-4"
-                        },
-                        {
-                            "date": "09/22/26",
-                            "opp": "@SJS",
-                            "result": "W",
-                            "score": "2-1"
-                        },
-                        {
-                            "date": "09/19/26",
-                            "opp": "@LAK",
-                            "result": "W",
-                            "score": "4-2"
-                        }
-                    ],
-                    "home": [
-                        {
-                            "date": "10/10/26",
-                            "opp": "@FLA",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "10/08/26",
-                            "opp": "@TBL",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "10/06/26",
-                            "opp": "@BUF",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "10/03/26",
-                            "opp": "vs BOS",
-                            "result": "W",
-                            "score": "4-1"
-                        },
-                        {
-                            "date": "10/01/26",
-                            "opp": "@NSH",
-                            "result": "W",
-                            "score": "3-1"
-                        },
-                        {
-                            "date": "09/25/26",
-                            "opp": "vs DAL",
-                            "result": "L",
-                            "score": "1-2"
-                        },
-                        {
-                            "date": "09/23/26",
-                            "opp": "@DAL",
-                            "result": "L",
-                            "score": "0-2"
-                        },
-                        {
-                            "date": "09/21/26",
-                            "opp": "@CHI",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "09/19/26",
-                            "opp": "vs CHI",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "05/13/26",
-                            "opp": "@COL",
-                            "result": "L",
-                            "score": "3-4"
-                        }
-                    ],
-                    "h2h": [
-                        {
-                            "date": "03/06/26",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "4-2"
-                        },
-                        {
-                            "date": "12/29/25",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "5-2"
-                        },
-                        {
-                            "date": "11/16/25",
-                            "opp": "vs VGK",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "05/01/25",
-                            "opp": "vs VGK",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "04/29/25",
-                            "opp": "@VGK",
-                            "result": "L",
-                            "score": "2-3"
-                        },
-                        {
-                            "date": "04/26/25",
-                            "opp": "vs VGK",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "04/24/25",
-                            "opp": "vs VGK",
-                            "result": "W",
-                            "score": "5-2"
-                        },
-                        {
-                            "date": "04/22/25",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "5-2"
-                        },
-                        {
-                            "date": "04/20/25",
-                            "opp": "@VGK",
-                            "result": "L",
-                            "score": "2-4"
-                        },
-                        {
-                            "date": "03/25/25",
-                            "opp": "vs VGK",
-                            "result": "L",
-                            "score": "1-5"
-                        }
-                    ]
-                },
-                "covers": {
-                    "best_ml": "VGK ML",
-                    "best_spread": "VGK -1.5",
-                    "best_ou": "OVER 5.5"
-                },
-                "notes": [
-                    "Goalie Edge: VGK starting Carter Hart (Expected) vs MIN starting Jesper Wallstedt (Expected).",
-                    "Engine calculates VGK win probability at 71.5% based on V5 goalie adjustments.",
-                    "Matchup features an active Elo rating gap of 7 points."
-                ],
-                "best_angle": {
-                    "play": "VGK MONEYLINE",
-                    "edge": "+19.1%"
-                },
-                "gift_stats": {
-                    "away": {
-                        "pct_season": "54.9%",
-                        "pct_l5": "60.0%",
-                        "pct_l10": "60.0%",
-                        "record_season": "45-37",
-                        "streak": 3,
-                        "home_pct": "56.1%",
-                        "away_pct": "53.7%",
-                        "scoring_rate": "54.9%",
-                        "games": 82
-                    },
-                    "home": {
-                        "pct_season": "53.7%",
-                        "pct_l5": "60.0%",
-                        "pct_l10": "80.0%",
-                        "record_season": "44-38",
-                        "streak": 2,
-                        "home_pct": "48.8%",
-                        "away_pct": "58.5%",
-                        "scoring_rate": "53.7%",
-                        "games": 82
-                    }
-                },
-                "fp_stats": {
-                    "away": {
-                        "pct_season": "46.3%",
-                        "pct_l5": "40.0%",
-                        "pct_l10": "40.0%",
-                        "record_season": "38-44",
-                        "over_games": 38,
-                        "home_pct": "43.9%",
-                        "away_pct": "48.8%",
-                        "games": 82
-                    },
-                    "home": {
-                        "pct_season": "52.4%",
-                        "pct_l5": "80.0%",
-                        "pct_l10": "80.0%",
-                        "record_season": "43-39",
-                        "over_games": 43,
-                        "home_pct": "48.8%",
-                        "away_pct": "56.1%",
-                        "games": 82
-                    }
-                }
-            }
-        },
-        {
-            "away": {
                 "name": "FLA",
                 "record_overall": "2-1-2",
                 "record_split": "2-0-2",
                 "record_l10": "2-1-2",
                 "ml": "-112",
-                "proj": "4.1"
+                "proj": "3.6"
             },
             "home": {
                 "name": "BUF",
@@ -21611,27 +21037,27 @@
                 "record_split": "2-2-0",
                 "record_l10": "2-3-0",
                 "ml": "-108",
-                "proj": "2.7"
+                "proj": "3.2"
             },
             "ou_total": "O/U 7.0",
-            "prob": "59.8%",
-            "home_win_prob": 40.2,
-            "away_win_prob": 59.8,
+            "prob": "52.3%",
+            "home_win_prob": 47.7,
+            "away_win_prob": 52.3,
             "predicted_winner": "FLA",
             "time": "1:00 PM EDT",
             "tier": "EDGE",
-            "edge": "+7.4%",
-            "ai_score": 5.2,
+            "edge": "+-0.1%",
+            "ai_score": 3.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "FLA (51%)",
-                    "p1_over_1_5": "80%",
-                    "min_60_tie": "17%"
+                    "p1_winner": "FLA (44%)",
+                    "p1_over_1_5": "84%",
+                    "min_60_tie": "21%"
                 },
                 "period_scores": {
-                    "p1": "FLA 1.2 - BUF 0.8",
-                    "p2": "FLA 1.4 - BUF 0.9",
-                    "p3": "FLA 1.5 - BUF 1.0"
+                    "p1": "FLA 1.1 - BUF 1.0",
+                    "p2": "FLA 1.3 - BUF 1.1",
+                    "p3": "FLA 1.2 - BUF 1.1"
                 },
                 "recent_logs": {
                     "away": [
@@ -21828,12 +21254,12 @@
                 },
                 "notes": [
                     "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs BUF starting Ukko-Pekka Luukkonen (Expected).",
-                    "Engine calculates FLA win probability at 59.8% based on V5 goalie adjustments.",
+                    "Engine calculates FLA win probability at 52.3% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 168 points."
                 ],
                 "best_angle": {
                     "play": "FLA MONEYLINE",
-                    "edge": "+7.4%"
+                    "edge": "+-0.1%"
                 },
                 "gift_stats": {
                     "away": {
