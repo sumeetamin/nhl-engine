@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { publicFile } from '../lib/basePath';
 
 const getTeamFullName = (abbrev) => {
     const teams = {
@@ -27,7 +28,7 @@ const NHLMatchupCard = ({ dateMode }) => {
 
   useEffect(() => {
     const fetchGameData = () => {
-      fetch('/daily_predictions.json?t=' + new Date().getTime())
+      fetch(publicFile('/daily_predictions.json?t=') + new Date().getTime())
         .then(async (res) => {
           if (!res.ok) throw new Error("Could not load daily predictions");
           return res.json();
