@@ -3,6 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { easternDate, dateOptions as buildDateOptions, gamesForDate } from '../lib/predictionDates.mjs';
+import { publicFile } from '../lib/basePath';
+import LegendsHeader, { HeaderTab } from '../components/LegendsHeader';
+
+const MODES = [
+  { key: 'daily', icon: '📅', label: 'Daily' },
+  { key: 'snapshot', icon: '📊', label: 'Snapshot' },
+  { key: 'top', icon: '🔥', label: 'Top Plays' },
+];
 
 // ── Dynamic imports with ssr:false — prevents server-side crash ───────────────
 const NHLMatchupCard   = dynamic(() => import('../components/NHLMatchupCard'),   { ssr: false });
@@ -70,7 +78,7 @@ export default function Dashboard() {
       if (pending) return;
       pending = true;
       try {
-        const response = await fetch('/daily_predictions.json?t=' + Date.now(), {
+        const response = await fetch(publicFile('/daily_predictions.json?t=') + Date.now(), {
           cache: 'no-store', signal: controller.signal,
         });
         if (!response.ok) throw new Error('Predictions unavailable');
@@ -101,27 +109,13 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[#0b0f19] text-gray-100 font-sans">
 
-      {/* HEADER */}
-      <div className="sticky top-0 z-50 bg-[#0b0f19]/95 backdrop-blur border-b border-gray-800">
-        <div className="max-w-5xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between gap-2">
-          <h1 className="text-lg sm:text-3xl font-black italic tracking-wider text-white whitespace-nowrap">
-            LGDS{' '}<span className="text-blue-500">Analytics</span>
-          </h1>
-          <div className="flex space-x-1 bg-[#111827] p-1 rounded-lg border border-gray-800">
-            {['daily','snapshot','top'].map((mode) => (
-              <button
-                key={mode}
-                onClick={() => setActiveMode(mode)}
-                className={`px-2 sm:px-4 py-1.5 rounded-md text-[10px] sm:text-sm font-bold uppercase tracking-wide transition-all ${
-                  activeMode === mode ? 'bg-blue-600 text-white shadow-md' : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                {mode === 'top' ? 'Top' : mode === 'snapshot' ? 'Snap' : mode}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* The Legends Sports header (client's site, 2026-10-16), with this
+          page's modes as its tab row. */}
+      <LegendsHeader subtitle="NHL Game Predictions (Beta)">
+        {MODES.map(({ key, icon, label }) => (
+          <HeaderTab key={key} active={activeMode === key} onClick={() => setActiveMode(key)} icon={icon} label={label} />
+        ))}
+      </LegendsHeader>
 
       <div className="max-w-5xl mx-auto px-3 sm:px-6 py-4 space-y-4">
 

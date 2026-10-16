@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { gamesForDate } from '../lib/predictionDates.mjs';
+import { publicFile } from '../lib/basePath';
 
 // ── Result Panel (MLB-style) ──────────────────────────────────────────────────
 const ResultPanel = ({ result, game }) => {
@@ -540,8 +541,8 @@ const NHLMatchupCard = ({ selectedDate, payload, loading }) => {
   useEffect(() => {
     const ts = new Date().getTime();
     Promise.all([
-      fetch('/gift_stats.json?t='         + ts).then(r => r.ok ? r.json() : null).catch(() => null),
-      fetch('/results_index.json?t='      + ts).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch(publicFile('/gift_stats.json?t=')         + ts).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch(publicFile('/results_index.json?t=')      + ts).then(r => r.ok ? r.json() : null).catch(() => null),
     ]).then(([giftData, resultsData]) => {
       if (giftData)    setGiftStatsAll(giftData);
       if (resultsData) setResultsIndex(resultsData);

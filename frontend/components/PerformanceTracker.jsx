@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { publicFile } from '../lib/basePath';
 
 /**
  * PerformanceTracker — Snapshot Tab
@@ -132,7 +133,7 @@ const PerformanceTracker = () => {
     const fetchData = async () => {
       try {
         const timestamp = new Date().getTime();
-        const res = await fetch('/historical_stats.json?t=' + new Date().getTime())
+        const res = await fetch(publicFile('/historical_stats.json?t=') + new Date().getTime())
         if (!res.ok) throw new Error('Not found');
         const hist = await res.json();
         setHistoricalData(hist);
