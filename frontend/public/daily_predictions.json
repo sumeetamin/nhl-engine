@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-16T19:31:47.641432+00:00",
+    "generated_at": "2026-10-17T00:06:49.916059+00:00",
     "games_by_date": {
         "2026-10-14": [
             {
@@ -3918,7 +3918,7 @@
                     "record_overall": "5-2-0",
                     "record_split": "2-1-0",
                     "record_l10": "5-2-0",
-                    "ml": "-108",
+                    "ml": "-112",
                     "proj": "3.3"
                 },
                 "home": {
@@ -3926,23 +3926,23 @@
                     "record_overall": "4-2-0",
                     "record_split": "1-2-0",
                     "record_l10": "4-2-0",
-                    "ml": "-112",
+                    "ml": "-108",
                     "proj": "2.9"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "50.6%",
-                "home_win_prob": 49.4,
-                "away_win_prob": 50.6,
+                "prob": "51.4%",
+                "home_win_prob": 48.6,
+                "away_win_prob": 51.4,
                 "predicted_winner": "BOS",
                 "time": "10:00 PM EDT",
                 "tier": "NONE",
-                "edge": "+-1.8%",
-                "ai_score": 3.1,
+                "edge": "+-1.0%",
+                "ai_score": 3.3,
                 "details": {
                     "period_60": {
-                        "p1_winner": "BOS (43%)",
+                        "p1_winner": "BOS (44%)",
                         "p1_over_1_5": "76%",
-                        "min_60_tie": "22%"
+                        "min_60_tie": "21%"
                     },
                     "period_scores": {
                         "p1": "BOS 1.0 - ANA 0.9",
@@ -4120,12 +4120,12 @@
                     },
                     "notes": [
                         "Goalie Edge: BOS starting Jeremy Swayman (Expected) vs ANA starting Lukas Dostal (Expected).",
-                        "Engine calculates BOS win probability at 50.6% based on V5 goalie adjustments.",
+                        "Engine calculates BOS win probability at 51.4% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 2 points."
                     ],
                     "best_angle": {
                         "play": "BOS MONEYLINE",
-                        "edge": "+-1.8%"
+                        "edge": "+-1.0%"
                     },
                     "gift_stats": {
                         "away": {
@@ -4996,7 +4996,7 @@
                     "record_overall": "3-3-1",
                     "record_split": "1-2-1",
                     "record_l10": "3-3-1",
-                    "ml": "+190",
+                    "ml": "+195",
                     "proj": "2.1"
                 },
                 "home": {
@@ -5004,21 +5004,21 @@
                     "record_overall": "7-2-0",
                     "record_split": "4-1-0",
                     "record_l10": "7-2-0",
-                    "ml": "-230",
+                    "ml": "-238",
                     "proj": "4.0"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "65.3%",
-                "home_win_prob": 65.3,
-                "away_win_prob": 34.7,
+                "prob": "65.9%",
+                "home_win_prob": 65.9,
+                "away_win_prob": 34.1,
                 "predicted_winner": "VGK",
                 "time": "10:00 PM EDT",
                 "tier": "EDGE",
-                "edge": "+12.9%",
-                "ai_score": 6.4,
+                "edge": "+13.5%",
+                "ai_score": 6.5,
                 "details": {
                     "period_60": {
-                        "p1_winner": "VGK (55%)",
+                        "p1_winner": "VGK (56%)",
                         "p1_over_1_5": "72%",
                         "min_60_tie": "14%"
                     },
@@ -5198,12 +5198,12 @@
                     },
                     "notes": [
                         "Goalie Edge: PIT starting Arturs Silovs (Expected) vs VGK starting Carter Hart (Expected).",
-                        "Engine calculates VGK win probability at 65.3% based on V5 goalie adjustments.",
+                        "Engine calculates VGK win probability at 65.9% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 137 points."
                     ],
                     "best_angle": {
                         "play": "VGK MONEYLINE",
-                        "edge": "+12.9%"
+                        "edge": "+13.5%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6927,7 +6927,7 @@
                     "record_overall": "4-3-0",
                     "record_split": "2-1-0",
                     "record_l10": "4-3-0",
-                    "ml": "+120",
+                    "ml": "+114",
                     "proj": "3.2"
                 },
                 "home": {
@@ -6935,21 +6935,21 @@
                     "record_overall": "2-3-2",
                     "record_split": "2-3-1",
                     "record_l10": "2-3-2",
-                    "ml": "-142",
+                    "ml": "-135",
                     "proj": "3.8"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "55.0%",
-                "home_win_prob": 55.0,
-                "away_win_prob": 45.0,
+                "prob": "53.8%",
+                "home_win_prob": 53.8,
+                "away_win_prob": 46.2,
                 "predicted_winner": "DET",
                 "time": "7:00 PM EDT",
                 "tier": "NONE",
-                "edge": "+2.6%",
-                "ai_score": 4.1,
+                "edge": "+1.4%",
+                "ai_score": 3.8,
                 "details": {
                     "period_60": {
-                        "p1_winner": "DET (47%)",
+                        "p1_winner": "DET (46%)",
                         "p1_over_1_5": "84%",
                         "min_60_tie": "20%"
                     },
@@ -7129,12 +7129,12 @@
                     },
                     "notes": [
                         "Goalie Edge: SJS starting Yaroslav Askarov (Expected) vs DET starting John Gibson (Expected).",
-                        "Engine calculates DET win probability at 55.0% based on V5 goalie adjustments.",
+                        "Engine calculates DET win probability at 53.8% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 32 points."
                     ],
                     "best_angle": {
                         "play": "DET MONEYLINE",
-                        "edge": "+2.6%"
+                        "edge": "+1.4%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7190,36 +7190,36 @@
                     "record_overall": "3-3-1",
                     "record_split": "0-2-1",
                     "record_l10": "3-3-1",
-                    "ml": "+120",
-                    "proj": "3.0"
+                    "ml": "+114",
+                    "proj": "3.1"
                 },
                 "home": {
                     "name": "TOR",
                     "record_overall": "3-3-2",
                     "record_split": "2-2-1",
                     "record_l10": "3-3-2",
-                    "ml": "-142",
-                    "proj": "3.7"
+                    "ml": "-135",
+                    "proj": "3.6"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "54.6%",
-                "home_win_prob": 54.6,
-                "away_win_prob": 45.4,
+                "prob": "53.5%",
+                "home_win_prob": 53.5,
+                "away_win_prob": 46.5,
                 "predicted_winner": "TOR",
                 "time": "7:00 PM EDT",
                 "tier": "NONE",
-                "edge": "+2.2%",
-                "ai_score": 4.0,
+                "edge": "+1.1%",
+                "ai_score": 3.8,
                 "details": {
                     "period_60": {
-                        "p1_winner": "TOR (46%)",
+                        "p1_winner": "TOR (45%)",
                         "p1_over_1_5": "80%",
                         "min_60_tie": "20%"
                     },
                     "period_scores": {
                         "p1": "NYI 0.9 - TOR 1.1",
-                        "p2": "NYI 1.0 - TOR 1.3",
-                        "p3": "NYI 1.1 - TOR 1.3"
+                        "p2": "NYI 1.1 - TOR 1.3",
+                        "p3": "NYI 1.1 - TOR 1.2"
                     },
                     "recent_logs": {
                         "away": [
@@ -7410,12 +7410,12 @@
                     },
                     "notes": [
                         "Goalie Edge: NYI starting Ilya Sorokin (Expected) vs TOR starting Sergei Bobrovsky (Expected).",
-                        "Engine calculates TOR win probability at 54.6% based on V5 goalie adjustments.",
+                        "Engine calculates TOR win probability at 53.5% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 49 points."
                     ],
                     "best_angle": {
                         "play": "TOR MONEYLINE",
-                        "edge": "+2.2%"
+                        "edge": "+1.1%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7471,36 +7471,36 @@
                     "record_overall": "5-2-0",
                     "record_split": "2-1-0",
                     "record_l10": "5-2-0",
-                    "ml": "+120",
-                    "proj": "2.3"
+                    "ml": "+114",
+                    "proj": "2.4"
                 },
                 "home": {
                     "name": "LAK",
                     "record_overall": "0-3-2",
                     "record_split": "0-2-0",
                     "record_l10": "0-3-2",
-                    "ml": "-142",
+                    "ml": "-135",
                     "proj": "2.8"
                 },
                 "ou_total": "O/U 5.0",
-                "prob": "54.6%",
-                "home_win_prob": 54.6,
-                "away_win_prob": 45.4,
+                "prob": "53.4%",
+                "home_win_prob": 53.4,
+                "away_win_prob": 46.6,
                 "predicted_winner": "LAK",
                 "time": "9:00 PM EDT",
                 "tier": "NONE",
-                "edge": "+2.2%",
-                "ai_score": 4.0,
+                "edge": "+1.0%",
+                "ai_score": 3.8,
                 "details": {
                     "period_60": {
-                        "p1_winner": "LAK (46%)",
+                        "p1_winner": "LAK (45%)",
                         "p1_over_1_5": "60%",
                         "min_60_tie": "20%"
                     },
                     "period_scores": {
                         "p1": "BOS 0.7 - LAK 0.8",
                         "p2": "BOS 0.8 - LAK 1.0",
-                        "p3": "BOS 0.8 - LAK 1.0"
+                        "p3": "BOS 0.9 - LAK 1.0"
                     },
                     "recent_logs": {
                         "away": [
@@ -7679,12 +7679,12 @@
                     },
                     "notes": [
                         "Goalie Edge: BOS starting Jeremy Swayman (Expected) vs LAK starting Darcy Kuemper (Expected).",
-                        "Engine calculates LAK win probability at 54.6% based on V5 goalie adjustments.",
+                        "Engine calculates LAK win probability at 53.4% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 59 points."
                     ],
                     "best_angle": {
                         "play": "LAK MONEYLINE",
-                        "edge": "+2.2%"
+                        "edge": "+1.0%"
                     },
                     "gift_stats": {
                         "away": {
@@ -12466,7 +12466,7 @@
                 "record_overall": "5-2-0",
                 "record_split": "2-1-0",
                 "record_l10": "5-2-0",
-                "ml": "-108",
+                "ml": "-112",
                 "proj": "3.3"
             },
             "home": {
@@ -12474,23 +12474,23 @@
                 "record_overall": "4-2-0",
                 "record_split": "1-2-0",
                 "record_l10": "4-2-0",
-                "ml": "-112",
+                "ml": "-108",
                 "proj": "2.9"
             },
             "ou_total": "O/U 6.0",
-            "prob": "50.6%",
-            "home_win_prob": 49.4,
-            "away_win_prob": 50.6,
+            "prob": "51.4%",
+            "home_win_prob": 48.6,
+            "away_win_prob": 51.4,
             "predicted_winner": "BOS",
             "time": "10:00 PM EDT",
             "tier": "NONE",
-            "edge": "+-1.8%",
-            "ai_score": 3.1,
+            "edge": "+-1.0%",
+            "ai_score": 3.3,
             "details": {
                 "period_60": {
-                    "p1_winner": "BOS (43%)",
+                    "p1_winner": "BOS (44%)",
                     "p1_over_1_5": "76%",
-                    "min_60_tie": "22%"
+                    "min_60_tie": "21%"
                 },
                 "period_scores": {
                     "p1": "BOS 1.0 - ANA 0.9",
@@ -12668,12 +12668,12 @@
                 },
                 "notes": [
                     "Goalie Edge: BOS starting Jeremy Swayman (Expected) vs ANA starting Lukas Dostal (Expected).",
-                    "Engine calculates BOS win probability at 50.6% based on V5 goalie adjustments.",
+                    "Engine calculates BOS win probability at 51.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 2 points."
                 ],
                 "best_angle": {
                     "play": "BOS MONEYLINE",
-                    "edge": "+-1.8%"
+                    "edge": "+-1.0%"
                 },
                 "gift_stats": {
                     "away": {
@@ -13544,7 +13544,7 @@
                 "record_overall": "3-3-1",
                 "record_split": "1-2-1",
                 "record_l10": "3-3-1",
-                "ml": "+190",
+                "ml": "+195",
                 "proj": "2.1"
             },
             "home": {
@@ -13552,21 +13552,21 @@
                 "record_overall": "7-2-0",
                 "record_split": "4-1-0",
                 "record_l10": "7-2-0",
-                "ml": "-230",
+                "ml": "-238",
                 "proj": "4.0"
             },
             "ou_total": "O/U 6.0",
-            "prob": "65.3%",
-            "home_win_prob": 65.3,
-            "away_win_prob": 34.7,
+            "prob": "65.9%",
+            "home_win_prob": 65.9,
+            "away_win_prob": 34.1,
             "predicted_winner": "VGK",
             "time": "10:00 PM EDT",
             "tier": "EDGE",
-            "edge": "+12.9%",
-            "ai_score": 6.4,
+            "edge": "+13.5%",
+            "ai_score": 6.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "VGK (55%)",
+                    "p1_winner": "VGK (56%)",
                     "p1_over_1_5": "72%",
                     "min_60_tie": "14%"
                 },
@@ -13746,12 +13746,12 @@
                 },
                 "notes": [
                     "Goalie Edge: PIT starting Arturs Silovs (Expected) vs VGK starting Carter Hart (Expected).",
-                    "Engine calculates VGK win probability at 65.3% based on V5 goalie adjustments.",
+                    "Engine calculates VGK win probability at 65.9% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 137 points."
                 ],
                 "best_angle": {
                     "play": "VGK MONEYLINE",
-                    "edge": "+12.9%"
+                    "edge": "+13.5%"
                 },
                 "gift_stats": {
                     "away": {
@@ -15475,7 +15475,7 @@
                 "record_overall": "4-3-0",
                 "record_split": "2-1-0",
                 "record_l10": "4-3-0",
-                "ml": "+120",
+                "ml": "+114",
                 "proj": "3.2"
             },
             "home": {
@@ -15483,21 +15483,21 @@
                 "record_overall": "2-3-2",
                 "record_split": "2-3-1",
                 "record_l10": "2-3-2",
-                "ml": "-142",
+                "ml": "-135",
                 "proj": "3.8"
             },
             "ou_total": "O/U 7.0",
-            "prob": "55.0%",
-            "home_win_prob": 55.0,
-            "away_win_prob": 45.0,
+            "prob": "53.8%",
+            "home_win_prob": 53.8,
+            "away_win_prob": 46.2,
             "predicted_winner": "DET",
             "time": "7:00 PM EDT",
             "tier": "NONE",
-            "edge": "+2.6%",
-            "ai_score": 4.1,
+            "edge": "+1.4%",
+            "ai_score": 3.8,
             "details": {
                 "period_60": {
-                    "p1_winner": "DET (47%)",
+                    "p1_winner": "DET (46%)",
                     "p1_over_1_5": "84%",
                     "min_60_tie": "20%"
                 },
@@ -15677,12 +15677,12 @@
                 },
                 "notes": [
                     "Goalie Edge: SJS starting Yaroslav Askarov (Expected) vs DET starting John Gibson (Expected).",
-                    "Engine calculates DET win probability at 55.0% based on V5 goalie adjustments.",
+                    "Engine calculates DET win probability at 53.8% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 32 points."
                 ],
                 "best_angle": {
                     "play": "DET MONEYLINE",
-                    "edge": "+2.6%"
+                    "edge": "+1.4%"
                 },
                 "gift_stats": {
                     "away": {
@@ -15738,36 +15738,36 @@
                 "record_overall": "3-3-1",
                 "record_split": "0-2-1",
                 "record_l10": "3-3-1",
-                "ml": "+120",
-                "proj": "3.0"
+                "ml": "+114",
+                "proj": "3.1"
             },
             "home": {
                 "name": "TOR",
                 "record_overall": "3-3-2",
                 "record_split": "2-2-1",
                 "record_l10": "3-3-2",
-                "ml": "-142",
-                "proj": "3.7"
+                "ml": "-135",
+                "proj": "3.6"
             },
             "ou_total": "O/U 6.5",
-            "prob": "54.6%",
-            "home_win_prob": 54.6,
-            "away_win_prob": 45.4,
+            "prob": "53.5%",
+            "home_win_prob": 53.5,
+            "away_win_prob": 46.5,
             "predicted_winner": "TOR",
             "time": "7:00 PM EDT",
             "tier": "NONE",
-            "edge": "+2.2%",
-            "ai_score": 4.0,
+            "edge": "+1.1%",
+            "ai_score": 3.8,
             "details": {
                 "period_60": {
-                    "p1_winner": "TOR (46%)",
+                    "p1_winner": "TOR (45%)",
                     "p1_over_1_5": "80%",
                     "min_60_tie": "20%"
                 },
                 "period_scores": {
                     "p1": "NYI 0.9 - TOR 1.1",
-                    "p2": "NYI 1.0 - TOR 1.3",
-                    "p3": "NYI 1.1 - TOR 1.3"
+                    "p2": "NYI 1.1 - TOR 1.3",
+                    "p3": "NYI 1.1 - TOR 1.2"
                 },
                 "recent_logs": {
                     "away": [
@@ -15958,12 +15958,12 @@
                 },
                 "notes": [
                     "Goalie Edge: NYI starting Ilya Sorokin (Expected) vs TOR starting Sergei Bobrovsky (Expected).",
-                    "Engine calculates TOR win probability at 54.6% based on V5 goalie adjustments.",
+                    "Engine calculates TOR win probability at 53.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 49 points."
                 ],
                 "best_angle": {
                     "play": "TOR MONEYLINE",
-                    "edge": "+2.2%"
+                    "edge": "+1.1%"
                 },
                 "gift_stats": {
                     "away": {
@@ -16019,36 +16019,36 @@
                 "record_overall": "5-2-0",
                 "record_split": "2-1-0",
                 "record_l10": "5-2-0",
-                "ml": "+120",
-                "proj": "2.3"
+                "ml": "+114",
+                "proj": "2.4"
             },
             "home": {
                 "name": "LAK",
                 "record_overall": "0-3-2",
                 "record_split": "0-2-0",
                 "record_l10": "0-3-2",
-                "ml": "-142",
+                "ml": "-135",
                 "proj": "2.8"
             },
             "ou_total": "O/U 5.0",
-            "prob": "54.6%",
-            "home_win_prob": 54.6,
-            "away_win_prob": 45.4,
+            "prob": "53.4%",
+            "home_win_prob": 53.4,
+            "away_win_prob": 46.6,
             "predicted_winner": "LAK",
             "time": "9:00 PM EDT",
             "tier": "NONE",
-            "edge": "+2.2%",
-            "ai_score": 4.0,
+            "edge": "+1.0%",
+            "ai_score": 3.8,
             "details": {
                 "period_60": {
-                    "p1_winner": "LAK (46%)",
+                    "p1_winner": "LAK (45%)",
                     "p1_over_1_5": "60%",
                     "min_60_tie": "20%"
                 },
                 "period_scores": {
                     "p1": "BOS 0.7 - LAK 0.8",
                     "p2": "BOS 0.8 - LAK 1.0",
-                    "p3": "BOS 0.8 - LAK 1.0"
+                    "p3": "BOS 0.9 - LAK 1.0"
                 },
                 "recent_logs": {
                     "away": [
@@ -16227,12 +16227,12 @@
                 },
                 "notes": [
                     "Goalie Edge: BOS starting Jeremy Swayman (Expected) vs LAK starting Darcy Kuemper (Expected).",
-                    "Engine calculates LAK win probability at 54.6% based on V5 goalie adjustments.",
+                    "Engine calculates LAK win probability at 53.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 59 points."
                 ],
                 "best_angle": {
                     "play": "LAK MONEYLINE",
-                    "edge": "+2.2%"
+                    "edge": "+1.0%"
                 },
                 "gift_stats": {
                     "away": {
