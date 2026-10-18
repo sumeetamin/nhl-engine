@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-18T09:13:20.349701+00:00",
+    "generated_at": "2026-10-18T13:43:56.256581+00:00",
     "games_by_date": {
         "2026-10-16": [
             {
@@ -1916,7 +1916,68 @@
                                 "score": "10-0"
                             }
                         ],
-                        "home": [],
+                        "home": [
+                            {
+                                "date": "10/17/26",
+                                "opp": "vs SJS",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "10/15/26",
+                                "opp": "vs PHI",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "10/13/26",
+                                "opp": "vs NJD",
+                                "result": "L",
+                                "score": "4-5"
+                            },
+                            {
+                                "date": "10/10/26",
+                                "opp": "@MTL",
+                                "result": "L",
+                                "score": "0-1"
+                            },
+                            {
+                                "date": "10/09/26",
+                                "opp": "vs SEA",
+                                "result": "L",
+                                "score": "3-6"
+                            },
+                            {
+                                "date": "10/06/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "5-3"
+                            },
+                            {
+                                "date": "10/04/26",
+                                "opp": "vs WPG",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/02/26",
+                                "opp": "vs NYR",
+                                "result": "L",
+                                "score": "0-2"
+                            },
+                            {
+                                "date": "09/26/26",
+                                "opp": "vs CBJ",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "09/24/26",
+                                "opp": "vs BUF",
+                                "result": "W",
+                                "score": "3-2"
+                            }
+                        ],
                         "h2h": []
                     },
                     "covers": {
@@ -5276,7 +5337,68 @@
                         "p3": "DET 1.7 - SEA 0.6"
                     },
                     "recent_logs": {
-                        "away": [],
+                        "away": [
+                            {
+                                "date": "10/17/26",
+                                "opp": "vs SJS",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "10/15/26",
+                                "opp": "vs PHI",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "10/13/26",
+                                "opp": "vs NJD",
+                                "result": "L",
+                                "score": "4-5"
+                            },
+                            {
+                                "date": "10/10/26",
+                                "opp": "@MTL",
+                                "result": "L",
+                                "score": "0-1"
+                            },
+                            {
+                                "date": "10/09/26",
+                                "opp": "vs SEA",
+                                "result": "L",
+                                "score": "3-6"
+                            },
+                            {
+                                "date": "10/06/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "5-3"
+                            },
+                            {
+                                "date": "10/04/26",
+                                "opp": "vs WPG",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/02/26",
+                                "opp": "vs NYR",
+                                "result": "L",
+                                "score": "0-2"
+                            },
+                            {
+                                "date": "09/26/26",
+                                "opp": "vs CBJ",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "09/24/26",
+                                "opp": "vs BUF",
+                                "result": "W",
+                                "score": "3-2"
+                            }
+                        ],
                         "home": [
                             {
                                 "date": "10/17/26",
@@ -8100,7 +8222,68 @@
                             "score": "10-0"
                         }
                     ],
-                    "home": [],
+                    "home": [
+                        {
+                            "date": "10/17/26",
+                            "opp": "vs SJS",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "10/15/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "10/13/26",
+                            "opp": "vs NJD",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "10/10/26",
+                            "opp": "@MTL",
+                            "result": "L",
+                            "score": "0-1"
+                        },
+                        {
+                            "date": "10/09/26",
+                            "opp": "vs SEA",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "10/06/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
+                            "date": "10/04/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/02/26",
+                            "opp": "vs NYR",
+                            "result": "L",
+                            "score": "0-2"
+                        },
+                        {
+                            "date": "09/26/26",
+                            "opp": "vs CBJ",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "09/24/26",
+                            "opp": "vs BUF",
+                            "result": "W",
+                            "score": "3-2"
+                        }
+                    ],
                     "h2h": []
                 },
                 "covers": {
@@ -11460,7 +11643,68 @@
                     "p3": "DET 1.7 - SEA 0.6"
                 },
                 "recent_logs": {
-                    "away": [],
+                    "away": [
+                        {
+                            "date": "10/17/26",
+                            "opp": "vs SJS",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "10/15/26",
+                            "opp": "vs PHI",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "10/13/26",
+                            "opp": "vs NJD",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "10/10/26",
+                            "opp": "@MTL",
+                            "result": "L",
+                            "score": "0-1"
+                        },
+                        {
+                            "date": "10/09/26",
+                            "opp": "vs SEA",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "10/06/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
+                            "date": "10/04/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/02/26",
+                            "opp": "vs NYR",
+                            "result": "L",
+                            "score": "0-2"
+                        },
+                        {
+                            "date": "09/26/26",
+                            "opp": "vs CBJ",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "09/24/26",
+                            "opp": "vs BUF",
+                            "result": "W",
+                            "score": "3-2"
+                        }
+                    ],
                     "home": [
                         {
                             "date": "10/17/26",
