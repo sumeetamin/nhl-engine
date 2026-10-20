@@ -42,7 +42,7 @@ except ImportError:
     GIFT_AVAILABLE = False
     print("⚠️  calculate_gift.py not found")
 
-ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "3109357b0d1e8f884a7864d6b95a5811")
+ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "")
 
 
 # ── Time and Directory Helpers ────────────────────────────────────────────────

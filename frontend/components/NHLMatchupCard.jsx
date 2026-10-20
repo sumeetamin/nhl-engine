@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { gamesForDate } from '../lib/predictionDates.mjs';
+import { formatAmerican, highestProbabilityLines } from '../lib/highProbability.mjs';
 import { publicFile } from '../lib/basePath';
 
 // ── Result Panel (MLB-style) ──────────────────────────────────────────────────
@@ -381,6 +382,39 @@ const TopPlaysStrip = ({ games }) => {
   );
 };
 
+// ── Highest probability lines, under the top plays ────────────────────────────
+// The slate's 85%+ team-goal and first-period lines (lib/highProbability.mjs
+// says which and why), each with the price that chance is worth.
+const HighestProbabilityStrip = ({ games }) => {
+  const lines = highestProbabilityLines(games);
+  if (lines.length === 0) return null;
+  return (
+    <div className="bg-[#151c28] rounded-xl border border-gray-800 p-3 sm:p-4">
+      <h3 className="text-sm text-gray-300 uppercase tracking-widest font-black mb-3 flex items-center">
+        <span className="w-1.5 h-4 bg-blue-500 mr-2 rounded-sm"></span>
+        🎯 Highest Probability
+      </h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2">
+        {lines.map((line) => (
+          <a key={`${gameAnchor(line.game)}-${line.label}`} href={`#${gameAnchor(line.game)}`}
+            className="bg-[#0b0f19] border border-gray-800 hover:border-blue-700 rounded-lg px-3 py-2 sm:p-3 transition-colors flex items-center justify-between gap-3 sm:block">
+            <div className="min-w-0">
+              <span className="text-[10px] font-black text-gray-500">{line.game.away.name} @ {line.game.home.name}</span>
+              <p className="text-sm font-black text-white sm:mt-1">{line.label}</p>
+            </div>
+            <p className="text-[10px] text-gray-400 sm:mt-0.5 text-right sm:text-left shrink-0">
+              <span className="text-emerald-400 text-base font-black">{line.pct.toFixed(0)}%</span> · Fair <span className="text-white font-bold">{formatAmerican(line.fair)}</span>
+            </p>
+          </a>
+        ))}
+      </div>
+      <p className="text-[9px] text-gray-600 mt-2">
+        Our chance of each line, not an edge. Fair is the price that chance is worth: a line only pays over time when your book offers better than it.
+      </p>
+    </div>
+  );
+};
+
 // ── Team name lookup ──────────────────────────────────────────────────────────
 const getTeamFullName = (abbrev) => {
   const teams = {
@@ -714,6 +748,7 @@ const NHLMatchupCard = ({ selectedDate, payload, loading }) => {
   return (
     <div className="space-y-4">
       <TopPlaysStrip games={games} />
+      <HighestProbabilityStrip games={games} />
       {games.map((game, idx) => (
         <SingleMatchupCard
           key={`${selectedDate}-${game.away?.name}-${game.home?.name}-${idx}`}
