@@ -20,6 +20,7 @@ class PredictionPayloadTests(unittest.TestCase):
                   get_est_now=lambda: datetime(2026, 9, 30, 23, 59),
                   get_schedule_window=lambda dates: {date: [] for date in dates},
                   fetch_nhl_odds=lambda: {}, fetch_standings=lambda: {},
+                  fetch_goalie_table=lambda day: None,
                   GIFT_AVAILABLE=False, get_all_games_for_date=games,
                   save_json=lambda name, payload: saved.update(payload), print=lambda *a: None)
         exec(compile(ast.Module(body=[function], type_ignores=[]), 'run_pipeline.py', 'exec'), ns)
