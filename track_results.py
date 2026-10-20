@@ -3,7 +3,7 @@ import os
 import csv
 import time
 import requests
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
 # ── 1. REPOSITORY-RELATIVE DATA PATHS ─────────────────────────────────────────
@@ -173,7 +173,42 @@ def fetch_schedule_games(date_str, get=requests.get):
     day = next((item for item in response.json().get("gameWeek", []) if item.get("date") == date_str), None)
     if day is None:
         raise ValueError(f"NHL schedule response omitted {date_str}")
-    return day.get("games", [])
+    games = day.get("games", [])
+    # The schedule's games carry no date of their own (the day does), and
+    # _game_to_history_row drops a game without one: before this, no daily
+    # result ever reached past_games.csv.
+    for game in games:
+        game.setdefault("gameDate", date_str)
+    return games
+
+
+CATCH_UP_DAYS = 45
+
+
+def fetch_games_since(history, yesterday_str, get=requests.get):
+    """Every game from the day after the newest stored one through yesterday.
+
+    At most CATCH_UP_DAYS back, one schedule call per week (each call returns
+    seven days). A missed run, or the season's first weeks, fill in on the
+    next one; an up-to-date history makes no call at all.
+    """
+    end = date.fromisoformat(yesterday_str)
+    start = end - timedelta(days=CATCH_UP_DAYS - 1)
+    newest = max((date.fromisoformat(key[0]) for key in history), default=None)
+    if newest is not None and newest + timedelta(days=1) > start:
+        start = newest + timedelta(days=1)
+    games, day = [], start
+    while day <= end:
+        response = get(f"https://api-web.nhle.com/v1/schedule/{day.isoformat()}", timeout=15)
+        response.raise_for_status()
+        for item in response.json().get("gameWeek", []):
+            when = item.get("date") or ""
+            if start.isoformat() <= when <= end.isoformat():
+                for game in item.get("games", []):
+                    game.setdefault("gameDate", when)
+                    games.append(game)
+        day += timedelta(days=7)
+    return games
 
 
 # ── 4. THE AUTOMATED GRADER ───────────────────────────────────────────────────
@@ -190,7 +225,12 @@ def auto_grade_yesterday():
 
     # Bootstrap a complete model baseline once, then incorporate each day's final scores.
     bootstrap_previous_season()
-    added = merge_final_games(games_list)
+    try:
+        added = merge_final_games(fetch_games_since(_read_history(), yesterday_str))
+    except Exception as e:
+        print(f"⚠️ History catch-up failed: {e}")
+        added = 0
+    added += merge_final_games(games_list)
     print(f"📚 Model game history refreshed ({added} newly completed games).")
 
     predictions_payload = load_json_file(PREDICTIONS_PATH)
