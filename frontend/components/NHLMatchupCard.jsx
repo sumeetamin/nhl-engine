@@ -245,6 +245,142 @@ const FirstPeriodSection = ({ fpStats, awayTeam, homeTeam }) => {
   );
 };
 
+// ── Starting goalies ──────────────────────────────────────────────────────────
+// Real save % from the NHL's stats API (goalie_stats.py). The colour is judged
+// on this season and last together against the league, so one hot week does
+// not turn a goalie green; grey means average or too few shots to say.
+const GOALIE_TONE = {
+  good:    { text: 'text-emerald-400', ring: 'border-emerald-800/50 bg-emerald-900/10' },
+  poor:    { text: 'text-red-400',     ring: 'border-red-900/50 bg-red-900/10' },
+  average: { text: 'text-gray-200',    ring: 'border-gray-800 bg-[#0b0f19]' },
+};
+
+const fmtSv = (v) => (v == null ? '—' : v.toFixed(3).replace(/^0/, ''));
+
+const GoalieSide = ({ team, goalie, alignRight }) => {
+  const tone = GOALIE_TONE[goalie?.rating] || GOALIE_TONE.average;
+  const confirmed = goalie?.status === 'Confirmed';
+  return (
+    <div className={`flex-1 min-w-0 border rounded-lg p-2.5 sm:p-3 ${tone.ring} ${alignRight ? 'text-right' : ''}`}>
+      <div className={`flex items-center gap-1.5 ${alignRight ? 'justify-end' : ''}`}>
+        <span className="text-[9px] font-black text-gray-500">{team}</span>
+        <span className={`text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${confirmed ? 'bg-emerald-900/40 text-emerald-400' : 'bg-gray-800 text-gray-400'}`}>
+          {confirmed ? 'Confirmed' : 'Expected'}
+        </span>
+      </div>
+      <p className="text-xs sm:text-sm font-bold text-white truncate mt-1">{goalie?.name || 'TBD'}</p>
+      <p className={`text-xl sm:text-2xl font-black leading-tight ${tone.text}`}>
+        {fmtSv(goalie?.sv_pct)}
+        <span className="text-[9px] font-bold text-gray-500 ml-1 tracking-widest">SV%</span>
+      </p>
+      <p className="text-[9px] sm:text-[10px] text-gray-500 font-mono">
+        {goalie?.gp ? `${goalie.gp} GP` : 'No games yet'}
+        {goalie?.prev_sv_pct != null ? ` · last season ${fmtSv(goalie.prev_sv_pct)}` : ''}
+      </p>
+    </div>
+  );
+};
+
+const GoaliesRow = ({ goalies, awayTeam, homeTeam }) => {
+  if (!goalies) return null;
+  return (
+    <div className="mt-3">
+      <div className="flex items-center justify-between mb-1.5">
+        <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gray-400 font-bold">🥅 Starting Goalies</p>
+        {goalies.league_sv_pct != null && (
+          <p className="text-[9px] text-gray-500 font-mono">League {fmtSv(goalies.league_sv_pct)}</p>
+        )}
+      </div>
+      <div className="flex gap-2">
+        <GoalieSide team={awayTeam} goalie={goalies.away} />
+        <GoalieSide team={homeTeam} goalie={goalies.home} alignRight />
+      </div>
+      <p className="text-[8px] sm:text-[9px] text-gray-600 mt-1.5">
+        Green better than the league, red worse, judged on this season and last together.
+      </p>
+    </div>
+  );
+};
+
+// ── Goal ladders ──────────────────────────────────────────────────────────────
+// Each team's chance to score over 0.5-3.5 goals and the first-period total,
+// from team scoring rates in earlier games (goal_ladders.py). Tested on every
+// game of the last two seasons: when it said 77%, it happened 77% of the time.
+const LadderRow = ({ label, pct }) => (
+  <div className="flex items-center gap-2">
+    <span className="w-16 text-[10px] sm:text-xs text-gray-400 font-mono">{label}</span>
+    <div className="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+      <div className={`h-full rounded-full ${pct >= 80 ? 'bg-emerald-500' : pct >= 50 ? 'bg-blue-500' : 'bg-gray-600'}`} style={{ width: `${pct}%` }} />
+    </div>
+    <span className={`w-12 text-right text-xs sm:text-sm font-black ${pct >= 80 ? 'text-emerald-400' : pct >= 50 ? 'text-white' : 'text-gray-400'}`}>{pct.toFixed(0)}%</span>
+  </div>
+);
+
+const LadderCard = ({ title, ladder }) => (
+  <div className="flex-1 min-w-0 bg-[#0b0f19] border border-gray-800 rounded-lg p-3">
+    <div className="flex items-baseline justify-between mb-2">
+      <span className="text-xs font-black text-white">{title}</span>
+      <span className="text-[9px] text-gray-500 font-mono">exp. {ladder.xg.toFixed(2)}</span>
+    </div>
+    <div className="space-y-1.5">
+      {Object.entries(ladder.over).map(([line, pct]) => (
+        <LadderRow key={line} label={`Over ${line}`} pct={pct} />
+      ))}
+    </div>
+  </div>
+);
+
+const GoalLaddersSection = ({ ladders, awayTeam, homeTeam }) => {
+  if (!ladders) return null;
+  return (
+    <div className="bg-[#111827] rounded-lg border border-gray-800 p-3 sm:p-4">
+      <h4 className="text-sm text-gray-300 uppercase tracking-widest font-black mb-3 border-b border-gray-700 pb-2 flex items-center">
+        <span className="w-1.5 h-4 bg-emerald-500 mr-2 rounded-sm"></span>
+        🎯 Team Goals
+      </h4>
+      <div className="flex flex-col sm:flex-row gap-2">
+        <LadderCard title={`${awayTeam} goals`} ladder={ladders.away} />
+        <LadderCard title={`${homeTeam} goals`} ladder={ladders.home} />
+        <LadderCard title="1st period total" ladder={ladders.first_period} />
+      </div>
+      <p className="text-[9px] text-gray-600 mt-2">
+        Chance of each line, overtime and the shootout goal included. Probabilities from team scoring rates, not odds: compare them with your book&apos;s price.
+      </p>
+    </div>
+  );
+};
+
+// ── Top plays, above the slate (like the MLB and NFL pages) ───────────────────
+const gameAnchor = (game) => `game-${game.away?.name}-${game.home?.name}`;
+
+const TopPlaysStrip = ({ games }) => {
+  const plays = games.filter((g) => ['EDGE', 'BIG'].includes(g.tier)).slice(0, 3);
+  if (plays.length === 0) return null;
+  return (
+    <div className="bg-[#151c28] rounded-xl border border-emerald-900/40 p-3 sm:p-4">
+      <h3 className="text-sm text-emerald-400 uppercase tracking-widest font-black mb-3 flex items-center">
+        <span className="w-1.5 h-4 bg-emerald-500 mr-2 rounded-sm shadow-[0_0_6px_rgba(16,185,129,0.6)]"></span>
+        🔥 Top Plays
+      </h3>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        {plays.map((game, idx) => (
+          <a key={gameAnchor(game)} href={`#${gameAnchor(game)}`}
+            className="bg-[#0b0f19] border border-gray-800 hover:border-emerald-700 rounded-lg p-3 transition-colors block">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-black text-gray-500">#{idx + 1} · {game.away.name} @ {game.home.name}</span>
+              <span className={`text-[9px] font-black px-1.5 py-0.5 rounded ${game.tier === 'BIG' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-blue-500/20 text-blue-300'}`}>{game.tier}</span>
+            </div>
+            <p className="text-base font-black text-emerald-400 mt-1">{game.details.best_angle.play}</p>
+            <p className="text-[10px] text-gray-400 mt-0.5">
+              Win prob <span className="text-white font-bold">{game.prob}</span> · Edge <span className="text-emerald-500 font-bold">{game.edge}</span>
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // ── Team name lookup ──────────────────────────────────────────────────────────
 const getTeamFullName = (abbrev) => {
   const teams = {
@@ -289,7 +425,7 @@ const SingleMatchupCard = ({ game, giftStatsAll, resultsIndex, defaultExpanded =
   const h2hRecord  = getRecord(game.details.recent_logs?.h2h);
 
   return (
-    <div className="bg-[#151c28] rounded-xl border border-gray-800 shadow-2xl overflow-hidden transition-all font-sans">
+    <div id={gameAnchor(game)} className="bg-[#151c28] rounded-xl border border-gray-800 shadow-2xl overflow-hidden transition-all font-sans scroll-mt-4">
 
       {/* TOP SUMMARY CARD */}
       <div className="p-3 sm:p-6 relative">
@@ -370,6 +506,8 @@ const SingleMatchupCard = ({ game, giftStatsAll, resultsIndex, defaultExpanded =
             </div>
           </div>
         )}
+
+        <GoaliesRow goalies={game.goalies} awayTeam={awayTeam} homeTeam={homeTeam} />
       </div>
 
       <button
@@ -382,6 +520,8 @@ const SingleMatchupCard = ({ game, giftStatsAll, resultsIndex, defaultExpanded =
       {/* EXPANDED DETAILS */}
       {isExpanded && (
         <div className="bg-[#0b0f19] p-4 sm:p-6 border-t border-gray-800 flex flex-col space-y-5 sm:space-y-6">
+
+          <GoalLaddersSection ladders={game.goal_ladders} awayTeam={awayTeam} homeTeam={homeTeam} />
 
           {/* Period Analysis */}
           <div className="bg-[#111827] rounded-lg border border-gray-800 p-3 sm:p-4">
@@ -573,6 +713,7 @@ const NHLMatchupCard = ({ selectedDate, payload, loading }) => {
 
   return (
     <div className="space-y-4">
+      <TopPlaysStrip games={games} />
       {games.map((game, idx) => (
         <SingleMatchupCard
           key={`${selectedDate}-${game.away?.name}-${game.home?.name}-${idx}`}

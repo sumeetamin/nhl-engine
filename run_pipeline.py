@@ -16,6 +16,10 @@ from engine_classes import NHLStack, NHLElo, NHLBetFilter, NHLFormStore, NHLStat
 
 # ── Import Custom Goalie Fallback Scraper ─────────────────────────────────────
 from goalie_scraper import scrape_goalies
+# Real save % for the cards' goalie row (display only; the model is unchanged)
+from goalie_stats import fetch_table as fetch_goalie_table, goalie_card
+# Each team's goal ladder and the first-period total, tested walk-forward (goal_ladders.py)
+from goal_ladders import game_ladders, team_rates
 
 # ── Configure Logging and Warning Suppression ─────────────────────────────────
 logging.basicConfig(level=logging.INFO, format='%(message)s')
@@ -302,7 +306,8 @@ def get_implied_ml(prob):
 
 # ── Core Machine Learning Engine ──────────────────────────────────────────────
 def run_ml_engine(home_team, away_team, game_time="TBD", csv_path=HISTORY_CSV_PATH,
-                  matchup_goalies=None, odds_data=None, standings=None, gift_stats_all=None):
+                  matchup_goalies=None, odds_data=None, standings=None, gift_stats_all=None,
+                  goalie_table=None, game_date=None):
     try:
         model = joblib.load("sumeets_engine_v5.pkl")
     except FileNotFoundError:
@@ -410,6 +415,11 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path=HISTORY_CSV_PA
     if predicted_winner==home_team: h_p1,a_p1,h_p2,a_p2,h_p3,a_p3=wp1,lp1,wp2,lp2,wp3,lp3
     else:                           h_p1,a_p1,h_p2,a_p2,h_p3,a_p3=lp1,wp1,lp2,wp2,lp3,wp3
 
+    # Each team's chance over 0.5-3.5 goals and the first-period total, from
+    # team scoring rates in games before this one (not from the split above).
+    ladders = game_ladders(team_rates(df_past.to_dict("records"), game_date or get_est_now()),
+                           home_team, away_team)
+
     h_ml = real_h or get_implied_ml(home_win_prob)
     a_ml = real_a or get_implied_ml(100-home_win_prob)
 
@@ -432,9 +442,14 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path=HISTORY_CSV_PA
         "ou_total":f"O/U {round(total_proj*2)/2}",
         "prob":f"{max_prob:.1f}%","home_win_prob":round(home_win_prob,1),"away_win_prob":round(100-home_win_prob,1),
         "predicted_winner":predicted_winner,"time":game_time,"tier":tier,
+        "goal_ladders":ladders,
+        "goalies":{"away":goalie_card(ag, ag_status, goalie_table),
+                   "home":goalie_card(hg, hg_status, goalie_table),
+                   "league_sv_pct":round(goalie_table["league_sv_pct"], 3)
+                   if goalie_table and goalie_table.get("league_sv_pct") else None},
         "edge":f"+{round(max_prob-52.4,1)}%","ai_score":ai_score,
         "details":{
-            "period_60":{"p1_winner":f"{predicted_winner} ({round(max_prob*0.85)}%)","p1_over_1_5":f"{round(min(90,(h_p1+a_p1)*40))}%","min_60_tie":f"{round(22+(50-max_prob)*0.5)}%"},
+            "period_60":{"p1_winner":f"{predicted_winner} ({round(max_prob*0.85)}%)","p1_over_1_5":f"{round(ladders['first_period']['over']['1.5'])}%","min_60_tie":f"{round(22+(50-max_prob)*0.5)}%"},
             "period_scores":{"p1":f"{away_team} {a_p1} - {home_team} {h_p1}","p2":f"{away_team} {a_p2} - {home_team} {h_p2}","p3":f"{away_team} {a_p3} - {home_team} {h_p3}"},
             "recent_logs":{"away":get_recent_games(away_team,10),"home":get_recent_games(home_team,10),"h2h":get_h2h_games(home_team,away_team,10)},
             "covers":{"best_ml":f"{predicted_winner} ML","best_spread":f"{predicted_winner} -1.5" if abs(h_proj-a_proj)>=1.5 else "PASS","best_ou":f"OVER 5.5" if total_proj>6.1 else f"UNDER 6.0" if total_proj<5.8 else "PASS"},
@@ -499,7 +514,8 @@ def get_schedule_window(target_dates):
     return None
 
 
-def get_all_games_for_date(target_date_str, scheduled_games, odds_data, standings, gift_stats_all):
+def get_all_games_for_date(target_date_str, scheduled_games, odds_data, standings, gift_stats_all,
+                           goalie_table=None):
     if scheduled_games is None:
         return None
 
@@ -519,7 +535,8 @@ def get_all_games_for_date(target_date_str, scheduled_games, odds_data, standing
     all_games=[]
     for home,away,utc in matchups:
         res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=daily_goalies,
-                            odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all)
+                            odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all,
+                            goalie_table=goalie_table, game_date=target_date_str)
         if not res:
             return None
         all_games.append(res)
@@ -557,6 +574,7 @@ def build_daily_json():
 
     odds_data       = fetch_nhl_odds()
     standings       = fetch_standings()
+    goalie_table    = fetch_goalie_table(today)
 
     gift_stats_all = {}
     if GIFT_AVAILABLE:
@@ -574,7 +592,8 @@ def build_daily_json():
     for key, offset in offsets.items():
         target_date = dates[key]
         games = get_all_games_for_date(
-            target_date, schedule_by_date[target_date], odds_data, standings, gift_stats_all
+            target_date, schedule_by_date[target_date], odds_data, standings, gift_stats_all,
+            goalie_table,
         )
         if games is None:
             failed_dates.append(target_date)
