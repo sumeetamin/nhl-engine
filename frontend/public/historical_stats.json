@@ -1,122 +1,122 @@
 {
     "all_time": {
         "ml": {
-            "wins": 4,
-            "losses": 8,
+            "wins": 1,
+            "losses": 2,
             "pushes": 0,
-            "units": "-6.05",
+            "units": "-1.57",
             "win_rate": "33.3%"
         },
         "spread": {
             "wins": 0,
             "losses": 0,
-            "pushes": 12,
+            "pushes": 3,
             "units": "0.0",
             "win_rate": "0%"
         },
         "ou": {
-            "wins": 7,
-            "losses": 2,
-            "pushes": 3,
-            "units": "4.37",
-            "win_rate": "77.8%"
+            "wins": 1,
+            "losses": 0,
+            "pushes": 2,
+            "units": "0.91",
+            "win_rate": "100.0%"
         },
         "overall": {
-            "wins": 11,
-            "losses": 10,
-            "pushes": 15,
-            "units": "-1.68",
-            "win_rate": "52.4%"
+            "wins": 2,
+            "losses": 2,
+            "pushes": 5,
+            "units": "-0.66",
+            "win_rate": "50.0%"
         }
     },
     "this_month": {
         "ml": {
-            "wins": 4,
-            "losses": 7,
+            "wins": 1,
+            "losses": 1,
             "pushes": 0,
-            "units": "-5.05",
-            "win_rate": "36.4%"
+            "units": "-0.57",
+            "win_rate": "50.0%"
         },
         "spread": {
             "wins": 0,
             "losses": 0,
-            "pushes": 11,
+            "pushes": 2,
             "units": "0.0",
             "win_rate": "0%"
         },
         "ou": {
-            "wins": 7,
-            "losses": 2,
-            "pushes": 2,
-            "units": "4.37",
-            "win_rate": "77.8%"
+            "wins": 1,
+            "losses": 0,
+            "pushes": 1,
+            "units": "0.91",
+            "win_rate": "100.0%"
         },
         "overall": {
-            "wins": 11,
-            "losses": 9,
-            "pushes": 13,
-            "units": "-0.68",
-            "win_rate": "55.0%"
+            "wins": 2,
+            "losses": 1,
+            "pushes": 3,
+            "units": "0.34",
+            "win_rate": "66.7%"
         }
     },
     "this_week": {
         "ml": {
-            "wins": 4,
-            "losses": 7,
+            "wins": 1,
+            "losses": 1,
             "pushes": 0,
-            "units": "-5.05",
-            "win_rate": "36.4%"
+            "units": "-0.57",
+            "win_rate": "50.0%"
         },
         "spread": {
             "wins": 0,
             "losses": 0,
-            "pushes": 11,
+            "pushes": 2,
             "units": "0.0",
             "win_rate": "0%"
         },
         "ou": {
-            "wins": 7,
-            "losses": 2,
-            "pushes": 2,
-            "units": "4.37",
-            "win_rate": "77.8%"
+            "wins": 1,
+            "losses": 0,
+            "pushes": 1,
+            "units": "0.91",
+            "win_rate": "100.0%"
         },
         "overall": {
-            "wins": 11,
-            "losses": 9,
-            "pushes": 13,
-            "units": "-0.68",
-            "win_rate": "55.0%"
+            "wins": 2,
+            "losses": 1,
+            "pushes": 3,
+            "units": "0.34",
+            "win_rate": "66.7%"
         }
     },
     "yesterday": {
         "ml": {
-            "wins": 4,
-            "losses": 7,
+            "wins": 1,
+            "losses": 1,
             "pushes": 0,
-            "units": "-5.05",
-            "win_rate": "36.4%"
+            "units": "-0.57",
+            "win_rate": "50.0%"
         },
         "spread": {
             "wins": 0,
             "losses": 0,
-            "pushes": 11,
+            "pushes": 2,
             "units": "0.0",
             "win_rate": "0%"
         },
         "ou": {
-            "wins": 7,
-            "losses": 2,
-            "pushes": 2,
-            "units": "4.37",
-            "win_rate": "77.8%"
+            "wins": 1,
+            "losses": 0,
+            "pushes": 1,
+            "units": "0.91",
+            "win_rate": "100.0%"
         },
         "overall": {
-            "wins": 11,
-            "losses": 9,
-            "pushes": 13,
-            "units": "-0.68",
-            "win_rate": "55.0%"
+            "wins": 2,
+            "losses": 1,
+            "pushes": 3,
+            "units": "0.34",
+            "win_rate": "66.7%"
         }
     }
 }
