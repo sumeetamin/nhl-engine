@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-28T16:25:49.622180+00:00",
+    "generated_at": "2026-10-28T20:58:17.794400+00:00",
     "games_by_date": {
         "2026-10-26": [
             {
@@ -7006,21 +7006,21 @@
                     "record_overall": "5-5-0",
                     "record_split": "1-2-0",
                     "record_l10": "5-5-0",
-                    "ml": "+180",
-                    "proj": "2.2"
+                    "ml": "+190",
+                    "proj": "2.1"
                 },
                 "home": {
                     "name": "CAR",
                     "record_overall": "10-2-2",
                     "record_split": "3-1-1",
                     "record_l10": "8-1-1",
-                    "ml": "-218",
+                    "ml": "-230",
                     "proj": "4.0"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "64.6%",
-                "home_win_prob": 64.6,
-                "away_win_prob": 35.4,
+                "prob": "65.7%",
+                "home_win_prob": 65.7,
+                "away_win_prob": 34.3,
                 "predicted_winner": "CAR",
                 "time": "7:00 PM EDT",
                 "tier": "BIG",
@@ -7073,18 +7073,18 @@
                     },
                     "league_sv_pct": 0.893
                 },
-                "edge": "+12.2%",
-                "ai_score": 6.2,
+                "edge": "+13.3%",
+                "ai_score": 6.5,
                 "details": {
                     "period_60": {
-                        "p1_winner": "CAR (55%)",
+                        "p1_winner": "CAR (56%)",
                         "p1_over_1_5": "52%",
-                        "min_60_tie": "15%"
+                        "min_60_tie": "14%"
                     },
                     "period_scores": {
-                        "p1": "CBJ 0.7 - CAR 1.2",
-                        "p2": "CBJ 0.8 - CAR 1.4",
-                        "p3": "CBJ 0.7 - CAR 1.4"
+                        "p1": "CBJ 0.6 - CAR 1.2",
+                        "p2": "CBJ 0.7 - CAR 1.4",
+                        "p3": "CBJ 0.8 - CAR 1.4"
                     },
                     "recent_logs": {
                         "away": [
@@ -7277,16 +7277,16 @@
                     "covers": {
                         "best_ml": "CAR ML",
                         "best_spread": "CAR -1.5",
-                        "best_ou": "OVER 5.5"
+                        "best_ou": "PASS"
                     },
                     "notes": [
                         "Goalie Edge: CBJ starting Cam Talbot (Expected) vs CAR starting Pyotr Kochetkov (Expected).",
-                        "Engine calculates CAR win probability at 64.6% based on V5 goalie adjustments.",
+                        "Engine calculates CAR win probability at 65.7% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 267 points."
                     ],
                     "best_angle": {
                         "play": "CAR MONEYLINE",
-                        "edge": "+12.2%"
+                        "edge": "+13.3%"
                     },
                     "gift_stats": {
                         "away": {
@@ -17223,21 +17223,21 @@
                 "record_overall": "5-5-0",
                 "record_split": "1-2-0",
                 "record_l10": "5-5-0",
-                "ml": "+180",
-                "proj": "2.2"
+                "ml": "+190",
+                "proj": "2.1"
             },
             "home": {
                 "name": "CAR",
                 "record_overall": "10-2-2",
                 "record_split": "3-1-1",
                 "record_l10": "8-1-1",
-                "ml": "-218",
+                "ml": "-230",
                 "proj": "4.0"
             },
             "ou_total": "O/U 6.0",
-            "prob": "64.6%",
-            "home_win_prob": 64.6,
-            "away_win_prob": 35.4,
+            "prob": "65.7%",
+            "home_win_prob": 65.7,
+            "away_win_prob": 34.3,
             "predicted_winner": "CAR",
             "time": "7:00 PM EDT",
             "tier": "BIG",
@@ -17290,18 +17290,18 @@
                 },
                 "league_sv_pct": 0.893
             },
-            "edge": "+12.2%",
-            "ai_score": 6.2,
+            "edge": "+13.3%",
+            "ai_score": 6.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "CAR (55%)",
+                    "p1_winner": "CAR (56%)",
                     "p1_over_1_5": "52%",
-                    "min_60_tie": "15%"
+                    "min_60_tie": "14%"
                 },
                 "period_scores": {
-                    "p1": "CBJ 0.7 - CAR 1.2",
-                    "p2": "CBJ 0.8 - CAR 1.4",
-                    "p3": "CBJ 0.7 - CAR 1.4"
+                    "p1": "CBJ 0.6 - CAR 1.2",
+                    "p2": "CBJ 0.7 - CAR 1.4",
+                    "p3": "CBJ 0.8 - CAR 1.4"
                 },
                 "recent_logs": {
                     "away": [
@@ -17494,16 +17494,16 @@
                 "covers": {
                     "best_ml": "CAR ML",
                     "best_spread": "CAR -1.5",
-                    "best_ou": "OVER 5.5"
+                    "best_ou": "PASS"
                 },
                 "notes": [
                     "Goalie Edge: CBJ starting Cam Talbot (Expected) vs CAR starting Pyotr Kochetkov (Expected).",
-                    "Engine calculates CAR win probability at 64.6% based on V5 goalie adjustments.",
+                    "Engine calculates CAR win probability at 65.7% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 267 points."
                 ],
                 "best_angle": {
                     "play": "CAR MONEYLINE",
-                    "edge": "+12.2%"
+                    "edge": "+13.3%"
                 },
                 "gift_stats": {
                     "away": {
