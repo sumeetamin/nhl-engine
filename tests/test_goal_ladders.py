@@ -2,7 +2,7 @@
 import math
 import unittest
 
-from goal_ladders import CARRY, P1_SHARE, expected_goals, game_ladders, p_over, team_rates
+from goal_ladders import BOTH_FACTOR, CARRY, P1_SHARE, both_score, expected_goals, game_ladders, p_over, team_rates
 
 
 def game(day, away, home, a, h):
@@ -38,12 +38,23 @@ class GoalLadderTests(unittest.TestCase):
 
     def test_the_card_payload(self):
         out = game_ladders(team_rates([], "2026-10-20"), "BOS", "TOR")
-        self.assertEqual(set(out), {"away", "home", "first_period"})
+        self.assertEqual(set(out), {"away", "home", "first_period", "both_score"})
         self.assertEqual(list(out["home"]["over"]), ["0.5", "1.5", "2.5", "3.5"])
         self.assertEqual(list(out["first_period"]["over"]), ["0.5", "1.5", "2.5"])
         self.assertAlmostEqual(out["first_period"]["xg"], round(6.2 * P1_SHARE, 2))
         ladder = list(out["home"]["over"].values())
         self.assertEqual(ladder, sorted(ladder, reverse=True))
+
+    def test_both_teams_to_score_is_the_corrected_product(self):
+        both = both_score(3.2, 2.9)
+        self.assertEqual(list(both), ["1", "2", "3"])
+        for k in (1, 2, 3):
+            plain = 100 * p_over(3.2, k - 0.5) * p_over(2.9, k - 0.5)
+            self.assertAlmostEqual(both[str(k)], round(BOTH_FACTOR[k] * plain, 1))
+            # Never above either team's own chance.
+            self.assertLessEqual(both[str(k)], 100 * p_over(2.9, k - 0.5))
+        self.assertGreater(both["1"], both["2"])
+        self.assertGreater(both["2"], both["3"])
 
     def test_bad_rows_are_skipped(self):
         rows = [game("2026-10-10", "TOR", "BOS", "", 3), {"Date": "nonsense"}, game("2026-10-11", "TOR", "BOS", 2, 3)]

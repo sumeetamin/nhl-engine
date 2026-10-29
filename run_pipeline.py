@@ -5,6 +5,7 @@ import logging
 import warnings
 import __main__
 import time
+import unicodedata
 import pandas as pd
 import numpy as np
 import requests
@@ -20,6 +21,8 @@ from goalie_scraper import scrape_goalies
 from goalie_stats import fetch_table as fetch_goalie_table, goalie_card
 # Each team's goal ladder and the first-period total, tested walk-forward (goal_ladders.py)
 from goal_ladders import game_ladders, team_rates
+# Power rankings, game score and back-to-back flags (display only, power.py)
+from power import annotate_slate, load_history
 
 # ── Configure Logging and Warning Suppression ─────────────────────────────────
 logging.basicConfig(level=logging.INFO, format='%(message)s')
@@ -85,6 +88,15 @@ TEAM_NAME_MAP = {
     "vegas golden knights":"VGK","washington capitals":"WSH","winnipeg jets":"WPG",
 }
 ABBREV_TO_NAME = {v: k.title() for k, v in TEAM_NAME_MAP.items()}
+# The Odds API spells three teams differently ("Montréal Canadiens",
+# "St Louis Blues", "Utah Mammoth"); names are matched without accents or
+# periods, and Utah's new name is added.
+ODDS_TEAM_ABBREV = {**{k.replace(".", ""): v for k, v in TEAM_NAME_MAP.items()},
+                    "utah mammoth": "UTA"}
+
+# Each game's last pre-game moneyline, kept between runs (see remember_pregame_odds).
+PREGAME_ODDS_FILE = "pregame_odds.json"
+PREGAME_ODDS_DAYS = 7
 
 _cached_odds      = None
 _cached_standings = None
@@ -109,6 +121,11 @@ def fetch_standings():
                 standings[abbrev] = {
                     "overall":f"{w}-{l}-{ot}","home":f"{hw}-{hl}-{hot}",
                     "away":f"{rw}-{rl}-{rot}","l10":f"{lw}-{ll}-{lot}",
+                    # For the standings and power rankings table
+                    "points":t.get("points"),"gp":t.get("gamesPlayed"),
+                    "gd":t.get("goalDifferential"),"division":t.get("divisionAbbrev"),
+                    "conference":t.get("conferenceAbbrev"),
+                    "streak":f"{t.get('streakCode','')}{t.get('streakCount','')}" if t.get("streakCode") else None,
                 }
             _cached_standings = standings
             print(f"✅ Standings: {len(standings)} teams")
@@ -225,25 +242,66 @@ def fetch_nhl_odds():
     _cached_odds = []
     return []
 
+def odds_team_abbrev(name):
+    """The abbreviation for a team as the Odds API names it, or None."""
+    plain = unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode()
+    return ODDS_TEAM_ABBREV.get(" ".join(plain.lower().replace(".", "").split()))
+
 def get_odds_for_matchup(home_team, away_team, odds_data):
-    h_name = ABBREV_TO_NAME.get(home_team,"").lower()
-    a_name = ABBREV_TO_NAME.get(away_team,"").lower()
     for game in odds_data:
-        g_home = game.get("home_team","").lower()
-        g_away = game.get("away_team","").lower()
-        if h_name and h_name in g_home and a_name and a_name in g_away:
+        if (odds_team_abbrev(game.get("home_team")) == home_team
+                and odds_team_abbrev(game.get("away_team")) == away_team):
             for bk in game.get("bookmakers",[]):
                 for mkt in bk.get("markets",[]):
                     if mkt["key"] == "h2h":
-                        outcomes = {o["name"].lower():o["price"] for o in mkt["outcomes"]}
-                        normalize = lambda name: "".join(ch for ch in name if ch.isalnum())
-                        normalized_outcomes = {normalize(name): price for name, price in outcomes.items()}
-                        h_price = normalized_outcomes.get(normalize(h_name))
-                        a_price = normalized_outcomes.get(normalize(a_name))
+                        prices = {odds_team_abbrev(o["name"]): o["price"] for o in mkt["outcomes"]}
+                        h_price = prices.get(home_team)
+                        a_price = prices.get(away_team)
                         if h_price and a_price:
                             fmt = lambda p: f"+{p}" if p > 0 else str(p)
                             return fmt(h_price), fmt(a_price)
     return None, None
+
+
+def pregame_key(date_str, home_team, away_team):
+    return f"{date_str}|{home_team}|{away_team}"
+
+def load_pregame_odds():
+    path = os.path.join(SCRIPT_DIR, "frontend", "public", PREGAME_ODDS_FILE)
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+def remember_pregame_odds(store, odds_data, now_utc):
+    """Each game's latest moneyline taken BEFORE puck drop, by Eastern date and teams.
+
+    The Odds API also returns games in progress, priced live (PHI +1400 /
+    WSH -3500 at 9:30 PM on 2026-10-28), and finished games not at all. A
+    game that has started keeps the last price stored before it began, so its
+    card, its win % and its grade all use the pre-game line.
+    """
+    kept = dict(store or {})
+    for game in odds_data or []:
+        try:
+            start = datetime.strptime(game["commence_time"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        except (KeyError, TypeError, ValueError):
+            continue
+        home = odds_team_abbrev(game.get("home_team"))
+        away = odds_team_abbrev(game.get("away_team"))
+        if start <= now_utc or not home or not away:
+            continue
+        h_ml, a_ml = get_odds_for_matchup(home, away, [game])
+        if h_ml and a_ml:
+            kept[pregame_key(start.astimezone(EASTERN).strftime("%Y-%m-%d"), home, away)] = {
+                "home": h_ml, "away": a_ml, "taken_at": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ")}
+    oldest = (now_utc - timedelta(days=PREGAME_ODDS_DAYS)).astimezone(EASTERN).strftime("%Y-%m-%d")
+    return {key: row for key, row in kept.items() if key[:10] >= oldest}
+
+def pregame_prices(store, date_str, home_team, away_team):
+    row = (store or {}).get(pregame_key(date_str, home_team, away_team)) or {}
+    return row.get("home"), row.get("away")
 
 
 def _american_implied_probability(odds):
@@ -306,7 +364,7 @@ def get_implied_ml(prob):
 
 # ── Core Machine Learning Engine ──────────────────────────────────────────────
 def run_ml_engine(home_team, away_team, game_time="TBD", csv_path=HISTORY_CSV_PATH,
-                  matchup_goalies=None, odds_data=None, standings=None, gift_stats_all=None,
+                  matchup_goalies=None, pregame_odds=None, standings=None, gift_stats_all=None,
                   goalie_table=None, game_date=None):
     try:
         model = joblib.load("sumeets_engine_v5.pkl")
@@ -395,7 +453,7 @@ def run_ml_engine(home_team, away_team, game_time="TBD", csv_path=HISTORY_CSV_PA
         ml_prob = 50.0
 
     model_home_prob = 0.50*ml_prob + 0.50*feat['elo_win_prob']*100
-    real_h, real_a = get_odds_for_matchup(home_team, away_team, odds_data or [])
+    real_h, real_a = pregame_prices(pregame_odds, game_date, home_team, away_team)
     home_win_prob = blend_home_win_probability(model_home_prob, real_h, real_a)
     predicted_winner = home_team if home_win_prob > 50 else away_team
     max_prob         = max(home_win_prob, 100-home_win_prob)
@@ -514,7 +572,18 @@ def get_schedule_window(target_dates):
     return None
 
 
-def get_all_games_for_date(target_date_str, scheduled_games, odds_data, standings, gift_stats_all,
+def edge_value(game):
+    try:
+        return float(str(game.get("edge", "0")).replace("+", "").replace("%", ""))
+    except ValueError:
+        return 0.0
+
+def strongest_plays(games):
+    """Up to three EDGE/BIG games, strongest edge first (the slate itself is in start-time order)."""
+    return [g for g in sorted(games or [], key=edge_value, reverse=True)
+            if g["tier"] in ["EDGE", "BIG"]][:3]
+
+def get_all_games_for_date(target_date_str, scheduled_games, pregame_odds, standings, gift_stats_all,
                            goalie_table=None):
     if scheduled_games is None:
         return None
@@ -533,28 +602,28 @@ def get_all_games_for_date(target_date_str, scheduled_games, odds_data, standing
     daily_goalies = scrape_goalies(teams=teams_playing, date_str=target_date_str) if teams_playing else {}
     
     all_games=[]
-    for home,away,utc in matchups:
+    # In start-time order, as the client reads the slate ("TBD" sorts last).
+    for home,away,utc in sorted(matchups, key=lambda m: str(m[2])):
         res = run_ml_engine(home,away,convert_to_est(utc),matchup_goalies=daily_goalies,
-                            odds_data=odds_data,standings=standings,gift_stats_all=gift_stats_all,
+                            pregame_odds=pregame_odds,standings=standings,gift_stats_all=gift_stats_all,
                             goalie_table=goalie_table, game_date=target_date_str)
         if not res:
             return None
         all_games.append(res)
-    all_games.sort(key=lambda x:float(x['edge'].replace('+','').replace('%','')),reverse=True)
     return all_games
 
-def get_top_plays(target_date_str, odds_data, standings, gift_stats_all):
+def get_top_plays(target_date_str, pregame_odds, standings, gift_stats_all):
     schedule = get_schedule_window([target_date_str])
     games = get_all_games_for_date(
         target_date_str,
         schedule.get(target_date_str) if schedule else None,
-        odds_data,
+        pregame_odds,
         standings,
         gift_stats_all,
     )
     if games is None:
         return None
-    return [g for g in (games or []) if g["tier"] in ["EDGE","BIG"]][:3]
+    return strongest_plays(games)
 
 
 # ── Core Orchestrator ─────────────────────────────────────────────────────────
@@ -572,7 +641,8 @@ def build_daily_json():
     if schedule_by_date is None:
         raise RuntimeError("NHL schedule could not be loaded; existing predictions were left untouched.")
 
-    odds_data       = fetch_nhl_odds()
+    pregame_odds    = remember_pregame_odds(load_pregame_odds(), fetch_nhl_odds(),
+                                            datetime.now(timezone.utc))
     standings       = fetch_standings()
     goalie_table    = fetch_goalie_table(today)
 
@@ -592,7 +662,7 @@ def build_daily_json():
     for key, offset in offsets.items():
         target_date = dates[key]
         games = get_all_games_for_date(
-            target_date, schedule_by_date[target_date], odds_data, standings, gift_stats_all,
+            target_date, schedule_by_date[target_date], pregame_odds, standings, gift_stats_all,
             goalie_table,
         )
         if games is None:
@@ -605,6 +675,8 @@ def build_daily_json():
             + ", ".join(failed_dates)
             + ". The existing daily_predictions.json was left untouched."
         )
+    power_rankings = annotate_slate(games_by_date, load_history(HISTORY_CSV_PATH),
+                                    today.date(), standings)
     daily_payload = {
         "schema_version": 2,
         "timezone": "America/New_York",
@@ -613,13 +685,14 @@ def build_daily_json():
         # Retain relative aliases for older consumers during deployment.
         **{key: games_by_date[d(offset)] for key, offset in offsets.items()},
         "top_plays_date": d(0),
-        "top_plays": [g for g in (games_by_date[d(0)] or [])
-                      if g["tier"] in ["EDGE", "BIG"]][:3],
+        "top_plays": strongest_plays(games_by_date[d(0)]),
+        "power_rankings": power_rankings,
     }
 
     print("\n--- SAVING FILES ---")
     try:
         save_json("daily_predictions.json", daily_payload)
+        save_json(PREGAME_ODDS_FILE, pregame_odds)
         print("✅ Pipeline complete!")
     except Exception as e:
         print(f"❌ CRITICAL ERROR: {e}")

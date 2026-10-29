@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { easternDate, dateOptions, gamesForDate } from '../lib/predictionDates.mjs';
+import { easternDate, dateOptions, gamesForDate, strongestPlays } from '../lib/predictionDates.mjs';
 
 test('Eastern dates across midnight, DST, and year boundaries', () => {
   for (const [utc, date] of [
@@ -25,4 +25,15 @@ test('delayed payload never moves Tuesday games to Wednesday', () => {
   assert.equal(gamesForDate({ today: tuesday }, '2026-09-30'), null);
   assert.equal(gamesForDate(null, '2026-09-30'), null);
   assert.equal(gamesForDate({games_by_date: {'2026-09-30': null}}, '2026-09-30'), null);
+});
+
+test('top plays are the three strongest EDGE/BIG games, whatever the slate order', () => {
+  const games = [
+    { id: 'early', tier: 'EDGE', edge: '+3.1%' }, { id: 'none', tier: 'NONE', edge: '+30.0%' },
+    { id: 'big', tier: 'BIG', edge: '+27.5%' }, { id: 'mid', tier: 'EDGE', edge: '+12.0%' },
+    { id: 'late', tier: 'EDGE', edge: '+15.4%' },
+  ];
+  assert.deepEqual(strongestPlays(games).map(g => g.id), ['big', 'late', 'mid']);
+  assert.deepEqual(games.map(g => g.id), ['early', 'none', 'big', 'mid', 'late']);
+  assert.equal(strongestPlays(null), null);
 });

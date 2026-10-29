@@ -24,3 +24,13 @@ export function gamesForDate(payload, date) {
   const games = payload?.games_by_date?.[date];
   return Array.isArray(games) ? games : null;
 }
+
+// The slate comes in start-time order; top plays are the three strongest
+// EDGE/BIG games, by edge.
+export function strongestPlays(games) {
+  if (!Array.isArray(games)) return null;
+  const edge = (game) => parseFloat(String(game.edge ?? '0').replace('+', '').replace('%', '')) || 0;
+  return games.filter(game => ['EDGE', 'BIG'].includes(game.tier))
+    .sort((a, b) => edge(b) - edge(a))
+    .slice(0, 3);
+}

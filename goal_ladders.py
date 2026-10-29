@@ -23,6 +23,18 @@ TESTED, walk-forward on every game of 2024-25, 2025-26 and 2026-27 so far
     min(90, P1 goals x 40)%, averaged 70% on games that went over 53% of
     the time.
 
+BOTH TEAMS TO SCORE 1+ / 2+ / 3+ (client, 2026-10-29): each team's own
+chance from the same Poisson, multiplied together, then x BOTH_FACTOR. The
+plain product assumes the two scores are independent; they are not (the
+residuals correlate -0.12: empty nets, game state), so it ran high. Walk-
+forward on 1,187 games from 2025-12-01 (each from games before its date):
+  - plain product: both 1+ says 90.9% hit 91.6%; 2+ says 66.0% hit 63.6%;
+    3+ says 35.6% hit 31.7%. Factors = hit / said on all of them;
+  - fitted on games before 2026-03-01 and tested on the 647 after, the
+    corrected 2+ said 64.5% and hit 63.5%;
+  - the game-to-game spread (2+ from about 53% to 75%) predicted no better
+    than one league-wide rate (Brier 0.2312 against 0.2317). The card says so.
+
 These are probabilities, not edges: no price is read here.
 """
 import math
@@ -33,6 +45,8 @@ CARRY = 0.6           # per season boundary crossed
 PRIOR_GAMES = 20      # league-average games mixed into each team
 P1_SHARE = 0.284      # first period's share of the game's goals
 TEAM_LINES = (0.5, 1.5, 2.5, 3.5)
+# Both teams to score k+: the independent product x this (see the docstring).
+BOTH_FACTOR = {1: 1.0, 2: 0.964, 3: 0.890}
 P1_LINES = (0.5, 1.5, 2.5)
 
 
@@ -109,8 +123,16 @@ def ladder(lam: float, lines=TEAM_LINES) -> dict:
     return {"xg": round(lam, 2), "over": {str(l): round(100 * p_over(lam, l), 1) for l in lines}}
 
 
+def both_score(lam_h: float, lam_a: float) -> dict:
+    """Chance, in %, that both teams score at least k goals, k = 1, 2, 3."""
+    return {str(k): round(100 * min(f * p_over(lam_h, k - 0.5) * p_over(lam_a, k - 0.5), 0.999), 1)
+            for k, f in BOTH_FACTOR.items()}
+
+
 def game_ladders(rates: dict, home: str, away: str) -> dict:
-    """What the card shows: each team's ladder and the first-period total."""
+    """What the card shows: each team's ladder, the first-period total and
+    both teams to score 1+ / 2+ / 3+."""
     lam_h, lam_a = expected_goals(rates, home, away)
     return {"away": ladder(lam_a), "home": ladder(lam_h),
-            "first_period": ladder((lam_h + lam_a) * P1_SHARE, P1_LINES)}
+            "first_period": ladder((lam_h + lam_a) * P1_SHARE, P1_LINES),
+            "both_score": both_score(lam_h, lam_a)}
