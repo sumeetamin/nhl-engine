@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { gamesForDate } from '../lib/predictionDates.mjs';
+import { gamesForDate, strongestPlays } from '../lib/predictionDates.mjs';
 import { formatAmerican, highestProbabilityLines } from '../lib/highProbability.mjs';
 import { publicFile } from '../lib/basePath';
 
@@ -355,7 +355,7 @@ const GoalLaddersSection = ({ ladders, awayTeam, homeTeam }) => {
 const gameAnchor = (game) => `game-${game.away?.name}-${game.home?.name}`;
 
 const TopPlaysStrip = ({ games }) => {
-  const plays = games.filter((g) => ['EDGE', 'BIG'].includes(g.tier)).slice(0, 3);
+  const plays = strongestPlays(games);
   if (plays.length === 0) return null;
   return (
     <div className="bg-[#151c28] rounded-xl border border-emerald-900/40 p-3 sm:p-4">

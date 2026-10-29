@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { easternDate, dateOptions as buildDateOptions, gamesForDate } from '../lib/predictionDates.mjs';
+import { easternDate, dateOptions as buildDateOptions, gamesForDate, strongestPlays } from '../lib/predictionDates.mjs';
 import { publicFile } from '../lib/basePath';
 import LegendsHeader, { HeaderTab } from '../components/LegendsHeader';
 
@@ -19,7 +19,7 @@ const PerformanceTracker = dynamic(() => import('../components/PerformanceTracke
 // ── Top Plays ─────────────────────────────────────────────────────────────────
 const TopPlaysList = ({ payload, today, loading }: { payload: any; today: string; loading: boolean }) => {
   const games = gamesForDate(payload, today);
-  const plays = games?.filter((game: any) => ['EDGE', 'BIG'].includes(game.tier)).slice(0, 3);
+  const plays = strongestPlays(games);
 
   if (loading) return (
     <div className="flex justify-center mt-20">
