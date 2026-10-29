@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { gamesForDate, strongestPlays } from '../lib/predictionDates.mjs';
-import { formatAmerican, highestProbabilityLines } from '../lib/highProbability.mjs';
+import { fairAmerican, formatAmerican, highestProbabilityLines } from '../lib/highProbability.mjs';
 import { publicFile } from '../lib/basePath';
 
 // ── Result Panel (MLB-style) ──────────────────────────────────────────────────
@@ -331,6 +331,25 @@ const LadderCard = ({ title, ladder }) => (
   </div>
 );
 
+// Both teams to score 1+ / 2+ / 3+ (goal_ladders.both_score), with the price
+// each chance is worth so it can be set against the book's.
+const BothScoreCard = ({ both }) => (
+  <div className="flex-1 min-w-0 bg-[#0b0f19] border border-gray-800 rounded-lg p-3">
+    <div className="flex items-baseline justify-between mb-2">
+      <span className="text-xs font-black text-white">Both teams score</span>
+      <span className="text-[9px] text-gray-500 font-mono">fair</span>
+    </div>
+    <div className="space-y-1.5">
+      {Object.entries(both).map(([k, pct]) => (
+        <div key={k} className="flex items-center gap-2">
+          <div className="flex-1 min-w-0"><LadderRow label={`${k}+ each`} pct={pct} /></div>
+          <span className="w-11 text-right text-[10px] sm:text-xs text-gray-400 font-mono">{formatAmerican(fairAmerican(pct))}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const GoalLaddersSection = ({ ladders, awayTeam, homeTeam }) => {
   if (!ladders) return null;
   return (
@@ -339,14 +358,20 @@ const GoalLaddersSection = ({ ladders, awayTeam, homeTeam }) => {
         <span className="w-1.5 h-4 bg-emerald-500 mr-2 rounded-sm"></span>
         🎯 Team Goals
       </h4>
-      <div className="flex flex-col sm:flex-row gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <LadderCard title={`${awayTeam} goals`} ladder={ladders.away} />
         <LadderCard title={`${homeTeam} goals`} ladder={ladders.home} />
         <LadderCard title="1st period total" ladder={ladders.first_period} />
+        {ladders.both_score && <BothScoreCard both={ladders.both_score} />}
       </div>
       <p className="text-[9px] text-gray-600 mt-2">
         Chance of each line, overtime and the shootout goal included. Probabilities from team scoring rates, not odds: compare them with your book&apos;s price.
       </p>
+      {ladders.both_score && (
+        <p className="text-[9px] text-gray-600 mt-1">
+          Both teams to score is corrected for the two scores moving against each other (calibrated on 1,187 games). Game-to-game differences are small: in testing they predicted no better than the league rate, about 92% for 1+ each, 64% for 2+ and 32% for 3+.
+        </p>
+      )}
     </div>
   );
 };
