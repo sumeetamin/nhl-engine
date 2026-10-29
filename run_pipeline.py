@@ -21,6 +21,8 @@ from goalie_scraper import scrape_goalies
 from goalie_stats import fetch_table as fetch_goalie_table, goalie_card
 # Each team's goal ladder and the first-period total, tested walk-forward (goal_ladders.py)
 from goal_ladders import game_ladders, team_rates
+# Power rankings, game score and back-to-back flags (display only, power.py)
+from power import annotate_slate, load_history
 
 # ── Configure Logging and Warning Suppression ─────────────────────────────────
 logging.basicConfig(level=logging.INFO, format='%(message)s')
@@ -119,6 +121,11 @@ def fetch_standings():
                 standings[abbrev] = {
                     "overall":f"{w}-{l}-{ot}","home":f"{hw}-{hl}-{hot}",
                     "away":f"{rw}-{rl}-{rot}","l10":f"{lw}-{ll}-{lot}",
+                    # For the standings and power rankings table
+                    "points":t.get("points"),"gp":t.get("gamesPlayed"),
+                    "gd":t.get("goalDifferential"),"division":t.get("divisionAbbrev"),
+                    "conference":t.get("conferenceAbbrev"),
+                    "streak":f"{t.get('streakCode','')}{t.get('streakCount','')}" if t.get("streakCode") else None,
                 }
             _cached_standings = standings
             print(f"✅ Standings: {len(standings)} teams")
@@ -668,6 +675,8 @@ def build_daily_json():
             + ", ".join(failed_dates)
             + ". The existing daily_predictions.json was left untouched."
         )
+    power_rankings = annotate_slate(games_by_date, load_history(HISTORY_CSV_PATH),
+                                    today.date(), standings)
     daily_payload = {
         "schema_version": 2,
         "timezone": "America/New_York",
@@ -677,6 +686,7 @@ def build_daily_json():
         **{key: games_by_date[d(offset)] for key, offset in offsets.items()},
         "top_plays_date": d(0),
         "top_plays": strongest_plays(games_by_date[d(0)]),
+        "power_rankings": power_rankings,
     }
 
     print("\n--- SAVING FILES ---")

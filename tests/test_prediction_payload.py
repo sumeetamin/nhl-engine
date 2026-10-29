@@ -23,6 +23,8 @@ class PredictionPayloadTests(unittest.TestCase):
                   fetch_nhl_odds=lambda: [], fetch_standings=lambda: {},
                   load_pregame_odds=lambda: {}, remember_pregame_odds=lambda store, odds, now: store,
                   PREGAME_ODDS_FILE='pregame_odds.json',
+                  annotate_slate=lambda games, rows, as_of, standings: [], load_history=lambda path: [],
+                  HISTORY_CSV_PATH='past_games.csv',
                   fetch_goalie_table=lambda day: None,
                   GIFT_AVAILABLE=False, get_all_games_for_date=games,
                   save_json=lambda name, payload: saved.update(payload), print=lambda *a: None)

@@ -351,6 +351,102 @@ const GoalLaddersSection = ({ ladders, awayTeam, homeTeam }) => {
   );
 };
 
+// ── Power, back to back and game score (power.py) ─────────────────────────────
+const fmtPower = (v) => (v == null ? '—' : `${v > 0 ? '+' : ''}${Number(v).toFixed(2)}`);
+
+const TeamTags = ({ power, b2b }) => (
+  <div className="flex flex-col items-center gap-1 mt-1">
+    {power?.rank && (
+      <span className="text-[9px] sm:text-[11px] font-bold text-gray-400 whitespace-nowrap"
+        title="Power rating: goals per game better than an average team on neutral ice.">
+        Power #{power.rank} · {fmtPower(power.rating)}
+      </span>
+    )}
+    {b2b && (
+      <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/40 rounded-full px-2 py-0.5 whitespace-nowrap cursor-help"
+        title="Played yesterday: tonight is the second night of a back to back.">
+        Back to back
+      </span>
+    )}
+  </div>
+);
+
+const GameScoreBadge = ({ score }) => {
+  const tone = score >= 80 ? 'border-amber-500/50 bg-amber-500/10 text-amber-400'
+    : score >= 65 ? 'border-gray-700 bg-[#0b0f19] text-emerald-400'
+    : 'border-gray-700 bg-[#0b0f19] text-white';
+  return (
+    <div className={`flex items-baseline gap-1.5 rounded-full border px-2 sm:px-3 py-0.5 mb-1 cursor-help ${tone}`}
+      title="0-100: two highly ranked teams in a close game score highest (60% team strength by power rank, 40% closeness by win %).">
+      <span className="text-[7px] sm:text-[9px] font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">Game score</span>
+      <span className="text-sm sm:text-base font-black">{score}</span>
+    </div>
+  );
+};
+
+// ── Standings and power rankings, collapsible, above the slate ────────────────
+const StandingsPanel = ({ rows }) => {
+  const [open, setOpen] = useState(false);
+  const [sortBy, setSortBy] = useState('power');
+  if (!rows?.length) return null;
+  const sorted = [...rows].sort((a, b) => sortBy === 'points'
+    ? (b.points ?? -1) - (a.points ?? -1) || (b.gd ?? 0) - (a.gd ?? 0)
+    : a.rank - b.rank);
+  const cell = 'px-1.5 sm:px-2 py-1.5 text-center whitespace-nowrap';
+  return (
+    <div className="bg-[#151c28] rounded-xl border border-gray-800">
+      <button onClick={() => setOpen(!open)} aria-expanded={open}
+        className="w-full flex items-center justify-between p-3 sm:p-4 text-left">
+        <span className="text-sm text-gray-300 uppercase tracking-widest font-black flex items-center">
+          <span className="w-1.5 h-4 bg-blue-500 mr-2 rounded-sm"></span>📈 Standings &amp; Power Rankings
+        </span>
+        <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{open ? 'Hide ▲' : 'Show ▼'}</span>
+      </button>
+      {open && (
+        <div className="px-3 sm:px-4 pb-4">
+          <div className="flex gap-1 mb-3 bg-[#0b0f19] p-1 rounded-md border border-gray-800 w-fit">
+            {[['power', 'Power'], ['points', 'Points']].map(([key, label]) => (
+              <button key={key} onClick={() => setSortBy(key)}
+                className={`px-3 py-1 text-[10px] font-bold uppercase rounded ${sortBy === key ? 'bg-gray-700 text-white' : 'text-gray-500 hover:text-gray-300'}`}>
+                Sort: {label}
+              </button>
+            ))}
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-[11px] sm:text-xs text-gray-300 font-mono">
+              <thead>
+                <tr className="text-[9px] sm:text-[10px] text-gray-500 uppercase tracking-widest border-b border-gray-800">
+                  <th className={cell}>Pwr</th><th className={`${cell} text-left`}>Team</th><th className={cell}>Rating</th>
+                  <th className={cell}>Record</th><th className={cell}>Pts</th>
+                  <th className={`${cell} hidden sm:table-cell`}>GD</th><th className={cell}>L10</th>
+                  <th className={`${cell} hidden sm:table-cell`}>Strk</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sorted.map((r) => (
+                  <tr key={r.team} className="border-b border-gray-800/60">
+                    <td className={`${cell} text-gray-500`}>{r.rank}</td>
+                    <td className={`${cell} text-left font-bold text-white`}>{r.team}</td>
+                    <td className={`${cell} ${r.power > 0 ? 'text-emerald-400' : r.power < 0 ? 'text-red-400' : ''}`}>{fmtPower(r.power)}</td>
+                    <td className={cell}>{r.overall ?? '—'}</td>
+                    <td className={`${cell} font-bold text-white`}>{r.points ?? '—'}</td>
+                    <td className={`${cell} hidden sm:table-cell`}>{r.gd == null ? '—' : `${r.gd > 0 ? '+' : ''}${r.gd}`}</td>
+                    <td className={cell}>{r.l10 ?? '—'}</td>
+                    <td className={`${cell} hidden sm:table-cell`}>{r.streak ?? '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[9px] text-gray-600 mt-2">
+            Power: goals per game better than an average team on neutral ice, adjusted for the schedule. This season&apos;s games count most, recent ones more; last season counts as about ten games. Records and points from the NHL.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+};
+
 // ── Top plays, above the slate (like the MLB and NFL pages) ───────────────────
 const gameAnchor = (game) => `game-${game.away?.name}-${game.home?.name}`;
 
@@ -428,7 +524,7 @@ const getTeamFullName = (abbrev) => {
     'STL':'St. Louis Blues','MIN':'Minnesota Wild','ARI':'Arizona Coyotes',
     'CHI':'Chicago Blackhawks','VAN':'Vancouver Canucks','EDM':'Edmonton Oilers',
     'LAK':'Los Angeles Kings','SEA':'Seattle Kraken','CGY':'Calgary Flames',
-    'SJS':'San Jose Sharks','ANA':'Anaheim Ducks','UTA':'Utah Hockey Club',
+    'SJS':'San Jose Sharks','ANA':'Anaheim Ducks','UTA':'Utah Mammoth',
   };
   return teams[abbrev] || abbrev;
 };
@@ -474,6 +570,7 @@ const SingleMatchupCard = ({ game, giftStatsAll, resultsIndex, defaultExpanded =
               <span className="hidden text-lg sm:text-2xl font-black text-gray-400">{awayTeam}</span>
             </div>
             <h2 className="text-[11px] sm:text-lg font-bold text-white text-center leading-tight px-1">{getTeamFullName(awayTeam)}</h2>
+            <TeamTags power={game.power?.away} b2b={game.b2b?.away} />
             <div className="mt-2 sm:mt-3 bg-[#0b0f19] border border-gray-700 px-2 sm:px-6 py-1 sm:py-2 rounded-md text-emerald-400 font-black text-sm sm:text-lg shadow-sm whitespace-nowrap">
               {game.away.ml}
             </div>
@@ -484,6 +581,7 @@ const SingleMatchupCard = ({ game, giftStatsAll, resultsIndex, defaultExpanded =
             <span className="text-[9px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap bg-gray-800/50 px-2 sm:px-3 py-1 rounded-full mb-1">{game.time}</span>
             <span className="text-gray-500 font-black text-2xl sm:text-3xl">@</span>
             <span className="text-[10px] sm:text-xs font-bold text-gray-300 tracking-widest whitespace-nowrap pb-2">{game.ou_total}</span>
+            {game.game_score != null && <GameScoreBadge score={game.game_score} />}
             <div className="w-full flex flex-col space-y-1 sm:space-y-1.5 mt-1 sm:mt-2">
               {[['OVR', game.away.record_overall, game.home.record_overall],
                 ['A/H', game.away.record_split,   game.home.record_split],
@@ -507,6 +605,7 @@ const SingleMatchupCard = ({ game, giftStatsAll, resultsIndex, defaultExpanded =
               <span className="hidden text-lg sm:text-2xl font-black text-gray-400">{homeTeam}</span>
             </div>
             <h2 className="text-[11px] sm:text-lg font-bold text-white text-center leading-tight px-1">{getTeamFullName(homeTeam)}</h2>
+            <TeamTags power={game.power?.home} b2b={game.b2b?.home} />
             <div className="mt-2 sm:mt-3 bg-[#0b0f19] border border-gray-700 px-2 sm:px-6 py-1 sm:py-2 rounded-md text-emerald-400 font-black text-sm sm:text-lg shadow-sm whitespace-nowrap">
               {game.home.ml}
             </div>
@@ -747,6 +846,7 @@ const NHLMatchupCard = ({ selectedDate, payload, loading }) => {
 
   return (
     <div className="space-y-4">
+      <StandingsPanel rows={payload?.power_rankings} />
       <TopPlaysStrip games={games} />
       <HighestProbabilityStrip games={games} />
       {games.map((game, idx) => (
