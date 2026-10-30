@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-10-30T16:26:41.045353+00:00",
+    "generated_at": "2026-10-30T20:41:08.499806+00:00",
     "games_by_date": {
         "2026-10-28": [
             {
@@ -6124,21 +6124,21 @@
                     "record_overall": "4-9-0",
                     "record_split": "0-5-0",
                     "record_l10": "4-6-0",
-                    "ml": "+180",
-                    "proj": "2.1"
+                    "ml": "+185",
+                    "proj": "2.0"
                 },
                 "home": {
                     "name": "BOS",
                     "record_overall": "9-4-1",
                     "record_split": "5-1-0",
                     "record_l10": "7-2-1",
-                    "ml": "-218",
+                    "ml": "-225",
                     "proj": "3.8"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "64.5%",
-                "home_win_prob": 64.5,
-                "away_win_prob": 35.5,
+                "prob": "65.0%",
+                "home_win_prob": 65.0,
+                "away_win_prob": 35.0,
                 "predicted_winner": "BOS",
                 "time": "1:00 PM EDT",
                 "tier": "EDGE",
@@ -6196,18 +6196,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+12.1%",
-                "ai_score": 6.2,
+                "edge": "+12.6%",
+                "ai_score": 6.3,
                 "details": {
                     "period_60": {
                         "p1_winner": "BOS (55%)",
                         "p1_over_1_5": "51%",
-                        "min_60_tie": "15%"
+                        "min_60_tie": "14%"
                     },
                     "period_scores": {
                         "p1": "CHI 0.6 - BOS 1.1",
                         "p2": "CHI 0.7 - BOS 1.3",
-                        "p3": "CHI 0.8 - BOS 1.4"
+                        "p3": "CHI 0.7 - BOS 1.4"
                     },
                     "recent_logs": {
                         "away": [
@@ -6380,12 +6380,12 @@
                     },
                     "notes": [
                         "Goalie Edge: CHI starting Spencer Knight (Expected) vs BOS starting Jeremy Swayman (Expected).",
-                        "Engine calculates BOS win probability at 64.5% based on V5 goalie adjustments.",
+                        "Engine calculates BOS win probability at 65.0% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 236 points."
                     ],
                     "best_angle": {
                         "play": "BOS MONEYLINE",
-                        "edge": "+12.1%"
+                        "edge": "+12.6%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6456,21 +6456,21 @@
                     "record_overall": "6-6-1",
                     "record_split": "2-4-0",
                     "record_l10": "5-4-1",
-                    "ml": "-112",
-                    "proj": "3.3"
+                    "ml": "-118",
+                    "proj": "3.2"
                 },
                 "home": {
                     "name": "DET",
                     "record_overall": "6-4-3",
                     "record_split": "4-3-1",
                     "record_l10": "5-2-3",
-                    "ml": "-108",
-                    "proj": "2.9"
+                    "ml": "-102",
+                    "proj": "2.8"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "51.8%",
-                "home_win_prob": 48.2,
-                "away_win_prob": 51.8,
+                "prob": "53.0%",
+                "home_win_prob": 47.0,
+                "away_win_prob": 53.0,
                 "predicted_winner": "STL",
                 "time": "1:00 PM EDT",
                 "tier": "NONE",
@@ -6528,17 +6528,17 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+-0.6%",
-                "ai_score": 3.4,
+                "edge": "+0.6%",
+                "ai_score": 3.7,
                 "details": {
                     "period_60": {
-                        "p1_winner": "STL (44%)",
+                        "p1_winner": "STL (45%)",
                         "p1_over_1_5": "50%",
                         "min_60_tie": "21%"
                     },
                     "period_scores": {
-                        "p1": "STL 1.0 - DET 0.9",
-                        "p2": "STL 1.2 - DET 1.0",
+                        "p1": "STL 1.0 - DET 0.8",
+                        "p2": "STL 1.1 - DET 1.0",
                         "p3": "STL 1.1 - DET 1.0"
                     },
                     "recent_logs": {
@@ -6708,16 +6708,16 @@
                     "covers": {
                         "best_ml": "STL ML",
                         "best_spread": "PASS",
-                        "best_ou": "OVER 5.5"
+                        "best_ou": "PASS"
                     },
                     "notes": [
                         "Goalie Edge: STL starting Joel Hofer (Expected) vs DET starting John Gibson (Expected).",
-                        "Engine calculates STL win probability at 51.8% based on V5 goalie adjustments.",
+                        "Engine calculates STL win probability at 53.0% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 26 points."
                     ],
                     "best_angle": {
                         "play": "STL MONEYLINE",
-                        "edge": "+-0.6%"
+                        "edge": "+0.6%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6780,7 +6780,7 @@
                         "rating": -0.26
                     }
                 },
-                "game_score": 59
+                "game_score": 58
             },
             {
                 "away": {
@@ -7808,21 +7808,21 @@
                     "record_overall": "8-5-1",
                     "record_split": "3-3-1",
                     "record_l10": "5-4-1",
-                    "ml": "-130",
-                    "proj": "3.5"
+                    "ml": "-135",
+                    "proj": "3.6"
                 },
                 "home": {
                     "name": "SJS",
                     "record_overall": "7-6-1",
                     "record_split": "3-3-0",
                     "record_l10": "4-5-1",
-                    "ml": "+110",
-                    "proj": "2.9"
+                    "ml": "+114",
+                    "proj": "2.8"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "55.2%",
-                "home_win_prob": 44.8,
-                "away_win_prob": 55.2,
+                "prob": "56.0%",
+                "home_win_prob": 44.0,
+                "away_win_prob": 56.0,
                 "predicted_winner": "OTT",
                 "time": "4:00 PM EDT",
                 "tier": "NONE",
@@ -7880,17 +7880,17 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+2.8%",
-                "ai_score": 4.2,
+                "edge": "+3.6%",
+                "ai_score": 4.3,
                 "details": {
                     "period_60": {
-                        "p1_winner": "OTT (47%)",
+                        "p1_winner": "OTT (48%)",
                         "p1_over_1_5": "54%",
                         "min_60_tie": "19%"
                     },
                     "period_scores": {
-                        "p1": "OTT 1.1 - SJS 0.9",
-                        "p2": "OTT 1.2 - SJS 1.0",
+                        "p1": "OTT 1.1 - SJS 0.8",
+                        "p2": "OTT 1.3 - SJS 1.0",
                         "p3": "OTT 1.2 - SJS 1.0"
                     },
                     "recent_logs": {
@@ -8064,12 +8064,12 @@
                     },
                     "notes": [
                         "Goalie Edge: OTT starting Linus Ullmark (Expected) vs SJS starting Yaroslav Askarov (Expected).",
-                        "Engine calculates OTT win probability at 55.2% based on V5 goalie adjustments.",
+                        "Engine calculates OTT win probability at 56.0% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 7 points."
                     ],
                     "best_angle": {
                         "play": "OTT MONEYLINE",
-                        "edge": "+2.8%"
+                        "edge": "+3.6%"
                     },
                     "gift_stats": {
                         "away": {
@@ -8132,7 +8132,7 @@
                         "rating": -0.48
                     }
                 },
-                "game_score": 60
+                "game_score": 59
             },
             {
                 "away": {
@@ -9160,7 +9160,7 @@
                     "record_overall": "5-7-0",
                     "record_split": "1-4-0",
                     "record_l10": "5-5-0",
-                    "ml": "+320",
+                    "ml": "+310",
                     "proj": "1.5"
                 },
                 "home": {
@@ -9168,13 +9168,13 @@
                     "record_overall": "7-5-1",
                     "record_split": "5-1-1",
                     "record_l10": "5-4-1",
-                    "ml": "-410",
-                    "proj": "5.2"
+                    "ml": "-395",
+                    "proj": "5.1"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "77.5%",
-                "home_win_prob": 77.5,
-                "away_win_prob": 22.5,
+                "prob": "77.0%",
+                "home_win_prob": 77.0,
+                "away_win_prob": 23.0,
                 "predicted_winner": "COL",
                 "time": "10:00 PM EDT",
                 "tier": "EDGE",
@@ -9232,16 +9232,16 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+25.1%",
-                "ai_score": 9.1,
+                "edge": "+24.6%",
+                "ai_score": 9.0,
                 "details": {
                     "period_60": {
-                        "p1_winner": "COL (66%)",
+                        "p1_winner": "COL (65%)",
                         "p1_over_1_5": "53%",
-                        "min_60_tie": "8%"
+                        "min_60_tie": "9%"
                     },
                     "period_scores": {
-                        "p1": "CGY 0.4 - COL 1.6",
+                        "p1": "CGY 0.4 - COL 1.5",
                         "p2": "CGY 0.5 - COL 1.8",
                         "p3": "CGY 0.6 - COL 1.8"
                     },
@@ -9434,12 +9434,12 @@
                     },
                     "notes": [
                         "Goalie Edge: CGY starting Devin Cooley (Expected) vs COL starting Mackenzie Blackwood (Expected).",
-                        "Engine calculates COL win probability at 77.5% based on V5 goalie adjustments.",
+                        "Engine calculates COL win probability at 77.0% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 159 points."
                     ],
                     "best_angle": {
                         "play": "COL MONEYLINE",
-                        "edge": "+25.1%"
+                        "edge": "+24.6%"
                     },
                     "gift_stats": {
                         "away": {
@@ -17277,21 +17277,21 @@
                 "record_overall": "4-9-0",
                 "record_split": "0-5-0",
                 "record_l10": "4-6-0",
-                "ml": "+180",
-                "proj": "2.1"
+                "ml": "+185",
+                "proj": "2.0"
             },
             "home": {
                 "name": "BOS",
                 "record_overall": "9-4-1",
                 "record_split": "5-1-0",
                 "record_l10": "7-2-1",
-                "ml": "-218",
+                "ml": "-225",
                 "proj": "3.8"
             },
             "ou_total": "O/U 6.0",
-            "prob": "64.5%",
-            "home_win_prob": 64.5,
-            "away_win_prob": 35.5,
+            "prob": "65.0%",
+            "home_win_prob": 65.0,
+            "away_win_prob": 35.0,
             "predicted_winner": "BOS",
             "time": "1:00 PM EDT",
             "tier": "EDGE",
@@ -17349,18 +17349,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+12.1%",
-            "ai_score": 6.2,
+            "edge": "+12.6%",
+            "ai_score": 6.3,
             "details": {
                 "period_60": {
                     "p1_winner": "BOS (55%)",
                     "p1_over_1_5": "51%",
-                    "min_60_tie": "15%"
+                    "min_60_tie": "14%"
                 },
                 "period_scores": {
                     "p1": "CHI 0.6 - BOS 1.1",
                     "p2": "CHI 0.7 - BOS 1.3",
-                    "p3": "CHI 0.8 - BOS 1.4"
+                    "p3": "CHI 0.7 - BOS 1.4"
                 },
                 "recent_logs": {
                     "away": [
@@ -17533,12 +17533,12 @@
                 },
                 "notes": [
                     "Goalie Edge: CHI starting Spencer Knight (Expected) vs BOS starting Jeremy Swayman (Expected).",
-                    "Engine calculates BOS win probability at 64.5% based on V5 goalie adjustments.",
+                    "Engine calculates BOS win probability at 65.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 236 points."
                 ],
                 "best_angle": {
                     "play": "BOS MONEYLINE",
-                    "edge": "+12.1%"
+                    "edge": "+12.6%"
                 },
                 "gift_stats": {
                     "away": {
@@ -17609,21 +17609,21 @@
                 "record_overall": "6-6-1",
                 "record_split": "2-4-0",
                 "record_l10": "5-4-1",
-                "ml": "-112",
-                "proj": "3.3"
+                "ml": "-118",
+                "proj": "3.2"
             },
             "home": {
                 "name": "DET",
                 "record_overall": "6-4-3",
                 "record_split": "4-3-1",
                 "record_l10": "5-2-3",
-                "ml": "-108",
-                "proj": "2.9"
+                "ml": "-102",
+                "proj": "2.8"
             },
             "ou_total": "O/U 6.0",
-            "prob": "51.8%",
-            "home_win_prob": 48.2,
-            "away_win_prob": 51.8,
+            "prob": "53.0%",
+            "home_win_prob": 47.0,
+            "away_win_prob": 53.0,
             "predicted_winner": "STL",
             "time": "1:00 PM EDT",
             "tier": "NONE",
@@ -17681,17 +17681,17 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+-0.6%",
-            "ai_score": 3.4,
+            "edge": "+0.6%",
+            "ai_score": 3.7,
             "details": {
                 "period_60": {
-                    "p1_winner": "STL (44%)",
+                    "p1_winner": "STL (45%)",
                     "p1_over_1_5": "50%",
                     "min_60_tie": "21%"
                 },
                 "period_scores": {
-                    "p1": "STL 1.0 - DET 0.9",
-                    "p2": "STL 1.2 - DET 1.0",
+                    "p1": "STL 1.0 - DET 0.8",
+                    "p2": "STL 1.1 - DET 1.0",
                     "p3": "STL 1.1 - DET 1.0"
                 },
                 "recent_logs": {
@@ -17861,16 +17861,16 @@
                 "covers": {
                     "best_ml": "STL ML",
                     "best_spread": "PASS",
-                    "best_ou": "OVER 5.5"
+                    "best_ou": "PASS"
                 },
                 "notes": [
                     "Goalie Edge: STL starting Joel Hofer (Expected) vs DET starting John Gibson (Expected).",
-                    "Engine calculates STL win probability at 51.8% based on V5 goalie adjustments.",
+                    "Engine calculates STL win probability at 53.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 26 points."
                 ],
                 "best_angle": {
                     "play": "STL MONEYLINE",
-                    "edge": "+-0.6%"
+                    "edge": "+0.6%"
                 },
                 "gift_stats": {
                     "away": {
@@ -17933,7 +17933,7 @@
                     "rating": -0.26
                 }
             },
-            "game_score": 59
+            "game_score": 58
         },
         {
             "away": {
@@ -18961,21 +18961,21 @@
                 "record_overall": "8-5-1",
                 "record_split": "3-3-1",
                 "record_l10": "5-4-1",
-                "ml": "-130",
-                "proj": "3.5"
+                "ml": "-135",
+                "proj": "3.6"
             },
             "home": {
                 "name": "SJS",
                 "record_overall": "7-6-1",
                 "record_split": "3-3-0",
                 "record_l10": "4-5-1",
-                "ml": "+110",
-                "proj": "2.9"
+                "ml": "+114",
+                "proj": "2.8"
             },
             "ou_total": "O/U 6.5",
-            "prob": "55.2%",
-            "home_win_prob": 44.8,
-            "away_win_prob": 55.2,
+            "prob": "56.0%",
+            "home_win_prob": 44.0,
+            "away_win_prob": 56.0,
             "predicted_winner": "OTT",
             "time": "4:00 PM EDT",
             "tier": "NONE",
@@ -19033,17 +19033,17 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+2.8%",
-            "ai_score": 4.2,
+            "edge": "+3.6%",
+            "ai_score": 4.3,
             "details": {
                 "period_60": {
-                    "p1_winner": "OTT (47%)",
+                    "p1_winner": "OTT (48%)",
                     "p1_over_1_5": "54%",
                     "min_60_tie": "19%"
                 },
                 "period_scores": {
-                    "p1": "OTT 1.1 - SJS 0.9",
-                    "p2": "OTT 1.2 - SJS 1.0",
+                    "p1": "OTT 1.1 - SJS 0.8",
+                    "p2": "OTT 1.3 - SJS 1.0",
                     "p3": "OTT 1.2 - SJS 1.0"
                 },
                 "recent_logs": {
@@ -19217,12 +19217,12 @@
                 },
                 "notes": [
                     "Goalie Edge: OTT starting Linus Ullmark (Expected) vs SJS starting Yaroslav Askarov (Expected).",
-                    "Engine calculates OTT win probability at 55.2% based on V5 goalie adjustments.",
+                    "Engine calculates OTT win probability at 56.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 7 points."
                 ],
                 "best_angle": {
                     "play": "OTT MONEYLINE",
-                    "edge": "+2.8%"
+                    "edge": "+3.6%"
                 },
                 "gift_stats": {
                     "away": {
@@ -19285,7 +19285,7 @@
                     "rating": -0.48
                 }
             },
-            "game_score": 60
+            "game_score": 59
         },
         {
             "away": {
@@ -20313,7 +20313,7 @@
                 "record_overall": "5-7-0",
                 "record_split": "1-4-0",
                 "record_l10": "5-5-0",
-                "ml": "+320",
+                "ml": "+310",
                 "proj": "1.5"
             },
             "home": {
@@ -20321,13 +20321,13 @@
                 "record_overall": "7-5-1",
                 "record_split": "5-1-1",
                 "record_l10": "5-4-1",
-                "ml": "-410",
-                "proj": "5.2"
+                "ml": "-395",
+                "proj": "5.1"
             },
             "ou_total": "O/U 6.5",
-            "prob": "77.5%",
-            "home_win_prob": 77.5,
-            "away_win_prob": 22.5,
+            "prob": "77.0%",
+            "home_win_prob": 77.0,
+            "away_win_prob": 23.0,
             "predicted_winner": "COL",
             "time": "10:00 PM EDT",
             "tier": "EDGE",
@@ -20385,16 +20385,16 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+25.1%",
-            "ai_score": 9.1,
+            "edge": "+24.6%",
+            "ai_score": 9.0,
             "details": {
                 "period_60": {
-                    "p1_winner": "COL (66%)",
+                    "p1_winner": "COL (65%)",
                     "p1_over_1_5": "53%",
-                    "min_60_tie": "8%"
+                    "min_60_tie": "9%"
                 },
                 "period_scores": {
-                    "p1": "CGY 0.4 - COL 1.6",
+                    "p1": "CGY 0.4 - COL 1.5",
                     "p2": "CGY 0.5 - COL 1.8",
                     "p3": "CGY 0.6 - COL 1.8"
                 },
@@ -20587,12 +20587,12 @@
                 },
                 "notes": [
                     "Goalie Edge: CGY starting Devin Cooley (Expected) vs COL starting Mackenzie Blackwood (Expected).",
-                    "Engine calculates COL win probability at 77.5% based on V5 goalie adjustments.",
+                    "Engine calculates COL win probability at 77.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 159 points."
                 ],
                 "best_angle": {
                     "play": "COL MONEYLINE",
-                    "edge": "+25.1%"
+                    "edge": "+24.6%"
                 },
                 "gift_stats": {
                     "away": {
