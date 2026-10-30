@@ -51,3 +51,30 @@ export function highestProbabilityLines(games, { minPct = MIN_PCT, max = MAX_LIN
   }
   return lines.sort((a, b) => b.pct - a.pct).slice(0, max);
 }
+
+// Both teams to score 2+ / 3+ worth a highlight at the top (the client,
+// 2026-10-30: "only 2+ and 3+, maybe 60%").
+//
+// THE THRESHOLDS. Walk-forward on 1,607 games from 2025-10-01, each priced
+// from games before its date with goal_ladders.both_score: 60% would flag
+// 83% of games for 2+ (5.5 a day) and none for 3+ (it never went past 44%).
+// At 67.5%, 2+ flags about one game a day (16%), which said 69% and hit 70%;
+// at 40%, 3+ flags about one a week (2%), which said 41% and hit 40.5%.
+// Probabilities, not edges: no book price is read.
+export const BOTH_MIN_PCT = { '2': 67.5, '3': 40 };
+
+export function bothScoreHighlights(games, { minPct = BOTH_MIN_PCT, max = MAX_LINES } = {}) {
+  const lines = [];
+  for (const game of games || []) {
+    const both = game?.goal_ladders?.both_score;
+    if (!both) continue;
+    for (const [k, min] of Object.entries(minPct)) {
+      const pct = both[k];
+      if (typeof pct === 'number' && pct >= min) {
+        lines.push({ game, k, label: `Both teams ${k}+ goals`, pct, fair: fairAmerican(pct) });
+      }
+    }
+  }
+  // 3+ first (the rarer one), then highest chance.
+  return lines.sort((a, b) => b.k.localeCompare(a.k) || b.pct - a.pct).slice(0, max);
+}
