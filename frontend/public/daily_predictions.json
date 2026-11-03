@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-11-02T23:26:44.003575+00:00",
+    "generated_at": "2026-11-03T03:15:07.476244+00:00",
     "games_by_date": {
         "2026-10-31": [
             {
@@ -15,8 +15,8 @@
                 },
                 "home": {
                     "name": "BOS",
-                    "record_overall": "10-4-1",
-                    "record_split": "6-1-0",
+                    "record_overall": "11-4-1",
+                    "record_split": "7-1-0",
                     "record_l10": "7-2-1",
                     "ml": "-238",
                     "proj": "4.2"
@@ -160,6 +160,12 @@
                         ],
                         "home": [
                             {
+                                "date": "11/02/26",
+                                "opp": "vs VGK",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
                                 "date": "10/31/26",
                                 "opp": "vs CHI",
                                 "result": "W",
@@ -212,12 +218,6 @@
                                 "opp": "@SJS",
                                 "result": "W",
                                 "score": "6-3"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "vs PHI",
-                                "result": "W",
-                                "score": "5-1"
                             }
                         ],
                         "h2h": [
@@ -347,9 +347,9 @@
                 },
                 "home": {
                     "name": "DET",
-                    "record_overall": "6-5-3",
+                    "record_overall": "7-5-3",
                     "record_split": "4-4-1",
-                    "record_l10": "5-2-3",
+                    "record_l10": "6-2-2",
                     "ml": "-108",
                     "proj": "3.0"
                 },
@@ -492,6 +492,12 @@
                         ],
                         "home": [
                             {
+                                "date": "11/02/26",
+                                "opp": "@FLA",
+                                "result": "W",
+                                "score": "5-3"
+                            },
+                            {
                                 "date": "10/31/26",
                                 "opp": "vs STL",
                                 "result": "L",
@@ -544,12 +550,6 @@
                                 "opp": "vs NJD",
                                 "result": "L",
                                 "score": "4-5"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "@MTL",
-                                "result": "L",
-                                "score": "0-1"
                             }
                         ],
                         "h2h": [
@@ -5045,16 +5045,16 @@
             {
                 "away": {
                     "name": "VGK",
-                    "record_overall": "9-5-1",
-                    "record_split": "3-2-1",
-                    "record_l10": "5-4-1",
+                    "record_overall": "9-5-2",
+                    "record_split": "3-2-2",
+                    "record_l10": "4-4-2",
                     "ml": "-118",
                     "proj": "3.5"
                 },
                 "home": {
                     "name": "BOS",
-                    "record_overall": "10-4-1",
-                    "record_split": "6-1-0",
+                    "record_overall": "11-4-1",
+                    "record_split": "7-1-0",
                     "record_l10": "7-2-1",
                     "ml": "-102",
                     "proj": "3.1"
@@ -5136,6 +5136,12 @@
                     "recent_logs": {
                         "away": [
                             {
+                                "date": "11/02/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
                                 "date": "10/30/26",
                                 "opp": "vs NJD",
                                 "result": "L",
@@ -5188,15 +5194,15 @@
                                 "opp": "@MIN",
                                 "result": "L",
                                 "score": "2-4"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "vs LAK",
-                                "result": "W",
-                                "score": "2-1"
                             }
                         ],
                         "home": [
+                            {
+                                "date": "11/02/26",
+                                "opp": "vs VGK",
+                                "result": "W",
+                                "score": "3-2"
+                            },
                             {
                                 "date": "10/31/26",
                                 "opp": "vs CHI",
@@ -5250,12 +5256,6 @@
                                 "opp": "@SJS",
                                 "result": "W",
                                 "score": "6-3"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "vs PHI",
-                                "result": "W",
-                                "score": "5-1"
                             }
                         ],
                         "h2h": [
@@ -5377,16 +5377,16 @@
             {
                 "away": {
                     "name": "DET",
-                    "record_overall": "6-5-3",
-                    "record_split": "2-1-2",
-                    "record_l10": "5-2-3",
+                    "record_overall": "7-5-3",
+                    "record_split": "3-1-2",
+                    "record_l10": "6-2-2",
                     "ml": "+154",
                     "proj": "2.3"
                 },
                 "home": {
                     "name": "FLA",
-                    "record_overall": "8-4-2",
-                    "record_split": "3-1-0",
+                    "record_overall": "8-5-2",
+                    "record_split": "3-2-0",
                     "record_l10": "6-4-0",
                     "ml": "-185",
                     "proj": "4.0"
@@ -5468,6 +5468,12 @@
                     "recent_logs": {
                         "away": [
                             {
+                                "date": "11/02/26",
+                                "opp": "@FLA",
+                                "result": "W",
+                                "score": "5-3"
+                            },
+                            {
                                 "date": "10/31/26",
                                 "opp": "vs STL",
                                 "result": "L",
@@ -5520,15 +5526,15 @@
                                 "opp": "vs NJD",
                                 "result": "L",
                                 "score": "4-5"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "@MTL",
-                                "result": "L",
-                                "score": "0-1"
                             }
                         ],
                         "home": [
+                            {
+                                "date": "11/02/26",
+                                "opp": "vs DET",
+                                "result": "L",
+                                "score": "3-5"
+                            },
                             {
                                 "date": "10/30/26",
                                 "opp": "vs WPG",
@@ -5582,12 +5588,6 @@
                                 "opp": "@BUF",
                                 "result": "L",
                                 "score": "3-5"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "vs MIN",
-                                "result": "L",
-                                "score": "1-4"
                             }
                         ],
                         "h2h": [
@@ -7099,24 +7099,24 @@
             {
                 "away": {
                     "name": "DET",
-                    "record_overall": "6-5-3",
-                    "record_split": "2-1-2",
-                    "record_l10": "5-2-3",
-                    "ml": "+225",
-                    "proj": "2.0"
+                    "record_overall": "7-5-3",
+                    "record_split": "3-1-2",
+                    "record_l10": "6-2-2",
+                    "ml": "+205",
+                    "proj": "2.1"
                 },
                 "home": {
                     "name": "TBL",
                     "record_overall": "8-3-2",
                     "record_split": "6-0-0",
                     "record_l10": "6-2-2",
-                    "ml": "-278",
-                    "proj": "4.8"
+                    "ml": "-250",
+                    "proj": "4.7"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "71.3%",
-                "home_win_prob": 71.3,
-                "away_win_prob": 28.7,
+                "prob": "69.4%",
+                "home_win_prob": 69.4,
+                "away_win_prob": 30.6,
                 "predicted_winner": "TBL",
                 "time": "7:00 PM EST",
                 "tier": "EDGE",
@@ -7174,21 +7174,27 @@
                     },
                     "league_sv_pct": 0.89
                 },
-                "edge": "+18.9%",
-                "ai_score": 7.7,
+                "edge": "+17.0%",
+                "ai_score": 7.3,
                 "details": {
                     "period_60": {
-                        "p1_winner": "TBL (61%)",
+                        "p1_winner": "TBL (59%)",
                         "p1_over_1_5": "53%",
-                        "min_60_tie": "11%"
+                        "min_60_tie": "12%"
                     },
                     "period_scores": {
                         "p1": "DET 0.6 - TBL 1.4",
-                        "p2": "DET 0.7 - TBL 1.7",
-                        "p3": "DET 0.7 - TBL 1.7"
+                        "p2": "DET 0.7 - TBL 1.6",
+                        "p3": "DET 0.8 - TBL 1.7"
                     },
                     "recent_logs": {
                         "away": [
+                            {
+                                "date": "11/02/26",
+                                "opp": "@FLA",
+                                "result": "W",
+                                "score": "5-3"
+                            },
                             {
                                 "date": "10/31/26",
                                 "opp": "vs STL",
@@ -7242,12 +7248,6 @@
                                 "opp": "vs NJD",
                                 "result": "L",
                                 "score": "4-5"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "@MTL",
-                                "result": "L",
-                                "score": "0-1"
                             }
                         ],
                         "home": [
@@ -7382,12 +7382,12 @@
                     },
                     "notes": [
                         "Goalie Edge: DET starting John Gibson (Expected) vs TBL starting Andrei Vasilevskiy (Expected).",
-                        "Engine calculates TBL win probability at 71.3% based on V5 goalie adjustments.",
+                        "Engine calculates TBL win probability at 69.4% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 181 points."
                     ],
                     "best_angle": {
                         "play": "TBL MONEYLINE",
-                        "edge": "+18.9%"
+                        "edge": "+17.0%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7450,7 +7450,7 @@
                         "rating": 0.51
                     }
                 },
-                "game_score": 57
+                "game_score": 58
             },
             {
                 "away": {
@@ -8119,9 +8119,9 @@
             {
                 "away": {
                     "name": "VGK",
-                    "record_overall": "9-5-1",
-                    "record_split": "3-2-1",
-                    "record_l10": "5-4-1",
+                    "record_overall": "9-5-2",
+                    "record_split": "3-2-2",
+                    "record_l10": "4-4-2",
                     "ml": "-112",
                     "proj": "3.5"
                 },
@@ -8210,6 +8210,12 @@
                     "recent_logs": {
                         "away": [
                             {
+                                "date": "11/02/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
                                 "date": "10/30/26",
                                 "opp": "vs NJD",
                                 "result": "L",
@@ -8262,12 +8268,6 @@
                                 "opp": "@MIN",
                                 "result": "L",
                                 "score": "2-4"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "vs LAK",
-                                "result": "W",
-                                "score": "2-1"
                             }
                         ],
                         "home": [
@@ -8786,21 +8786,21 @@
                     "record_overall": "8-5-1",
                     "record_split": "2-4-0",
                     "record_l10": "5-4-1",
-                    "ml": "-130",
-                    "proj": "3.4"
+                    "ml": "-135",
+                    "proj": "3.5"
                 },
                 "home": {
                     "name": "CBJ",
                     "record_overall": "5-7-0",
                     "record_split": "4-3-0",
                     "record_l10": "4-6-0",
-                    "ml": "+110",
+                    "ml": "+114",
                     "proj": "2.7"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "55.5%",
-                "home_win_prob": 44.5,
-                "away_win_prob": 55.5,
+                "prob": "56.3%",
+                "home_win_prob": 43.7,
+                "away_win_prob": 56.3,
                 "predicted_winner": "COL",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -8858,16 +8858,16 @@
                     },
                     "league_sv_pct": 0.89
                 },
-                "edge": "+3.1%",
-                "ai_score": 4.2,
+                "edge": "+3.9%",
+                "ai_score": 4.4,
                 "details": {
                     "period_60": {
-                        "p1_winner": "COL (47%)",
+                        "p1_winner": "COL (48%)",
                         "p1_over_1_5": "53%",
                         "min_60_tie": "19%"
                     },
                     "period_scores": {
-                        "p1": "COL 1.0 - CBJ 0.8",
+                        "p1": "COL 1.1 - CBJ 0.8",
                         "p2": "COL 1.2 - CBJ 0.9",
                         "p3": "COL 1.2 - CBJ 1.0"
                     },
@@ -9038,16 +9038,16 @@
                     "covers": {
                         "best_ml": "COL ML",
                         "best_spread": "PASS",
-                        "best_ou": "PASS"
+                        "best_ou": "OVER 5.5"
                     },
                     "notes": [
                         "Goalie Edge: COL starting Mackenzie Blackwood (Expected) vs CBJ starting Jet Greaves (Expected).",
-                        "Engine calculates COL win probability at 55.5% based on V5 goalie adjustments.",
+                        "Engine calculates COL win probability at 56.3% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 41 points."
                     ],
                     "best_angle": {
                         "play": "COL MONEYLINE",
-                        "edge": "+3.1%"
+                        "edge": "+3.9%"
                     },
                     "gift_stats": {
                         "away": {
@@ -10525,8 +10525,8 @@
                 },
                 "home": {
                     "name": "FLA",
-                    "record_overall": "8-4-2",
-                    "record_split": "3-1-0",
+                    "record_overall": "8-5-2",
+                    "record_split": "3-2-0",
                     "record_l10": "6-4-0",
                     "ml": "-678",
                     "proj": "5.4"
@@ -10670,6 +10670,12 @@
                         ],
                         "home": [
                             {
+                                "date": "11/02/26",
+                                "opp": "vs DET",
+                                "result": "L",
+                                "score": "3-5"
+                            },
+                            {
                                 "date": "10/30/26",
                                 "opp": "vs WPG",
                                 "result": "W",
@@ -10722,12 +10728,6 @@
                                 "opp": "@BUF",
                                 "result": "L",
                                 "score": "3-5"
-                            },
-                            {
-                                "date": "10/10/26",
-                                "opp": "vs MIN",
-                                "result": "L",
-                                "score": "1-4"
                             }
                         ],
                         "h2h": [
@@ -11572,8 +11572,8 @@
             },
             "home": {
                 "name": "BOS",
-                "record_overall": "10-4-1",
-                "record_split": "6-1-0",
+                "record_overall": "11-4-1",
+                "record_split": "7-1-0",
                 "record_l10": "7-2-1",
                 "ml": "-238",
                 "proj": "4.2"
@@ -11717,6 +11717,12 @@
                     ],
                     "home": [
                         {
+                            "date": "11/02/26",
+                            "opp": "vs VGK",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
                             "date": "10/31/26",
                             "opp": "vs CHI",
                             "result": "W",
@@ -11769,12 +11775,6 @@
                             "opp": "@SJS",
                             "result": "W",
                             "score": "6-3"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs PHI",
-                            "result": "W",
-                            "score": "5-1"
                         }
                     ],
                     "h2h": [
@@ -11904,9 +11904,9 @@
             },
             "home": {
                 "name": "DET",
-                "record_overall": "6-5-3",
+                "record_overall": "7-5-3",
                 "record_split": "4-4-1",
-                "record_l10": "5-2-3",
+                "record_l10": "6-2-2",
                 "ml": "-108",
                 "proj": "3.0"
             },
@@ -12049,6 +12049,12 @@
                     ],
                     "home": [
                         {
+                            "date": "11/02/26",
+                            "opp": "@FLA",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
                             "date": "10/31/26",
                             "opp": "vs STL",
                             "result": "L",
@@ -12101,12 +12107,6 @@
                             "opp": "vs NJD",
                             "result": "L",
                             "score": "4-5"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "@MTL",
-                            "result": "L",
-                            "score": "0-1"
                         }
                     ],
                     "h2h": [
@@ -16602,16 +16602,16 @@
         {
             "away": {
                 "name": "VGK",
-                "record_overall": "9-5-1",
-                "record_split": "3-2-1",
-                "record_l10": "5-4-1",
+                "record_overall": "9-5-2",
+                "record_split": "3-2-2",
+                "record_l10": "4-4-2",
                 "ml": "-118",
                 "proj": "3.5"
             },
             "home": {
                 "name": "BOS",
-                "record_overall": "10-4-1",
-                "record_split": "6-1-0",
+                "record_overall": "11-4-1",
+                "record_split": "7-1-0",
                 "record_l10": "7-2-1",
                 "ml": "-102",
                 "proj": "3.1"
@@ -16693,6 +16693,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/02/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
                             "date": "10/30/26",
                             "opp": "vs NJD",
                             "result": "L",
@@ -16745,15 +16751,15 @@
                             "opp": "@MIN",
                             "result": "L",
                             "score": "2-4"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs LAK",
-                            "result": "W",
-                            "score": "2-1"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "11/02/26",
+                            "opp": "vs VGK",
+                            "result": "W",
+                            "score": "3-2"
+                        },
                         {
                             "date": "10/31/26",
                             "opp": "vs CHI",
@@ -16807,12 +16813,6 @@
                             "opp": "@SJS",
                             "result": "W",
                             "score": "6-3"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs PHI",
-                            "result": "W",
-                            "score": "5-1"
                         }
                     ],
                     "h2h": [
@@ -16934,16 +16934,16 @@
         {
             "away": {
                 "name": "DET",
-                "record_overall": "6-5-3",
-                "record_split": "2-1-2",
-                "record_l10": "5-2-3",
+                "record_overall": "7-5-3",
+                "record_split": "3-1-2",
+                "record_l10": "6-2-2",
                 "ml": "+154",
                 "proj": "2.3"
             },
             "home": {
                 "name": "FLA",
-                "record_overall": "8-4-2",
-                "record_split": "3-1-0",
+                "record_overall": "8-5-2",
+                "record_split": "3-2-0",
                 "record_l10": "6-4-0",
                 "ml": "-185",
                 "proj": "4.0"
@@ -17025,6 +17025,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/02/26",
+                            "opp": "@FLA",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
                             "date": "10/31/26",
                             "opp": "vs STL",
                             "result": "L",
@@ -17077,15 +17083,15 @@
                             "opp": "vs NJD",
                             "result": "L",
                             "score": "4-5"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "@MTL",
-                            "result": "L",
-                            "score": "0-1"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "11/02/26",
+                            "opp": "vs DET",
+                            "result": "L",
+                            "score": "3-5"
+                        },
                         {
                             "date": "10/30/26",
                             "opp": "vs WPG",
@@ -17139,12 +17145,6 @@
                             "opp": "@BUF",
                             "result": "L",
                             "score": "3-5"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs MIN",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "h2h": [
@@ -18656,24 +18656,24 @@
         {
             "away": {
                 "name": "DET",
-                "record_overall": "6-5-3",
-                "record_split": "2-1-2",
-                "record_l10": "5-2-3",
-                "ml": "+225",
-                "proj": "2.0"
+                "record_overall": "7-5-3",
+                "record_split": "3-1-2",
+                "record_l10": "6-2-2",
+                "ml": "+205",
+                "proj": "2.1"
             },
             "home": {
                 "name": "TBL",
                 "record_overall": "8-3-2",
                 "record_split": "6-0-0",
                 "record_l10": "6-2-2",
-                "ml": "-278",
-                "proj": "4.8"
+                "ml": "-250",
+                "proj": "4.7"
             },
             "ou_total": "O/U 7.0",
-            "prob": "71.3%",
-            "home_win_prob": 71.3,
-            "away_win_prob": 28.7,
+            "prob": "69.4%",
+            "home_win_prob": 69.4,
+            "away_win_prob": 30.6,
             "predicted_winner": "TBL",
             "time": "7:00 PM EST",
             "tier": "EDGE",
@@ -18731,21 +18731,27 @@
                 },
                 "league_sv_pct": 0.89
             },
-            "edge": "+18.9%",
-            "ai_score": 7.7,
+            "edge": "+17.0%",
+            "ai_score": 7.3,
             "details": {
                 "period_60": {
-                    "p1_winner": "TBL (61%)",
+                    "p1_winner": "TBL (59%)",
                     "p1_over_1_5": "53%",
-                    "min_60_tie": "11%"
+                    "min_60_tie": "12%"
                 },
                 "period_scores": {
                     "p1": "DET 0.6 - TBL 1.4",
-                    "p2": "DET 0.7 - TBL 1.7",
-                    "p3": "DET 0.7 - TBL 1.7"
+                    "p2": "DET 0.7 - TBL 1.6",
+                    "p3": "DET 0.8 - TBL 1.7"
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "11/02/26",
+                            "opp": "@FLA",
+                            "result": "W",
+                            "score": "5-3"
+                        },
                         {
                             "date": "10/31/26",
                             "opp": "vs STL",
@@ -18799,12 +18805,6 @@
                             "opp": "vs NJD",
                             "result": "L",
                             "score": "4-5"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "@MTL",
-                            "result": "L",
-                            "score": "0-1"
                         }
                     ],
                     "home": [
@@ -18939,12 +18939,12 @@
                 },
                 "notes": [
                     "Goalie Edge: DET starting John Gibson (Expected) vs TBL starting Andrei Vasilevskiy (Expected).",
-                    "Engine calculates TBL win probability at 71.3% based on V5 goalie adjustments.",
+                    "Engine calculates TBL win probability at 69.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 181 points."
                 ],
                 "best_angle": {
                     "play": "TBL MONEYLINE",
-                    "edge": "+18.9%"
+                    "edge": "+17.0%"
                 },
                 "gift_stats": {
                     "away": {
@@ -19007,7 +19007,7 @@
                     "rating": 0.51
                 }
             },
-            "game_score": 57
+            "game_score": 58
         },
         {
             "away": {
@@ -19676,9 +19676,9 @@
         {
             "away": {
                 "name": "VGK",
-                "record_overall": "9-5-1",
-                "record_split": "3-2-1",
-                "record_l10": "5-4-1",
+                "record_overall": "9-5-2",
+                "record_split": "3-2-2",
+                "record_l10": "4-4-2",
                 "ml": "-112",
                 "proj": "3.5"
             },
@@ -19767,6 +19767,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/02/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
                             "date": "10/30/26",
                             "opp": "vs NJD",
                             "result": "L",
@@ -19819,12 +19825,6 @@
                             "opp": "@MIN",
                             "result": "L",
                             "score": "2-4"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs LAK",
-                            "result": "W",
-                            "score": "2-1"
                         }
                     ],
                     "home": [
@@ -20343,21 +20343,21 @@
                 "record_overall": "8-5-1",
                 "record_split": "2-4-0",
                 "record_l10": "5-4-1",
-                "ml": "-130",
-                "proj": "3.4"
+                "ml": "-135",
+                "proj": "3.5"
             },
             "home": {
                 "name": "CBJ",
                 "record_overall": "5-7-0",
                 "record_split": "4-3-0",
                 "record_l10": "4-6-0",
-                "ml": "+110",
+                "ml": "+114",
                 "proj": "2.7"
             },
             "ou_total": "O/U 6.0",
-            "prob": "55.5%",
-            "home_win_prob": 44.5,
-            "away_win_prob": 55.5,
+            "prob": "56.3%",
+            "home_win_prob": 43.7,
+            "away_win_prob": 56.3,
             "predicted_winner": "COL",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -20415,16 +20415,16 @@
                 },
                 "league_sv_pct": 0.89
             },
-            "edge": "+3.1%",
-            "ai_score": 4.2,
+            "edge": "+3.9%",
+            "ai_score": 4.4,
             "details": {
                 "period_60": {
-                    "p1_winner": "COL (47%)",
+                    "p1_winner": "COL (48%)",
                     "p1_over_1_5": "53%",
                     "min_60_tie": "19%"
                 },
                 "period_scores": {
-                    "p1": "COL 1.0 - CBJ 0.8",
+                    "p1": "COL 1.1 - CBJ 0.8",
                     "p2": "COL 1.2 - CBJ 0.9",
                     "p3": "COL 1.2 - CBJ 1.0"
                 },
@@ -20595,16 +20595,16 @@
                 "covers": {
                     "best_ml": "COL ML",
                     "best_spread": "PASS",
-                    "best_ou": "PASS"
+                    "best_ou": "OVER 5.5"
                 },
                 "notes": [
                     "Goalie Edge: COL starting Mackenzie Blackwood (Expected) vs CBJ starting Jet Greaves (Expected).",
-                    "Engine calculates COL win probability at 55.5% based on V5 goalie adjustments.",
+                    "Engine calculates COL win probability at 56.3% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 41 points."
                 ],
                 "best_angle": {
                     "play": "COL MONEYLINE",
-                    "edge": "+3.1%"
+                    "edge": "+3.9%"
                 },
                 "gift_stats": {
                     "away": {
@@ -22082,8 +22082,8 @@
             },
             "home": {
                 "name": "FLA",
-                "record_overall": "8-4-2",
-                "record_split": "3-1-0",
+                "record_overall": "8-5-2",
+                "record_split": "3-2-0",
                 "record_l10": "6-4-0",
                 "ml": "-678",
                 "proj": "5.4"
@@ -22227,6 +22227,12 @@
                     ],
                     "home": [
                         {
+                            "date": "11/02/26",
+                            "opp": "vs DET",
+                            "result": "L",
+                            "score": "3-5"
+                        },
+                        {
                             "date": "10/30/26",
                             "opp": "vs WPG",
                             "result": "W",
@@ -22279,12 +22285,6 @@
                             "opp": "@BUF",
                             "result": "L",
                             "score": "3-5"
-                        },
-                        {
-                            "date": "10/10/26",
-                            "opp": "vs MIN",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "h2h": [
@@ -23519,14 +23519,14 @@
             "rank": 4,
             "team": "BOS",
             "power": 0.68,
-            "overall": "10-4-1",
+            "overall": "11-4-1",
             "l10": "7-2-1",
-            "points": 21,
-            "gp": 15,
-            "gd": 19,
+            "points": 23,
+            "gp": 16,
+            "gd": 20,
             "division": "A",
             "conference": "E",
-            "streak": "W1"
+            "streak": "W2"
         },
         {
             "rank": 5,
@@ -23584,14 +23584,14 @@
             "rank": 9,
             "team": "VGK",
             "power": 0.31,
-            "overall": "9-5-1",
-            "l10": "5-4-1",
-            "points": 19,
-            "gp": 15,
-            "gd": 9,
+            "overall": "9-5-2",
+            "l10": "4-4-2",
+            "points": 20,
+            "gp": 16,
+            "gd": 8,
             "division": "P",
             "conference": "W",
-            "streak": "L1"
+            "streak": "OT1"
         },
         {
             "rank": 10,
@@ -23701,14 +23701,14 @@
             "rank": 18,
             "team": "FLA",
             "power": -0.04,
-            "overall": "8-4-2",
+            "overall": "8-5-2",
             "l10": "6-4-0",
             "points": 18,
-            "gp": 14,
-            "gd": 5,
+            "gp": 15,
+            "gd": 3,
             "division": "A",
             "conference": "E",
-            "streak": "W3"
+            "streak": "L1"
         },
         {
             "rank": 19,
@@ -23766,14 +23766,14 @@
             "rank": 23,
             "team": "DET",
             "power": -0.3,
-            "overall": "6-5-3",
-            "l10": "5-2-3",
-            "points": 15,
-            "gp": 14,
-            "gd": -2,
+            "overall": "7-5-3",
+            "l10": "6-2-2",
+            "points": 17,
+            "gp": 15,
+            "gd": 0,
             "division": "A",
             "conference": "E",
-            "streak": "L1"
+            "streak": "W1"
         },
         {
             "rank": 24,
