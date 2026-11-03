@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-11-03T17:30:51.669551+00:00",
+    "generated_at": "2026-11-03T21:42:39.495354+00:00",
     "games_by_date": {
         "2026-11-01": [
             {
@@ -3062,21 +3062,21 @@
                     "record_overall": "9-6-0",
                     "record_split": "5-4-0",
                     "record_l10": "6-4-0",
-                    "ml": "-130",
-                    "proj": "4.1"
+                    "ml": "-142",
+                    "proj": "4.3"
                 },
                 "home": {
                     "name": "TOR",
                     "record_overall": "8-6-2",
                     "record_split": "4-3-1",
                     "record_l10": "5-4-1",
-                    "ml": "+110",
-                    "proj": "3.3"
+                    "ml": "+120",
+                    "proj": "3.2"
                 },
                 "ou_total": "O/U 7.5",
-                "prob": "55.4%",
-                "home_win_prob": 44.6,
-                "away_win_prob": 55.4,
+                "prob": "57.4%",
+                "home_win_prob": 42.6,
+                "away_win_prob": 57.4,
                 "predicted_winner": "UTA",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -3134,17 +3134,17 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+3.0%",
-                "ai_score": 4.2,
+                "edge": "+5.0%",
+                "ai_score": 4.6,
                 "details": {
                     "period_60": {
-                        "p1_winner": "UTA (47%)",
+                        "p1_winner": "UTA (49%)",
                         "p1_over_1_5": "58%",
-                        "min_60_tie": "19%"
+                        "min_60_tie": "18%"
                     },
                     "period_scores": {
-                        "p1": "UTA 1.2 - TOR 1.0",
-                        "p2": "UTA 1.4 - TOR 1.2",
+                        "p1": "UTA 1.3 - TOR 1.0",
+                        "p2": "UTA 1.5 - TOR 1.1",
                         "p3": "UTA 1.5 - TOR 1.1"
                     },
                     "recent_logs": {
@@ -3306,12 +3306,12 @@
                     },
                     "notes": [
                         "Goalie Edge: UTA starting Karel Vejmelka (Expected) vs TOR starting Sergei Bobrovsky (Expected).",
-                        "Engine calculates UTA win probability at 55.4% based on V5 goalie adjustments.",
+                        "Engine calculates UTA win probability at 57.4% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 31 points."
                     ],
                     "best_angle": {
                         "play": "UTA MONEYLINE",
-                        "edge": "+3.0%"
+                        "edge": "+5.0%"
                     },
                     "gift_stats": {
                         "away": {
@@ -3374,7 +3374,7 @@
                         "rating": -0.0
                     }
                 },
-                "game_score": 71
+                "game_score": 69
             },
             {
                 "away": {
@@ -3382,21 +3382,21 @@
                     "record_overall": "4-8-3",
                     "record_split": "2-4-2",
                     "record_l10": "1-7-2",
-                    "ml": "+154",
-                    "proj": "2.1"
+                    "ml": "+140",
+                    "proj": "2.3"
                 },
                 "home": {
                     "name": "MTL",
                     "record_overall": "9-3-2",
                     "record_split": "4-2-1",
                     "record_l10": "8-1-1",
-                    "ml": "-185",
-                    "proj": "3.7"
+                    "ml": "-166",
+                    "proj": "3.6"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "63.6%",
-                "home_win_prob": 63.6,
-                "away_win_prob": 36.4,
+                "prob": "61.4%",
+                "home_win_prob": 61.4,
+                "away_win_prob": 38.6,
                 "predicted_winner": "MTL",
                 "time": "7:00 PM EST",
                 "tier": "BIG",
@@ -3454,18 +3454,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+11.2%",
-                "ai_score": 6.0,
+                "edge": "+9.0%",
+                "ai_score": 5.5,
                 "details": {
                     "period_60": {
-                        "p1_winner": "MTL (54%)",
+                        "p1_winner": "MTL (52%)",
                         "p1_over_1_5": "52%",
-                        "min_60_tie": "15%"
+                        "min_60_tie": "16%"
                     },
                     "period_scores": {
-                        "p1": "WPG 0.6 - MTL 1.1",
-                        "p2": "WPG 0.7 - MTL 1.3",
-                        "p3": "WPG 0.8 - MTL 1.3"
+                        "p1": "WPG 0.7 - MTL 1.1",
+                        "p2": "WPG 0.8 - MTL 1.3",
+                        "p3": "WPG 0.8 - MTL 1.2"
                     },
                     "recent_logs": {
                         "away": [
@@ -3633,17 +3633,17 @@
                     },
                     "covers": {
                         "best_ml": "MTL ML",
-                        "best_spread": "MTL -1.5",
+                        "best_spread": "PASS",
                         "best_ou": "PASS"
                     },
                     "notes": [
                         "Goalie Edge: WPG starting Stuart Skinner (Expected) vs MTL starting Jacob Fowler (Expected).",
-                        "Engine calculates MTL win probability at 63.6% based on V5 goalie adjustments.",
+                        "Engine calculates MTL win probability at 61.4% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 248 points."
                     ],
                     "best_angle": {
                         "play": "MTL MONEYLINE",
-                        "edge": "+11.2%"
+                        "edge": "+9.0%"
                     },
                     "gift_stats": {
                         "away": {
@@ -3706,7 +3706,7 @@
                         "rating": 0.42
                     }
                 },
-                "game_score": 54
+                "game_score": 56
             },
             {
                 "away": {
@@ -3714,7 +3714,7 @@
                     "record_overall": "7-5-3",
                     "record_split": "3-1-2",
                     "record_l10": "6-2-2",
-                    "ml": "+215",
+                    "ml": "+225",
                     "proj": "2.1"
                 },
                 "home": {
@@ -3722,13 +3722,13 @@
                     "record_overall": "8-3-2",
                     "record_split": "6-0-0",
                     "record_l10": "6-2-2",
-                    "ml": "-265",
-                    "proj": "5.0"
+                    "ml": "-278",
+                    "proj": "5.1"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "70.2%",
-                "home_win_prob": 70.2,
-                "away_win_prob": 29.8,
+                "prob": "71.1%",
+                "home_win_prob": 71.1,
+                "away_win_prob": 28.9,
                 "predicted_winner": "TBL",
                 "time": "7:00 PM EST",
                 "tier": "EDGE",
@@ -3786,18 +3786,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+17.8%",
-                "ai_score": 7.5,
+                "edge": "+18.7%",
+                "ai_score": 7.7,
                 "details": {
                     "period_60": {
                         "p1_winner": "TBL (60%)",
                         "p1_over_1_5": "53%",
-                        "min_60_tie": "12%"
+                        "min_60_tie": "11%"
                     },
                     "period_scores": {
                         "p1": "DET 0.6 - TBL 1.5",
                         "p2": "DET 0.7 - TBL 1.8",
-                        "p3": "DET 0.8 - TBL 1.7"
+                        "p3": "DET 0.8 - TBL 1.8"
                     },
                     "recent_logs": {
                         "away": [
@@ -3994,12 +3994,12 @@
                     },
                     "notes": [
                         "Goalie Edge: DET starting John Gibson (Expected) vs TBL starting Andrei Vasilevskiy (Expected).",
-                        "Engine calculates TBL win probability at 70.2% based on V5 goalie adjustments.",
+                        "Engine calculates TBL win probability at 71.1% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 164 points."
                     ],
                     "best_angle": {
                         "play": "TBL MONEYLINE",
-                        "edge": "+17.8%"
+                        "edge": "+18.7%"
                     },
                     "gift_stats": {
                         "away": {
@@ -4062,7 +4062,7 @@
                         "rating": 0.51
                     }
                 },
-                "game_score": 59
+                "game_score": 58
             },
             {
                 "away": {
@@ -5730,21 +5730,21 @@
                     "record_overall": "11-2-2",
                     "record_split": "7-0-0",
                     "record_l10": "7-2-1",
-                    "ml": "+130",
-                    "proj": "2.8"
+                    "ml": "+136",
+                    "proj": "2.7"
                 },
                 "home": {
                     "name": "NJD",
                     "record_overall": "9-5-0",
                     "record_split": "6-2-0",
                     "record_l10": "7-3-0",
-                    "ml": "-155",
-                    "proj": "3.7"
+                    "ml": "-162",
+                    "proj": "3.8"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "56.8%",
-                "home_win_prob": 56.8,
-                "away_win_prob": 43.2,
+                "prob": "57.8%",
+                "home_win_prob": 57.8,
+                "away_win_prob": 42.2,
                 "predicted_winner": "NJD",
                 "time": "7:30 PM EST",
                 "tier": "NONE",
@@ -5802,18 +5802,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+4.4%",
-                "ai_score": 4.5,
+                "edge": "+5.4%",
+                "ai_score": 4.7,
                 "details": {
                     "period_60": {
-                        "p1_winner": "NJD (48%)",
+                        "p1_winner": "NJD (49%)",
                         "p1_over_1_5": "56%",
-                        "min_60_tie": "19%"
+                        "min_60_tie": "18%"
                     },
                     "period_scores": {
                         "p1": "EDM 0.8 - NJD 1.1",
-                        "p2": "EDM 1.0 - NJD 1.3",
-                        "p3": "EDM 1.0 - NJD 1.3"
+                        "p2": "EDM 0.9 - NJD 1.3",
+                        "p3": "EDM 1.0 - NJD 1.4"
                     },
                     "recent_logs": {
                         "away": [
@@ -5986,12 +5986,12 @@
                     },
                     "notes": [
                         "Goalie Edge: EDM starting Tristan Jarry (Expected) vs NJD starting Jake Allen (Expected).",
-                        "Engine calculates NJD win probability at 56.8% based on V5 goalie adjustments.",
+                        "Engine calculates NJD win probability at 57.8% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 53 points."
                     ],
                     "best_angle": {
                         "play": "NJD MONEYLINE",
-                        "edge": "+4.4%"
+                        "edge": "+5.4%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6054,7 +6054,7 @@
                         "rating": 0.28
                     }
                 },
-                "game_score": 82
+                "game_score": 81
             },
             {
                 "away": {
@@ -6418,21 +6418,21 @@
                     "record_overall": "6-7-1",
                     "record_split": "4-3-0",
                     "record_l10": "3-6-1",
-                    "ml": "-155",
-                    "proj": "4.3"
+                    "ml": "-180",
+                    "proj": "4.5"
                 },
                 "home": {
                     "name": "VAN",
                     "record_overall": "3-12-1",
                     "record_split": "1-6-0",
                     "record_l10": "1-8-1",
-                    "ml": "+130",
-                    "proj": "2.9"
+                    "ml": "+150",
+                    "proj": "2.7"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "59.5%",
-                "home_win_prob": 40.5,
-                "away_win_prob": 59.5,
+                "prob": "62.7%",
+                "home_win_prob": 37.3,
+                "away_win_prob": 62.7,
                 "predicted_winner": "ANA",
                 "time": "9:00 PM EST",
                 "tier": "NONE",
@@ -6490,18 +6490,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+7.1%",
-                "ai_score": 5.1,
+                "edge": "+10.3%",
+                "ai_score": 5.8,
                 "details": {
                     "period_60": {
-                        "p1_winner": "ANA (51%)",
+                        "p1_winner": "ANA (53%)",
                         "p1_over_1_5": "60%",
-                        "min_60_tie": "17%"
+                        "min_60_tie": "16%"
                     },
                     "period_scores": {
-                        "p1": "ANA 1.3 - VAN 0.9",
-                        "p2": "ANA 1.5 - VAN 1.0",
-                        "p3": "ANA 1.5 - VAN 1.0"
+                        "p1": "ANA 1.3 - VAN 0.8",
+                        "p2": "ANA 1.6 - VAN 0.9",
+                        "p3": "ANA 1.6 - VAN 1.0"
                     },
                     "recent_logs": {
                         "away": [
@@ -6693,17 +6693,17 @@
                     },
                     "covers": {
                         "best_ml": "ANA ML",
-                        "best_spread": "PASS",
+                        "best_spread": "ANA -1.5",
                         "best_ou": "OVER 5.5"
                     },
                     "notes": [
                         "Goalie Edge: ANA starting Lukas Dostal (Expected) vs VAN starting Leevi Meril\u00e4inen (Expected).",
-                        "Engine calculates ANA win probability at 59.5% based on V5 goalie adjustments.",
+                        "Engine calculates ANA win probability at 62.7% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 99 points."
                     ],
                     "best_angle": {
                         "play": "ANA MONEYLINE",
-                        "edge": "+7.1%"
+                        "edge": "+10.3%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6766,7 +6766,7 @@
                         "rating": -1.31
                     }
                 },
-                "game_score": 39
+                "game_score": 37
             }
         ],
         "2026-11-04": [
@@ -6776,21 +6776,21 @@
                     "record_overall": "9-6-1",
                     "record_split": "4-4-1",
                     "record_l10": "4-5-1",
-                    "ml": "+124",
-                    "proj": "2.9"
+                    "ml": "+114",
+                    "proj": "3.0"
                 },
                 "home": {
                     "name": "BUF",
                     "record_overall": "7-4-3",
                     "record_split": "3-3-0",
                     "record_l10": "5-2-3",
-                    "ml": "-148",
-                    "proj": "4.1"
+                    "ml": "-135",
+                    "proj": "3.9"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "58.3%",
-                "home_win_prob": 58.3,
-                "away_win_prob": 41.7,
+                "prob": "56.4%",
+                "home_win_prob": 56.4,
+                "away_win_prob": 43.6,
                 "predicted_winner": "BUF",
                 "time": "7:30 PM EST",
                 "tier": "NONE",
@@ -6848,18 +6848,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+5.9%",
-                "ai_score": 4.9,
+                "edge": "+4.0%",
+                "ai_score": 4.4,
                 "details": {
                     "period_60": {
-                        "p1_winner": "BUF (50%)",
+                        "p1_winner": "BUF (48%)",
                         "p1_over_1_5": "54%",
-                        "min_60_tie": "18%"
+                        "min_60_tie": "19%"
                     },
                     "period_scores": {
                         "p1": "OTT 0.9 - BUF 1.2",
                         "p2": "OTT 1.0 - BUF 1.4",
-                        "p3": "OTT 1.0 - BUF 1.5"
+                        "p3": "OTT 1.1 - BUF 1.3"
                     },
                     "recent_logs": {
                         "away": [
@@ -7056,12 +7056,12 @@
                     },
                     "notes": [
                         "Goalie Edge: OTT starting Linus Ullmark (Expected) vs BUF starting Ukko-Pekka Luukkonen (Expected).",
-                        "Engine calculates BUF win probability at 58.3% based on V5 goalie adjustments.",
+                        "Engine calculates BUF win probability at 56.4% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 101 points."
                     ],
                     "best_angle": {
                         "play": "BUF MONEYLINE",
-                        "edge": "+5.9%"
+                        "edge": "+4.0%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7124,7 +7124,7 @@
                         "rating": 0.13
                     }
                 },
-                "game_score": 69
+                "game_score": 71
             },
             {
                 "away": {
@@ -7464,21 +7464,21 @@
                     "record_overall": "7-8-1",
                     "record_split": "4-3-1",
                     "record_l10": "4-5-1",
-                    "ml": "+140",
-                    "proj": "2.4"
+                    "ml": "+130",
+                    "proj": "2.5"
                 },
                 "home": {
                     "name": "LAK",
                     "record_overall": "4-7-2",
                     "record_split": "1-4-0",
                     "record_l10": "4-5-1",
-                    "ml": "-166",
-                    "proj": "3.3"
+                    "ml": "-155",
+                    "proj": "3.2"
                 },
                 "ou_total": "O/U 5.5",
-                "prob": "58.3%",
-                "home_win_prob": 58.3,
-                "away_win_prob": 41.7,
+                "prob": "56.7%",
+                "home_win_prob": 56.7,
+                "away_win_prob": 43.3,
                 "predicted_winner": "LAK",
                 "time": "10:00 PM EST",
                 "tier": "NONE",
@@ -7536,18 +7536,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+5.9%",
-                "ai_score": 4.8,
+                "edge": "+4.3%",
+                "ai_score": 4.5,
                 "details": {
                     "period_60": {
-                        "p1_winner": "LAK (50%)",
+                        "p1_winner": "LAK (48%)",
                         "p1_over_1_5": "51%",
-                        "min_60_tie": "18%"
+                        "min_60_tie": "19%"
                     },
                     "period_scores": {
-                        "p1": "SJS 0.7 - LAK 1.0",
-                        "p2": "SJS 0.8 - LAK 1.2",
-                        "p3": "SJS 0.9 - LAK 1.1"
+                        "p1": "SJS 0.8 - LAK 1.0",
+                        "p2": "SJS 0.9 - LAK 1.1",
+                        "p3": "SJS 0.8 - LAK 1.1"
                     },
                     "recent_logs": {
                         "away": [
@@ -7744,12 +7744,12 @@
                     },
                     "notes": [
                         "Goalie Edge: SJS starting Yaroslav Askarov (Expected) vs LAK starting Darcy Kuemper (Expected).",
-                        "Engine calculates LAK win probability at 58.3% based on V5 goalie adjustments.",
+                        "Engine calculates LAK win probability at 56.7% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 11 points."
                     ],
                     "best_angle": {
                         "play": "LAK MONEYLINE",
-                        "edge": "+5.9%"
+                        "edge": "+4.3%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7812,7 +7812,7 @@
                         "rating": -0.41
                     }
                 },
-                "game_score": 41
+                "game_score": 42
             },
             {
                 "away": {
@@ -7820,21 +7820,21 @@
                     "record_overall": "7-8-0",
                     "record_split": "2-5-0",
                     "record_l10": "7-3-0",
-                    "ml": "+140",
-                    "proj": "2.7"
+                    "ml": "+120",
+                    "proj": "3.0"
                 },
                 "home": {
                     "name": "SEA",
                     "record_overall": "8-5-1",
                     "record_split": "4-2-0",
                     "record_l10": "6-3-1",
-                    "ml": "-166",
-                    "proj": "4.0"
+                    "ml": "-142",
+                    "proj": "3.7"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "59.0%",
-                "home_win_prob": 59.0,
-                "away_win_prob": 41.0,
+                "prob": "55.5%",
+                "home_win_prob": 55.5,
+                "away_win_prob": 44.5,
                 "predicted_winner": "SEA",
                 "time": "10:00 PM EST",
                 "tier": "NONE",
@@ -7892,18 +7892,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+6.6%",
-                "ai_score": 5.0,
+                "edge": "+3.1%",
+                "ai_score": 4.2,
                 "details": {
                     "period_60": {
-                        "p1_winner": "SEA (50%)",
+                        "p1_winner": "SEA (47%)",
                         "p1_over_1_5": "52%",
-                        "min_60_tie": "18%"
+                        "min_60_tie": "19%"
                     },
                     "period_scores": {
-                        "p1": "CGY 0.8 - SEA 1.2",
-                        "p2": "CGY 0.9 - SEA 1.4",
-                        "p3": "CGY 1.0 - SEA 1.4"
+                        "p1": "CGY 0.9 - SEA 1.1",
+                        "p2": "CGY 1.0 - SEA 1.3",
+                        "p3": "CGY 1.1 - SEA 1.3"
                     },
                     "recent_logs": {
                         "away": [
@@ -8100,12 +8100,12 @@
                     },
                     "notes": [
                         "Goalie Edge: CGY starting Dustin Wolf (Expected) vs SEA starting Philipp Grubauer (Expected).",
-                        "Engine calculates SEA win probability at 59.0% based on V5 goalie adjustments.",
+                        "Engine calculates SEA win probability at 55.5% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 33 points."
                     ],
                     "best_angle": {
                         "play": "SEA MONEYLINE",
-                        "edge": "+6.6%"
+                        "edge": "+3.1%"
                     },
                     "gift_stats": {
                         "away": {
@@ -8168,7 +8168,7 @@
                         "rating": -0.3
                     }
                 },
-                "game_score": 44
+                "game_score": 47
             }
         ],
         "2026-11-05": [
@@ -15005,21 +15005,21 @@
                 "record_overall": "9-6-0",
                 "record_split": "5-4-0",
                 "record_l10": "6-4-0",
-                "ml": "-130",
-                "proj": "4.1"
+                "ml": "-142",
+                "proj": "4.3"
             },
             "home": {
                 "name": "TOR",
                 "record_overall": "8-6-2",
                 "record_split": "4-3-1",
                 "record_l10": "5-4-1",
-                "ml": "+110",
-                "proj": "3.3"
+                "ml": "+120",
+                "proj": "3.2"
             },
             "ou_total": "O/U 7.5",
-            "prob": "55.4%",
-            "home_win_prob": 44.6,
-            "away_win_prob": 55.4,
+            "prob": "57.4%",
+            "home_win_prob": 42.6,
+            "away_win_prob": 57.4,
             "predicted_winner": "UTA",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -15077,17 +15077,17 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+3.0%",
-            "ai_score": 4.2,
+            "edge": "+5.0%",
+            "ai_score": 4.6,
             "details": {
                 "period_60": {
-                    "p1_winner": "UTA (47%)",
+                    "p1_winner": "UTA (49%)",
                     "p1_over_1_5": "58%",
-                    "min_60_tie": "19%"
+                    "min_60_tie": "18%"
                 },
                 "period_scores": {
-                    "p1": "UTA 1.2 - TOR 1.0",
-                    "p2": "UTA 1.4 - TOR 1.2",
+                    "p1": "UTA 1.3 - TOR 1.0",
+                    "p2": "UTA 1.5 - TOR 1.1",
                     "p3": "UTA 1.5 - TOR 1.1"
                 },
                 "recent_logs": {
@@ -15249,12 +15249,12 @@
                 },
                 "notes": [
                     "Goalie Edge: UTA starting Karel Vejmelka (Expected) vs TOR starting Sergei Bobrovsky (Expected).",
-                    "Engine calculates UTA win probability at 55.4% based on V5 goalie adjustments.",
+                    "Engine calculates UTA win probability at 57.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 31 points."
                 ],
                 "best_angle": {
                     "play": "UTA MONEYLINE",
-                    "edge": "+3.0%"
+                    "edge": "+5.0%"
                 },
                 "gift_stats": {
                     "away": {
@@ -15317,7 +15317,7 @@
                     "rating": -0.0
                 }
             },
-            "game_score": 71
+            "game_score": 69
         },
         {
             "away": {
@@ -15325,21 +15325,21 @@
                 "record_overall": "4-8-3",
                 "record_split": "2-4-2",
                 "record_l10": "1-7-2",
-                "ml": "+154",
-                "proj": "2.1"
+                "ml": "+140",
+                "proj": "2.3"
             },
             "home": {
                 "name": "MTL",
                 "record_overall": "9-3-2",
                 "record_split": "4-2-1",
                 "record_l10": "8-1-1",
-                "ml": "-185",
-                "proj": "3.7"
+                "ml": "-166",
+                "proj": "3.6"
             },
             "ou_total": "O/U 6.0",
-            "prob": "63.6%",
-            "home_win_prob": 63.6,
-            "away_win_prob": 36.4,
+            "prob": "61.4%",
+            "home_win_prob": 61.4,
+            "away_win_prob": 38.6,
             "predicted_winner": "MTL",
             "time": "7:00 PM EST",
             "tier": "BIG",
@@ -15397,18 +15397,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+11.2%",
-            "ai_score": 6.0,
+            "edge": "+9.0%",
+            "ai_score": 5.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "MTL (54%)",
+                    "p1_winner": "MTL (52%)",
                     "p1_over_1_5": "52%",
-                    "min_60_tie": "15%"
+                    "min_60_tie": "16%"
                 },
                 "period_scores": {
-                    "p1": "WPG 0.6 - MTL 1.1",
-                    "p2": "WPG 0.7 - MTL 1.3",
-                    "p3": "WPG 0.8 - MTL 1.3"
+                    "p1": "WPG 0.7 - MTL 1.1",
+                    "p2": "WPG 0.8 - MTL 1.3",
+                    "p3": "WPG 0.8 - MTL 1.2"
                 },
                 "recent_logs": {
                     "away": [
@@ -15576,17 +15576,17 @@
                 },
                 "covers": {
                     "best_ml": "MTL ML",
-                    "best_spread": "MTL -1.5",
+                    "best_spread": "PASS",
                     "best_ou": "PASS"
                 },
                 "notes": [
                     "Goalie Edge: WPG starting Stuart Skinner (Expected) vs MTL starting Jacob Fowler (Expected).",
-                    "Engine calculates MTL win probability at 63.6% based on V5 goalie adjustments.",
+                    "Engine calculates MTL win probability at 61.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 248 points."
                 ],
                 "best_angle": {
                     "play": "MTL MONEYLINE",
-                    "edge": "+11.2%"
+                    "edge": "+9.0%"
                 },
                 "gift_stats": {
                     "away": {
@@ -15649,7 +15649,7 @@
                     "rating": 0.42
                 }
             },
-            "game_score": 54
+            "game_score": 56
         },
         {
             "away": {
@@ -15657,7 +15657,7 @@
                 "record_overall": "7-5-3",
                 "record_split": "3-1-2",
                 "record_l10": "6-2-2",
-                "ml": "+215",
+                "ml": "+225",
                 "proj": "2.1"
             },
             "home": {
@@ -15665,13 +15665,13 @@
                 "record_overall": "8-3-2",
                 "record_split": "6-0-0",
                 "record_l10": "6-2-2",
-                "ml": "-265",
-                "proj": "5.0"
+                "ml": "-278",
+                "proj": "5.1"
             },
             "ou_total": "O/U 7.0",
-            "prob": "70.2%",
-            "home_win_prob": 70.2,
-            "away_win_prob": 29.8,
+            "prob": "71.1%",
+            "home_win_prob": 71.1,
+            "away_win_prob": 28.9,
             "predicted_winner": "TBL",
             "time": "7:00 PM EST",
             "tier": "EDGE",
@@ -15729,18 +15729,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+17.8%",
-            "ai_score": 7.5,
+            "edge": "+18.7%",
+            "ai_score": 7.7,
             "details": {
                 "period_60": {
                     "p1_winner": "TBL (60%)",
                     "p1_over_1_5": "53%",
-                    "min_60_tie": "12%"
+                    "min_60_tie": "11%"
                 },
                 "period_scores": {
                     "p1": "DET 0.6 - TBL 1.5",
                     "p2": "DET 0.7 - TBL 1.8",
-                    "p3": "DET 0.8 - TBL 1.7"
+                    "p3": "DET 0.8 - TBL 1.8"
                 },
                 "recent_logs": {
                     "away": [
@@ -15937,12 +15937,12 @@
                 },
                 "notes": [
                     "Goalie Edge: DET starting John Gibson (Expected) vs TBL starting Andrei Vasilevskiy (Expected).",
-                    "Engine calculates TBL win probability at 70.2% based on V5 goalie adjustments.",
+                    "Engine calculates TBL win probability at 71.1% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 164 points."
                 ],
                 "best_angle": {
                     "play": "TBL MONEYLINE",
-                    "edge": "+17.8%"
+                    "edge": "+18.7%"
                 },
                 "gift_stats": {
                     "away": {
@@ -16005,7 +16005,7 @@
                     "rating": 0.51
                 }
             },
-            "game_score": 59
+            "game_score": 58
         },
         {
             "away": {
@@ -17673,21 +17673,21 @@
                 "record_overall": "11-2-2",
                 "record_split": "7-0-0",
                 "record_l10": "7-2-1",
-                "ml": "+130",
-                "proj": "2.8"
+                "ml": "+136",
+                "proj": "2.7"
             },
             "home": {
                 "name": "NJD",
                 "record_overall": "9-5-0",
                 "record_split": "6-2-0",
                 "record_l10": "7-3-0",
-                "ml": "-155",
-                "proj": "3.7"
+                "ml": "-162",
+                "proj": "3.8"
             },
             "ou_total": "O/U 6.5",
-            "prob": "56.8%",
-            "home_win_prob": 56.8,
-            "away_win_prob": 43.2,
+            "prob": "57.8%",
+            "home_win_prob": 57.8,
+            "away_win_prob": 42.2,
             "predicted_winner": "NJD",
             "time": "7:30 PM EST",
             "tier": "NONE",
@@ -17745,18 +17745,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+4.4%",
-            "ai_score": 4.5,
+            "edge": "+5.4%",
+            "ai_score": 4.7,
             "details": {
                 "period_60": {
-                    "p1_winner": "NJD (48%)",
+                    "p1_winner": "NJD (49%)",
                     "p1_over_1_5": "56%",
-                    "min_60_tie": "19%"
+                    "min_60_tie": "18%"
                 },
                 "period_scores": {
                     "p1": "EDM 0.8 - NJD 1.1",
-                    "p2": "EDM 1.0 - NJD 1.3",
-                    "p3": "EDM 1.0 - NJD 1.3"
+                    "p2": "EDM 0.9 - NJD 1.3",
+                    "p3": "EDM 1.0 - NJD 1.4"
                 },
                 "recent_logs": {
                     "away": [
@@ -17929,12 +17929,12 @@
                 },
                 "notes": [
                     "Goalie Edge: EDM starting Tristan Jarry (Expected) vs NJD starting Jake Allen (Expected).",
-                    "Engine calculates NJD win probability at 56.8% based on V5 goalie adjustments.",
+                    "Engine calculates NJD win probability at 57.8% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 53 points."
                 ],
                 "best_angle": {
                     "play": "NJD MONEYLINE",
-                    "edge": "+4.4%"
+                    "edge": "+5.4%"
                 },
                 "gift_stats": {
                     "away": {
@@ -17997,7 +17997,7 @@
                     "rating": 0.28
                 }
             },
-            "game_score": 82
+            "game_score": 81
         },
         {
             "away": {
@@ -18361,21 +18361,21 @@
                 "record_overall": "6-7-1",
                 "record_split": "4-3-0",
                 "record_l10": "3-6-1",
-                "ml": "-155",
-                "proj": "4.3"
+                "ml": "-180",
+                "proj": "4.5"
             },
             "home": {
                 "name": "VAN",
                 "record_overall": "3-12-1",
                 "record_split": "1-6-0",
                 "record_l10": "1-8-1",
-                "ml": "+130",
-                "proj": "2.9"
+                "ml": "+150",
+                "proj": "2.7"
             },
             "ou_total": "O/U 7.0",
-            "prob": "59.5%",
-            "home_win_prob": 40.5,
-            "away_win_prob": 59.5,
+            "prob": "62.7%",
+            "home_win_prob": 37.3,
+            "away_win_prob": 62.7,
             "predicted_winner": "ANA",
             "time": "9:00 PM EST",
             "tier": "NONE",
@@ -18433,18 +18433,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+7.1%",
-            "ai_score": 5.1,
+            "edge": "+10.3%",
+            "ai_score": 5.8,
             "details": {
                 "period_60": {
-                    "p1_winner": "ANA (51%)",
+                    "p1_winner": "ANA (53%)",
                     "p1_over_1_5": "60%",
-                    "min_60_tie": "17%"
+                    "min_60_tie": "16%"
                 },
                 "period_scores": {
-                    "p1": "ANA 1.3 - VAN 0.9",
-                    "p2": "ANA 1.5 - VAN 1.0",
-                    "p3": "ANA 1.5 - VAN 1.0"
+                    "p1": "ANA 1.3 - VAN 0.8",
+                    "p2": "ANA 1.6 - VAN 0.9",
+                    "p3": "ANA 1.6 - VAN 1.0"
                 },
                 "recent_logs": {
                     "away": [
@@ -18636,17 +18636,17 @@
                 },
                 "covers": {
                     "best_ml": "ANA ML",
-                    "best_spread": "PASS",
+                    "best_spread": "ANA -1.5",
                     "best_ou": "OVER 5.5"
                 },
                 "notes": [
                     "Goalie Edge: ANA starting Lukas Dostal (Expected) vs VAN starting Leevi Meril\u00e4inen (Expected).",
-                    "Engine calculates ANA win probability at 59.5% based on V5 goalie adjustments.",
+                    "Engine calculates ANA win probability at 62.7% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 99 points."
                 ],
                 "best_angle": {
                     "play": "ANA MONEYLINE",
-                    "edge": "+7.1%"
+                    "edge": "+10.3%"
                 },
                 "gift_stats": {
                     "away": {
@@ -18709,7 +18709,7 @@
                     "rating": -1.31
                 }
             },
-            "game_score": 39
+            "game_score": 37
         }
     ],
     "tomorrow": [
@@ -18719,21 +18719,21 @@
                 "record_overall": "9-6-1",
                 "record_split": "4-4-1",
                 "record_l10": "4-5-1",
-                "ml": "+124",
-                "proj": "2.9"
+                "ml": "+114",
+                "proj": "3.0"
             },
             "home": {
                 "name": "BUF",
                 "record_overall": "7-4-3",
                 "record_split": "3-3-0",
                 "record_l10": "5-2-3",
-                "ml": "-148",
-                "proj": "4.1"
+                "ml": "-135",
+                "proj": "3.9"
             },
             "ou_total": "O/U 7.0",
-            "prob": "58.3%",
-            "home_win_prob": 58.3,
-            "away_win_prob": 41.7,
+            "prob": "56.4%",
+            "home_win_prob": 56.4,
+            "away_win_prob": 43.6,
             "predicted_winner": "BUF",
             "time": "7:30 PM EST",
             "tier": "NONE",
@@ -18791,18 +18791,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+5.9%",
-            "ai_score": 4.9,
+            "edge": "+4.0%",
+            "ai_score": 4.4,
             "details": {
                 "period_60": {
-                    "p1_winner": "BUF (50%)",
+                    "p1_winner": "BUF (48%)",
                     "p1_over_1_5": "54%",
-                    "min_60_tie": "18%"
+                    "min_60_tie": "19%"
                 },
                 "period_scores": {
                     "p1": "OTT 0.9 - BUF 1.2",
                     "p2": "OTT 1.0 - BUF 1.4",
-                    "p3": "OTT 1.0 - BUF 1.5"
+                    "p3": "OTT 1.1 - BUF 1.3"
                 },
                 "recent_logs": {
                     "away": [
@@ -18999,12 +18999,12 @@
                 },
                 "notes": [
                     "Goalie Edge: OTT starting Linus Ullmark (Expected) vs BUF starting Ukko-Pekka Luukkonen (Expected).",
-                    "Engine calculates BUF win probability at 58.3% based on V5 goalie adjustments.",
+                    "Engine calculates BUF win probability at 56.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 101 points."
                 ],
                 "best_angle": {
                     "play": "BUF MONEYLINE",
-                    "edge": "+5.9%"
+                    "edge": "+4.0%"
                 },
                 "gift_stats": {
                     "away": {
@@ -19067,7 +19067,7 @@
                     "rating": 0.13
                 }
             },
-            "game_score": 69
+            "game_score": 71
         },
         {
             "away": {
@@ -19407,21 +19407,21 @@
                 "record_overall": "7-8-1",
                 "record_split": "4-3-1",
                 "record_l10": "4-5-1",
-                "ml": "+140",
-                "proj": "2.4"
+                "ml": "+130",
+                "proj": "2.5"
             },
             "home": {
                 "name": "LAK",
                 "record_overall": "4-7-2",
                 "record_split": "1-4-0",
                 "record_l10": "4-5-1",
-                "ml": "-166",
-                "proj": "3.3"
+                "ml": "-155",
+                "proj": "3.2"
             },
             "ou_total": "O/U 5.5",
-            "prob": "58.3%",
-            "home_win_prob": 58.3,
-            "away_win_prob": 41.7,
+            "prob": "56.7%",
+            "home_win_prob": 56.7,
+            "away_win_prob": 43.3,
             "predicted_winner": "LAK",
             "time": "10:00 PM EST",
             "tier": "NONE",
@@ -19479,18 +19479,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+5.9%",
-            "ai_score": 4.8,
+            "edge": "+4.3%",
+            "ai_score": 4.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "LAK (50%)",
+                    "p1_winner": "LAK (48%)",
                     "p1_over_1_5": "51%",
-                    "min_60_tie": "18%"
+                    "min_60_tie": "19%"
                 },
                 "period_scores": {
-                    "p1": "SJS 0.7 - LAK 1.0",
-                    "p2": "SJS 0.8 - LAK 1.2",
-                    "p3": "SJS 0.9 - LAK 1.1"
+                    "p1": "SJS 0.8 - LAK 1.0",
+                    "p2": "SJS 0.9 - LAK 1.1",
+                    "p3": "SJS 0.8 - LAK 1.1"
                 },
                 "recent_logs": {
                     "away": [
@@ -19687,12 +19687,12 @@
                 },
                 "notes": [
                     "Goalie Edge: SJS starting Yaroslav Askarov (Expected) vs LAK starting Darcy Kuemper (Expected).",
-                    "Engine calculates LAK win probability at 58.3% based on V5 goalie adjustments.",
+                    "Engine calculates LAK win probability at 56.7% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 11 points."
                 ],
                 "best_angle": {
                     "play": "LAK MONEYLINE",
-                    "edge": "+5.9%"
+                    "edge": "+4.3%"
                 },
                 "gift_stats": {
                     "away": {
@@ -19755,7 +19755,7 @@
                     "rating": -0.41
                 }
             },
-            "game_score": 41
+            "game_score": 42
         },
         {
             "away": {
@@ -19763,21 +19763,21 @@
                 "record_overall": "7-8-0",
                 "record_split": "2-5-0",
                 "record_l10": "7-3-0",
-                "ml": "+140",
-                "proj": "2.7"
+                "ml": "+120",
+                "proj": "3.0"
             },
             "home": {
                 "name": "SEA",
                 "record_overall": "8-5-1",
                 "record_split": "4-2-0",
                 "record_l10": "6-3-1",
-                "ml": "-166",
-                "proj": "4.0"
+                "ml": "-142",
+                "proj": "3.7"
             },
             "ou_total": "O/U 6.5",
-            "prob": "59.0%",
-            "home_win_prob": 59.0,
-            "away_win_prob": 41.0,
+            "prob": "55.5%",
+            "home_win_prob": 55.5,
+            "away_win_prob": 44.5,
             "predicted_winner": "SEA",
             "time": "10:00 PM EST",
             "tier": "NONE",
@@ -19835,18 +19835,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+6.6%",
-            "ai_score": 5.0,
+            "edge": "+3.1%",
+            "ai_score": 4.2,
             "details": {
                 "period_60": {
-                    "p1_winner": "SEA (50%)",
+                    "p1_winner": "SEA (47%)",
                     "p1_over_1_5": "52%",
-                    "min_60_tie": "18%"
+                    "min_60_tie": "19%"
                 },
                 "period_scores": {
-                    "p1": "CGY 0.8 - SEA 1.2",
-                    "p2": "CGY 0.9 - SEA 1.4",
-                    "p3": "CGY 1.0 - SEA 1.4"
+                    "p1": "CGY 0.9 - SEA 1.1",
+                    "p2": "CGY 1.0 - SEA 1.3",
+                    "p3": "CGY 1.1 - SEA 1.3"
                 },
                 "recent_logs": {
                     "away": [
@@ -20043,12 +20043,12 @@
                 },
                 "notes": [
                     "Goalie Edge: CGY starting Dustin Wolf (Expected) vs SEA starting Philipp Grubauer (Expected).",
-                    "Engine calculates SEA win probability at 59.0% based on V5 goalie adjustments.",
+                    "Engine calculates SEA win probability at 55.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 33 points."
                 ],
                 "best_angle": {
                     "play": "SEA MONEYLINE",
-                    "edge": "+6.6%"
+                    "edge": "+3.1%"
                 },
                 "gift_stats": {
                     "away": {
@@ -20111,7 +20111,7 @@
                     "rating": -0.3
                 }
             },
-            "game_score": 44
+            "game_score": 47
         }
     ],
     "day_after_tomorrow": [
@@ -23896,7 +23896,7 @@
                 "record_overall": "7-5-3",
                 "record_split": "3-1-2",
                 "record_l10": "6-2-2",
-                "ml": "+215",
+                "ml": "+225",
                 "proj": "2.1"
             },
             "home": {
@@ -23904,13 +23904,13 @@
                 "record_overall": "8-3-2",
                 "record_split": "6-0-0",
                 "record_l10": "6-2-2",
-                "ml": "-265",
-                "proj": "5.0"
+                "ml": "-278",
+                "proj": "5.1"
             },
             "ou_total": "O/U 7.0",
-            "prob": "70.2%",
-            "home_win_prob": 70.2,
-            "away_win_prob": 29.8,
+            "prob": "71.1%",
+            "home_win_prob": 71.1,
+            "away_win_prob": 28.9,
             "predicted_winner": "TBL",
             "time": "7:00 PM EST",
             "tier": "EDGE",
@@ -23968,18 +23968,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+17.8%",
-            "ai_score": 7.5,
+            "edge": "+18.7%",
+            "ai_score": 7.7,
             "details": {
                 "period_60": {
                     "p1_winner": "TBL (60%)",
                     "p1_over_1_5": "53%",
-                    "min_60_tie": "12%"
+                    "min_60_tie": "11%"
                 },
                 "period_scores": {
                     "p1": "DET 0.6 - TBL 1.5",
                     "p2": "DET 0.7 - TBL 1.8",
-                    "p3": "DET 0.8 - TBL 1.7"
+                    "p3": "DET 0.8 - TBL 1.8"
                 },
                 "recent_logs": {
                     "away": [
@@ -24176,12 +24176,12 @@
                 },
                 "notes": [
                     "Goalie Edge: DET starting John Gibson (Expected) vs TBL starting Andrei Vasilevskiy (Expected).",
-                    "Engine calculates TBL win probability at 70.2% based on V5 goalie adjustments.",
+                    "Engine calculates TBL win probability at 71.1% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 164 points."
                 ],
                 "best_angle": {
                     "play": "TBL MONEYLINE",
-                    "edge": "+17.8%"
+                    "edge": "+18.7%"
                 },
                 "gift_stats": {
                     "away": {
@@ -24244,7 +24244,7 @@
                     "rating": 0.51
                 }
             },
-            "game_score": 59
+            "game_score": 58
         },
         {
             "away": {
@@ -24608,21 +24608,21 @@
                 "record_overall": "4-8-3",
                 "record_split": "2-4-2",
                 "record_l10": "1-7-2",
-                "ml": "+154",
-                "proj": "2.1"
+                "ml": "+140",
+                "proj": "2.3"
             },
             "home": {
                 "name": "MTL",
                 "record_overall": "9-3-2",
                 "record_split": "4-2-1",
                 "record_l10": "8-1-1",
-                "ml": "-185",
-                "proj": "3.7"
+                "ml": "-166",
+                "proj": "3.6"
             },
             "ou_total": "O/U 6.0",
-            "prob": "63.6%",
-            "home_win_prob": 63.6,
-            "away_win_prob": 36.4,
+            "prob": "61.4%",
+            "home_win_prob": 61.4,
+            "away_win_prob": 38.6,
             "predicted_winner": "MTL",
             "time": "7:00 PM EST",
             "tier": "BIG",
@@ -24680,18 +24680,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+11.2%",
-            "ai_score": 6.0,
+            "edge": "+9.0%",
+            "ai_score": 5.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "MTL (54%)",
+                    "p1_winner": "MTL (52%)",
                     "p1_over_1_5": "52%",
-                    "min_60_tie": "15%"
+                    "min_60_tie": "16%"
                 },
                 "period_scores": {
-                    "p1": "WPG 0.6 - MTL 1.1",
-                    "p2": "WPG 0.7 - MTL 1.3",
-                    "p3": "WPG 0.8 - MTL 1.3"
+                    "p1": "WPG 0.7 - MTL 1.1",
+                    "p2": "WPG 0.8 - MTL 1.3",
+                    "p3": "WPG 0.8 - MTL 1.2"
                 },
                 "recent_logs": {
                     "away": [
@@ -24859,17 +24859,17 @@
                 },
                 "covers": {
                     "best_ml": "MTL ML",
-                    "best_spread": "MTL -1.5",
+                    "best_spread": "PASS",
                     "best_ou": "PASS"
                 },
                 "notes": [
                     "Goalie Edge: WPG starting Stuart Skinner (Expected) vs MTL starting Jacob Fowler (Expected).",
-                    "Engine calculates MTL win probability at 63.6% based on V5 goalie adjustments.",
+                    "Engine calculates MTL win probability at 61.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 248 points."
                 ],
                 "best_angle": {
                     "play": "MTL MONEYLINE",
-                    "edge": "+11.2%"
+                    "edge": "+9.0%"
                 },
                 "gift_stats": {
                     "away": {
@@ -24932,7 +24932,7 @@
                     "rating": 0.42
                 }
             },
-            "game_score": 54
+            "game_score": 56
         }
     ],
     "power_rankings": [
