@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { fairAmerican, formatAmerican, highestProbabilityLines } from '../lib/highProbability.mjs';
+import { bothScoreHighlights, fairAmerican, formatAmerican, highestProbabilityLines } from '../lib/highProbability.mjs';
 
 const game = (away, home, a, h, p1) => ({
   away: { name: away }, home: { name: home },
@@ -37,4 +37,21 @@ test('only lines at or above 85%, never an Over 0.5, highest first, capped', () 
 test('a game with no ladders, or no games, gives an empty list', () => {
   assert.deepEqual(highestProbabilityLines([{ away: { name: 'A' }, home: { name: 'B' } }]), []);
   assert.deepEqual(highestProbabilityLines(undefined), []);
+});
+
+test('both teams to score: 2+ from 67.5%, 3+ from 40%, never 1+, 3+ first', () => {
+  const withBoth = (away, home, both) => ({ away: { name: away }, home: { name: home }, goal_ladders: { both_score: both } });
+  const games = [
+    withBoth('CAR', 'VAN', { '1': 95.0, '2': 70.2, '3': 39.9 }),
+    withBoth('SJS', 'TOR', { '1': 93.0, '2': 67.5, '3': 41.3 }),
+    withBoth('BOS', 'STL', { '1': 92.0, '2': 63.0, '3': 31.0 }),
+  ];
+  const lines = bothScoreHighlights(games);
+  assert.deepEqual(lines.map((l) => [l.game.away.name, l.label, l.pct]), [
+    ['SJS', 'Both teams 3+ goals', 41.3], ['CAR', 'Both teams 2+ goals', 70.2], ['SJS', 'Both teams 2+ goals', 67.5],
+  ]);
+  assert.equal(lines[0].fair, fairAmerican(41.3));
+  assert.deepEqual(bothScoreHighlights(games, { minPct: { '2': 60 } }).length, 3);
+  assert.deepEqual(bothScoreHighlights([{ goal_ladders: {} }]), []);
+  assert.deepEqual(bothScoreHighlights(undefined), []);
 });
