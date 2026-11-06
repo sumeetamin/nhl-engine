@@ -465,7 +465,12 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                 ]
                 over_p = predict_count(model, feature_row, line=group_line(groups, group))["probabilities"]
                 line_value = group_line(groups, group)
-                over_result = {name: round(100 * value, 1) for name, value in over_p.items()}
+                settled_probability = over_p["over"] + over_p["under"]
+                over_result = {
+                    "over": round(100 * over_p["over"] / settled_probability, 1) if settled_probability else 0.0,
+                    "under": round(100 * over_p["under"] / settled_probability, 1) if settled_probability else 0.0,
+                    "push": round(100 * over_p["push"], 1),
+                }
                 for side in ("over", "under"):
                     choices = []
                     for book, prices in books.items():
@@ -487,7 +492,7 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                         "best_book": best["book"] if best else None,
                         "edge_pct": round(best["edge"], 1) if best and best["edge"] is not None else None,
                         "over_probability": over_result["over"], "under_probability": over_result["under"],
-                        "probability": over_result[side],
+                        "push_probability": over_result["push"], "probability": over_result[side],
                         "confidence": over_result[side], "books": all_books,
                     }
                     prop["history"] = history_for(history, market, candidate, line_value, side)
