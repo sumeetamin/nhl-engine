@@ -564,8 +564,8 @@ def build_output(history: dict[str, pd.DataFrame], props: list[dict[str, Any]],
         "odds_snapshot_at": snapshot.get("snapshot_at"),
         "source_status": (
             "Props use official NHL game logs and NHL schedule/roster data. " +
-            ("Prices are a once-daily snapshot from approved books." if snapshot.get("events") else
-             "No approved-book player-prop lines were available in the latest snapshot.")
+            ("Prices are a once-daily snapshot from approved books." if any(row.get("best_book") for row in props) else
+             "No fresh approved-book player-prop lines were available in the latest snapshot.")
         ),
         "games": games,
         "props": props,
