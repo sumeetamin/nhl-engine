@@ -164,13 +164,16 @@ def load_roster(team: str) -> dict[str, Any]:
 def fetch_odds_snapshot(games: list[dict[str, Any]], api_key: str) -> dict[str, Any]:
     events = request_json(f"{ODDS_API}/sports/{ODDS_SPORT}/events", params={"apiKey": api_key})
     game_by_pair = {
-        frozenset((normalize_name(g["home_name"]), normalize_name(g["away_name"]))): g
+        (frozenset((normalize_name(g["home_name"]), normalize_name(g["away_name"]))), g["game_date"]): g
         for g in games
     }
     candidates = []
+    from zoneinfo import ZoneInfo
     for event in events if isinstance(events, list) else []:
         pair = frozenset((normalize_name(event.get("home_team")), normalize_name(event.get("away_team"))))
-        game = game_by_pair.get(pair)
+        event_time = datetime.fromisoformat(str(event.get("commence_time", "")).replace("Z", "+00:00"))
+        event_date = event_time.astimezone(ZoneInfo("America/New_York")).date().isoformat()
+        game = game_by_pair.get((pair, event_date))
         if game:
             candidates.append((event, game))
     snapshots = []
@@ -417,6 +420,7 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                 "best_book": None, "edge_pct": None, "over_probability": None,
                 "under_probability": None, "probability": None, "books": [],
                 "goalie_status": candidate.get("goalie_status"),
+                "goalie_name": candidate.get("player") if market == "goalie_saves" else None,
                 "availability_status": candidate.get("availability_status"),
             }
             if market in {"player_shots_on_goal", "player_points", "player_assists", "player_goals"}:
