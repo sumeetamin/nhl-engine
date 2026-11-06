@@ -9,12 +9,6 @@ on:
     - cron: '0 15 * * *'
       timezone: America/New_York
   workflow_dispatch:
-    inputs:
-      refresh_odds:
-        description: Fetch and replace the daily odds snapshot
-        required: false
-        default: false
-        type: boolean
 
 concurrency:
   group: nhl-player-props-refresh
@@ -54,14 +48,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Refresh feed and daily odds snapshot
-        if: github.event.schedule == '0 0 * * *' || (github.event_name == 'workflow_dispatch' && inputs.refresh_odds)
+        if: github.event_name == 'schedule' && github.event.schedule == '0 0 * * *'
         run: python player_props/generate_daily.py --fetch-odds
         env:
           PYTHONUNBUFFERED: '1'
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
       - name: Refresh feed using today's saved odds snapshot
-        if: (github.event_name == 'schedule' && github.event.schedule != '0 0 * * *') || (github.event_name == 'workflow_dispatch' && !inputs.refresh_odds)
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule != '0 0 * * *')
         run: python player_props/generate_daily.py
         env:
           PYTHONUNBUFFERED: '1'
