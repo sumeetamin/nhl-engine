@@ -1,0 +1,77 @@
+name: NHL Player Props Refresh
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+      timezone: America/New_York
+    - cron: '0 7 * * *'
+      timezone: America/New_York
+    - cron: '0 15 * * *'
+      timezone: America/New_York
+  workflow_dispatch:
+    inputs:
+      refresh_odds:
+        description: Fetch and replace the daily odds snapshot
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: nhl-player-props-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-player-props:
+    name: Build NHL props feed
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Restore history and model cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            player_props_data
+            player_props_models
+          key: nhl-player-props-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            nhl-player-props-${{ runner.os }}-
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Refresh feed and daily odds snapshot
+        if: github.event.schedule == '0 0 * * *' || (github.event_name == 'workflow_dispatch' && inputs.refresh_odds)
+        run: python player_props/generate_daily.py --fetch-odds
+        env:
+          PYTHONUNBUFFERED: '1'
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
+      - name: Refresh feed using today's saved odds snapshot
+        if: (github.event_name == 'schedule' && github.event.schedule != '0 0 * * *') || (github.event_name == 'workflow_dispatch' && !inputs.refresh_odds)
+        run: python player_props/generate_daily.py
+        env:
+          PYTHONUNBUFFERED: '1'
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
+      - name: Commit refreshed public feed
+        run: |
+          git config user.name "sumeetamin"
+          git config user.email "aminsumeet@gmail.com"
+          git add frontend/public/player_props.json
+          git add frontend/public/player_props_odds_snapshot.json
+          git diff --cached --quiet || git commit -m "Update scheduled NHL player props feed"
+          git push origin HEAD:main
