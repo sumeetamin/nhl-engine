@@ -54,7 +54,7 @@ Odds snapshots and predictions are separate records and are not included in this
 7. Grade using the sportsbook's settlement and void/push rules.
 8. Use chronological walk-forward validation and calibration. Do not promise guaranteed or “highly accurate” results before evaluation.
 
-The future model should start with per-market count baselines (Poisson/negative binomial), compare them with a regularized tree model, and calibrate probabilities before computing edge versus no-vig book probabilities. This is a proposed modeling plan, not a trained model.
+Task 2 now trains separate Poisson-loss histogram gradient-boosting count models for skater shots, goals, assists, points, goalie saves, and team shots on goal. The held-out 2025–26 evaluation and current limitations are documented in [PLAYER_PROPS_MODELING.md](PLAYER_PROPS_MODELING.md). The model is an initial baseline; probability calibration against historical book lines and betting-edge evaluation remain future work.
 
 ## Refresh and freshness
 
