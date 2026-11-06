@@ -164,7 +164,8 @@ def fetch_game_rows(
     return _fetch_pages(
         session,
         f"{API_BASE}/{TABLE_PATHS[table]}",
-        {"isAggregate": "false", "isGame": "true", "cayenneExp": expression},
+        {"isAggregate": "false", "isGame": "true", "cayenneExp": expression,
+         "sort": "gameId", "direction": "ASC"},
         page_size=page_size,
         pause_seconds=pause_seconds,
         label=f"{table} {season}" + (f" team {team_id}" if team_id is not None else ""),
