@@ -180,6 +180,7 @@ export default function PlayerPropsPanel({ view }: Props) {
   const [windowFilter, setWindowFilter] = useState("all");
   const [sort, setSort] = useState("confidence");
   const [savedIds, setSavedIds] = useState<string[]>([]);
+  const [savedProps, setSavedProps] = useState<PlayerProp[]>([]);
 
   useEffect(() => {
     let active = true;
@@ -191,7 +192,18 @@ export default function PlayerPropsPanel({ view }: Props) {
       .finally(() => { if (active) setLoading(false); });
     try {
       const stored = window.localStorage.getItem("nhl-player-props-sheet");
-      if (stored) setSavedIds(JSON.parse(stored));
+      if (stored) {
+        const decoded: unknown = JSON.parse(stored);
+        if (Array.isArray(decoded)) {
+          const oldIds = decoded.filter((value): value is string => typeof value === "string");
+          setSavedIds(oldIds);
+          setSavedProps((feed.props || []).filter((row) => oldIds.includes(row.prop_id)));
+        } else if (decoded && typeof decoded === "object" && "items" in decoded && Array.isArray((decoded as { items: unknown[] }).items)) {
+          const items = (decoded as { items: PlayerProp[] }).items.filter((row) => row && typeof row.prop_id === "string");
+          setSavedProps(items);
+          setSavedIds(items.map((row) => row.prop_id));
+        }
+      }
     } catch { /* Ignore unavailable or malformed browser storage. */ }
     return () => { active = false; controller.abort(); };
   }, []);
@@ -219,10 +231,25 @@ export default function PlayerPropsPanel({ view }: Props) {
     });
   }, [feed, view, search, selectedGame, market, side, windowFilter, sort]);
 
+  const persistSheet = (items: PlayerProp[]) => {
+    setSavedProps(items);
+    const ids = items.map((item) => item.prop_id);
+    setSavedIds(ids);
+    try { window.localStorage.setItem("nhl-player-props-sheet", JSON.stringify({ version: 1, items })); } catch { /* Storage is optional. */ }
+  };
   const addToSheet = (row: PlayerProp) => {
-    const next = savedIds.includes(row.prop_id) ? savedIds.filter((id) => id !== row.prop_id) : [...savedIds, row.prop_id];
-    setSavedIds(next);
-    try { window.localStorage.setItem("nhl-player-props-sheet", JSON.stringify(next)); } catch { /* Storage is optional. */ }
+    const current = savedProps.length ? savedProps : savedIds
+      .map((id) => (feed.props || []).find((item) => item.prop_id === id))
+      .filter((item): item is PlayerProp => Boolean(item));
+    persistSheet(savedIds.includes(row.prop_id)
+      ? current.filter((item) => item.prop_id !== row.prop_id)
+      : [...current, row]);
+  };
+  const removeFromSheet = (id: string) => {
+    const current = savedProps.length ? savedProps : savedIds
+      .map((savedId) => (feed.props || []).find((item) => item.prop_id === savedId))
+      .filter((item): item is PlayerProp => Boolean(item));
+    persistSheet(current.filter((item) => item.prop_id !== id));
   };
 
   const tracker = feed.tracker || [];
@@ -284,10 +311,10 @@ export default function PlayerPropsPanel({ view }: Props) {
           <h3 className="mb-2 text-xs font-black uppercase tracking-wider text-indigo-200">My sheet · {savedIds.length} saved</h3>
           <div className="space-y-2">
             {savedIds.map((id) => {
-              const row = (feed.props || []).find((item) => item.prop_id === id);
+              const row = savedProps.find((item) => item.prop_id === id) || (feed.props || []).find((item) => item.prop_id === id);
               return <div key={id} className="flex items-center justify-between gap-3 rounded-lg bg-slate-950/50 px-3 py-2 text-xs text-slate-200">
-                <span>{row ? `${row.player} · ${row.market_label} ${row.side || ""} ${row.line ?? ""}` : id}</span>
-                <button type="button" onClick={() => row && addToSheet(row)} className="text-indigo-300 hover:text-white">Remove</button>
+                <span>{row ? `${row.player} · ${row.market_label || row.market} ${row.side || ""} ${row.line ?? ""}` : id}</span>
+                <button type="button" onClick={() => removeFromSheet(id)} className="text-indigo-300 hover:text-white">Remove</button>
               </div>;
             })}
           </div>
