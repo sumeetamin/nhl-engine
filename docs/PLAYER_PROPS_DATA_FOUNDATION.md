@@ -23,12 +23,16 @@ Each prediction record must keep the player/team/game identity, scheduled start,
 | Historical and current goalie results | NHL Web API game logs and game-center boxscores | Saves, shots faced, goals against, starts, and actual outcomes for grading | Validate goalie-specific fields and player identity before training or grading. |
 | Team/game context | NHL schedule, roster, and game-center feeds | Opponent, home/away, game date, team shots, roster/team membership, game status | Use stable NHL IDs; names are display values only. |
 | Advanced shot and on-ice context | MoneyPuck CSV downloads | Optional xG, shot-quality, and on-ice context features | Use published downloads only; confirm its current terms before automated reuse. Do not assume every field is available for every historical season. |
-| Current player prop lines | Existing The Odds API connection | Book line and price; compare against model probability | Player props are requested by event and market. A once-daily odds pull means displayed lines can be stale later in the day. Preserve the snapshot time and mark the data as stale by age. Verify the customer's requested books and markets against the account's actual API coverage before showing them. |
+| Current player prop lines | Existing The Odds API connection | Book line and price; compare against model probability | The current market catalog lists over/under markets for shots on goal, points, assists, goals, and goalie total saves. Props are requested by event. A once-daily odds pull means displayed lines can be stale later in the day; preserve the snapshot time and mark age. Verify requested bookmaker coverage against the account before showing lines. |
 | Projected/confirmed lineups and goalies | Highlightly lineups endpoint, if the customer has an active key/plan; otherwise NHL roster/schedule data plus a clearly marked status | Availability and goalie/lineup context | Do not label a goalie or lineup confirmed unless the provider explicitly marks it confirmed. A roster or projected lineup is not confirmation. Provider access and coverage are prerequisites. |
 
 ### Historical coverage
 
-The requested five-plus seasons should apply to historical game results/features, subject to the fields that can be reliably sourced and normalized. It should not be represented as five years of historical player-prop odds: The Odds API documents historical additional markets from May 2023 on paid plans, so that history is shorter than five NHL seasons. A backtest can still use historical player results and simulated/available lines, but it must not present simulated prices as observed bookmaker prices.
+The requested five-plus seasons should apply to historical game results/features, subject to the fields that can be reliably sourced and normalized. It should not be represented as five years of historical player-prop odds: The Odds API documents historical additional markets from May 2023 on paid plans, so that history is shorter than five NHL seasons. A backtest can still use historical player results and available lines, but it must not present simulated prices as observed bookmaker prices.
+
+### Team shots-on-goal odds coverage
+
+The current Odds API market catalog lists player SOG and team goal totals, but does not list a team-shots-on-goal market. Team SOG can still be projected and graded from NHL game results, but this odds source should not be assumed to provide a comparable book line for it. Another approved provider or a no-book-line display would be needed for that column.
 
 ## Normalized data contract
 
@@ -69,15 +73,17 @@ The requested refresh schedule is midnight, 7 a.m., and 3 p.m. Eastern. Model/fe
 ## Task 1 acceptance checklist
 
 - [x] Confirmed existing repo uses Python for its NHL pipeline and a Next.js frontend.
-- [x] Identified The Odds API's event-level player-prop endpoint as the odds integration path; the existing key remains unchanged.
+- [x] Identified The Odds API's event-level player-prop endpoint and added a pure normalizer for its supported NHL player markets; the existing key remains unchanged.
 - [x] Defined an ID-based result, odds-snapshot, and prediction data contract.
 - [x] Recorded the five-season historical-stat requirement separately from the shorter historical player-prop odds window.
 - [x] Documented line/goalie confirmation, freshness, leakage, missing-data, and settlement safeguards.
-- [ ] Before model coding: verify field coverage with representative provider responses and confirm the available bookmaker/lineup API coverage with the customer credentials.
+- [ ] Ingest and normalize five-plus seasons of historical player/game results; confirm fields with representative provider responses.
+- [ ] Confirm the account's allowed sportsbook/market coverage and the lineup provider key/plan before live integration.
 
 ## Sources
 
 - [The Odds API — NHL odds and player prop markets](https://the-odds-api.com/sports/nhl-odds.html)
+- [The Odds API — available betting markets (NHL player props)](https://the-odds-api.com/sports-odds-data/betting-markets.html)
 - [MoneyPuck — data downloads](https://moneypuck.com/data.htm)
 - [NHL Web API player game-log endpoint](https://api-web.nhle.com/v1/player/8478402/game-log/now) (public endpoint; the NHL does not publish a stable developer contract)
 - [Highlightly — NHL lineups endpoint](https://highlightly.net/nhl-api/documentation/lineups/)
