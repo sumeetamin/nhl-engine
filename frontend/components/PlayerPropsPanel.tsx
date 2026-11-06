@@ -1,0 +1,265 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { publicFile } from "../lib/basePath";
+
+type Split = { hits?: number; total?: number; hit_rate?: number | null };
+type HistorySplits = { l5?: Split; l10?: Split; h2h?: Split; season?: Split };
+type PlayerProp = {
+  prop_id: string;
+  game_id: string;
+  game_date: string;
+  commence_time?: string;
+  game_label?: string;
+  player_id?: number | string;
+  player: string;
+  team: string;
+  opponent: string;
+  position?: string;
+  market: string;
+  market_label?: string;
+  line?: number | null;
+  over_odds?: number | null;
+  under_odds?: number | null;
+  best_book?: string | null;
+  books?: Array<{ book: string; over?: number | null; under?: number | null }>;
+  confidence?: number | null;
+  edge_pct?: number | null;
+  over_probability?: number | null;
+  under_probability?: number | null;
+  defense_rank?: number | null;
+  defense_allowed?: number | null;
+  history?: HistorySplits;
+  toi_minutes?: number | null;
+  team_pace?: number | null;
+  opponent_pace?: number | null;
+  goalie_name?: string | null;
+  goalie_status?: "confirmed" | "projected" | "unknown" | string;
+};
+type Feed = {
+  version?: number;
+  updated_at?: string | null;
+  odds_snapshot_at?: string | null;
+  source_status?: string;
+  games?: Array<{ game_id: string; game_label: string; game_date: string; commence_time?: string }>;
+  props?: PlayerProp[];
+  cheat_sheets?: PlayerProp[];
+  tracker?: Array<{ prop_id: string; result: "hit" | "miss" | "push" | "pending" }>;
+};
+type Props = { view: "props" | "cheat" };
+
+const MARKETS = [
+  "All props",
+  "Shots on Goal",
+  "Points",
+  "Assists",
+  "Goals",
+  "Goalie Saves",
+  "Team Shots",
+];
+const EMPTY: Feed = { games: [], props: [], cheat_sheets: [], tracker: [] };
+
+function percent(value?: number | null) {
+  return value == null || !Number.isFinite(value) ? "—" : `${Math.round(value)}%`;
+}
+function odds(value?: number | null) {
+  if (value == null || !Number.isFinite(value)) return "—";
+  return value > 0 ? `+${value}` : String(value);
+}
+function record(split?: Split) {
+  if (!split || split.total == null || split.total === 0) return "—";
+  return `${percent(split.hit_rate)} ${split.hits ?? 0}/${split.total}`;
+}
+function localDate(value?: string | null) {
+  if (!value) return "Not updated yet";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "Not updated yet" : date.toLocaleString("en-US", {
+    timeZone: "America/New_York", month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+  }) + " ET";
+}
+
+function PropTable({ rows, onAdd, saved }: {
+  rows: PlayerProp[];
+  onAdd: (row: PlayerProp) => void;
+  saved: Set<string>;
+}) {
+  const [expanded, setExpanded] = useState<string | null>(null);
+  if (rows.length === 0) {
+    return <div className="rounded-2xl border border-slate-800 bg-[#111827] px-5 py-14 text-center text-sm text-slate-400">No player props are available for these filters yet. The feed will show projections when the scheduled update has valid slate data.</div>;
+  }
+  return (
+    <div className="overflow-hidden rounded-2xl border border-slate-800 bg-[#101722]">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[900px] border-collapse text-left text-xs">
+          <thead className="bg-slate-900/80 text-[10px] uppercase tracking-wider text-slate-400">
+            <tr>
+              <th className="px-3 py-3">+</th><th className="px-3 py-3">Player / prop</th>
+              <th className="px-3 py-3">Confidence</th><th className="px-3 py-3">Odds</th>
+              <th className="px-3 py-3">L5</th><th className="px-3 py-3">L10</th>
+              <th className="px-3 py-3">H2H</th><th className="px-3 py-3">Season</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-800/80">
+            {rows.map((row) => {
+              const open = expanded === row.prop_id;
+              const savedRow = saved.has(row.prop_id);
+              return (
+                <FragmentRow key={row.prop_id} row={row} open={open} saved={savedRow}
+                  onToggle={() => setExpanded(open ? null : row.prop_id)} onAdd={() => onAdd(row)} />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function FragmentRow({ row, open, saved, onToggle, onAdd }: {
+  row: PlayerProp; open: boolean; saved: boolean; onToggle: () => void; onAdd: () => void;
+}) {
+  const direction = row.over_probability == null || row.under_probability == null
+    ? "—"
+    : row.over_probability >= row.under_probability ? "Over" : "Under";
+  const books = row.books?.map((book) => `${book.book}: O ${odds(book.over)} / U ${odds(book.under)}`).join(" · ");
+  return (
+    <>
+      <tr className="cursor-pointer text-slate-200 hover:bg-slate-800/40" onClick={onToggle}>
+        <td className="px-3 py-3">
+          <button type="button" aria-label={saved ? "Remove from sheet" : "Add to sheet"} onClick={(event) => { event.stopPropagation(); onAdd(); }}
+            className={`h-7 w-7 rounded-md border text-base font-bold ${saved ? "border-indigo-400 bg-indigo-500/20 text-indigo-300" : "border-slate-700 text-slate-300 hover:border-indigo-400"}`}>
+            {saved ? "✓" : "+"}
+          </button>
+        </td>
+        <td className="px-3 py-3">
+          <button type="button" className="text-left" onClick={onToggle}>
+            <span className="block font-bold text-white">{row.player}</span>
+            <span className="mt-1 block text-[10px] text-slate-400">{row.team} vs {row.opponent} · {row.market_label || row.market} {row.line == null ? "" : `${direction} ${row.line}`}</span>
+          </button>
+        </td>
+        <td className="px-3 py-3 font-semibold text-cyan-300">{percent(row.confidence)}</td>
+        <td className="px-3 py-3 text-slate-300">{row.best_book ? <span>{row.best_book}<br />O {odds(row.over_odds)} / U {odds(row.under_odds)}</span> : "—"}</td>
+        <td className="px-3 py-3">{record(row.history?.l5)}</td>
+        <td className="px-3 py-3">{record(row.history?.l10)}</td>
+        <td className="px-3 py-3">{record(row.history?.h2h)}</td>
+        <td className="px-3 py-3">{record(row.history?.season)}</td>
+      </tr>
+      {open && (
+        <tr className="bg-slate-950/70">
+          <td colSpan={8} className="px-5 py-4">
+            <div className="grid gap-3 text-[11px] text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
+              <div><span className="text-slate-500">Model projection</span><p className="mt-1 text-base font-bold text-white">{row.line == null ? "—" : row.market === "goalie_saves" ? "Saves" : "Stat"} line {row.line}</p></div>
+              <div><span className="text-slate-500">Model probabilities</span><p className="mt-1">Over {percent(row.over_probability)} · Under {percent(row.under_probability)}</p></div>
+              <div><span className="text-slate-500">Edge vs book</span><p className="mt-1">{row.edge_pct == null ? "Unavailable" : `${row.edge_pct.toFixed(1)} percentage points`}</p></div>
+              <div><span className="text-slate-500">Defense vs position</span><p className="mt-1">{row.defense_rank == null ? "Rank unavailable" : `Rank #${row.defense_rank}`} {row.defense_allowed == null ? "" : `· ${row.defense_allowed.toFixed(1)} allowed`}</p></div>
+              <div><span className="text-slate-500">Recent TOI</span><p className="mt-1">{row.toi_minutes == null ? "Unavailable" : `${row.toi_minutes.toFixed(1)} min`}</p></div>
+              <div><span className="text-slate-500">Team pace</span><p className="mt-1">{row.team_pace == null ? "Unavailable" : `${row.team_pace.toFixed(1)} SOG/game`} {row.opponent_pace == null ? "" : `· opponent ${row.opponent_pace.toFixed(1)}`}</p></div>
+              <div><span className="text-slate-500">Goalie</span><p className="mt-1">{row.goalie_name || "Not announced"}{row.goalie_status ? ` · ${row.goalie_status}` : ""}</p></div>
+              <div><span className="text-slate-500">Sportsbook prices</span><p className="mt-1">{books || "No permitted-book prices in the latest odds snapshot."}</p></div>
+            </div>
+          </td>
+        </tr>
+      )}
+    </>
+  );
+}
+
+export default function PlayerPropsPanel({ view }: Props) {
+  const [feed, setFeed] = useState<Feed>(EMPTY);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [selectedGame, setSelectedGame] = useState("all");
+  const [market, setMarket] = useState("All props");
+  const [side, setSide] = useState("both");
+  const [sort, setSort] = useState("confidence");
+  const [savedIds, setSavedIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    const controller = new AbortController();
+    fetch(publicFile("/player_props.json?v=") + Date.now(), { cache: "no-store", signal: controller.signal })
+      .then((response) => { if (!response.ok) throw new Error("Player props feed unavailable"); return response.json(); })
+      .then((data: Feed) => { if (active) setFeed({ ...EMPTY, ...data }); })
+      .catch(() => { if (active) setFeed(EMPTY); })
+      .finally(() => { if (active) setLoading(false); });
+    try {
+      const stored = window.localStorage.getItem("nhl-player-props-sheet");
+      if (stored) setSavedIds(JSON.parse(stored));
+    } catch { /* Ignore unavailable or malformed browser storage. */ }
+    return () => { active = false; controller.abort(); };
+  }, []);
+
+  const rows = useMemo(() => {
+    const source = view === "cheat" ? feed.cheat_sheets || [] : feed.props || [];
+    const filtered = source.filter((row) => {
+      const matchesSearch = `${row.player} ${row.team} ${row.opponent}`.toLowerCase().includes(search.toLowerCase());
+      const matchesGame = selectedGame === "all" || row.game_id === selectedGame;
+      const matchesMarket = market === "All props" || row.market_label === market ||
+        (market === "Shots on Goal" && row.market === "player_shots_on_goal") ||
+        (market === "Points" && row.market === "player_points") ||
+        (market === "Assists" && row.market === "player_assists") ||
+        (market === "Goals" && row.market === "player_goals") ||
+        (market === "Goalie Saves" && row.market === "goalie_saves") ||
+        (market === "Team Shots" && row.market === "team_shots_on_goal");
+      const matchesSide = side === "both" || side === "over" || side === "under";
+      return matchesSearch && matchesGame && matchesMarket && matchesSide;
+    });
+    return filtered.sort((a, b) => {
+      if (sort === "edge") return (b.edge_pct ?? -Infinity) - (a.edge_pct ?? -Infinity);
+      if (sort === "defense") return (b.defense_rank ?? -Infinity) - (a.defense_rank ?? -Infinity);
+      return (b.confidence ?? -Infinity) - (a.confidence ?? -Infinity);
+    });
+  }, [feed, view, search, selectedGame, market, side, sort]);
+
+  const addToSheet = (row: PlayerProp) => {
+    const next = savedIds.includes(row.prop_id) ? savedIds.filter((id) => id !== row.prop_id) : [...savedIds, row.prop_id];
+    setSavedIds(next);
+    try { window.localStorage.setItem("nhl-player-props-sheet", JSON.stringify(next)); } catch { /* Storage is optional. */ }
+  };
+
+  const tracker = feed.tracker || [];
+  const tracked = tracker.filter((item) => item.result !== "pending");
+  const hits = tracked.filter((item) => item.result === "hit").length;
+  const hitRate = tracked.length ? Math.round(100 * hits / tracked.length) : null;
+
+  return (
+    <section className="space-y-4">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 className="text-lg font-black uppercase tracking-wide text-white">{view === "cheat" ? "Trends & Cheat Sheets" : "NHL Player Props"}</h2>
+          <p className="mt-1 text-xs text-slate-400">Feed updated {localDate(feed.updated_at)} · odds snapshot {localDate(feed.odds_snapshot_at)}</p>
+        </div>
+        {view === "props" && <div className="rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-[11px] text-slate-300">Top-plays tracker: {hitRate == null ? "No graded props yet" : `${hits}/${tracked.length} hits · ${hitRate}%`}</div>}
+      </div>
+
+      {view === "props" ? (
+        <div className="grid gap-2 rounded-2xl border border-slate-800 bg-[#111827] p-3 sm:grid-cols-2 lg:grid-cols-5">
+          <label className="text-[10px] uppercase tracking-wide text-slate-500">Search players<input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Player or team" className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /></label>
+          <label className="text-[10px] uppercase tracking-wide text-slate-500">Games<select value={selectedGame} onChange={(event) => setSelectedGame(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="all">All games</option>{(feed.games || []).map((game) => <option key={game.game_id} value={game.game_id}>{game.game_label}</option>)}</select></label>
+          <label className="text-[10px] uppercase tracking-wide text-slate-500">Props<select value={market} onChange={(event) => setMarket(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white">{MARKETS.map((item) => <option key={item}>{item}</option>)}</select></label>
+          <label className="text-[10px] uppercase tracking-wide text-slate-500">Over / Under<select value={side} onChange={(event) => setSide(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="both">Both</option><option value="over">Over</option><option value="under">Under</option></select></label>
+          <label className="text-[10px] uppercase tracking-wide text-slate-500">Sort by<select value={sort} onChange={(event) => setSort(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="confidence">Confidence</option><option value="edge">Edge</option><option value="defense">Defense rank</option></select></label>
+        </div>
+      ) : (
+        <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-slate-800 bg-[#111827] p-3 text-xs text-slate-300">
+          <label>Search <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Player or team" className="ml-2 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /></label>
+          <label>Market <select value={market} onChange={(event) => setMarket(event.target.value)} className="ml-2 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white">{MARKETS.map((item) => <option key={item}>{item}</option>)}</select></label>
+          <label>Window <select value={side} onChange={(event) => setSide(event.target.value)} className="ml-2 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="both">L5 or L10</option><option value="over">L5</option><option value="under">L10</option></select></label>
+          <span className="text-slate-500">Showing feed-qualified 80% and 100% hit-rate trends only.</span>
+        </div>
+      )}
+
+      {loading ? <div className="rounded-2xl border border-slate-800 bg-[#111827] p-10 text-center text-sm text-slate-400">Loading player props…</div> :
+        view === "props" ? <PropTable rows={rows} onAdd={addToSheet} saved={new Set(savedIds)} /> :
+        <div className="space-y-3">
+          {rows.length === 0 ? <div className="rounded-2xl border border-slate-800 bg-[#111827] p-10 text-center text-sm text-slate-400">No 80% or 100% hit-rate trends are available for these filters yet.</div> :
+            <PropTable rows={rows} onAdd={addToSheet} saved={new Set(savedIds)} />}
+        </div>}
+
+      {view === "props" && savedIds.length > 0 && (
+        <div className="rounded-2xl border border-indigo-900/60 bg-indigo-950/20 p-3 text-xs text-indigo-200">My sheet: {savedIds.length} saved prop{savedIds.length === 1 ? "" : "s"}. Your sheet is stored in this browser.</div>
+      )}
+      {feed.source_status && <p className="text-center text-[10px] text-slate-500">{feed.source_status}</p>}
+    </section>
+  );
+}
