@@ -32,6 +32,7 @@ type PlayerProp = {
   edge_pct?: number | null;
   over_probability?: number | null;
   under_probability?: number | null;
+  push_probability?: number | null;
   defense_rank?: number | null;
   defense_allowed?: number | null;
   history?: HistorySplits;
@@ -154,7 +155,7 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
           <td colSpan={8} className="px-5 py-4">
             <div className="grid gap-3 text-[11px] text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
               <div><span className="text-slate-500">Model projection</span><p className="mt-1 text-base font-bold text-white">{row.projection == null ? "—" : row.projection.toFixed(2)} projected · line {row.line ?? "—"}</p></div>
-              <div><span className="text-slate-500">Model probabilities</span><p className="mt-1">{row.side === "under" ? "Under" : "Over"} {percent(row.probability ?? (row.side === "under" ? row.under_probability : row.over_probability))}{row.side ? "" : ` · Under ${percent(row.under_probability)}`}</p></div>
+              <div><span className="text-slate-500">Model probabilities</span><p className="mt-1">{row.side === "under" ? "Under" : "Over"} {percent(row.probability ?? (row.side === "under" ? row.under_probability : row.over_probability))}{row.side ? "" : ` · Under ${percent(row.under_probability)}`} · Push {percent(row.push_probability)}</p></div>
               <div><span className="text-slate-500">Edge vs book</span><p className="mt-1">{row.edge_pct == null ? "Unavailable" : `${row.edge_pct.toFixed(1)} percentage points`}</p></div>
               <div><span className="text-slate-500">Defense vs position</span><p className="mt-1">{row.defense_rank == null ? "Rank unavailable" : `Rank #${row.defense_rank}`} {row.defense_allowed == null ? "" : `· ${row.defense_allowed.toFixed(1)} allowed`}</p></div>
               <div><span className="text-slate-500">Recent TOI</span><p className="mt-1">{row.toi_minutes == null ? "Unavailable" : `${row.toi_minutes.toFixed(1)} min`}</p></div>
