@@ -24,9 +24,9 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from history_ingest import default_seasons, ingest_seasons
-from model import TARGETS, build_candidate_features, load_history, predict_count
-from odds_normalizer import normalize_event_odds
+from player_props.history_ingest import default_seasons, ingest_seasons
+from player_props.model import TARGETS, build_candidate_features, load_history, predict_count
+from player_props.odds_normalizer import normalize_event_odds
 
 NHL_API = "https://api-web.nhle.com/v1"
 ODDS_API = "https://api.the-odds-api.com/v4"
@@ -327,7 +327,7 @@ def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
 
 
 def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: list[dict[str, Any]],
-               rosters: dict[str, dict[str, Any]], goalie_status: dict[str, dict[str, Any]],
+               rosters: dict[str, dict[str, Any]], goalie_status: dict[tuple[str, str], dict[str, Any]],
                snapshot: dict[str, Any]) -> dict[str, Any]:
     stats_by_id: dict[str, dict[str, Any]] = {}
     game_map = {game["game_id"]: game for game in games}
@@ -391,7 +391,8 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                 candidates.append({
                     key: base[key] for key in (
                         "game_id", "game_date", "season", "team_abbrev", "opponent_abbrev",
-                        "home_away", "candidate_id", "player_id", "position",
+                        "home_away", "candidate_id", "player_id", "player", "position",
+                        "availability_status",
                     )
                 })
         if not candidates:
@@ -597,7 +598,7 @@ def main() -> int:
         history = load_history(args.history_dir)
         validation_season = current - 1
         args.model_path.parent.mkdir(parents=True, exist_ok=True)
-        report = __import__("model").train_and_backtest(
+        report = __import__("player_props.model", fromlist=["train_and_backtest"]).train_and_backtest(
             history, validation_season=validation_season, model_path=args.model_path
         )
         bundle = joblib.load(args.model_path)
