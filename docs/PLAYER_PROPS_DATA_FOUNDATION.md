@@ -65,11 +65,10 @@ The requested refresh times are midnight, 7 a.m., and 3 p.m. Eastern. The reques
 - [x] Confirmed repo stack and kept the existing odds API key unchanged.
 - [x] Added an NHL player-market odds normalizer.
 - [x] Documented sources, normalized result fields, odds coverage limits, freshness, and modeling/validation safeguards.
-- [x] Added a checkpoint-safe history importer with schema validation, explicit ordering, bounded parallel paging, skater partitioning, exact-repeat handling, and season completeness checks.
+- [x] Added a history importer with schema validation, explicit ordering, bounded parallel paging, skater partitioning, exact-repeat handling, and season completeness checks.
 - [x] Ran and verified five completed regular seasons plus the current season; row totals are recorded above and in `player_props/README.md`.
-- [ ] Verify live bookmaker coverage and lineup provider credentials when the customer supplies/account access permits those credentials; do not expose or change secrets.
 
-Task 1 is complete as a data foundation. The last item is an external account-coverage check for the later live integration, not a blocker to the historical data deliverable.
+Live bookmaker coverage and lineup-provider credentials are external prerequisites for the later live integration. They do not block this data-foundation deliverable; verify them when the later integration is authorized, without exposing or changing secrets.
 
 ## Sources
 
