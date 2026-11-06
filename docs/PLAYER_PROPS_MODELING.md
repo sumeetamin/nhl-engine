@@ -53,3 +53,12 @@ python player_props/model.py --history-dir player_props_data --model-path player
 ```
 
 The large fitted model and report are local artifacts and are not committed to Git. The code re-runs the holdout and fits final estimators on all available history after the backtest.
+
+
+## Candidate inference interface
+
+The model bundle can score a future slate after a caller supplies schedule and player candidates. `build_candidate_features(history, candidates, market)` creates pregame features from cached history only; `predict_candidates(bundle, history, candidates, market)` returns each candidate with its projection and, when the candidate row contains a numeric `line`, over/under/push probabilities.
+
+Candidate rows require `game_id`, `game_date`, `team_abbrev`, `opponent_abbrev`, and `home_away`. Skater rows also require NHL `player_id` and `position`; goalie rows require NHL `player_id`. A unique `candidate_id` is recommended. For example, markets are `player_shots_on_goal`, `player_goals`, `player_assists`, `player_points`, `goalie_saves`, and `team_shots_on_goal`.
+
+The inference module does not fetch the schedule, lineups, odds, or confirmed-starter status. The caller must provide candidates using trustworthy NHL IDs and current schedule/lineup data. It does not treat an odds line as a model input; a line is used only to calculate probabilities from the projection. The generated model bundle uses plain mappings around scikit-learn estimators so the artifact can be loaded by an imported prediction service as well as by the training CLI.
