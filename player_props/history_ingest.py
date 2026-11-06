@@ -1,9 +1,9 @@
 """Checkpointed regular-season NHL player/team game-log ingestion.
 
-The NHL Stats REST API is public but undocumented as a stable developer contract.
-This importer validates the live per-game response shape and fails closed if it
-receives aggregate rows or loses required columns. It writes local JSONL caches;
-it does not call a sportsbook or require/print any API key.
+The NHL Stats REST API is public but has no stable published developer contract.
+This importer validates each response, partitions high-volume skater history by
+team to avoid the API's 10,000-row response ceiling, and fails closed on schema
+drift or truncation. It writes local JSONL caches and never calls a sportsbook.
 """
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ import json
 import os
 import sys
 import time
+from collections import Counter
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping
@@ -19,6 +20,7 @@ from typing import Any, Iterable, Mapping
 import requests
 
 API_BASE = "https://api.nhle.com/stats/rest/en"
+RESULT_CEILING = 10_000
 TABLE_PATHS = {
     "skaters": "skater/summary",
     "goalies": "goalie/summary",
@@ -83,12 +85,71 @@ def _request_json(session: requests.Session, url: str, params: Mapping[str, Any]
     raise IngestionError(f"Request failed after retries: {url}")
 
 
+def _fetch_pages(
+    session: requests.Session,
+    url: str,
+    params: dict[str, Any],
+    *,
+    page_size: int,
+    pause_seconds: float,
+    label: str,
+) -> list[dict[str, Any]]:
+    start = 0
+    total: int | None = None
+    rows: list[dict[str, Any]] = []
+
+    while total is None or start < total:
+        page_params = {**params, "limit": page_size, "start": start}
+        payload = _request_json(session, url, page_params)
+        page = payload["data"]
+        if total is None:
+            try:
+                total = int(payload["total"])
+            except (KeyError, TypeError, ValueError) as exc:
+                raise IngestionError(f"Missing or invalid total for {label}") from exc
+            if total >= RESULT_CEILING:
+                raise IngestionError(
+                    f"{label} reached the API's {RESULT_CEILING}-row response ceiling. "
+                    "Use a finer partition; refusing to save possibly truncated history."
+                )
+        if not page and start < total:
+            raise IngestionError(f"Pagination stopped early for {label}: {start}/{total}")
+        rows.extend(page)
+        start += len(page)
+        if start < total:
+            time.sleep(max(0.0, pause_seconds))
+    if len(rows) != total:
+        raise IngestionError(f"Truncated {label}: got {len(rows)}, expected {total}")
+    return rows
+
+
+def fetch_team_abbrev_map(
+    session: requests.Session, *, page_size: int = 1000, pause_seconds: float = 0.12
+) -> dict[int, str]:
+    """Map Stats REST team IDs to tricodes for historical team rows."""
+    rows = _fetch_pages(
+        session,
+        f"{API_BASE}/team",
+        {},
+        page_size=page_size,
+        pause_seconds=pause_seconds,
+        label="team catalog",
+    )
+    mapping: dict[int, str] = {}
+    for row in rows:
+        if "id" not in row or "triCode" not in row:
+            raise IngestionError("Team catalog is missing id/triCode fields")
+        mapping[_integer(row["id"], "team.id")] = str(row["triCode"])
+    return mapping
+
+
 def fetch_game_rows(
     session: requests.Session,
     table: str,
     season: int,
     *,
     game_type: int = 2,
+    team_id: int | None = None,
     page_size: int = 1000,
     pause_seconds: float = 0.12,
 ) -> list[dict[str, Any]]:
@@ -97,35 +158,17 @@ def fetch_game_rows(
     if page_size < 1 or page_size > 1000:
         raise ValueError("page_size must be between 1 and 1000")
 
-    url = f"{API_BASE}/{TABLE_PATHS[table]}"
-    cayenne = f"seasonId={season} and gameTypeId={game_type}"
-    start = 0
-    total: int | None = None
-    rows: list[dict[str, Any]] = []
-
-    while total is None or start < total:
-        payload = _request_json(session, url, {
-            "isAggregate": "false",
-            "isGame": "true",
-            "cayenneExp": cayenne,
-            "limit": page_size,
-            "start": start,
-        })
-        page = payload["data"]
-        if total is None:
-            try:
-                total = int(payload["total"])
-            except (KeyError, TypeError, ValueError) as exc:
-                raise IngestionError(f"Missing or invalid total for {table} {season}") from exc
-        if not page and start < total:
-            raise IngestionError(f"Pagination stopped early for {table} {season}: {start}/{total}")
-        rows.extend(page)
-        start += len(page)
-        if start < total:
-            time.sleep(max(0.0, pause_seconds))
-    if len(rows) != total:
-        raise IngestionError(f"Truncated {table} {season} response: got {len(rows)}, expected {total}")
-    return rows
+    expression = f"seasonId={season} and gameTypeId={game_type}"
+    if team_id is not None:
+        expression += f" and teamId={int(team_id)}"
+    return _fetch_pages(
+        session,
+        f"{API_BASE}/{TABLE_PATHS[table]}",
+        {"isAggregate": "false", "isGame": "true", "cayenneExp": expression},
+        page_size=page_size,
+        pause_seconds=pause_seconds,
+        label=f"{table} {season}" + (f" team {team_id}" if team_id is not None else ""),
+    )
 
 
 def _required(row: Mapping[str, Any], table: str) -> None:
@@ -151,7 +194,13 @@ def _number(value: Any, field: str) -> float:
     return number
 
 
-def normalize_game_rows(table: str, rows: Iterable[Mapping[str, Any]], season: int) -> list[dict[str, Any]]:
+def normalize_game_rows(
+    table: str,
+    rows: Iterable[Mapping[str, Any]],
+    season: int,
+    *,
+    team_abbrev_by_id: Mapping[int, str] | None = None,
+) -> list[dict[str, Any]]:
     if table not in TABLE_REQUIRED:
         raise ValueError(f"Unknown table: {table}")
     ingested_at = datetime.now(timezone.utc).isoformat()
@@ -173,13 +222,20 @@ def normalize_game_rows(table: str, rows: Iterable[Mapping[str, Any]], season: i
         if home_away is None:
             raise IngestionError(f"Invalid homeRoad value for game {game_id}: {row['homeRoad']!r}")
 
+        team_id = _integer(row["teamId"], "teamId") if table == "teams" else None
+        team_abbrev = row.get("teamAbbrev")
+        if not team_abbrev and team_id is not None and team_abbrev_by_id:
+            team_abbrev = team_abbrev_by_id.get(team_id)
+        if not team_abbrev:
+            raise IngestionError(f"Cannot resolve team abbreviation for game {game_id}")
+
         record: dict[str, Any] = {
             "game_id": game_id,
             "game_date": game_date[:10],
             "season": season,
             "game_type": 2,
             "home_away": home_away,
-            "team_abbrev": row.get("teamAbbrev"),
+            "team_abbrev": str(team_abbrev),
             "opponent_abbrev": row.get("opponentTeamAbbrev"),
             "source": "nhl_stats_rest",
             "source_fetched_at": ingested_at,
@@ -210,18 +266,17 @@ def normalize_game_rows(table: str, rows: Iterable[Mapping[str, Any]], season: i
             key = (game_id, record["player_id"], record["team_abbrev"])
         else:
             record.update({
-                "team_id": _integer(row["teamId"], "teamId"),
+                "team_id": team_id,
                 "team_name": row.get("teamFullName"),
-                # In an isGame=true response, the per-game value is the game total.
                 "team_shots_on_goal": _integer(round(_number(row["shotsForPerGame"], "shotsForPerGame")),
                                                 "shotsForPerGame"),
                 "shots_against": _integer(round(_number(row["shotsAgainstPerGame"], "shotsAgainstPerGame")),
                                           "shotsAgainstPerGame"),
             })
-            key = (game_id, record["team_id"])
+            key = (game_id, team_id)
 
-        if not record.get("team_abbrev") or not record.get("opponent_abbrev"):
-            raise IngestionError(f"Missing team identity for game {game_id} in {table}")
+        if not record.get("opponent_abbrev"):
+            raise IngestionError(f"Missing opponent identity for game {game_id} in {table}")
         if key in seen:
             raise IngestionError(f"Duplicate game/player/team row in {table}: {key}")
         seen.add(key)
@@ -242,6 +297,32 @@ def _write_jsonl(path: Path, rows: Iterable[Mapping[str, Any]]) -> int:
     return count
 
 
+def _validate_complete_season(
+    skaters: list[dict[str, Any]],
+    goalies: list[dict[str, Any]],
+    teams: list[dict[str, Any]],
+) -> None:
+    team_pair_counts = Counter(row["game_id"] for row in teams)
+    invalid_pairs = {game_id: count for game_id, count in team_pair_counts.items() if count != 2}
+    if invalid_pairs:
+        sample = list(invalid_pairs.items())[:5]
+        raise IngestionError(f"Expected two team rows per game; found invalid pairs: {sample}")
+    team_games = set(team_pair_counts)
+    missing_team_games = ({row["game_id"] for row in skaters + goalies} - team_games)
+    if missing_team_games:
+        raise IngestionError(f"Player records reference games without team rows: {sorted(missing_team_games)[:5]}")
+    for game_id, rows in _group_by(teams, "game_id").items():
+        if Counter(row["home_away"] for row in rows) != Counter({"home": 1, "away": 1}):
+            raise IngestionError(f"Expected one home and one away team row for game {game_id}")
+
+
+def _group_by(rows: Iterable[dict[str, Any]], field: str) -> dict[Any, list[dict[str, Any]]]:
+    grouped: dict[Any, list[dict[str, Any]]] = {}
+    for row in rows:
+        grouped.setdefault(row[field], []).append(row)
+    return grouped
+
+
 def ingest_seasons(
     seasons: Iterable[int],
     output_dir: str | Path,
@@ -250,6 +331,8 @@ def ingest_seasons(
     page_size: int = 1000,
     pause_seconds: float = 0.12,
 ) -> dict[str, Any]:
+    if game_type != 2:
+        raise ValueError("Task 1 currently ingests regular-season history only (gameTypeId=2)")
     output_dir = Path(output_dir)
     manifest: dict[str, Any] = {
         "source": "nhl_stats_rest",
@@ -259,25 +342,39 @@ def ingest_seasons(
     }
     with requests.Session() as session:
         session.headers.update({"User-Agent": "nhl-engine-player-props/1.0"})
+        team_abbrev_by_id = fetch_team_abbrev_map(session, page_size=page_size, pause_seconds=pause_seconds)
         for start_year in seasons:
             season = season_id(start_year)
-            season_counts: dict[str, int] = {}
-            game_sets: dict[str, set[int]] = {}
-            for table in TABLE_PATHS:
-                raw_rows = fetch_game_rows(session, table, season, game_type=game_type,
-                                           page_size=page_size, pause_seconds=pause_seconds)
-                normalized = normalize_game_rows(table, raw_rows, season)
-                if not normalized:
-                    raise IngestionError(f"No {table} rows returned for season {season}")
-                game_sets[table] = {row["game_id"] for row in normalized}
+            raw_teams = fetch_game_rows(session, "teams", season, game_type=game_type,
+                                        page_size=page_size, pause_seconds=pause_seconds)
+            team_ids = sorted({_integer(row.get("teamId"), "teamId") for row in raw_teams})
+            if not team_ids:
+                raise IngestionError(f"No team game rows returned for season {season}")
+            raw_skaters: list[dict[str, Any]] = []
+            for team_id in team_ids:
+                raw_skaters.extend(fetch_game_rows(
+                    session, "skaters", season, game_type=game_type, team_id=team_id,
+                    page_size=page_size, pause_seconds=pause_seconds,
+                ))
+            raw_goalies = fetch_game_rows(session, "goalies", season, game_type=game_type,
+                                          page_size=page_size, pause_seconds=pause_seconds)
+
+            skaters = normalize_game_rows("skaters", raw_skaters, season)
+            goalies = normalize_game_rows("goalies", raw_goalies, season)
+            teams = normalize_game_rows("teams", raw_teams, season, team_abbrev_by_id=team_abbrev_by_id)
+            _validate_complete_season(skaters, goalies, teams)
+
+            counts = {}
+            for table, rows in (("skaters", skaters), ("goalies", goalies), ("teams", teams)):
                 output_path = output_dir / f"{table}_{season}.jsonl"
-                season_counts[table] = _write_jsonl(output_path, normalized)
+                counts[table] = _write_jsonl(output_path, rows)
 
             manifest["seasons"][str(season)] = {
                 "start_year": start_year,
-                "table_rows": season_counts,
-                "unique_games": {name: len(ids) for name, ids in game_sets.items()},
-                "team_game_pairs": season_counts["teams"],
+                "table_rows": counts,
+                "unique_games": {name: len({row["game_id"] for row in rows})
+                                 for name, rows in (("skaters", skaters), ("goalies", goalies), ("teams", teams))},
+                "team_ids_partitioned": team_ids,
                 "complete": True,
             }
 
