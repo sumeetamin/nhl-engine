@@ -10,7 +10,6 @@ import argparse
 import json
 import math
 import sys
-from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -34,15 +33,6 @@ TARGETS = {
 }
 WINDOWS = (5, 10, 20)
 MODEL_VERSION = "nhl-player-props-count-v1"
-
-
-@dataclass
-class TargetModel:
-    estimator: HistGradientBoostingRegressor
-    features: list[str]
-    dispersion: float
-    train_rows: int
-    target_mean: float
 
 
 def _read_jsonl(path: Path) -> pd.DataFrame:
@@ -96,8 +86,27 @@ def _rolling_features(
             [frame[group] for group in season_groups], sort=False, dropna=False
         ).expanding(min_periods=1).mean().reset_index(level=list(range(len(season_groups))), drop=True)
     previous_date = frame.groupby(groups, sort=False, dropna=False)["game_date"].shift(1)
-    frame[f"{prefix}_rest_days"] = (frame["game_date"] - previous_date).dt.days.clip(0, 14)
-    frame[f"{prefix}_games_before"] = frame.groupby(groups, sort=False, dropna=False).cumcount()
+    rest_column = f"{prefix}_rest_days"
+    games_column = f"{prefix}_games_before"
+    frame[rest_column] = (frame["game_date"] - previous_date).dt.days.clip(0, 14)
+    frame[games_column] = frame.groupby(groups, sort=False, dropna=False).cumcount()
+    if "_candidate_row" in frame and frame["_candidate_row"].any():
+        is_candidate = frame["_candidate_row"].fillna(False).astype(bool)
+        history = frame.loc[~is_candidate]
+        counts = history.groupby(groups, sort=False, dropna=False).size().to_dict()
+        latest = history.groupby(groups, sort=False, dropna=False)["game_date"].max().to_dict()
+
+        def group_key(row: pd.Series) -> Any:
+            values = tuple(row[column] for column in groups)
+            return values if len(values) > 1 else values[0]
+
+        candidate_keys = frame.loc[is_candidate, groups].apply(group_key, axis=1)
+        frame.loc[is_candidate, games_column] = candidate_keys.map(counts).fillna(0).to_numpy()
+        latest_dates = candidate_keys.map(latest)
+        frame.loc[is_candidate, rest_column] = [
+            min(14, max(0, (row.game_date - previous).days)) if pd.notna(previous) else np.nan
+            for row, previous in zip(frame.loc[is_candidate].itertuples(), latest_dates)
+        ]
     return frame
 
 
@@ -115,7 +124,7 @@ def _skater_features(skaters: pd.DataFrame) -> dict[str, tuple[pd.DataFrame, lis
 
     # Defense allowance is the aggregate stat produced by opposing skaters in
     # each game, grouped for the team defending and the position being faced.
-    allowed = skaters.copy()
+    allowed = skaters.loc[~skaters.get("_candidate_row", pd.Series(False, index=skaters.index)).fillna(False).astype(bool)].copy()
     allowed["defense_team"] = allowed["opponent_abbrev"]
     allowed = allowed.groupby(
         ["game_id", "game_date", "season", "season_start", "defense_team", "position"],
@@ -203,6 +212,118 @@ def build_training_frames(history: Mapping[str, pd.DataFrame]) -> dict[str, tupl
     return result
 
 
+def _candidate_rows(candidates: pd.DataFrame, market: str) -> pd.DataFrame:
+    required = {"game_id", "game_date", "team_abbrev", "opponent_abbrev", "home_away"}
+    table, _ = TARGETS[market]
+    if table in {"skaters", "goalies"}:
+        required.add("player_id")
+    if table == "skaters":
+        required.add("position")
+    missing = required - set(candidates.columns)
+    if missing:
+        raise ValueError(f"Candidate rows for {market} need fields: {', '.join(sorted(missing))}")
+    future = candidates.copy().reset_index(drop=True)
+    if "candidate_id" not in future:
+        future["candidate_id"] = [f"{market}-{i}" for i in range(len(future))]
+    if future["candidate_id"].duplicated().any():
+        raise ValueError("candidate_id values must be unique")
+    future["game_date"] = pd.to_datetime(future["game_date"], errors="raise")
+    if "season" not in future:
+        starts = future["game_date"].map(lambda value: value.year if value.month >= 9 else value.year - 1)
+        future["season"] = starts.map(lambda year: int(f"{year}{year + 1}"))
+    future["season_start"] = future["season"].astype(int) // 10000
+    future["_candidate_row"] = True
+    for field in ("shots_on_goal", "goals", "assists", "points", "saves", "shots_against",
+                  "goals_against", "team_shots_on_goal", "toi_seconds"):
+        future[field] = np.nan
+    return future
+
+
+def _add_future_team_context(teams: pd.DataFrame, candidates: pd.DataFrame) -> pd.DataFrame:
+    rows: dict[tuple[Any, str], dict[str, Any]] = {}
+    reverse_home = {"home": "away", "away": "home", "h": "away", "r": "home"}
+    for row in candidates.to_dict(orient="records"):
+        for team, opponent, side in (
+            (row["team_abbrev"], row["opponent_abbrev"], row["home_away"]),
+            (row["opponent_abbrev"], row["team_abbrev"], reverse_home.get(str(row["home_away"]).casefold(), "away")),
+        ):
+            key = (row["game_id"], str(team))
+            if key not in rows:
+                rows[key] = {
+                    "game_id": row["game_id"], "game_date": row["game_date"],
+                    "season": row["season"], "season_start": row["season_start"],
+                    "team_abbrev": str(team), "opponent_abbrev": str(opponent),
+                    "home_away": side, "team_shots_on_goal": np.nan,
+                    "shots_against": np.nan, "_candidate_row": True,
+                }
+            if str(team) == str(row["team_abbrev"]):
+                rows[key]["candidate_id"] = row["candidate_id"]
+                rows[key]["is_requested_candidate"] = True
+    context = pd.DataFrame(rows.values())
+    if context.empty:
+        raise ValueError("At least one future game candidate is required")
+    return pd.concat([teams, context], ignore_index=True, sort=False)
+
+
+def build_candidate_features(
+    history: Mapping[str, pd.DataFrame],
+    candidates: pd.DataFrame,
+    market: str,
+) -> tuple[pd.DataFrame, list[str]]:
+    """Build pregame features for candidate player/team rows without using outcomes."""
+    if market not in TARGETS:
+        raise ValueError(f"Unsupported market: {market}")
+    future = _candidate_rows(candidates, market)
+    table, _ = TARGETS[market]
+    if table == "skaters":
+        combined = pd.concat([history["skaters"], future], ignore_index=True, sort=False)
+        feature_sets = _skater_features(combined)
+        frame, features = feature_sets[market]
+    elif table == "goalies":
+        combined = pd.concat([history["goalies"], future], ignore_index=True, sort=False)
+        teams = _add_future_team_context(history["teams"], future)
+        frame, features = _goalie_features(combined, teams)
+    else:
+        teams = _add_future_team_context(history["teams"], future)
+        frame, features = _team_target_features(teams)
+    selected = frame.loc[
+        frame.get("is_requested_candidate", frame.get("_candidate_row", pd.Series(False, index=frame.index))).fillna(False)
+    ].copy()
+    # Skater/goalie candidates have no separate synthetic context rows.
+    if "is_requested_candidate" not in selected:
+        selected = selected.loc[selected["_candidate_row"].fillna(False)]
+    selected = selected.drop_duplicates("candidate_id", keep="first")
+    if selected["candidate_id"].nunique() != len(future):
+        raise ValueError("Could not build features for every candidate; check candidate game/team/player IDs")
+    return selected, features
+
+
+def predict_candidates(
+    model_bundle: Mapping[str, Any],
+    history: Mapping[str, pd.DataFrame],
+    candidates: pd.DataFrame,
+    market: str,
+    *,
+    line_column: str = "line",
+) -> list[dict[str, Any]]:
+    """Return projection and optional line probabilities for schedule/lineup candidates."""
+    model = model_bundle["models"][market]
+    features_frame, _ = build_candidate_features(history, candidates, market)
+    source = candidates.copy().reset_index(drop=True)
+    if "candidate_id" not in source:
+        source["candidate_id"] = [f"{market}-{i}" for i in range(len(source))]
+    meta = source.set_index("candidate_id", drop=False).to_dict(orient="index")
+    predictions = []
+    for row in features_frame.to_dict(orient="records"):
+        candidate = dict(meta[row["candidate_id"]])
+        line = candidate.get(line_column)
+        if line is None or pd.isna(line):
+            line = None
+        prediction = predict_count(model, row, line=None if line is None else float(line))
+        predictions.append({**candidate, **prediction})
+    return predictions
+
+
 def _fit_estimator(frame: pd.DataFrame, features: list[str], target: str) -> HistGradientBoostingRegressor:
     model = HistGradientBoostingRegressor(
         loss="poisson", learning_rate=0.06, max_iter=140, max_leaf_nodes=15,
@@ -246,16 +367,18 @@ def _count_probability(mean: float, dispersion: float, line: float) -> dict[str,
     return {"over": over, "under": under, "push": push}
 
 
-def predict_count(model: TargetModel, row: Mapping[str, Any], *, line: float | None = None) -> dict[str, Any]:
-    values = pd.DataFrame([{key: row.get(key) for key in model.features}])
-    projection = max(0.0, float(model.estimator.predict(values.replace([np.inf, -np.inf], np.nan))[0]))
+def predict_count(model: Mapping[str, Any], row: Mapping[str, Any], *, line: float | None = None) -> dict[str, Any]:
+    features = model["features"]
+    dispersion = float(model["dispersion"])
+    values = pd.DataFrame([{key: row.get(key) for key in features}])
+    projection = max(0.0, float(model["estimator"].predict(values.replace([np.inf, -np.inf], np.nan))[0]))
     result: dict[str, Any] = {
         "projection": projection,
-        "dispersion": model.dispersion,
+        "dispersion": dispersion,
         "model_version": MODEL_VERSION,
     }
     if line is not None:
-        result["probabilities"] = _count_probability(projection, model.dispersion, float(line))
+        result["probabilities"] = _count_probability(projection, dispersion, float(line))
     return result
 
 
@@ -276,7 +399,7 @@ def train_and_backtest(
 ) -> dict[str, Any]:
     """Hold out one complete season, then fit deployable models on all history."""
     prepared = build_training_frames(history)
-    bundle: dict[str, TargetModel] = {}
+    bundle: dict[str, dict[str, Any]] = {}
     metrics: dict[str, Any] = {}
     for market, (frame, features) in prepared.items():
         source, target = TARGETS[market]
@@ -307,13 +430,13 @@ def train_and_backtest(
         all_model = _fit_estimator(usable, features, target)
         all_mean = np.maximum(1e-6, all_model.predict(usable[features].replace([np.inf, -np.inf], np.nan)))
         dispersion = _estimate_dispersion(usable[target].to_numpy(dtype=float), _baseline(usable, target, features))
-        bundle[market] = TargetModel(
-            estimator=all_model,
-            features=features,
-            dispersion=dispersion,
-            train_rows=int(len(usable)),
-            target_mean=float(usable[target].mean()),
-        )
+        bundle[market] = {
+            "estimator": all_model,
+            "features": features,
+            "dispersion": dispersion,
+            "train_rows": int(len(usable)),
+            "target_mean": float(usable[target].mean()),
+        }
         metrics[market] = backtest
 
     output_path = Path(model_path)
