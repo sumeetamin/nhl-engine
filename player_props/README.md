@@ -64,3 +64,8 @@ Use `--seasons 2021 2022 2023 2024 2025 2026` to pin the same season range. The 
 - `history_ingest.py`: validated regular-season history importer.
 - `odds_normalizer.py`: normalize supported NHL player-prop event markets from an odds response.
 - `../../docs/PLAYER_PROPS_DATA_FOUNDATION.md`: source contracts, freshness, and quality safeguards.
+
+
+## Task 2 — model and backtest
+
+The six count models, rolling-only feature builder, Poisson-loss training, over/under probability helper, and 2025–26 holdout evaluation are documented in [PLAYER_PROPS_MODELING.md](../docs/PLAYER_PROPS_MODELING.md). See `model.py` for the trainer.
