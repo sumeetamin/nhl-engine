@@ -167,7 +167,7 @@ def fetch_odds_snapshot(games: list[dict[str, Any]], api_key: str) -> dict[str, 
     for event in events if isinstance(events, list) else []:
         pair = frozenset((normalize_name(event.get("home_team")), normalize_name(event.get("away_team"))))
         game = game_by_pair.get(pair)
-        if game and str(event.get("commence_time", ""))[:10] in game_dates(eastern_today()):
+        if game:
             candidates.append((event, game))
     snapshots = []
     now = datetime.now(timezone.utc).isoformat()
@@ -179,6 +179,7 @@ def fetch_odds_snapshot(games: list[dict[str, Any]], api_key: str) -> dict[str, 
                 "oddsFormat": "american", "dateFormat": "iso",
             },
         )
+        payload.setdefault("id", event["id"])
         payload["event_id"] = event["id"]
         payload["game_id"] = game["game_id"]
         payload["commence_time"] = game["commence_time"]
@@ -260,7 +261,7 @@ def opponent_position_rank(history: dict[str, pd.DataFrame], market: str, game_d
         return None, None
     stat = MARKET_SOURCE[market][1]
     allowed = frame.groupby("opponent_abbrev")[stat].mean()
-    rank = allowed.rank(method="min", ascending=False)
+    rank = allowed.rank(method="min", ascending=True)
     value = allowed.get(opponent)
     return (int(rank[opponent]) if opponent in rank else None,
             round(float(value), 2) if value is not None else None)
@@ -298,12 +299,17 @@ def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
             if not market:
                 continue
             # Exact team-scoped matching prevents same-name or prefix collisions.
-            roster_team = game["home_team"] if normalize_name(row["home_team"]) == normalize_name(game["home_name"]) else game["away_team"]
-            player = player_lookup.get((roster_team, normalize_name(row["player_name"])))
-            if not player:
+            normalized_player = normalize_name(row["player_name"])
+            matches = [
+                player_lookup[(team, normalized_player)]
+                for team in (game["home_team"], game["away_team"])
+                if (team, normalized_player) in player_lookup
+            ]
+            if len(matches) != 1:
                 continue
+            player = matches[0]
             key = (game["game_id"], str(player["player_id"]), market, float(row["line"]))
-            group = result.setdefault(key, {"books": {}, "candidate": player})
+            group = result.setdefault(key, {"books": {}, "candidate": player, "line": float(row["line"])})
             book = group["books"].setdefault(row["bookmaker_key"], {})
             book[row["side"]] = row["american_odds"]
             group["commence_time"] = game["commence_time"]
@@ -353,7 +359,7 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
             for game in games:
                 for team, opponent, side in ((game["home_team"], game["away_team"], "home"),
                                              (game["away_team"], game["home_team"], "away")):
-                    goalie = goalie_status.get(team)
+                    goalie = goalie_status.get((game["game_date"], team))
                     if not goalie:
                         continue
                     roster_goalies = rosters.get(team, {}).get("goalies", [])
@@ -477,16 +483,8 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
     return build_output(history, props, games, snapshot)
 
 
-def group_line(groups: list[tuple[Any, Any, Any, float]], group: dict[str, Any]) -> float:
-    for key, value in line_map_items_placeholder(groups):
-        if value is group:
-            return float(key[3])
-    return float(group.get("line", 0))
-
-
-def line_map_items_placeholder(groups: list[Any]) -> list[Any]:
-    # This body is replaced by the thin wrapper in build_feed below.
-    return []
+def group_line(groups: list[dict[str, Any]], group: dict[str, Any]) -> float:
+    return float(group["line"])
 
 
 def build_output(history: dict[str, pd.DataFrame], props: list[dict[str, Any]],
@@ -561,13 +559,14 @@ def main() -> int:
         games = flatten_schedule(start)
         team_codes = sorted({g[key] for g in games for key in ("home_team", "away_team")})
         rosters = {team: load_roster(team) for team in team_codes}
-        goalie_status: dict[str, dict[str, Any]] = {}
+        goalie_status: dict[tuple[str, str], dict[str, Any]] = {}
         from goalie_scraper import _from_nhl_api
         for day in sorted({game["game_date"] for game in games}):
             teams_for_day = sorted({team for game in games if game["game_date"] == day
                                     for team in (game["home_team"], game["away_team"])})
             try:
-                goalie_status.update(_from_nhl_api(day, teams_for_day))
+                for team, status in _from_nhl_api(day, teams_for_day).items():
+                    goalie_status[(day, team)] = status
             except Exception as exc:
                 LOG.warning("Official goalie status unavailable for %s: %s", day, exc)
 
