@@ -1,0 +1,13 @@
+{
+  "snapshot_at": null,
+  "events": [],
+  "source": "the_odds_api",
+  "bookmakers": [
+    "fanduel",
+    "draftkings",
+    "fanatics",
+    "novig",
+    "prophetx"
+  ],
+  "note": "Initial empty snapshot; the scheduled midnight refresh replaces this file."
+}
