@@ -264,7 +264,8 @@ def opponent_position_rank(history: dict[str, pd.DataFrame], market: str, game_d
     if frame.empty:
         return None, None
     stat = MARKET_SOURCE[market][1]
-    allowed = frame.groupby("opponent_abbrev")[stat].mean()
+    allowed_by_game = frame.groupby(["game_id", "opponent_abbrev"], as_index=False)[stat].sum()
+    allowed = allowed_by_game.groupby("opponent_abbrev")[stat].mean()
     rank = allowed.rank(method="min", ascending=True)
     value = allowed.get(opponent)
     return (int(rank[opponent]) if opponent in rank else None,
