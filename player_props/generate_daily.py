@@ -295,6 +295,8 @@ def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
             stale_after_hours=30,
         )
         for row in rows:
+            if row["is_stale"]:
+                continue
             market = normalized_market.get(row["market_key"])
             if not market:
                 continue
@@ -487,8 +489,52 @@ def group_line(groups: list[dict[str, Any]], group: dict[str, Any]) -> float:
     return float(group["line"])
 
 
+def grade_tracker(history: dict[str, pd.DataFrame], old_rows: list[dict[str, Any]],
+                  current_picks: list[dict[str, Any]], today: date) -> list[dict[str, Any]]:
+    tracker = {str(row.get("prop_id")): dict(row) for row in old_rows if row.get("prop_id")}
+    for row in tracker.values():
+        if row.get("result") != "pending":
+            continue
+        market = row.get("market")
+        if market not in MARKET_SOURCE or row.get("line") is None or row.get("side") not in {"over", "under"}:
+            row["result"] = "void"
+            continue
+        table, stat = MARKET_SOURCE[market]
+        frame = history[table]
+        actual_rows = frame[frame["game_id"].astype(str) == str(row.get("game_id"))]
+        if table == "teams":
+            actual_rows = actual_rows[actual_rows["team_abbrev"] == row.get("team")]
+        else:
+            actual_rows = actual_rows[actual_rows["player_id"].astype(str) == str(row.get("player_id"))]
+        if not actual_rows.empty:
+            value = safe_float(actual_rows.iloc[0].get(stat))
+            line = float(row["line"])
+            if value is None:
+                row["result"] = "void"
+            elif value == line:
+                row["result"] = "push"
+            elif (value > line) == (row["side"] == "over"):
+                row["result"] = "hit"
+            else:
+                row["result"] = "miss"
+        else:
+            game_date = str(row.get("game_date") or "")[:10]
+            if game_date and date.fromisoformat(game_date) < today - timedelta(days=3):
+                row["result"] = "void"
+    for pick in current_picks:
+        key = str(pick["prop_id"])
+        tracker.setdefault(key, {
+            "prop_id": key, "game_id": pick["game_id"], "game_date": pick["game_date"],
+            "player_id": pick.get("player_id"), "team": pick.get("team"),
+            "market": pick["market"], "line": pick.get("line"), "side": pick.get("side"),
+            "result": "pending",
+        })
+    return list(tracker.values())
+
+
 def build_output(history: dict[str, pd.DataFrame], props: list[dict[str, Any]],
-                 games: list[dict[str, Any]], snapshot: dict[str, Any]) -> dict[str, Any]:
+                 games: list[dict[str, Any]], snapshot: dict[str, Any],
+                 tracker: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     cheat_sheets = []
     top_plays = []
     for row in props:
@@ -502,15 +548,6 @@ def build_output(history: dict[str, pd.DataFrame], props: list[dict[str, Any]],
         if row.get("edge_pct") is not None and row["edge_pct"] > 0:
             top_plays.append(row)
     top_plays.sort(key=lambda row: row["edge_pct"], reverse=True)
-    tracker: list[dict[str, Any]] = []
-    tracked_ids = set()
-    for row in top_plays[:20]:
-        tracker.append({
-            "prop_id": row["prop_id"], "game_id": row["game_id"], "player_id": row.get("player_id"),
-            "market": row["market"], "line": row.get("line"), "side": row.get("side"),
-            "result": "pending",
-        })
-        tracked_ids.add(row["prop_id"])
     return {
         "version": 1,
         "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -524,7 +561,7 @@ def build_output(history: dict[str, pd.DataFrame], props: list[dict[str, Any]],
         "props": props,
         "cheat_sheets": cheat_sheets,
         "top_plays": top_plays[:20],
-        "tracker": tracker,
+        "tracker": tracker or [],
     }
 
 
@@ -582,7 +619,16 @@ def main() -> int:
             snapshot = json.loads(args.odds_path.read_text(encoding="utf-8"))
         else:
             snapshot = {"snapshot_at": None, "events": [], "source": "the_odds_api"}
+        previous = {}
+        if args.output.exists():
+            try:
+                previous = json.loads(args.output.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                previous = {}
         feed = build_feed(history, bundle, games, rosters, goalie_status, snapshot)
+        feed["tracker"] = grade_tracker(
+            history, previous.get("tracker") or [], feed.get("top_plays") or [], eastern_today()
+        )
         if snapshot.get("error"):
             feed["source_status"] += " " + snapshot["error"] + "."
         feed["training_report"] = {
