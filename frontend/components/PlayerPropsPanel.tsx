@@ -21,6 +21,11 @@ type PlayerProp = {
   line?: number | null;
   over_odds?: number | null;
   under_odds?: number | null;
+  side?: "over" | "under";
+  price?: number | null;
+  probability?: number | null;
+  projection?: number | null;
+  window?: "l5" | "l10";
   best_book?: string | null;
   books?: Array<{ book: string; over?: number | null; under?: number | null }>;
   confidence?: number | null;
@@ -118,9 +123,7 @@ function PropTable({ rows, onAdd, saved }: {
 function FragmentRow({ row, open, saved, onToggle, onAdd }: {
   row: PlayerProp; open: boolean; saved: boolean; onToggle: () => void; onAdd: () => void;
 }) {
-  const direction = row.over_probability == null || row.under_probability == null
-    ? "—"
-    : row.over_probability >= row.under_probability ? "Over" : "Under";
+  const direction = row.side === "under" ? "Under" : row.side === "over" ? "Over" : "Both";
   const books = row.books?.map((book) => `${book.book}: O ${odds(book.over)} / U ${odds(book.under)}`).join(" · ");
   return (
     <>
@@ -138,7 +141,7 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
           </button>
         </td>
         <td className="px-3 py-3 font-semibold text-cyan-300">{percent(row.confidence)}</td>
-        <td className="px-3 py-3 text-slate-300">{row.best_book ? <span>{row.best_book}<br />O {odds(row.over_odds)} / U {odds(row.under_odds)}</span> : "—"}</td>
+        <td className="px-3 py-3 text-slate-300">{row.best_book ? <span>{row.best_book}<br />{row.side === "under" ? "U" : "O"} {odds(row.price ?? (row.side === "under" ? row.under_odds : row.over_odds))}</span> : odds(row.price)}</td>
         <td className="px-3 py-3">{record(row.history?.l5)}</td>
         <td className="px-3 py-3">{record(row.history?.l10)}</td>
         <td className="px-3 py-3">{record(row.history?.h2h)}</td>
@@ -148,8 +151,8 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
         <tr className="bg-slate-950/70">
           <td colSpan={8} className="px-5 py-4">
             <div className="grid gap-3 text-[11px] text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
-              <div><span className="text-slate-500">Model projection</span><p className="mt-1 text-base font-bold text-white">{row.line == null ? "—" : row.market === "goalie_saves" ? "Saves" : "Stat"} line {row.line}</p></div>
-              <div><span className="text-slate-500">Model probabilities</span><p className="mt-1">Over {percent(row.over_probability)} · Under {percent(row.under_probability)}</p></div>
+              <div><span className="text-slate-500">Model projection</span><p className="mt-1 text-base font-bold text-white">{row.projection == null ? "—" : row.projection.toFixed(2)} projected · line {row.line ?? "—"}</p></div>
+              <div><span className="text-slate-500">Model probabilities</span><p className="mt-1">{row.side === "under" ? "Under" : "Over"} {percent(row.probability ?? (row.side === "under" ? row.under_probability : row.over_probability))}{row.side ? "" : ` · Under ${percent(row.under_probability)}`}</p></div>
               <div><span className="text-slate-500">Edge vs book</span><p className="mt-1">{row.edge_pct == null ? "Unavailable" : `${row.edge_pct.toFixed(1)} percentage points`}</p></div>
               <div><span className="text-slate-500">Defense vs position</span><p className="mt-1">{row.defense_rank == null ? "Rank unavailable" : `Rank #${row.defense_rank}`} {row.defense_allowed == null ? "" : `· ${row.defense_allowed.toFixed(1)} allowed`}</p></div>
               <div><span className="text-slate-500">Recent TOI</span><p className="mt-1">{row.toi_minutes == null ? "Unavailable" : `${row.toi_minutes.toFixed(1)} min`}</p></div>
@@ -171,6 +174,7 @@ export default function PlayerPropsPanel({ view }: Props) {
   const [selectedGame, setSelectedGame] = useState("all");
   const [market, setMarket] = useState("All props");
   const [side, setSide] = useState("both");
+  const [windowFilter, setWindowFilter] = useState("all");
   const [sort, setSort] = useState("confidence");
   const [savedIds, setSavedIds] = useState<string[]>([]);
 
@@ -201,15 +205,16 @@ export default function PlayerPropsPanel({ view }: Props) {
         (market === "Goals" && row.market === "player_goals") ||
         (market === "Goalie Saves" && row.market === "goalie_saves") ||
         (market === "Team Shots" && row.market === "team_shots_on_goal");
-      const matchesSide = side === "both" || side === "over" || side === "under";
-      return matchesSearch && matchesGame && matchesMarket && matchesSide;
+      const matchesSide = side === "both" || row.side === side;
+      const matchesWindow = view !== "cheat" || windowFilter === "all" || row.window === windowFilter;
+      return matchesSearch && matchesGame && matchesMarket && matchesSide && matchesWindow;
     });
     return filtered.sort((a, b) => {
       if (sort === "edge") return (b.edge_pct ?? -Infinity) - (a.edge_pct ?? -Infinity);
-      if (sort === "defense") return (b.defense_rank ?? -Infinity) - (a.defense_rank ?? -Infinity);
+      if (sort === "defense") return (a.defense_rank ?? Infinity) - (b.defense_rank ?? Infinity);
       return (b.confidence ?? -Infinity) - (a.confidence ?? -Infinity);
     });
-  }, [feed, view, search, selectedGame, market, side, sort]);
+  }, [feed, view, search, selectedGame, market, side, windowFilter, sort]);
 
   const addToSheet = (row: PlayerProp) => {
     const next = savedIds.includes(row.prop_id) ? savedIds.filter((id) => id !== row.prop_id) : [...savedIds, row.prop_id];
@@ -244,7 +249,7 @@ export default function PlayerPropsPanel({ view }: Props) {
         <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-slate-800 bg-[#111827] p-3 text-xs text-slate-300">
           <label>Search <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Player or team" className="ml-2 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /></label>
           <label>Market <select value={market} onChange={(event) => setMarket(event.target.value)} className="ml-2 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white">{MARKETS.map((item) => <option key={item}>{item}</option>)}</select></label>
-          <label>Window <select value={side} onChange={(event) => setSide(event.target.value)} className="ml-2 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="both">L5 or L10</option><option value="over">L5</option><option value="under">L10</option></select></label>
+          <label>Window <select value={windowFilter} onChange={(event) => setWindowFilter(event.target.value)} className="ml-2 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="all">L5 or L10</option><option value="l5">L5</option><option value="l10">L10</option></select></label>
           <span className="text-slate-500">Showing feed-qualified 80% and 100% hit-rate trends only.</span>
         </div>
       )}
