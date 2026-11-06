@@ -22,6 +22,8 @@ import joblib
 import pandas as pd
 import requests
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from history_ingest import default_seasons, ingest_seasons
 from model import TARGETS, build_candidate_features, load_history, predict_count
 from odds_normalizer import normalize_event_odds
@@ -72,7 +74,9 @@ def request_json(url: str, *, params: dict[str, Any] | None = None, timeout: int
             last_error = exc
             if attempt < 3:
                 time.sleep(min(2 ** attempt, 8))
-    raise FeedError(f"Request failed for {url}: {last_error}")
+    status = getattr(getattr(last_error, "response", None), "status_code", None)
+    detail = f"HTTP {status}" if status else type(last_error).__name__ if last_error else "unknown error"
+    raise FeedError(f"Request failed for {url}: {detail}")
 
 
 def eastern_today() -> date:
@@ -609,10 +613,20 @@ def main() -> int:
 
         if args.fetch_odds:
             api_key = os.environ.get("ODDS_API_KEY")
-            snapshot = fetch_odds_snapshot(games, api_key) if api_key else {
-                "snapshot_at": None, "events": [], "source": "the_odds_api",
-                "error": "ODDS_API_KEY is not configured",
-            }
+            if api_key:
+                try:
+                    snapshot = fetch_odds_snapshot(games, api_key)
+                except FeedError as exc:
+                    LOG.warning("Odds snapshot unavailable: %s", str(exc).replace(api_key, "[redacted]"))
+                    snapshot = {
+                        "snapshot_at": None, "events": [], "source": "the_odds_api",
+                        "error": "The daily odds request did not return usable player markets.",
+                    }
+            else:
+                snapshot = {
+                    "snapshot_at": None, "events": [], "source": "the_odds_api",
+                    "error": "ODDS_API_KEY is not configured",
+                }
             args.odds_path.parent.mkdir(parents=True, exist_ok=True)
             args.odds_path.write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
         elif args.odds_path.exists():
