@@ -177,6 +177,35 @@ def _required(row: Mapping[str, Any], table: str) -> None:
         raise IngestionError(f"{table} row is missing required fields: {', '.join(missing)}")
 
 
+
+
+
+def _deduplicate_raw_rows(
+    table: str, rows: Iterable[Mapping[str, Any]]
+) -> tuple[list[dict[str, Any]], int]:
+    """Drop exact API repeats, but reject conflicting records for the same identity."""
+    identity_fields = ("gameId", "teamId") if table == "teams" else ("gameId", "playerId", "teamAbbrev")
+    kept: list[dict[str, Any]] = []
+    seen: dict[tuple[Any, ...], str] = {}
+    duplicate_count = 0
+    for source_row in rows:
+        row = dict(source_row)
+        missing = [field for field in identity_fields if field not in row]
+        if missing:
+            raise IngestionError(f"{table} row missing identity fields: {', '.join(missing)}")
+        key = tuple(row[field] for field in identity_fields)
+        canonical = json.dumps(row, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+        prior = seen.get(key)
+        if prior is not None:
+            if prior != canonical:
+                raise IngestionError(f"Conflicting duplicate identity in {table}: {key}")
+            duplicate_count += 1
+            continue
+        seen[key] = canonical
+        kept.append(row)
+    return kept, duplicate_count
+
+
 def _integer(value: Any, field: str) -> int:
     try:
         return int(value)
@@ -359,6 +388,9 @@ def ingest_seasons(
             raw_goalies = fetch_game_rows(session, "goalies", season, game_type=game_type,
                                           page_size=page_size, pause_seconds=pause_seconds)
 
+            raw_skaters, skater_duplicates = _deduplicate_raw_rows("skaters", raw_skaters)
+            raw_goalies, goalie_duplicates = _deduplicate_raw_rows("goalies", raw_goalies)
+            raw_teams, team_duplicates = _deduplicate_raw_rows("teams", raw_teams)
             skaters = normalize_game_rows("skaters", raw_skaters, season)
             goalies = normalize_game_rows("goalies", raw_goalies, season)
             teams = normalize_game_rows("teams", raw_teams, season, team_abbrev_by_id=team_abbrev_by_id)
@@ -375,6 +407,11 @@ def ingest_seasons(
                 "unique_games": {name: len({row["game_id"] for row in rows})
                                  for name, rows in (("skaters", skaters), ("goalies", goalies), ("teams", teams))},
                 "team_ids_partitioned": team_ids,
+                "exact_duplicate_rows_removed": {
+                    "skaters": skater_duplicates,
+                    "goalies": goalie_duplicates,
+                    "teams": team_duplicates,
+                },
                 "complete": True,
             }
 
