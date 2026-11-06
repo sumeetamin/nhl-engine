@@ -40,6 +40,7 @@ type PlayerProp = {
   opponent_pace?: number | null;
   goalie_name?: string | null;
   goalie_status?: "confirmed" | "projected" | "unknown" | string;
+  availability_status?: string;
 };
 type Feed = {
   version?: number;
@@ -49,7 +50,8 @@ type Feed = {
   games?: Array<{ game_id: string; game_label: string; game_date: string; commence_time?: string }>;
   props?: PlayerProp[];
   cheat_sheets?: PlayerProp[];
-  tracker?: Array<{ prop_id: string; result: "hit" | "miss" | "push" | "pending" }>;
+  top_plays?: PlayerProp[];
+  tracker?: Array<{ prop_id: string; result: "hit" | "miss" | "push" | "void" | "pending" }>;
 };
 type Props = { view: "props" | "cheat" };
 
@@ -158,6 +160,7 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
               <div><span className="text-slate-500">Recent TOI</span><p className="mt-1">{row.toi_minutes == null ? "Unavailable" : `${row.toi_minutes.toFixed(1)} min`}</p></div>
               <div><span className="text-slate-500">Team pace</span><p className="mt-1">{row.team_pace == null ? "Unavailable" : `${row.team_pace.toFixed(1)} SOG/game`} {row.opponent_pace == null ? "" : `· opponent ${row.opponent_pace.toFixed(1)}`}</p></div>
               <div><span className="text-slate-500">Goalie</span><p className="mt-1">{row.goalie_name || "Not announced"}{row.goalie_status ? ` · ${row.goalie_status}` : ""}</p></div>
+              <div><span className="text-slate-500">Availability</span><p className="mt-1">{row.availability_status || "Not confirmed"}</p></div>
               <div><span className="text-slate-500">Sportsbook prices</span><p className="mt-1">{books || "No permitted-book prices in the latest odds snapshot."}</p></div>
             </div>
           </td>
@@ -223,7 +226,7 @@ export default function PlayerPropsPanel({ view }: Props) {
   };
 
   const tracker = feed.tracker || [];
-  const tracked = tracker.filter((item) => item.result !== "pending");
+  const tracked = tracker.filter((item) => item.result === "hit" || item.result === "miss");
   const hits = tracked.filter((item) => item.result === "hit").length;
   const hitRate = tracked.length ? Math.round(100 * hits / tracked.length) : null;
 
@@ -236,6 +239,21 @@ export default function PlayerPropsPanel({ view }: Props) {
         </div>
         {view === "props" && <div className="rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-[11px] text-slate-300">Top-plays tracker: {hitRate == null ? "No graded props yet" : `${hits}/${tracked.length} hits · ${hitRate}%`}</div>}
       </div>
+
+      {view === "props" && (feed.top_plays || []).length > 0 && (
+        <div className="rounded-2xl border border-emerald-900/50 bg-emerald-950/10 p-4">
+          <h3 className="mb-3 text-xs font-black uppercase tracking-wider text-emerald-300">Top model edges</h3>
+          <div className="grid gap-2 md:grid-cols-2">
+            {(feed.top_plays || []).slice(0, 6).map((row) => (
+              <div key={row.prop_id} className="flex items-center justify-between gap-3 rounded-lg bg-slate-950/60 px-3 py-2 text-xs">
+                <span className="min-w-0 truncate text-white">{row.player} · {row.market_label} {row.side} {row.line}</span>
+                <span className="shrink-0 font-bold text-emerald-300">{row.edge_pct == null ? "—" : `+${row.edge_pct.toFixed(1)} pp`}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-[10px] text-slate-500">Edge is model probability minus the best available book’s no-vig probability. Model probabilities are not yet calibrated.</p>
+        </div>
+      )}
 
       {view === "props" ? (
         <div className="grid gap-2 rounded-2xl border border-slate-800 bg-[#111827] p-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -262,7 +280,19 @@ export default function PlayerPropsPanel({ view }: Props) {
         </div>}
 
       {view === "props" && savedIds.length > 0 && (
-        <div className="rounded-2xl border border-indigo-900/60 bg-indigo-950/20 p-3 text-xs text-indigo-200">My sheet: {savedIds.length} saved prop{savedIds.length === 1 ? "" : "s"}. Your sheet is stored in this browser.</div>
+        <div className="rounded-2xl border border-indigo-900/60 bg-indigo-950/20 p-3">
+          <h3 className="mb-2 text-xs font-black uppercase tracking-wider text-indigo-200">My sheet · {savedIds.length} saved</h3>
+          <div className="space-y-2">
+            {savedIds.map((id) => {
+              const row = (feed.props || []).find((item) => item.prop_id === id);
+              return <div key={id} className="flex items-center justify-between gap-3 rounded-lg bg-slate-950/50 px-3 py-2 text-xs text-slate-200">
+                <span>{row ? `${row.player} · ${row.market_label} ${row.side || ""} ${row.line ?? ""}` : id}</span>
+                <button type="button" onClick={() => row && addToSheet(row)} className="text-indigo-300 hover:text-white">Remove</button>
+              </div>;
+            })}
+          </div>
+          <p className="mt-2 text-[10px] text-slate-500">Saved in this browser only.</p>
+        </div>
       )}
       {feed.source_status && <p className="text-center text-[10px] text-slate-500">{feed.source_status}</p>}
     </section>
