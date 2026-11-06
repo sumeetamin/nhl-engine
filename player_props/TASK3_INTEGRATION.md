@@ -20,7 +20,7 @@ History hit rates use only results before the scheduled game date. A push is exc
 
 The GitHub Actions workflow is scheduled at midnight, 7 AM, and 3 PM Eastern time. Only the midnight run fetches a fresh odds snapshot. The other two runs reuse that snapshot and refresh the generated projections, history-backed features, and tracker. A manual workflow run can optionally request an odds refresh.
 
-The workflow requires the repository's existing `ODDS_API_KEY` secret for bookmaker prices. The frontend does not call that secret or The Odds API directly. Until this branch is merged, the schedule will not run from the default branch. A successful merge will trigger the site's normal Vercel deployment; the scheduled workflow then needs to complete before the public feed contains live player-prop data.
+The workflow requires the repository's existing `ODDS_API_KEY` secret for bookmaker prices. The frontend does not call that secret or The Odds API directly. Only the midnight scheduled run fetches odds; the 7 AM and 3 PM runs, plus manual workflow runs, reuse the saved snapshot. Until this branch is merged, the schedule will not run from the default branch. A successful merge will trigger the site's normal Vercel deployment; the scheduled workflow then needs to complete before the public feed contains live player-prop data.
 
 ## Output contract
 
