@@ -13,6 +13,7 @@ import os
 import sys
 import time
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping
@@ -94,34 +95,53 @@ def _fetch_pages(
     pause_seconds: float,
     label: str,
 ) -> list[dict[str, Any]]:
-    start = 0
-    total: int | None = None
-    rows: list[dict[str, Any]] = []
+    first_params = {**params, "limit": page_size, "start": 0}
+    first_payload = _request_json(session, url, first_params)
+    first_page = first_payload["data"]
+    try:
+        total = int(first_payload["total"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise IngestionError(f"Missing or invalid total for {label}") from exc
+    if total >= RESULT_CEILING:
+        raise IngestionError(
+            f"{label} reached the API's {RESULT_CEILING}-row response ceiling. "
+            "Use a finer partition; refusing to save possibly truncated history."
+        )
+    if total == 0:
+        return []
+    if not first_page:
+        raise IngestionError(f"Pagination stopped early for {label}: 0/{total}")
 
-    while total is None or start < total:
-        page_params = {**params, "limit": page_size, "start": start}
-        payload = _request_json(session, url, page_params)
+    # The endpoint currently caps a requested 1,000-row page to 100 rows.
+    # Derive the real offset stride from the first response, then fetch the
+    # remaining pages concurrently with a small fixed worker pool.
+    stride = len(first_page)
+    offsets = list(range(stride, total, stride))
+
+    def load_page(offset: int) -> list[dict[str, Any]]:
+        page_params = {**params, "limit": page_size, "start": offset}
+        with requests.Session() as page_session:
+            page_session.headers.update({"User-Agent": "nhl-engine-player-props/1.0"})
+            payload = _request_json(page_session, url, page_params)
+        if int(payload.get("total", -1)) != total:
+            raise IngestionError(f"Total changed while paging {label} at {offset}")
         page = payload["data"]
-        if total is None:
-            try:
-                total = int(payload["total"])
-            except (KeyError, TypeError, ValueError) as exc:
-                raise IngestionError(f"Missing or invalid total for {label}") from exc
-            if total >= RESULT_CEILING:
-                raise IngestionError(
-                    f"{label} reached the API's {RESULT_CEILING}-row response ceiling. "
-                    "Use a finer partition; refusing to save possibly truncated history."
-                )
-        if not page and start < total:
-            raise IngestionError(f"Pagination stopped early for {label}: {start}/{total}")
+        expected = min(stride, total - offset)
+        if len(page) != expected:
+            raise IngestionError(f"Short page for {label} at {offset}: {len(page)}/{expected}")
+        return page
+
+    if offsets:
+        with ThreadPoolExecutor(max_workers=6) as pool:
+            pages = list(pool.map(load_page, offsets))
+    else:
+        pages = []
+    rows = list(first_page)
+    for page in pages:
         rows.extend(page)
-        start += len(page)
-        if start < total:
-            time.sleep(max(0.0, pause_seconds))
     if len(rows) != total:
         raise IngestionError(f"Truncated {label}: got {len(rows)}, expected {total}")
     return rows
-
 
 def fetch_team_abbrev_map(
     session: requests.Session, *, page_size: int = 1000, pause_seconds: float = 0.12
@@ -375,6 +395,7 @@ def ingest_seasons(
         team_abbrev_by_id = fetch_team_abbrev_map(session, page_size=page_size, pause_seconds=pause_seconds)
         for start_year in seasons:
             season = season_id(start_year)
+            print(f"Fetching season {season}...", flush=True)
             raw_teams = fetch_game_rows(session, "teams", season, game_type=game_type,
                                         page_size=page_size, pause_seconds=pause_seconds)
             team_ids = sorted({_integer(row.get("teamId"), "teamId") for row in raw_teams})
