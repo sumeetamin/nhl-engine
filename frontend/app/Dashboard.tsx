@@ -5,11 +5,14 @@ import dynamic from 'next/dynamic';
 import { easternDate, dateOptions as buildDateOptions, gamesForDate, strongestPlays } from '../lib/predictionDates.mjs';
 import { publicFile } from '../lib/basePath';
 import LegendsHeader, { HeaderTab } from '../components/LegendsHeader';
+import PlayerPropsPanel from '../components/PlayerPropsPanel';
 
 const MODES = [
   { key: 'daily', icon: '📅', label: 'Daily' },
   { key: 'snapshot', icon: '📊', label: 'Snapshot' },
   { key: 'top', icon: '🔥', label: 'Top Plays' },
+  { key: 'props', icon: '🏒', label: 'Player Props' },
+  { key: 'cheat', icon: '📈', label: 'Cheat Sheets' },
 ];
 
 // ── Dynamic imports with ssr:false — prevents server-side crash ───────────────
@@ -148,6 +151,8 @@ export default function Dashboard() {
           {/* @ts-ignore */}
           {activeMode === 'daily'    && <NHLMatchupCard selectedDate={selectedDate} payload={payload} loading={loading} />}
           {activeMode === 'top'      && <TopPlaysList payload={payload} today={today} loading={loading} />}
+          {activeMode === 'props'    && <PlayerPropsPanel view="props" />}
+          {activeMode === 'cheat'    && <PlayerPropsPanel view="cheat" />}
         </div>
 
       </div>

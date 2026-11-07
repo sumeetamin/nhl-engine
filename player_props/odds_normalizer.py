@@ -59,8 +59,7 @@ def normalize_event_odds(
     snapshot_time = _as_utc(snapshot_at)
     current_time = _as_utc(now) if now is not None else datetime.now(timezone.utc)
     max_age = max(0.0, float(stale_after_hours))
-    age_hours = max(0.0, (current_time - snapshot_time).total_seconds() / 3600)
-    is_stale = age_hours > max_age
+    snapshot_age_hours = max(0.0, (current_time - snapshot_time).total_seconds() / 3600)
     allowed = {str(key).strip().casefold() for key in allowed_bookmaker_keys if str(key).strip()}
     if not allowed:
         raise ValueError("Pass the approved bookmaker keys returned by the provider")
@@ -76,6 +75,14 @@ def normalize_event_odds(
             if not stat:
                 continue
             provider_updated_at = market.get("last_update") or bookmaker.get("last_update")
+            provider_age_hours = None
+            if provider_updated_at:
+                try:
+                    provider_age_hours = max(0.0, (current_time - _as_utc(str(provider_updated_at))).total_seconds() / 3600)
+                except (TypeError, ValueError):
+                    provider_updated_at = None
+            age_hours = provider_age_hours if provider_age_hours is not None else snapshot_age_hours
+            is_stale = age_hours > max_age
             for outcome in market.get("outcomes") or []:
                 side = str(outcome.get("name") or "").strip().casefold()
                 if side not in {"over", "under"}:

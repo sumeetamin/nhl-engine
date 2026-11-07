@@ -142,6 +142,26 @@ def _skater_features(skaters: pd.DataFrame) -> dict[str, tuple[pd.DataFrame, lis
         how="left", validate="many_to_one",
     ).drop(columns=["defense_team"])
 
+    # A future game has no historical game_id to join against. Rebuild its
+    # matchup allowance from the latest actual opponent games strictly before
+    # the candidate date, using only observed outcomes (not future rows).
+    if "_candidate_row" in base:
+        candidate_mask = base["_candidate_row"].fillna(False).astype(bool)
+        for index, candidate in base.loc[candidate_mask].iterrows():
+            opponent_history = allowed[
+                (allowed["defense_team"] == candidate["opponent_abbrev"])
+                & (allowed["position"] == candidate["position"])
+                & (allowed["game_date"] < candidate["game_date"])
+            ].sort_values(["game_date", "game_id"], kind="stable")
+            if opponent_history.empty:
+                continue
+            for stat in SKATER_TARGETS.values():
+                values = pd.to_numeric(opponent_history[stat], errors="coerce").dropna()
+                for window in (5, 10):
+                    recent = values.tail(window)
+                    if not recent.empty:
+                        base.at[index, f"allowed_{stat}_l{window}"] = float(recent.mean())
+
     result = {}
     for market, target in SKATER_TARGETS.items():
         features = [
