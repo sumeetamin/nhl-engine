@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-11-06T21:27:03.600215+00:00",
+    "generated_at": "2026-11-07T01:30:22.313399+00:00",
     "games_by_date": {
         "2026-11-04": [
             {
@@ -3650,7 +3650,62 @@
                                 "score": "3-5"
                             }
                         ],
-                        "h2h": []
+                        "h2h": [
+                            {
+                                "date": "03/08/26",
+                                "opp": "vs BOS",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "03/03/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "01/11/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "0-1"
+                            },
+                            {
+                                "date": "04/13/25",
+                                "opp": "vs BOS",
+                                "result": "L",
+                                "score": "1-4"
+                            },
+                            {
+                                "date": "03/01/25",
+                                "opp": "vs BOS",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "11/29/24",
+                                "opp": "@BOS",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "04/13/24",
+                                "opp": "vs BOS",
+                                "result": "L",
+                                "score": "4-6"
+                            },
+                            {
+                                "date": "03/09/24",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
+                                "date": "01/04/24",
+                                "opp": "@BOS",
+                                "result": "W",
+                                "score": "6-5"
+                            }
+                        ]
                     },
                     "covers": {
                         "best_ml": "BOS ML",
@@ -3821,9 +3876,168 @@
                         "p3": "DAL 1.1 - CBJ 0.8"
                     },
                     "recent_logs": {
-                        "away": [],
-                        "home": [],
-                        "h2h": []
+                        "away": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@CBJ",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@WSH",
+                                "result": "W",
+                                "score": "6-5"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "vs CBJ",
+                                "result": "W",
+                                "score": "3-1"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs MTL",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs NJD",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
+                                "date": "10/25/26",
+                                "opp": "vs NYI",
+                                "result": "W",
+                                "score": "6-3"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "vs WPG",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "vs BOS",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "@CHI",
+                                "result": "W",
+                                "score": "4-0"
+                            },
+                            {
+                                "date": "10/14/26",
+                                "opp": "@COL",
+                                "result": "W",
+                                "score": "3-2"
+                            }
+                        ],
+                        "home": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "vs DAL",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "vs COL",
+                                "result": "W",
+                                "score": "7-2"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "@DAL",
+                                "result": "L",
+                                "score": "1-3"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "@CAR",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "@PHI",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "vs VGK",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "vs TOR",
+                                "result": "L",
+                                "score": "2-6"
+                            },
+                            {
+                                "date": "10/18/26",
+                                "opp": "@MIN",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "vs NYR",
+                                "result": "W",
+                                "score": "1-0"
+                            },
+                            {
+                                "date": "10/13/26",
+                                "opp": "vs FLA",
+                                "result": "L",
+                                "score": "3-7"
+                            }
+                        ],
+                        "h2h": [
+                            {
+                                "date": "01/22/26",
+                                "opp": "vs DAL",
+                                "result": "W",
+                                "score": "1-0"
+                            },
+                            {
+                                "date": "10/21/25",
+                                "opp": "@DAL",
+                                "result": "W",
+                                "score": "5-1"
+                            },
+                            {
+                                "date": "02/25/25",
+                                "opp": "vs DAL",
+                                "result": "W",
+                                "score": "6-4"
+                            },
+                            {
+                                "date": "02/02/25",
+                                "opp": "@DAL",
+                                "result": "L",
+                                "score": "3-5"
+                            },
+                            {
+                                "date": "11/09/23",
+                                "opp": "vs DAL",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/30/23",
+                                "opp": "@DAL",
+                                "result": "L",
+                                "score": "3-5"
+                            }
+                        ]
                     },
                     "covers": {
                         "best_ml": "DAL ML",
@@ -3994,9 +4208,186 @@
                         "p3": "VAN 0.9 - WPG 1.5"
                     },
                     "recent_logs": {
-                        "away": [],
-                        "home": [],
-                        "h2h": []
+                        "away": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@WPG",
+                                "result": "L",
+                                "score": "2-6"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "vs ANA",
+                                "result": "L",
+                                "score": "4-5"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "vs TOR",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "@SJS",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "@ANA",
+                                "result": "W",
+                                "score": "6-5"
+                            },
+                            {
+                                "date": "10/25/26",
+                                "opp": "vs MIN",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "vs DET",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "vs CAR",
+                                "result": "L",
+                                "score": "3-6"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "@TBL",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "10/15/26",
+                                "opp": "@FLA",
+                                "result": "L",
+                                "score": "2-3"
+                            }
+                        ],
+                        "home": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "6-2"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@MTL",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "11/01/26",
+                                "opp": "@CAR",
+                                "result": "L",
+                                "score": "0-7"
+                            },
+                            {
+                                "date": "10/30/26",
+                                "opp": "@FLA",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "@TBL",
+                                "result": "L",
+                                "score": "4-6"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs FLA",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
+                                "date": "10/25/26",
+                                "opp": "vs MTL",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@DAL",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "@STL",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "vs CAR",
+                                "result": "L",
+                                "score": "2-3"
+                            }
+                        ],
+                        "h2h": [
+                            {
+                                "date": "03/07/26",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "02/25/26",
+                                "opp": "@VAN",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "11/11/25",
+                                "opp": "@VAN",
+                                "result": "W",
+                                "score": "5-3"
+                            },
+                            {
+                                "date": "03/30/25",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "3-1"
+                            },
+                            {
+                                "date": "03/18/25",
+                                "opp": "@VAN",
+                                "result": "L",
+                                "score": "2-6"
+                            },
+                            {
+                                "date": "01/14/25",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "6-1"
+                            },
+                            {
+                                "date": "04/18/24",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "4-2"
+                            },
+                            {
+                                "date": "03/09/24",
+                                "opp": "@VAN",
+                                "result": "L",
+                                "score": "0-5"
+                            },
+                            {
+                                "date": "02/17/24",
+                                "opp": "@VAN",
+                                "result": "W",
+                                "score": "4-2"
+                            }
+                        ]
                     },
                     "covers": {
                         "best_ml": "WPG ML",
@@ -4167,9 +4558,192 @@
                         "p3": "ANA 1.1 - EDM 1.7"
                     },
                     "recent_logs": {
-                        "away": [],
-                        "home": [],
-                        "h2h": []
+                        "away": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@EDM",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@VAN",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "11/01/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "6-3"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs BUF",
+                                "result": "L",
+                                "score": "6-7"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs VAN",
+                                "result": "L",
+                                "score": "5-6"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "@PHI",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@NJD",
+                                "result": "L",
+                                "score": "1-4"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "@NYI",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/19/26",
+                                "opp": "@NYR",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/16/26",
+                                "opp": "vs BOS",
+                                "result": "L",
+                                "score": "2-4"
+                            }
+                        ],
+                        "home": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "vs ANA",
+                                "result": "L",
+                                "score": "4-5"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@NJD",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "11/01/26",
+                                "opp": "@NYR",
+                                "result": "W",
+                                "score": "4-1"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "@NYI",
+                                "result": "W",
+                                "score": "4-0"
+                            },
+                            {
+                                "date": "10/28/26",
+                                "opp": "vs CGY",
+                                "result": "W",
+                                "score": "4-0"
+                            },
+                            {
+                                "date": "10/26/26",
+                                "opp": "vs DET",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "vs TOR",
+                                "result": "L",
+                                "score": "2-7"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "vs CAR",
+                                "result": "W",
+                                "score": "6-5"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "vs MIN",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "@UTA",
+                                "result": "W",
+                                "score": "6-2"
+                            }
+                        ],
+                        "h2h": [
+                            {
+                                "date": "04/30/26",
+                                "opp": "@ANA",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "04/28/26",
+                                "opp": "vs ANA",
+                                "result": "W",
+                                "score": "4-1"
+                            },
+                            {
+                                "date": "04/26/26",
+                                "opp": "@ANA",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "04/24/26",
+                                "opp": "@ANA",
+                                "result": "L",
+                                "score": "4-7"
+                            },
+                            {
+                                "date": "04/22/26",
+                                "opp": "vs ANA",
+                                "result": "L",
+                                "score": "4-6"
+                            },
+                            {
+                                "date": "04/20/26",
+                                "opp": "vs ANA",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "03/28/26",
+                                "opp": "vs ANA",
+                                "result": "W",
+                                "score": "4-2"
+                            },
+                            {
+                                "date": "02/25/26",
+                                "opp": "@ANA",
+                                "result": "L",
+                                "score": "5-6"
+                            },
+                            {
+                                "date": "01/26/26",
+                                "opp": "vs ANA",
+                                "result": "W",
+                                "score": "7-4"
+                            },
+                            {
+                                "date": "04/07/25",
+                                "opp": "@ANA",
+                                "result": "L",
+                                "score": "2-3"
+                            }
+                        ]
                     },
                     "covers": {
                         "best_ml": "EDM ML",
@@ -4340,7 +4914,68 @@
                         "p3": "NSH 0.8 - COL 1.6"
                     },
                     "recent_logs": {
-                        "away": [],
+                        "away": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@COL",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "vs CAR",
+                                "result": "W",
+                                "score": "4-1"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "vs TBL",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs WSH",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs NYI",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "10/25/26",
+                                "opp": "vs COL",
+                                "result": "W",
+                                "score": "6-2"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "@PIT",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "0-6"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "vs STL",
+                                "result": "W",
+                                "score": "5-2"
+                            },
+                            {
+                                "date": "10/15/26",
+                                "opp": "vs SJS",
+                                "result": "L",
+                                "score": "2-3"
+                            }
+                        ],
                         "home": [],
                         "h2h": []
                     },
@@ -4515,7 +5150,68 @@
                         "p3": "CBJ 0.9 - BUF 1.2"
                     },
                     "recent_logs": {
-                        "away": [],
+                        "away": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "vs DAL",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "vs COL",
+                                "result": "W",
+                                "score": "7-2"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "@DAL",
+                                "result": "L",
+                                "score": "1-3"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "@CAR",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "@PHI",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "vs VGK",
+                                "result": "W",
+                                "score": "2-1"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "vs TOR",
+                                "result": "L",
+                                "score": "2-6"
+                            },
+                            {
+                                "date": "10/18/26",
+                                "opp": "@MIN",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "vs NYR",
+                                "result": "W",
+                                "score": "1-0"
+                            },
+                            {
+                                "date": "10/13/26",
+                                "opp": "vs FLA",
+                                "result": "L",
+                                "score": "3-7"
+                            }
+                        ],
                         "home": [
                             {
                                 "date": "11/04/26",
@@ -4983,7 +5679,68 @@
                         "p3": "ANA 1.1 - CGY 1.4"
                     },
                     "recent_logs": {
-                        "away": [],
+                        "away": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@EDM",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@VAN",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "11/01/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "6-3"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs BUF",
+                                "result": "L",
+                                "score": "6-7"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs VAN",
+                                "result": "L",
+                                "score": "5-6"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "@PHI",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@NJD",
+                                "result": "L",
+                                "score": "1-4"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "@NYI",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/19/26",
+                                "opp": "@NYR",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/16/26",
+                                "opp": "vs BOS",
+                                "result": "L",
+                                "score": "2-4"
+                            }
+                        ],
                         "home": [
                             {
                                 "date": "11/04/26",
@@ -5515,7 +6272,68 @@
                                 "score": "4-5"
                             }
                         ],
-                        "home": [],
+                        "home": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@COL",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "vs CAR",
+                                "result": "W",
+                                "score": "4-1"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "vs TBL",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs WSH",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs NYI",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "10/25/26",
+                                "opp": "vs COL",
+                                "result": "W",
+                                "score": "6-2"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "@PIT",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "0-6"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "vs STL",
+                                "result": "W",
+                                "score": "5-2"
+                            },
+                            {
+                                "date": "10/15/26",
+                                "opp": "vs SJS",
+                                "result": "L",
+                                "score": "2-3"
+                            }
+                        ],
                         "h2h": []
                     },
                     "covers": {
@@ -5601,21 +6419,21 @@
                     "record_overall": "9-7-1",
                     "record_split": "1-5-1",
                     "record_l10": "4-5-1",
-                    "ml": "-122",
-                    "proj": "3.6"
+                    "ml": "-130",
+                    "proj": "3.7"
                 },
                 "home": {
                     "name": "SEA",
                     "record_overall": "9-5-1",
                     "record_split": "5-2-0",
                     "record_l10": "6-3-1",
-                    "ml": "+102",
-                    "proj": "3.2"
+                    "ml": "+110",
+                    "proj": "3.1"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "53.5%",
-                "home_win_prob": 46.5,
-                "away_win_prob": 53.5,
+                "prob": "55.1%",
+                "home_win_prob": 44.9,
+                "away_win_prob": 55.1,
                 "predicted_winner": "NYR",
                 "time": "5:00 PM EST",
                 "tier": "NONE",
@@ -5673,18 +6491,18 @@
                     },
                     "league_sv_pct": 0.89
                 },
-                "edge": "+1.1%",
-                "ai_score": 3.8,
+                "edge": "+2.7%",
+                "ai_score": 4.1,
                 "details": {
                     "period_60": {
-                        "p1_winner": "NYR (46%)",
+                        "p1_winner": "NYR (47%)",
                         "p1_over_1_5": "52%",
-                        "min_60_tie": "20%"
+                        "min_60_tie": "19%"
                     },
                     "period_scores": {
-                        "p1": "NYR 1.1 - SEA 1.0",
+                        "p1": "NYR 1.1 - SEA 0.9",
                         "p2": "NYR 1.3 - SEA 1.1",
-                        "p3": "NYR 1.2 - SEA 1.1"
+                        "p3": "NYR 1.3 - SEA 1.1"
                     },
                     "recent_logs": {
                         "away": [
@@ -5820,12 +6638,12 @@
                     },
                     "notes": [
                         "Goalie Edge: NYR starting Dylan Garand (Expected) vs SEA starting Philipp Grubauer (Expected).",
-                        "Engine calculates NYR win probability at 53.5% based on V5 goalie adjustments.",
+                        "Engine calculates NYR win probability at 55.1% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 51 points."
                     ],
                     "best_angle": {
                         "play": "NYR MONEYLINE",
-                        "edge": "+1.1%"
+                        "edge": "+2.7%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5888,7 +6706,7 @@
                         "rating": -0.3
                     }
                 },
-                "game_score": 58
+                "game_score": 56
             },
             {
                 "away": {
@@ -7163,7 +7981,68 @@
                                 "score": "3-4"
                             }
                         ],
-                        "home": [],
+                        "home": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@CBJ",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@WSH",
+                                "result": "W",
+                                "score": "6-5"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "vs CBJ",
+                                "result": "W",
+                                "score": "3-1"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs MTL",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs NJD",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
+                                "date": "10/25/26",
+                                "opp": "vs NYI",
+                                "result": "W",
+                                "score": "6-3"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "vs WPG",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "vs BOS",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "@CHI",
+                                "result": "W",
+                                "score": "4-0"
+                            },
+                            {
+                                "date": "10/14/26",
+                                "opp": "@COL",
+                                "result": "W",
+                                "score": "3-2"
+                            }
+                        ],
                         "h2h": []
                     },
                     "covers": {
@@ -7249,21 +8128,21 @@
                     "record_overall": "10-3-2",
                     "record_split": "2-3-2",
                     "record_l10": "6-2-2",
-                    "ml": "-130",
-                    "proj": "3.5"
+                    "ml": "-142",
+                    "proj": "3.6"
                 },
                 "home": {
                     "name": "MIN",
                     "record_overall": "11-3-3",
                     "record_split": "4-0-1",
                     "record_l10": "7-1-2",
-                    "ml": "+110",
-                    "proj": "3.1"
+                    "ml": "+120",
+                    "proj": "3.0"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "52.7%",
-                "home_win_prob": 47.3,
-                "away_win_prob": 52.7,
+                "prob": "54.6%",
+                "home_win_prob": 45.4,
+                "away_win_prob": 54.6,
                 "predicted_winner": "TBL",
                 "time": "8:00 PM EST",
                 "tier": "NONE",
@@ -7321,17 +8200,17 @@
                     },
                     "league_sv_pct": 0.89
                 },
-                "edge": "+0.3%",
-                "ai_score": 3.6,
+                "edge": "+2.2%",
+                "ai_score": 4.0,
                 "details": {
                     "period_60": {
-                        "p1_winner": "TBL (45%)",
+                        "p1_winner": "TBL (46%)",
                         "p1_over_1_5": "53%",
-                        "min_60_tie": "21%"
+                        "min_60_tie": "20%"
                     },
                     "period_scores": {
                         "p1": "TBL 1.1 - MIN 0.9",
-                        "p2": "TBL 1.2 - MIN 1.1",
+                        "p2": "TBL 1.3 - MIN 1.0",
                         "p3": "TBL 1.2 - MIN 1.1"
                     },
                     "recent_logs": {
@@ -7407,12 +8286,12 @@
                     },
                     "notes": [
                         "Goalie Edge: TBL starting Andrei Vasilevskiy (Expected) vs MIN starting Jesper Wallstedt (Expected).",
-                        "Engine calculates TBL win probability at 52.7% based on V5 goalie adjustments.",
+                        "Engine calculates TBL win probability at 54.6% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 58 points."
                     ],
                     "best_angle": {
                         "play": "TBL MONEYLINE",
-                        "edge": "+0.3%"
+                        "edge": "+2.2%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7475,7 +8354,7 @@
                         "rating": 0.76
                     }
                 },
-                "game_score": 91
+                "game_score": 90
             },
             {
                 "away": {
@@ -8012,21 +8891,21 @@
                     "record_overall": "3-14-1",
                     "record_split": "2-7-1",
                     "record_l10": "1-8-1",
-                    "ml": "+260",
-                    "proj": "1.9"
+                    "ml": "+270",
+                    "proj": "1.8"
                 },
                 "home": {
                     "name": "EDM",
                     "record_overall": "11-3-3",
                     "record_split": "4-3-2",
                     "record_l10": "6-2-2",
-                    "ml": "-325",
+                    "ml": "-340",
                     "proj": "5.3"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "74.1%",
-                "home_win_prob": 74.1,
-                "away_win_prob": 25.9,
+                "prob": "74.8%",
+                "home_win_prob": 74.8,
+                "away_win_prob": 25.2,
                 "predicted_winner": "EDM",
                 "time": "10:00 PM EST",
                 "tier": "BIG",
@@ -8084,22 +8963,144 @@
                     },
                     "league_sv_pct": 0.89
                 },
-                "edge": "+21.7%",
-                "ai_score": 8.4,
+                "edge": "+22.4%",
+                "ai_score": 8.5,
                 "details": {
                     "period_60": {
-                        "p1_winner": "EDM (63%)",
+                        "p1_winner": "EDM (64%)",
                         "p1_over_1_5": "61%",
                         "min_60_tie": "10%"
                     },
                     "period_scores": {
-                        "p1": "VAN 0.6 - EDM 1.6",
-                        "p2": "VAN 0.7 - EDM 1.9",
-                        "p3": "VAN 0.6 - EDM 1.8"
+                        "p1": "VAN 0.5 - EDM 1.6",
+                        "p2": "VAN 0.6 - EDM 1.9",
+                        "p3": "VAN 0.7 - EDM 1.8"
                     },
                     "recent_logs": {
-                        "away": [],
-                        "home": [],
+                        "away": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@WPG",
+                                "result": "L",
+                                "score": "2-6"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "vs ANA",
+                                "result": "L",
+                                "score": "4-5"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "vs TOR",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "@SJS",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "@ANA",
+                                "result": "W",
+                                "score": "6-5"
+                            },
+                            {
+                                "date": "10/25/26",
+                                "opp": "vs MIN",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "vs DET",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "vs CAR",
+                                "result": "L",
+                                "score": "3-6"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "@TBL",
+                                "result": "L",
+                                "score": "2-4"
+                            },
+                            {
+                                "date": "10/15/26",
+                                "opp": "@FLA",
+                                "result": "L",
+                                "score": "2-3"
+                            }
+                        ],
+                        "home": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "vs ANA",
+                                "result": "L",
+                                "score": "4-5"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@NJD",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "11/01/26",
+                                "opp": "@NYR",
+                                "result": "W",
+                                "score": "4-1"
+                            },
+                            {
+                                "date": "10/31/26",
+                                "opp": "@NYI",
+                                "result": "W",
+                                "score": "4-0"
+                            },
+                            {
+                                "date": "10/28/26",
+                                "opp": "vs CGY",
+                                "result": "W",
+                                "score": "4-0"
+                            },
+                            {
+                                "date": "10/26/26",
+                                "opp": "vs DET",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "vs TOR",
+                                "result": "L",
+                                "score": "2-7"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "vs CAR",
+                                "result": "W",
+                                "score": "6-5"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "vs MIN",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "@UTA",
+                                "result": "W",
+                                "score": "6-2"
+                            }
+                        ],
                         "h2h": []
                     },
                     "covers": {
@@ -8109,12 +9110,12 @@
                     },
                     "notes": [
                         "Goalie Edge: VAN starting Leevi Meril\u00e4inen (Expected) vs EDM starting Tristan Jarry (Expected).",
-                        "Engine calculates EDM win probability at 74.1% based on V5 goalie adjustments.",
+                        "Engine calculates EDM win probability at 74.8% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 273 points."
                     ],
                     "best_angle": {
                         "play": "EDM MONEYLINE",
-                        "edge": "+21.7%"
+                        "edge": "+22.4%"
                     },
                     "gift_stats": {
                         "away": {
@@ -8177,7 +9178,7 @@
                         "rating": 0.48
                     }
                 },
-                "game_score": 46
+                "game_score": 45
             }
         ],
         "2026-11-08": [
@@ -8925,7 +9926,68 @@
                                 "score": "1-4"
                             }
                         ],
-                        "home": [],
+                        "home": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "6-2"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@MTL",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "11/01/26",
+                                "opp": "@CAR",
+                                "result": "L",
+                                "score": "0-7"
+                            },
+                            {
+                                "date": "10/30/26",
+                                "opp": "@FLA",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "@TBL",
+                                "result": "L",
+                                "score": "4-6"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs FLA",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
+                                "date": "10/25/26",
+                                "opp": "vs MTL",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@DAL",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "@STL",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "vs CAR",
+                                "result": "L",
+                                "score": "2-3"
+                            }
+                        ],
                         "h2h": []
                     },
                     "covers": {
@@ -9688,7 +10750,68 @@
                                 "score": "3-5"
                             }
                         ],
-                        "home": [],
+                        "home": [
+                            {
+                                "date": "11/05/26",
+                                "opp": "@EDM",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "11/03/26",
+                                "opp": "@VAN",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "11/01/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "6-3"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs BUF",
+                                "result": "L",
+                                "score": "6-7"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs VAN",
+                                "result": "L",
+                                "score": "5-6"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "@PHI",
+                                "result": "W",
+                                "score": "5-4"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@NJD",
+                                "result": "L",
+                                "score": "1-4"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "@NYI",
+                                "result": "L",
+                                "score": "2-3"
+                            },
+                            {
+                                "date": "10/19/26",
+                                "opp": "@NYR",
+                                "result": "L",
+                                "score": "2-5"
+                            },
+                            {
+                                "date": "10/16/26",
+                                "opp": "vs BOS",
+                                "result": "L",
+                                "score": "2-4"
+                            }
+                        ],
                         "h2h": []
                     },
                     "covers": {
@@ -13417,7 +14540,62 @@
                             "score": "3-5"
                         }
                     ],
-                    "h2h": []
+                    "h2h": [
+                        {
+                            "date": "03/08/26",
+                            "opp": "vs BOS",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "03/03/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "01/11/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "0-1"
+                        },
+                        {
+                            "date": "04/13/25",
+                            "opp": "vs BOS",
+                            "result": "L",
+                            "score": "1-4"
+                        },
+                        {
+                            "date": "03/01/25",
+                            "opp": "vs BOS",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "11/29/24",
+                            "opp": "@BOS",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "04/13/24",
+                            "opp": "vs BOS",
+                            "result": "L",
+                            "score": "4-6"
+                        },
+                        {
+                            "date": "03/09/24",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "01/04/24",
+                            "opp": "@BOS",
+                            "result": "W",
+                            "score": "6-5"
+                        }
+                    ]
                 },
                 "covers": {
                     "best_ml": "BOS ML",
@@ -13588,9 +14766,168 @@
                     "p3": "DAL 1.1 - CBJ 0.8"
                 },
                 "recent_logs": {
-                    "away": [],
-                    "home": [],
-                    "h2h": []
+                    "away": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@CBJ",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@WSH",
+                            "result": "W",
+                            "score": "6-5"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "vs CBJ",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs MTL",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs NJD",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "10/25/26",
+                            "opp": "vs NYI",
+                            "result": "W",
+                            "score": "6-3"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "vs WPG",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "vs BOS",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "@CHI",
+                            "result": "W",
+                            "score": "4-0"
+                        },
+                        {
+                            "date": "10/14/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "3-2"
+                        }
+                    ],
+                    "home": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "vs DAL",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "7-2"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "@DAL",
+                            "result": "L",
+                            "score": "1-3"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "@CAR",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "vs VGK",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "vs TOR",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
+                            "date": "10/18/26",
+                            "opp": "@MIN",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "vs NYR",
+                            "result": "W",
+                            "score": "1-0"
+                        },
+                        {
+                            "date": "10/13/26",
+                            "opp": "vs FLA",
+                            "result": "L",
+                            "score": "3-7"
+                        }
+                    ],
+                    "h2h": [
+                        {
+                            "date": "01/22/26",
+                            "opp": "vs DAL",
+                            "result": "W",
+                            "score": "1-0"
+                        },
+                        {
+                            "date": "10/21/25",
+                            "opp": "@DAL",
+                            "result": "W",
+                            "score": "5-1"
+                        },
+                        {
+                            "date": "02/25/25",
+                            "opp": "vs DAL",
+                            "result": "W",
+                            "score": "6-4"
+                        },
+                        {
+                            "date": "02/02/25",
+                            "opp": "@DAL",
+                            "result": "L",
+                            "score": "3-5"
+                        },
+                        {
+                            "date": "11/09/23",
+                            "opp": "vs DAL",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/30/23",
+                            "opp": "@DAL",
+                            "result": "L",
+                            "score": "3-5"
+                        }
+                    ]
                 },
                 "covers": {
                     "best_ml": "DAL ML",
@@ -13761,9 +15098,186 @@
                     "p3": "VAN 0.9 - WPG 1.5"
                 },
                 "recent_logs": {
-                    "away": [],
-                    "home": [],
-                    "h2h": []
+                    "away": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@WPG",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "vs ANA",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "vs TOR",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "@SJS",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "@ANA",
+                            "result": "W",
+                            "score": "6-5"
+                        },
+                        {
+                            "date": "10/25/26",
+                            "opp": "vs MIN",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "vs DET",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "vs CAR",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "@TBL",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "10/15/26",
+                            "opp": "@FLA",
+                            "result": "L",
+                            "score": "2-3"
+                        }
+                    ],
+                    "home": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "6-2"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@MTL",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "11/01/26",
+                            "opp": "@CAR",
+                            "result": "L",
+                            "score": "0-7"
+                        },
+                        {
+                            "date": "10/30/26",
+                            "opp": "@FLA",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "@TBL",
+                            "result": "L",
+                            "score": "4-6"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs FLA",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "10/25/26",
+                            "opp": "vs MTL",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@DAL",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "@STL",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "vs CAR",
+                            "result": "L",
+                            "score": "2-3"
+                        }
+                    ],
+                    "h2h": [
+                        {
+                            "date": "03/07/26",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "02/25/26",
+                            "opp": "@VAN",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "11/11/25",
+                            "opp": "@VAN",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
+                            "date": "03/30/25",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
+                            "date": "03/18/25",
+                            "opp": "@VAN",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
+                            "date": "01/14/25",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "6-1"
+                        },
+                        {
+                            "date": "04/18/24",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "4-2"
+                        },
+                        {
+                            "date": "03/09/24",
+                            "opp": "@VAN",
+                            "result": "L",
+                            "score": "0-5"
+                        },
+                        {
+                            "date": "02/17/24",
+                            "opp": "@VAN",
+                            "result": "W",
+                            "score": "4-2"
+                        }
+                    ]
                 },
                 "covers": {
                     "best_ml": "WPG ML",
@@ -13934,9 +15448,192 @@
                     "p3": "ANA 1.1 - EDM 1.7"
                 },
                 "recent_logs": {
-                    "away": [],
-                    "home": [],
-                    "h2h": []
+                    "away": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@EDM",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@VAN",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "11/01/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "6-3"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs BUF",
+                            "result": "L",
+                            "score": "6-7"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs VAN",
+                            "result": "L",
+                            "score": "5-6"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@NJD",
+                            "result": "L",
+                            "score": "1-4"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "@NYI",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/19/26",
+                            "opp": "@NYR",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/16/26",
+                            "opp": "vs BOS",
+                            "result": "L",
+                            "score": "2-4"
+                        }
+                    ],
+                    "home": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "vs ANA",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@NJD",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "11/01/26",
+                            "opp": "@NYR",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "@NYI",
+                            "result": "W",
+                            "score": "4-0"
+                        },
+                        {
+                            "date": "10/28/26",
+                            "opp": "vs CGY",
+                            "result": "W",
+                            "score": "4-0"
+                        },
+                        {
+                            "date": "10/26/26",
+                            "opp": "vs DET",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "vs TOR",
+                            "result": "L",
+                            "score": "2-7"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "vs CAR",
+                            "result": "W",
+                            "score": "6-5"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "vs MIN",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "@UTA",
+                            "result": "W",
+                            "score": "6-2"
+                        }
+                    ],
+                    "h2h": [
+                        {
+                            "date": "04/30/26",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "04/28/26",
+                            "opp": "vs ANA",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "04/26/26",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "04/24/26",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "4-7"
+                        },
+                        {
+                            "date": "04/22/26",
+                            "opp": "vs ANA",
+                            "result": "L",
+                            "score": "4-6"
+                        },
+                        {
+                            "date": "04/20/26",
+                            "opp": "vs ANA",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "03/28/26",
+                            "opp": "vs ANA",
+                            "result": "W",
+                            "score": "4-2"
+                        },
+                        {
+                            "date": "02/25/26",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "5-6"
+                        },
+                        {
+                            "date": "01/26/26",
+                            "opp": "vs ANA",
+                            "result": "W",
+                            "score": "7-4"
+                        },
+                        {
+                            "date": "04/07/25",
+                            "opp": "@ANA",
+                            "result": "L",
+                            "score": "2-3"
+                        }
+                    ]
                 },
                 "covers": {
                     "best_ml": "EDM ML",
@@ -14107,7 +15804,68 @@
                     "p3": "NSH 0.8 - COL 1.6"
                 },
                 "recent_logs": {
-                    "away": [],
+                    "away": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "vs CAR",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "vs TBL",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs WSH",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs NYI",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "10/25/26",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "6-2"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "@PIT",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "0-6"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "vs STL",
+                            "result": "W",
+                            "score": "5-2"
+                        },
+                        {
+                            "date": "10/15/26",
+                            "opp": "vs SJS",
+                            "result": "L",
+                            "score": "2-3"
+                        }
+                    ],
                     "home": [],
                     "h2h": []
                 },
@@ -14282,7 +16040,68 @@
                     "p3": "CBJ 0.9 - BUF 1.2"
                 },
                 "recent_logs": {
-                    "away": [],
+                    "away": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "vs DAL",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "7-2"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "@DAL",
+                            "result": "L",
+                            "score": "1-3"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "@CAR",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "vs VGK",
+                            "result": "W",
+                            "score": "2-1"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "vs TOR",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
+                            "date": "10/18/26",
+                            "opp": "@MIN",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "vs NYR",
+                            "result": "W",
+                            "score": "1-0"
+                        },
+                        {
+                            "date": "10/13/26",
+                            "opp": "vs FLA",
+                            "result": "L",
+                            "score": "3-7"
+                        }
+                    ],
                     "home": [
                         {
                             "date": "11/04/26",
@@ -14750,7 +16569,68 @@
                     "p3": "ANA 1.1 - CGY 1.4"
                 },
                 "recent_logs": {
-                    "away": [],
+                    "away": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@EDM",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@VAN",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "11/01/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "6-3"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs BUF",
+                            "result": "L",
+                            "score": "6-7"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs VAN",
+                            "result": "L",
+                            "score": "5-6"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@NJD",
+                            "result": "L",
+                            "score": "1-4"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "@NYI",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/19/26",
+                            "opp": "@NYR",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/16/26",
+                            "opp": "vs BOS",
+                            "result": "L",
+                            "score": "2-4"
+                        }
+                    ],
                     "home": [
                         {
                             "date": "11/04/26",
@@ -15282,7 +17162,68 @@
                             "score": "4-5"
                         }
                     ],
-                    "home": [],
+                    "home": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "vs CAR",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "vs TBL",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs WSH",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs NYI",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "10/25/26",
+                            "opp": "vs COL",
+                            "result": "W",
+                            "score": "6-2"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "@PIT",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "0-6"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "vs STL",
+                            "result": "W",
+                            "score": "5-2"
+                        },
+                        {
+                            "date": "10/15/26",
+                            "opp": "vs SJS",
+                            "result": "L",
+                            "score": "2-3"
+                        }
+                    ],
                     "h2h": []
                 },
                 "covers": {
@@ -15368,21 +17309,21 @@
                 "record_overall": "9-7-1",
                 "record_split": "1-5-1",
                 "record_l10": "4-5-1",
-                "ml": "-122",
-                "proj": "3.6"
+                "ml": "-130",
+                "proj": "3.7"
             },
             "home": {
                 "name": "SEA",
                 "record_overall": "9-5-1",
                 "record_split": "5-2-0",
                 "record_l10": "6-3-1",
-                "ml": "+102",
-                "proj": "3.2"
+                "ml": "+110",
+                "proj": "3.1"
             },
             "ou_total": "O/U 7.0",
-            "prob": "53.5%",
-            "home_win_prob": 46.5,
-            "away_win_prob": 53.5,
+            "prob": "55.1%",
+            "home_win_prob": 44.9,
+            "away_win_prob": 55.1,
             "predicted_winner": "NYR",
             "time": "5:00 PM EST",
             "tier": "NONE",
@@ -15440,18 +17381,18 @@
                 },
                 "league_sv_pct": 0.89
             },
-            "edge": "+1.1%",
-            "ai_score": 3.8,
+            "edge": "+2.7%",
+            "ai_score": 4.1,
             "details": {
                 "period_60": {
-                    "p1_winner": "NYR (46%)",
+                    "p1_winner": "NYR (47%)",
                     "p1_over_1_5": "52%",
-                    "min_60_tie": "20%"
+                    "min_60_tie": "19%"
                 },
                 "period_scores": {
-                    "p1": "NYR 1.1 - SEA 1.0",
+                    "p1": "NYR 1.1 - SEA 0.9",
                     "p2": "NYR 1.3 - SEA 1.1",
-                    "p3": "NYR 1.2 - SEA 1.1"
+                    "p3": "NYR 1.3 - SEA 1.1"
                 },
                 "recent_logs": {
                     "away": [
@@ -15587,12 +17528,12 @@
                 },
                 "notes": [
                     "Goalie Edge: NYR starting Dylan Garand (Expected) vs SEA starting Philipp Grubauer (Expected).",
-                    "Engine calculates NYR win probability at 53.5% based on V5 goalie adjustments.",
+                    "Engine calculates NYR win probability at 55.1% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 51 points."
                 ],
                 "best_angle": {
                     "play": "NYR MONEYLINE",
-                    "edge": "+1.1%"
+                    "edge": "+2.7%"
                 },
                 "gift_stats": {
                     "away": {
@@ -15655,7 +17596,7 @@
                     "rating": -0.3
                 }
             },
-            "game_score": 58
+            "game_score": 56
         },
         {
             "away": {
@@ -16930,7 +18871,68 @@
                             "score": "3-4"
                         }
                     ],
-                    "home": [],
+                    "home": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@CBJ",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@WSH",
+                            "result": "W",
+                            "score": "6-5"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "vs CBJ",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs MTL",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs NJD",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "10/25/26",
+                            "opp": "vs NYI",
+                            "result": "W",
+                            "score": "6-3"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "vs WPG",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "vs BOS",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "@CHI",
+                            "result": "W",
+                            "score": "4-0"
+                        },
+                        {
+                            "date": "10/14/26",
+                            "opp": "@COL",
+                            "result": "W",
+                            "score": "3-2"
+                        }
+                    ],
                     "h2h": []
                 },
                 "covers": {
@@ -17016,21 +19018,21 @@
                 "record_overall": "10-3-2",
                 "record_split": "2-3-2",
                 "record_l10": "6-2-2",
-                "ml": "-130",
-                "proj": "3.5"
+                "ml": "-142",
+                "proj": "3.6"
             },
             "home": {
                 "name": "MIN",
                 "record_overall": "11-3-3",
                 "record_split": "4-0-1",
                 "record_l10": "7-1-2",
-                "ml": "+110",
-                "proj": "3.1"
+                "ml": "+120",
+                "proj": "3.0"
             },
             "ou_total": "O/U 6.5",
-            "prob": "52.7%",
-            "home_win_prob": 47.3,
-            "away_win_prob": 52.7,
+            "prob": "54.6%",
+            "home_win_prob": 45.4,
+            "away_win_prob": 54.6,
             "predicted_winner": "TBL",
             "time": "8:00 PM EST",
             "tier": "NONE",
@@ -17088,17 +19090,17 @@
                 },
                 "league_sv_pct": 0.89
             },
-            "edge": "+0.3%",
-            "ai_score": 3.6,
+            "edge": "+2.2%",
+            "ai_score": 4.0,
             "details": {
                 "period_60": {
-                    "p1_winner": "TBL (45%)",
+                    "p1_winner": "TBL (46%)",
                     "p1_over_1_5": "53%",
-                    "min_60_tie": "21%"
+                    "min_60_tie": "20%"
                 },
                 "period_scores": {
                     "p1": "TBL 1.1 - MIN 0.9",
-                    "p2": "TBL 1.2 - MIN 1.1",
+                    "p2": "TBL 1.3 - MIN 1.0",
                     "p3": "TBL 1.2 - MIN 1.1"
                 },
                 "recent_logs": {
@@ -17174,12 +19176,12 @@
                 },
                 "notes": [
                     "Goalie Edge: TBL starting Andrei Vasilevskiy (Expected) vs MIN starting Jesper Wallstedt (Expected).",
-                    "Engine calculates TBL win probability at 52.7% based on V5 goalie adjustments.",
+                    "Engine calculates TBL win probability at 54.6% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 58 points."
                 ],
                 "best_angle": {
                     "play": "TBL MONEYLINE",
-                    "edge": "+0.3%"
+                    "edge": "+2.2%"
                 },
                 "gift_stats": {
                     "away": {
@@ -17242,7 +19244,7 @@
                     "rating": 0.76
                 }
             },
-            "game_score": 91
+            "game_score": 90
         },
         {
             "away": {
@@ -17779,21 +19781,21 @@
                 "record_overall": "3-14-1",
                 "record_split": "2-7-1",
                 "record_l10": "1-8-1",
-                "ml": "+260",
-                "proj": "1.9"
+                "ml": "+270",
+                "proj": "1.8"
             },
             "home": {
                 "name": "EDM",
                 "record_overall": "11-3-3",
                 "record_split": "4-3-2",
                 "record_l10": "6-2-2",
-                "ml": "-325",
+                "ml": "-340",
                 "proj": "5.3"
             },
             "ou_total": "O/U 7.0",
-            "prob": "74.1%",
-            "home_win_prob": 74.1,
-            "away_win_prob": 25.9,
+            "prob": "74.8%",
+            "home_win_prob": 74.8,
+            "away_win_prob": 25.2,
             "predicted_winner": "EDM",
             "time": "10:00 PM EST",
             "tier": "BIG",
@@ -17851,22 +19853,144 @@
                 },
                 "league_sv_pct": 0.89
             },
-            "edge": "+21.7%",
-            "ai_score": 8.4,
+            "edge": "+22.4%",
+            "ai_score": 8.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "EDM (63%)",
+                    "p1_winner": "EDM (64%)",
                     "p1_over_1_5": "61%",
                     "min_60_tie": "10%"
                 },
                 "period_scores": {
-                    "p1": "VAN 0.6 - EDM 1.6",
-                    "p2": "VAN 0.7 - EDM 1.9",
-                    "p3": "VAN 0.6 - EDM 1.8"
+                    "p1": "VAN 0.5 - EDM 1.6",
+                    "p2": "VAN 0.6 - EDM 1.9",
+                    "p3": "VAN 0.7 - EDM 1.8"
                 },
                 "recent_logs": {
-                    "away": [],
-                    "home": [],
+                    "away": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@WPG",
+                            "result": "L",
+                            "score": "2-6"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "vs ANA",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "vs TOR",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "@SJS",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "@ANA",
+                            "result": "W",
+                            "score": "6-5"
+                        },
+                        {
+                            "date": "10/25/26",
+                            "opp": "vs MIN",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "vs DET",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "vs CAR",
+                            "result": "L",
+                            "score": "3-6"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "@TBL",
+                            "result": "L",
+                            "score": "2-4"
+                        },
+                        {
+                            "date": "10/15/26",
+                            "opp": "@FLA",
+                            "result": "L",
+                            "score": "2-3"
+                        }
+                    ],
+                    "home": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "vs ANA",
+                            "result": "L",
+                            "score": "4-5"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@NJD",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "11/01/26",
+                            "opp": "@NYR",
+                            "result": "W",
+                            "score": "4-1"
+                        },
+                        {
+                            "date": "10/31/26",
+                            "opp": "@NYI",
+                            "result": "W",
+                            "score": "4-0"
+                        },
+                        {
+                            "date": "10/28/26",
+                            "opp": "vs CGY",
+                            "result": "W",
+                            "score": "4-0"
+                        },
+                        {
+                            "date": "10/26/26",
+                            "opp": "vs DET",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "vs TOR",
+                            "result": "L",
+                            "score": "2-7"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "vs CAR",
+                            "result": "W",
+                            "score": "6-5"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "vs MIN",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "@UTA",
+                            "result": "W",
+                            "score": "6-2"
+                        }
+                    ],
                     "h2h": []
                 },
                 "covers": {
@@ -17876,12 +20000,12 @@
                 },
                 "notes": [
                     "Goalie Edge: VAN starting Leevi Meril\u00e4inen (Expected) vs EDM starting Tristan Jarry (Expected).",
-                    "Engine calculates EDM win probability at 74.1% based on V5 goalie adjustments.",
+                    "Engine calculates EDM win probability at 74.8% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 273 points."
                 ],
                 "best_angle": {
                     "play": "EDM MONEYLINE",
-                    "edge": "+21.7%"
+                    "edge": "+22.4%"
                 },
                 "gift_stats": {
                     "away": {
@@ -17944,7 +20068,7 @@
                     "rating": 0.48
                 }
             },
-            "game_score": 46
+            "game_score": 45
         }
     ],
     "day_after_tomorrow": [
@@ -18692,7 +20816,68 @@
                             "score": "1-4"
                         }
                     ],
-                    "home": [],
+                    "home": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "6-2"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@MTL",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "11/01/26",
+                            "opp": "@CAR",
+                            "result": "L",
+                            "score": "0-7"
+                        },
+                        {
+                            "date": "10/30/26",
+                            "opp": "@FLA",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "@TBL",
+                            "result": "L",
+                            "score": "4-6"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs FLA",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "10/25/26",
+                            "opp": "vs MTL",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@DAL",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "@STL",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "vs CAR",
+                            "result": "L",
+                            "score": "2-3"
+                        }
+                    ],
                     "h2h": []
                 },
                 "covers": {
@@ -19455,7 +21640,68 @@
                             "score": "3-5"
                         }
                     ],
-                    "home": [],
+                    "home": [
+                        {
+                            "date": "11/05/26",
+                            "opp": "@EDM",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "11/03/26",
+                            "opp": "@VAN",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "11/01/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "6-3"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs BUF",
+                            "result": "L",
+                            "score": "6-7"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs VAN",
+                            "result": "L",
+                            "score": "5-6"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "@PHI",
+                            "result": "W",
+                            "score": "5-4"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@NJD",
+                            "result": "L",
+                            "score": "1-4"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "@NYI",
+                            "result": "L",
+                            "score": "2-3"
+                        },
+                        {
+                            "date": "10/19/26",
+                            "opp": "@NYR",
+                            "result": "L",
+                            "score": "2-5"
+                        },
+                        {
+                            "date": "10/16/26",
+                            "opp": "vs BOS",
+                            "result": "L",
+                            "score": "2-4"
+                        }
+                    ],
                     "h2h": []
                 },
                 "covers": {
