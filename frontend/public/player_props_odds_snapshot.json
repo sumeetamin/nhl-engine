@@ -1,13 +1,486 @@
 {
-  "snapshot_at": null,
-  "events": [],
+  "snapshot_at": "2026-11-07T23:33:26.120144+00:00",
+  "events": [
+    {
+      "id": "79334eedea6908f995f13dd5a8f11d20",
+      "sport_key": "icehockey_nhl",
+      "sport_title": "NHL",
+      "commence_time": "2026-11-07T22:00:00Z",
+      "home_team": "Seattle Kraken",
+      "away_team": "New York Rangers",
+      "bookmakers": [],
+      "event_id": "79334eedea6908f995f13dd5a8f11d20",
+      "game_id": "2026020267"
+    },
+    {
+      "id": "7fda7dbcff11e44f6cfc1c1da498fafb",
+      "sport_key": "icehockey_nhl",
+      "sport_title": "NHL",
+      "commence_time": "2026-11-08T18:00:00Z",
+      "home_team": "Boston Bruins",
+      "away_team": "Florida Panthers",
+      "bookmakers": [
+        {
+          "key": "fanduel",
+          "title": "FanDuel",
+          "markets": [
+            {
+              "key": "player_goals",
+              "last_update": "2026-11-07T23:32:22Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "description": "JJ Peterka",
+                  "price": 270,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "JJ Peterka",
+                  "price": -400,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Pavel Zacha",
+                  "price": 230,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Pavel Zacha",
+                  "price": -320,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Morgan Geekie",
+                  "price": 220,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Morgan Geekie",
+                  "price": -310,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "David Pastrnak",
+                  "price": 140,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "David Pastrnak",
+                  "price": -190,
+                  "point": 0.5
+                }
+              ]
+            },
+            {
+              "key": "player_shots_on_goal",
+              "last_update": "2026-11-07T23:32:22Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "description": "Morgan Geekie",
+                  "price": -154,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Morgan Geekie",
+                  "price": 118,
+                  "point": 1.5
+                },
+                {
+                  "name": "Over",
+                  "description": "JJ Peterka",
+                  "price": -192,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "description": "JJ Peterka",
+                  "price": 146,
+                  "point": 1.5
+                },
+                {
+                  "name": "Over",
+                  "description": "David Pastrnak",
+                  "price": 108,
+                  "point": 3.5
+                },
+                {
+                  "name": "Under",
+                  "description": "David Pastrnak",
+                  "price": -140,
+                  "point": 3.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Charlie McAvoy",
+                  "price": -118,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Charlie McAvoy",
+                  "price": -110,
+                  "point": 1.5
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event_id": "7fda7dbcff11e44f6cfc1c1da498fafb",
+      "game_id": "2026020277"
+    },
+    {
+      "id": "361013dde7926deac786fabf1aae59e5",
+      "sport_key": "icehockey_nhl",
+      "sport_title": "NHL",
+      "commence_time": "2026-11-08T20:30:00Z",
+      "home_team": "Buffalo Sabres",
+      "away_team": "Vegas Golden Knights",
+      "bookmakers": [
+        {
+          "key": "fanduel",
+          "title": "FanDuel",
+          "markets": [
+            {
+              "key": "player_goals",
+              "last_update": "2026-11-07T23:32:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "description": "Tomas Hertl",
+                  "price": 220,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Tomas Hertl",
+                  "price": -310,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Tage Thompson",
+                  "price": 135,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Tage Thompson",
+                  "price": -180,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Jack Eichel",
+                  "price": 195,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Jack Eichel",
+                  "price": -270,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Mark Stone",
+                  "price": 190,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Mark Stone",
+                  "price": -260,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Jack Quinn",
+                  "price": 230,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Jack Quinn",
+                  "price": -320,
+                  "point": 0.5
+                }
+              ]
+            },
+            {
+              "key": "player_shots_on_goal",
+              "last_update": "2026-11-07T23:32:57Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "description": "Zach Benson",
+                  "price": 142,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Zach Benson",
+                  "price": -188,
+                  "point": 2.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Mitch Marner",
+                  "price": 150,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Mitch Marner",
+                  "price": -198,
+                  "point": 2.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Tage Thompson",
+                  "price": 114,
+                  "point": 3.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Tage Thompson",
+                  "price": -148,
+                  "point": 3.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Shea Theodore",
+                  "price": 100,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Shea Theodore",
+                  "price": -130,
+                  "point": 1.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Tomas Hertl",
+                  "price": -192,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Tomas Hertl",
+                  "price": 146,
+                  "point": 1.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Jack Eichel",
+                  "price": -110,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Jack Eichel",
+                  "price": -118,
+                  "point": 2.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Jack Quinn",
+                  "price": 104,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Jack Quinn",
+                  "price": -135,
+                  "point": 2.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Rasmus Dahlin",
+                  "price": 106,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Rasmus Dahlin",
+                  "price": -138,
+                  "point": 2.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Mark Stone",
+                  "price": -165,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Mark Stone",
+                  "price": 126,
+                  "point": 1.5
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event_id": "361013dde7926deac786fabf1aae59e5",
+      "game_id": "2026020278"
+    },
+    {
+      "id": "975144d492cf89a8637be0fc0fdee85e",
+      "sport_key": "icehockey_nhl",
+      "sport_title": "NHL",
+      "commence_time": "2026-11-08T23:00:00Z",
+      "home_team": "Winnipeg Jets",
+      "away_team": "Tampa Bay Lightning",
+      "bookmakers": [
+        {
+          "key": "fanduel",
+          "title": "FanDuel",
+          "markets": [
+            {
+              "key": "player_goals",
+              "last_update": "2026-11-07T23:33:20Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "description": "Brandon Hagel",
+                  "price": 190,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Brandon Hagel",
+                  "price": -260,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Brayden Point",
+                  "price": 190,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Brayden Point",
+                  "price": -260,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Jake Guentzel",
+                  "price": 150,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Jake Guentzel",
+                  "price": -210,
+                  "point": 0.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Nikita Kucherov",
+                  "price": 165,
+                  "point": 0.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Nikita Kucherov",
+                  "price": -230,
+                  "point": 0.5
+                }
+              ]
+            },
+            {
+              "key": "player_shots_on_goal",
+              "last_update": "2026-11-07T23:33:20Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "description": "Jake Guentzel",
+                  "price": 100,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Jake Guentzel",
+                  "price": -130,
+                  "point": 2.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Brayden Point",
+                  "price": 146,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Brayden Point",
+                  "price": -192,
+                  "point": 2.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Nikita Kucherov",
+                  "price": -140,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Nikita Kucherov",
+                  "price": 108,
+                  "point": 2.5
+                },
+                {
+                  "name": "Over",
+                  "description": "John Carlson",
+                  "price": -132,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "description": "John Carlson",
+                  "price": 102,
+                  "point": 1.5
+                },
+                {
+                  "name": "Over",
+                  "description": "Brandon Hagel",
+                  "price": -106,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "description": "Brandon Hagel",
+                  "price": -122,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event_id": "975144d492cf89a8637be0fc0fdee85e",
+      "game_id": "2026020280"
+    }
+  ],
   "source": "the_odds_api",
   "bookmakers": [
-    "fanduel",
     "draftkings",
     "fanatics",
+    "fanduel",
     "novig",
     "prophetx"
-  ],
-  "note": "Initial empty snapshot; the scheduled midnight refresh replaces this file."
+  ]
 }
