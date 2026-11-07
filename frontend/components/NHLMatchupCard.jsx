@@ -503,7 +503,7 @@ const TopPlaysStrip = ({ games }) => {
   );
 };
 
-// ── Highest probability lines, under the top plays ────────────────────────────
+// ── Highest probability lines, under both teams to score ──────────────────────
 // The slate's 85%+ team-goal and first-period lines (lib/highProbability.mjs
 // says which and why), each with the price that chance is worth.
 const HighestProbabilityStrip = ({ games }) => {
@@ -536,7 +536,7 @@ const HighestProbabilityStrip = ({ games }) => {
   );
 };
 
-// ── Both teams to score, under the highest probability lines ──────────────────
+// ── Both teams to score, under the top plays ──────────────────────────────────
 // The slate's both-teams 2+ and 3+ games past lib/highProbability.mjs's
 // BOTH_MIN_PCT, each with the price that chance is worth.
 const BothScoreStrip = ({ games }) => {
@@ -563,7 +563,7 @@ const BothScoreStrip = ({ games }) => {
         ))}
       </div>
       <p className="text-[9px] text-gray-600 mt-2">
-        2+ each from 67.5% (about one game a day; in testing these hit 70%), 3+ each from 40% (about one a week; hit 40%). Our chance, not an edge: a line only pays over time when your book offers better than Fair.
+        2+ each from 65% (about two or three games a day; in testing these hit 68%), 3+ each from 40% (about one a week; hit 40%). Our chance, not an edge: a line only pays over time when your book offers better than Fair.
       </p>
     </div>
   );
@@ -906,8 +906,8 @@ const NHLMatchupCard = ({ selectedDate, payload, loading }) => {
     <div className="space-y-4">
       <StandingsPanel rows={payload?.power_rankings} />
       <TopPlaysStrip games={games} />
-      <HighestProbabilityStrip games={games} />
       <BothScoreStrip games={games} />
+      <HighestProbabilityStrip games={games} />
       {games.map((game, idx) => (
         <SingleMatchupCard
           key={`${selectedDate}-${game.away?.name}-${game.home?.name}-${idx}`}
