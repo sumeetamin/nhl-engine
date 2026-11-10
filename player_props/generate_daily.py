@@ -17,6 +17,7 @@ import unicodedata
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 import joblib
 import pandas as pd
@@ -79,10 +80,23 @@ def request_json(url: str, *, params: dict[str, Any] | None = None, timeout: int
     raise FeedError(f"Request failed for {url}: {detail}")
 
 
+EASTERN = ZoneInfo("America/New_York")
+
+
 def eastern_today() -> date:
-    return datetime.now(timezone.utc).astimezone(
-        __import__("zoneinfo").ZoneInfo("America/New_York")
-    ).date()
+    return datetime.now(EASTERN).date()
+
+
+def eastern_game_date(commence_time: str | None) -> str | None:
+    if not commence_time:
+        return None
+    try:
+        start = datetime.fromisoformat(commence_time.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if start.tzinfo is None:
+        return None
+    return start.astimezone(EASTERN).date().isoformat()
 
 
 def game_dates(start: date) -> list[str]:
@@ -105,7 +119,7 @@ def flatten_schedule(start: date) -> list[dict[str, Any]]:
     games: list[dict[str, Any]] = []
     for week in payload.get("gameWeek") or []:
         for game in week.get("games") or []:
-            day = str(game.get("gameDate") or game.get("startTimeUTC", ""))[:10]
+            day = eastern_game_date(game.get("startTimeUTC")) or game.get("gameDate") or week.get("date")
             if day not in wanted:
                 continue
             home, away = game.get("homeTeam") or {}, game.get("awayTeam") or {}
@@ -168,24 +182,28 @@ def fetch_odds_snapshot(games: list[dict[str, Any]], api_key: str) -> dict[str, 
         for g in games
     }
     candidates = []
-    from zoneinfo import ZoneInfo
     for event in events if isinstance(events, list) else []:
         pair = frozenset((normalize_name(event.get("home_team")), normalize_name(event.get("away_team"))))
-        event_time = datetime.fromisoformat(str(event.get("commence_time", "")).replace("Z", "+00:00"))
-        event_date = event_time.astimezone(ZoneInfo("America/New_York")).date().isoformat()
+        event_date = eastern_game_date(event.get("commence_time"))
         game = game_by_pair.get((pair, event_date))
         if game:
             candidates.append((event, game))
     snapshots = []
     now = datetime.now(timezone.utc).isoformat()
     for event, game in candidates:
-        payload = request_json(
-            f"{ODDS_API}/sports/{ODDS_SPORT}/events/{event['id']}/odds",
-            params={
-                "apiKey": api_key, "regions": "us", "markets": ODDS_MARKETS,
-                "oddsFormat": "american", "dateFormat": "iso",
-            },
-        )
+        try:
+            payload = request_json(
+                f"{ODDS_API}/sports/{ODDS_SPORT}/events/{event['id']}/odds",
+                params={
+                    "apiKey": api_key, "bookmakers": ",".join(sorted(ALLOWED_BOOKS)),
+                    "markets": ODDS_MARKETS, "oddsFormat": "american", "dateFormat": "iso",
+                },
+            )
+        except FeedError as exc:
+            if "HTTP 404" not in str(exc):
+                raise
+            LOG.warning("Odds event %s is no longer listed", event["id"])
+            continue
         payload.setdefault("id", event["id"])
         payload["event_id"] = event["id"]
         payload["game_id"] = game["game_id"]
@@ -322,9 +340,11 @@ def opponent_position_rank(history: dict[str, pd.DataFrame], market: str, game_d
 
 def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
                rosters: dict[str, dict[str, Any]]) -> dict[tuple[str, str, str, float], dict[str, Any]]:
-    game_by_pair = {
-        frozenset((normalize_name(game["home_name"]), normalize_name(game["away_name"]))): game
-        for game in games
+    game_by_id = {game["game_id"]: game for game in games}
+    # Legacy snapshots without an NHL ID still need to distinguish rematches.
+    game_by_pair_date = {
+        (frozenset((normalize_name(g["home_name"]), normalize_name(g["away_name"]))), g["game_date"]): g
+        for g in games
     }
     player_lookup: dict[tuple[str, str], dict[str, Any]] = {}
     for team, roster in rosters.items():
@@ -339,8 +359,11 @@ def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
         "player_total_saves": "goalie_saves",
     }
     for event in snapshot.get("events") or []:
-        pair = frozenset((normalize_name(event.get("home_team")), normalize_name(event.get("away_team"))))
-        game = game_by_pair.get(pair)
+        if event.get("game_id") is not None:
+            game = game_by_id.get(str(event["game_id"]))
+        else:
+            pair = frozenset((normalize_name(event.get("home_team")), normalize_name(event.get("away_team"))))
+            game = game_by_pair_date.get((pair, eastern_game_date(event.get("commence_time"))))
         if not game:
             continue
         rows = normalize_event_odds(
@@ -723,4 +746,5 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     raise SystemExit(main())
