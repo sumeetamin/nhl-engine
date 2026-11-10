@@ -197,8 +197,53 @@ def fetch_odds_snapshot(games: list[dict[str, Any]], api_key: str) -> dict[str, 
             if str(book.get("key", "")).casefold() in ALLOWED_BOOKS
         ]
         snapshots.append(payload)
+    LOG.info(
+        "Odds API returned %d NHL events; matched %d to %d scheduled games",
+        len(events) if isinstance(events, list) else 0, len(candidates), len(games),
+    )
+    if not candidates:
+        LOG.warning(
+            "No Odds API events matched the scheduled NHL slate; the feed will use the last recent usable snapshot if available."
+        )
     return {"snapshot_at": now, "events": snapshots, "source": "the_odds_api",
             "bookmakers": sorted(ALLOWED_BOOKS)}
+
+
+def has_player_prop_markets(snapshot: dict[str, Any]) -> bool:
+    market_keys = set(ODDS_MARKETS.split(","))
+    return any(
+        market.get("key") in market_keys and bool(market.get("outcomes"))
+        for event in snapshot.get("events") or []
+        for bookmaker in event.get("bookmakers") or []
+        if str(bookmaker.get("key", "")).casefold() in ALLOWED_BOOKS
+        for market in bookmaker.get("markets") or []
+    )
+
+
+def keep_recent_usable_snapshot(
+    fresh: dict[str, Any], snapshot_path: Path, *, max_age_hours: int = 30
+) -> dict[str, Any]:
+    if has_player_prop_markets(fresh):
+        return fresh
+    try:
+        previous = json.loads(snapshot_path.read_text(encoding="utf-8"))
+        timestamp = datetime.fromisoformat(
+            str(previous.get("snapshot_at", "")).replace("Z", "+00:00")
+        )
+        age_hours = (datetime.now(timezone.utc) - timestamp).total_seconds() / 3600
+    except (OSError, TypeError, ValueError):
+        return fresh
+    if has_player_prop_markets(previous) and 0 <= age_hours <= max_age_hours:
+        LOG.warning(
+            "Fresh player-prop odds were unavailable; retaining the last usable snapshot from %s (%.1f hours old)",
+            previous.get("snapshot_at"), age_hours,
+        )
+        previous["fallback_reason"] = (
+            "The latest odds fetch had no usable approved-book player markets; "
+            "the last usable snapshot is retained and labeled with its timestamp."
+        )
+        return previous
+    return fresh
 
 
 def american_probability(price: float | None) -> float | None:
@@ -638,6 +683,7 @@ def main() -> int:
                     "snapshot_at": None, "events": [], "source": "the_odds_api",
                     "error": "ODDS_API_KEY is not configured",
                 }
+            snapshot = keep_recent_usable_snapshot(snapshot, args.odds_path)
             args.odds_path.parent.mkdir(parents=True, exist_ok=True)
             args.odds_path.write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
         elif args.odds_path.exists():
@@ -656,6 +702,11 @@ def main() -> int:
         )
         if snapshot.get("error"):
             feed["source_status"] += " " + snapshot["error"] + "."
+        if snapshot.get("fallback_reason"):
+            feed["source_status"] = (
+                "Props use official NHL game logs and NHL schedule/roster data. "
+                + str(snapshot["fallback_reason"])
+            )
         feed["training_report"] = {
             "validation_season": report["validation_season"],
             "market_count": len(report["markets"]),
