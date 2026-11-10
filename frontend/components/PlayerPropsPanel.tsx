@@ -5,6 +5,7 @@ import { publicFile } from "../lib/basePath";
 
 type Split = { hits?: number; total?: number; hit_rate?: number | null };
 type HistorySplits = { l5?: Split; l10?: Split; h2h?: Split; season?: Split };
+type HitGame = { date: string; opponent: string; value: number; hit: boolean | null };
 type PlayerProp = {
   prop_id: string;
   game_id: string;
@@ -36,6 +37,7 @@ type PlayerProp = {
   defense_rank?: number | null;
   defense_allowed?: number | null;
   history?: HistorySplits;
+  hit_chart?: HitGame[];
   toi_minutes?: number | null;
   team_pace?: number | null;
   opponent_pace?: number | null;
@@ -135,6 +137,35 @@ function PropTable({ rows, onAdd, saved }: {
   );
 }
 
+
+function HitRateChart({ row }: { row: PlayerProp }) {
+  const games = row.hit_chart || [];
+  if (!games.length) return <div className="mt-4 rounded-lg bg-slate-900 p-3 text-xs text-slate-400">Recent game results are unavailable for this line.</div>;
+  const maximum = Math.max(row.line ?? 0, ...games.map((game) => game.value), 1);
+  return (
+    <div className="mt-4 rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <h4 className="text-xs font-bold text-white">Recent hit rate · {row.side === "under" ? "Under" : "Over"} {row.line}</h4>
+        <span className="text-[10px] text-slate-400">{games.filter((game) => game.hit !== null).length} settled games</span>
+      </div>
+      <div role="img" aria-label={`Recent ${games.length} games against ${row.side} ${row.line} ${row.market_label}`} className="flex h-32 items-end gap-2 border-b border-dashed border-slate-600 px-1">
+        {games.slice().reverse().map((game, index) => {
+          const height = Math.max(8, Math.round(game.value / maximum * 100));
+          const color = game.hit === null ? "bg-slate-500" : game.hit ? "bg-emerald-400" : "bg-rose-400";
+          return <div key={`${game.date}-${game.opponent}-${index}`} title={`${game.date} vs ${game.opponent}: ${game.value} (${game.hit === null ? "push" : game.hit ? "hit" : "miss"})`} className="flex h-full min-w-0 flex-1 flex-col items-center justify-end gap-1">
+            <span className="text-[10px] font-semibold text-slate-200">{game.value}</span>
+            <span className={`w-full max-w-8 rounded-t ${color}`} style={{ height: `${height}%` }} />
+            <span className="truncate text-[9px] text-slate-400">{game.opponent || game.date.slice(5)}</span>
+          </div>;
+        })}
+      </div>
+      <div className="mt-2 flex flex-wrap gap-3 text-[10px] text-slate-400">
+        <span>Stat result</span><span>Line {row.line}</span><span className="text-emerald-300">Hit</span><span className="text-rose-300">Miss</span><span>Push excluded from hit rate</span>
+      </div>
+    </div>
+  );
+}
+
 function FragmentRow({ row, open, saved, onToggle, onAdd }: {
   row: PlayerProp; open: boolean; saved: boolean; onToggle: () => void; onAdd: () => void;
 }) {
@@ -177,6 +208,13 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
               <div><span className="text-slate-500">Availability</span><p className="mt-1">{row.availability_status || "Not confirmed"}</p></div>
               <div><span className="text-slate-500">Sportsbook prices</span><p className="mt-1">{books || "No permitted-book prices in the latest odds snapshot."}</p></div>
             </div>
+          </td>
+        </tr>
+      )}
+      {open && (
+        <tr className="bg-slate-950/70">
+          <td colSpan={8} className="px-5 pb-5">
+            <HitRateChart row={row} />
           </td>
         </tr>
       )}
