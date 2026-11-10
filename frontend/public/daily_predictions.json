@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-11-09T20:22:30.335803+00:00",
+    "generated_at": "2026-11-10T00:08:23.281777+00:00",
     "games_by_date": {
         "2026-11-07": [
             {
@@ -6152,21 +6152,21 @@
                     "record_overall": "10-7-1",
                     "record_split": "2-5-1",
                     "record_l10": "4-5-1",
-                    "ml": "+134",
-                    "proj": "2.9"
+                    "ml": "+138",
+                    "proj": "2.8"
                 },
                 "home": {
                     "name": "EDM",
                     "record_overall": "12-3-3",
                     "record_split": "5-3-2",
                     "record_l10": "6-2-2",
-                    "ml": "-162",
-                    "proj": "3.9"
+                    "ml": "-170",
+                    "proj": "4.0"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "57.8%",
-                "home_win_prob": 57.8,
-                "away_win_prob": 42.2,
+                "prob": "58.6%",
+                "home_win_prob": 58.6,
+                "away_win_prob": 41.4,
                 "predicted_winner": "EDM",
                 "time": "8:00 PM EST",
                 "tier": "NONE",
@@ -6224,18 +6224,18 @@
                     },
                     "league_sv_pct": 0.89
                 },
-                "edge": "+5.4%",
-                "ai_score": 4.7,
+                "edge": "+6.2%",
+                "ai_score": 4.9,
                 "details": {
                     "period_60": {
-                        "p1_winner": "EDM (49%)",
+                        "p1_winner": "EDM (50%)",
                         "p1_over_1_5": "55%",
                         "min_60_tie": "18%"
                     },
                     "period_scores": {
-                        "p1": "NYR 0.9 - EDM 1.2",
+                        "p1": "NYR 0.8 - EDM 1.2",
                         "p2": "NYR 1.0 - EDM 1.4",
-                        "p3": "NYR 1.0 - EDM 1.3"
+                        "p3": "NYR 1.0 - EDM 1.4"
                     },
                     "recent_logs": {
                         "away": [
@@ -6408,12 +6408,12 @@
                     },
                     "notes": [
                         "Goalie Edge: NYR starting Dylan Garand (Expected) vs EDM starting Tristan Jarry (Expected).",
-                        "Engine calculates EDM win probability at 57.8% based on V5 goalie adjustments.",
+                        "Engine calculates EDM win probability at 58.6% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 94 points."
                     ],
                     "best_angle": {
                         "play": "EDM MONEYLINE",
-                        "edge": "+5.4%"
+                        "edge": "+6.2%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7150,21 +7150,21 @@
                     "record_overall": "10-6-2",
                     "record_split": "3-5-0",
                     "record_l10": "5-4-1",
-                    "ml": "-162",
-                    "proj": "4.1"
+                    "ml": "-155",
+                    "proj": "4.0"
                 },
                 "home": {
                     "name": "TOR",
                     "record_overall": "8-9-2",
                     "record_split": "4-6-1",
                     "record_l10": "5-5-0",
-                    "ml": "+136",
+                    "ml": "+130",
                     "proj": "2.7"
                 },
-                "ou_total": "O/U 7.0",
-                "prob": "60.4%",
-                "home_win_prob": 39.6,
-                "away_win_prob": 60.4,
+                "ou_total": "O/U 6.5",
+                "prob": "59.5%",
+                "home_win_prob": 40.5,
+                "away_win_prob": 59.5,
                 "predicted_winner": "COL",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -7222,8 +7222,8 @@
                     },
                     "league_sv_pct": 0.89
                 },
-                "edge": "+8.0%",
-                "ai_score": 5.3,
+                "edge": "+7.1%",
+                "ai_score": 5.1,
                 "details": {
                     "period_60": {
                         "p1_winner": "COL (51%)",
@@ -7233,7 +7233,7 @@
                     "period_scores": {
                         "p1": "COL 1.2 - TOR 0.8",
                         "p2": "COL 1.4 - TOR 0.9",
-                        "p3": "COL 1.5 - TOR 1.0"
+                        "p3": "COL 1.4 - TOR 1.0"
                     },
                     "recent_logs": {
                         "away": [
@@ -7406,12 +7406,12 @@
                     },
                     "notes": [
                         "Goalie Edge: COL starting Mackenzie Blackwood (Expected) vs TOR starting Sergei Bobrovsky (Expected).",
-                        "Engine calculates COL win probability at 60.4% based on V5 goalie adjustments.",
+                        "Engine calculates COL win probability at 59.5% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 93 points."
                     ],
                     "best_angle": {
                         "play": "COL MONEYLINE",
-                        "edge": "+8.0%"
+                        "edge": "+7.1%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7474,7 +7474,7 @@
                         "rating": -0.27
                     }
                 },
-                "game_score": 68
+                "game_score": 69
             },
             {
                 "away": {
@@ -17733,21 +17733,21 @@
                 "record_overall": "10-7-1",
                 "record_split": "2-5-1",
                 "record_l10": "4-5-1",
-                "ml": "+134",
-                "proj": "2.9"
+                "ml": "+138",
+                "proj": "2.8"
             },
             "home": {
                 "name": "EDM",
                 "record_overall": "12-3-3",
                 "record_split": "5-3-2",
                 "record_l10": "6-2-2",
-                "ml": "-162",
-                "proj": "3.9"
+                "ml": "-170",
+                "proj": "4.0"
             },
             "ou_total": "O/U 7.0",
-            "prob": "57.8%",
-            "home_win_prob": 57.8,
-            "away_win_prob": 42.2,
+            "prob": "58.6%",
+            "home_win_prob": 58.6,
+            "away_win_prob": 41.4,
             "predicted_winner": "EDM",
             "time": "8:00 PM EST",
             "tier": "NONE",
@@ -17805,18 +17805,18 @@
                 },
                 "league_sv_pct": 0.89
             },
-            "edge": "+5.4%",
-            "ai_score": 4.7,
+            "edge": "+6.2%",
+            "ai_score": 4.9,
             "details": {
                 "period_60": {
-                    "p1_winner": "EDM (49%)",
+                    "p1_winner": "EDM (50%)",
                     "p1_over_1_5": "55%",
                     "min_60_tie": "18%"
                 },
                 "period_scores": {
-                    "p1": "NYR 0.9 - EDM 1.2",
+                    "p1": "NYR 0.8 - EDM 1.2",
                     "p2": "NYR 1.0 - EDM 1.4",
-                    "p3": "NYR 1.0 - EDM 1.3"
+                    "p3": "NYR 1.0 - EDM 1.4"
                 },
                 "recent_logs": {
                     "away": [
@@ -17989,12 +17989,12 @@
                 },
                 "notes": [
                     "Goalie Edge: NYR starting Dylan Garand (Expected) vs EDM starting Tristan Jarry (Expected).",
-                    "Engine calculates EDM win probability at 57.8% based on V5 goalie adjustments.",
+                    "Engine calculates EDM win probability at 58.6% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 94 points."
                 ],
                 "best_angle": {
                     "play": "EDM MONEYLINE",
-                    "edge": "+5.4%"
+                    "edge": "+6.2%"
                 },
                 "gift_stats": {
                     "away": {
@@ -18731,21 +18731,21 @@
                 "record_overall": "10-6-2",
                 "record_split": "3-5-0",
                 "record_l10": "5-4-1",
-                "ml": "-162",
-                "proj": "4.1"
+                "ml": "-155",
+                "proj": "4.0"
             },
             "home": {
                 "name": "TOR",
                 "record_overall": "8-9-2",
                 "record_split": "4-6-1",
                 "record_l10": "5-5-0",
-                "ml": "+136",
+                "ml": "+130",
                 "proj": "2.7"
             },
-            "ou_total": "O/U 7.0",
-            "prob": "60.4%",
-            "home_win_prob": 39.6,
-            "away_win_prob": 60.4,
+            "ou_total": "O/U 6.5",
+            "prob": "59.5%",
+            "home_win_prob": 40.5,
+            "away_win_prob": 59.5,
             "predicted_winner": "COL",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -18803,8 +18803,8 @@
                 },
                 "league_sv_pct": 0.89
             },
-            "edge": "+8.0%",
-            "ai_score": 5.3,
+            "edge": "+7.1%",
+            "ai_score": 5.1,
             "details": {
                 "period_60": {
                     "p1_winner": "COL (51%)",
@@ -18814,7 +18814,7 @@
                 "period_scores": {
                     "p1": "COL 1.2 - TOR 0.8",
                     "p2": "COL 1.4 - TOR 0.9",
-                    "p3": "COL 1.5 - TOR 1.0"
+                    "p3": "COL 1.4 - TOR 1.0"
                 },
                 "recent_logs": {
                     "away": [
@@ -18987,12 +18987,12 @@
                 },
                 "notes": [
                     "Goalie Edge: COL starting Mackenzie Blackwood (Expected) vs TOR starting Sergei Bobrovsky (Expected).",
-                    "Engine calculates COL win probability at 60.4% based on V5 goalie adjustments.",
+                    "Engine calculates COL win probability at 59.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 93 points."
                 ],
                 "best_angle": {
                     "play": "COL MONEYLINE",
-                    "edge": "+8.0%"
+                    "edge": "+7.1%"
                 },
                 "gift_stats": {
                     "away": {
@@ -19055,7 +19055,7 @@
                     "rating": -0.27
                 }
             },
-            "game_score": 68
+            "game_score": 69
         },
         {
             "away": {
