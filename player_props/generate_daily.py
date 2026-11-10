@@ -313,6 +313,35 @@ def history_for(history: dict[str, pd.DataFrame], market: str, candidate: dict[s
     }
 
 
+def hit_chart(history: dict[str, pd.DataFrame], market: str, candidate: dict[str, Any],
+              line: float | None, side: str | None, limit: int = 10) -> list[dict[str, Any]]:
+    if line is None or side not in {"over", "under"}:
+        return []
+    table, stat = MARKET_SOURCE[market]
+    frame = history[table]
+    if frame.empty:
+        return []
+    prior = frame[frame["game_date"] < pd.Timestamp(candidate["game_date"])]
+    if table == "teams":
+        prior = prior[prior["team_abbrev"] == candidate["team_abbrev"]]
+    else:
+        prior = prior[prior["player_id"].astype(str) == str(candidate["player_id"])]
+    prior = prior.sort_values(["game_date", "game_id"], ascending=False).head(limit)
+    result = []
+    for _, game in prior.iterrows():
+        value = pd.to_numeric(pd.Series([game.get(stat)]), errors="coerce").iloc[0]
+        if pd.isna(value):
+            continue
+        result.append({
+            "date": pd.Timestamp(game["game_date"]).date().isoformat(),
+            "opponent": str(game.get("opponent_abbrev") or ""),
+            "value": float(value),
+            "hit": bool(value > line if side == "over" else value < line) if value != line else None,
+        })
+    return result
+
+
+
 def prior_stat_frame(history: dict[str, pd.DataFrame], market: str, game_date: str) -> pd.DataFrame:
     table, _ = MARKET_SOURCE[market]
     frame = history[table]
@@ -564,6 +593,7 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                         "confidence": over_result[side], "books": all_books,
                     }
                     prop["history"] = history_for(history, market, candidate, line_value, side)
+                    prop["hit_chart"] = hit_chart(history, market, candidate, line_value, side)
                     props.append(prop)
     return build_output(history, props, games, snapshot)
 
