@@ -32,7 +32,7 @@ from player_props.odds_normalizer import normalize_event_odds
 NHL_API = "https://api-web.nhle.com/v1"
 ODDS_API = "https://api.the-odds-api.com/v4"
 ODDS_SPORT = "icehockey_nhl"
-ALLOWED_BOOKS = {"fanduel", "draftkings", "fanatics", "novig", "prophetx"}
+ALLOWED_BOOKS = {"fanduel", "draftkings"}
 ODDS_MARKETS = (
     "player_shots_on_goal,player_points,player_assists,player_goals,player_total_saves"
 )
@@ -379,7 +379,8 @@ def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
     for team, roster in rosters.items():
         for player in roster["skaters"] + roster["goalies"]:
             player_lookup[(team, normalize_name(player["player"]))] = player
-    result: dict[tuple[str, str, str, float], dict[str, Any]] = {}
+
+    raw: dict[tuple[str, str, str, float], dict[str, Any]] = {}
     normalized_market = {
         "player_shots_on_goal": "player_shots_on_goal",
         "player_points": "player_points",
@@ -405,7 +406,6 @@ def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
             market = normalized_market.get(row["market_key"])
             if not market:
                 continue
-            # Exact team-scoped matching prevents same-name or prefix collisions.
             normalized_player = normalize_name(row["player_name"])
             matches = [
                 player_lookup[(team, normalized_player)]
@@ -416,12 +416,42 @@ def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
                 continue
             player = matches[0]
             key = (game["game_id"], str(player["player_id"]), market, float(row["line"]))
-            group = result.setdefault(key, {"books": {}, "candidate": player, "line": float(row["line"])})
-            book = group["books"].setdefault(row["bookmaker_key"], {})
-            book[row["side"]] = row["american_odds"]
+            group = raw.setdefault(key, {"books": {}, "candidate": player, "line": float(row["line"])})
+            group["books"].setdefault(row["bookmaker_key"], {})[row["side"]] = row["american_odds"]
             group["commence_time"] = game["commence_time"]
-    return result
 
+    # Only publish a line when a permitted book quotes both sides. Pick one
+    # unambiguous main line per player/market, preferring FanDuel, then DraftKings.
+    by_market: dict[tuple[str, str, str], list[tuple[tuple[str, str, str, float], dict[str, Any]]]] = {}
+    for key, group in raw.items():
+        complete = {
+            book: prices for book, prices in group["books"].items()
+            if prices.get("over") is not None and prices.get("under") is not None
+        }
+        if complete:
+            group["books"] = complete
+            by_market.setdefault(key[:3], []).append((key, group))
+
+    result: dict[tuple[str, str, str, float], dict[str, Any]] = {}
+    for candidates in by_market.values():
+        fan_duel = [item for item in candidates if "fanduel" in item[1]["books"]]
+        draft_kings = [item for item in candidates if "draftkings" in item[1]["books"]]
+        if len(fan_duel) == 1:
+            selected = fan_duel
+        elif len(fan_duel) > 1:
+            # If both providers agree on exactly one line, that is the only
+            # line we can safely identify as the main market.
+            shared = {item[0][3] for item in fan_duel} & {item[0][3] for item in draft_kings}
+            selected = [item for item in fan_duel if item[0][3] in shared] if len(shared) == 1 else []
+            if not selected and len(draft_kings) == 1:
+                selected = draft_kings
+        elif len(draft_kings) == 1:
+            selected = draft_kings
+        else:
+            selected = []
+        for key, group in selected:
+            result[key] = group
+    return result
 
 def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: list[dict[str, Any]],
                rosters: dict[str, dict[str, Any]], goalie_status: dict[tuple[str, str], dict[str, Any]],
