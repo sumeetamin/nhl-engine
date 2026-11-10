@@ -191,7 +191,7 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
           </button>
         </td>
         <td className="px-3 py-3 font-semibold text-cyan-300">{percent(row.confidence)}</td>
-        <td className="px-3 py-3 text-slate-300">{row.best_book && row.price != null ? <span>{row.best_book}<br />{row.side === "under" ? "U" : "O"} {odds(row.price)}</span> : row.books?.length ? <span>{row.books.map((book) => `${book.book} O ${odds(book.over)} / U ${odds(book.under)}`).join(" · ")}</span> : odds(row.price)}</td>
+        <td className="px-3 py-3">{row.best_book && row.price != null ? <span className="font-extrabold text-white"><span className="text-[10px] uppercase tracking-wide text-cyan-300">{row.best_book === "fanduel" ? "FanDuel" : row.best_book === "draftkings" ? "DraftKings" : row.best_book}</span><br />{row.side === "under" ? "U" : "O"} {odds(row.price)}</span> : <span className="text-slate-500">—</span>}</td>
         <td className="px-3 py-3">{record(row.history?.l5)}</td>
         <td className="px-3 py-3">{record(row.history?.l10)}</td>
         <td className="px-3 py-3">{record(row.history?.h2h)}</td>
