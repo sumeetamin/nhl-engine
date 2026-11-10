@@ -17,7 +17,6 @@ type PlayerProp = {
   team: string;
   opponent: string;
   position?: string;
-  player_id?: number | string;
   market: string;
   market_label?: string;
   line?: number | null;
