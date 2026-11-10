@@ -253,6 +253,8 @@ export default function PlayerPropsPanel({ view }: Props) {
     persistSheet(current.filter((item) => item.prop_id !== id));
   };
 
+  const propRows = feed.props || [];
+  const pricedPropCount = propRows.filter((row) => row.line != null && row.best_book != null).length;
   const tracker = feed.tracker || [];
   const tracked = tracker.filter((item) => item.result === "hit" || item.result === "miss");
   const hits = tracked.filter((item) => item.result === "hit").length;
@@ -264,6 +266,13 @@ export default function PlayerPropsPanel({ view }: Props) {
         <div>
           <h2 className="text-lg font-black uppercase tracking-wide text-white">{view === "cheat" ? "Trends & Cheat Sheets" : "NHL Player Props"}</h2>
           <p className="mt-1 text-xs text-slate-400">Feed updated {localDate(feed.updated_at)} · odds snapshot {localDate(feed.odds_snapshot_at)}</p>
+          {view === "props" && !loading && propRows.length > 0 && pricedPropCount < propRows.length && (
+            <p role="status" className="mt-2 max-w-2xl rounded-lg border border-amber-900/60 bg-amber-950/20 px-3 py-2 text-xs text-amber-200">
+              {pricedPropCount === 0
+                ? "Projections are loaded, but the latest odds snapshot has no approved-book player-prop lines. Odds, confidence, edge, and line-based hit rates will appear when matching lines are available."
+                : "Approved-book lines are available for " + pricedPropCount + " of " + propRows.length + " projected rows. Other rows do not have a matching line in the latest snapshot."}
+            </p>
+          )}
         </div>
         {view === "props" && <div className="rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-[11px] text-slate-300">Top-plays tracker: {hitRate == null ? "No graded props yet" : `${hits}/${tracked.length} hits · ${hitRate}%`}</div>}
       </div>
