@@ -690,7 +690,17 @@ def main() -> int:
             except Exception as exc:
                 LOG.warning("Official goalie status unavailable for %s: %s", day, exc)
 
-        if args.fetch_odds:
+        snapshot = {"snapshot_at": None, "events": [], "source": "the_odds_api"}
+        if args.odds_path.exists():
+            try:
+                snapshot = json.loads(args.odds_path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                LOG.warning("Saved odds snapshot could not be read")
+        already_fetched = (
+            eastern_game_date(snapshot.get("snapshot_at")) == start.isoformat()
+            and has_player_prop_markets(snapshot)
+        )
+        if args.fetch_odds and not already_fetched:
             api_key = os.environ.get("ODDS_API_KEY")
             if api_key:
                 try:
@@ -709,10 +719,8 @@ def main() -> int:
             snapshot = keep_recent_usable_snapshot(snapshot, args.odds_path)
             args.odds_path.parent.mkdir(parents=True, exist_ok=True)
             args.odds_path.write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
-        elif args.odds_path.exists():
-            snapshot = json.loads(args.odds_path.read_text(encoding="utf-8"))
-        else:
-            snapshot = {"snapshot_at": None, "events": [], "source": "the_odds_api"}
+        elif args.fetch_odds:
+            LOG.info("Reusing today's completed player-prop odds snapshot")
         previous = {}
         if args.output.exists():
             try:
