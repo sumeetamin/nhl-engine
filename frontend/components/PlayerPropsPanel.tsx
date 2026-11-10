@@ -56,6 +56,7 @@ type Feed = {
 };
 type Props = { view: "props" | "cheat" };
 
+const PAGE_SIZE = 50;
 const MARKETS = [
   "All props",
   "Shots on Goal",
@@ -92,6 +93,10 @@ function PropTable({ rows, onAdd, saved }: {
   saved: Set<string>;
 }) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [page, setPage] = useState(0);
+  const lastPage = Math.ceil(rows.length / PAGE_SIZE) - 1;
+  const currentPage = Math.min(page, Math.max(lastPage, 0));
+  const first = currentPage * PAGE_SIZE;
   if (rows.length === 0) {
     return <div className="rounded-2xl border border-slate-800 bg-[#111827] px-5 py-14 text-center text-sm text-slate-400">No player props are available for these filters yet. The feed will show projections when the scheduled update has valid slate data.</div>;
   }
@@ -108,7 +113,7 @@ function PropTable({ rows, onAdd, saved }: {
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-800/80">
-            {rows.map((row) => {
+            {rows.slice(first, first + PAGE_SIZE).map((row) => {
               const open = expanded === row.prop_id;
               const savedRow = saved.has(row.prop_id);
               return (
@@ -119,6 +124,13 @@ function PropTable({ rows, onAdd, saved }: {
           </tbody>
         </table>
       </div>
+      {lastPage > 0 && (
+        <nav aria-label="Player props pages" className="flex items-center justify-between gap-3 border-t border-slate-800 px-3 py-2 text-xs text-slate-300">
+          <button type="button" disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)} className="px-2 py-1 disabled:opacity-40">Previous</button>
+          <span aria-live="polite">{first + 1}–{Math.min(first + PAGE_SIZE, rows.length)} of {rows.length}</span>
+          <button type="button" disabled={currentPage === lastPage} onClick={() => setPage(currentPage + 1)} className="px-2 py-1 disabled:opacity-40">Next</button>
+        </nav>
+      )}
     </div>
   );
 }
@@ -138,9 +150,10 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
           </button>
         </td>
         <td className="px-3 py-3">
-          <button type="button" className="text-left" onClick={onToggle}>
+          <button type="button" className="text-left" aria-expanded={open}>
             <span className="block font-bold text-white">{row.player}</span>
             <span className="mt-1 block text-[10px] text-slate-400">{row.team} vs {row.opponent} · {row.market_label || row.market} {row.line == null ? "" : `${direction} ${row.line}`}</span>
+            {row.projection != null && <span className="block text-xs text-cyan-300">Model projection {row.projection.toFixed(2)}</span>}
           </button>
         </td>
         <td className="px-3 py-3 font-semibold text-cyan-300">{percent(row.confidence)}</td>
@@ -174,6 +187,8 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
 export default function PlayerPropsPanel({ view }: Props) {
   const [feed, setFeed] = useState<Feed>(EMPTY);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
   const [search, setSearch] = useState("");
   const [selectedGame, setSelectedGame] = useState("all");
   const [market, setMarket] = useState("All props");
@@ -188,9 +203,16 @@ export default function PlayerPropsPanel({ view }: Props) {
     const controller = new AbortController();
     fetch(publicFile("/player_props.json?v=") + Date.now(), { cache: "no-store", signal: controller.signal })
       .then((response) => { if (!response.ok) throw new Error("Player props feed unavailable"); return response.json(); })
-      .then((data: Feed) => { if (active) setFeed({ ...EMPTY, ...data }); })
-      .catch(() => { if (active) setFeed(EMPTY); })
+      .then((data: Feed) => {
+        if (!Array.isArray(data?.props)) throw new Error("Invalid player props feed");
+        if (active) setFeed({ ...EMPTY, ...data });
+      })
+      .catch(() => { if (active) setLoadError(true); })
       .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; controller.abort(); };
+  }, [attempt]);
+
+  useEffect(() => {
     try {
       const stored = window.localStorage.getItem("nhl-player-props-sheet");
       if (stored) {
@@ -198,7 +220,6 @@ export default function PlayerPropsPanel({ view }: Props) {
         if (Array.isArray(decoded)) {
           const oldIds = decoded.filter((value): value is string => typeof value === "string");
           setSavedIds(oldIds);
-          setSavedProps((feed.props || []).filter((row) => oldIds.includes(row.prop_id)));
         } else if (decoded && typeof decoded === "object" && "items" in decoded && Array.isArray((decoded as { items: unknown[] }).items)) {
           const items = (decoded as { items: PlayerProp[] }).items.filter((row) => row && typeof row.prop_id === "string");
           setSavedProps(items);
@@ -206,7 +227,6 @@ export default function PlayerPropsPanel({ view }: Props) {
         }
       }
     } catch { /* Ignore unavailable or malformed browser storage. */ }
-    return () => { active = false; controller.abort(); };
   }, []);
 
   const rows = useMemo(() => {
@@ -253,6 +273,7 @@ export default function PlayerPropsPanel({ view }: Props) {
     persistSheet(current.filter((item) => item.prop_id !== id));
   };
 
+  const tableKey = JSON.stringify([view, search, selectedGame, market, side, windowFilter, sort]);
   const propRows = feed.props || [];
   const pricedPropCount = propRows.filter((row) => row.line != null && row.best_book != null).length;
   const tracker = feed.tracker || [];
@@ -309,11 +330,15 @@ export default function PlayerPropsPanel({ view }: Props) {
         </div>
       )}
 
-      {loading ? <div className="rounded-2xl border border-slate-800 bg-[#111827] p-10 text-center text-sm text-slate-400">Loading player props…</div> :
-        view === "props" ? <PropTable rows={rows} onAdd={addToSheet} saved={new Set(savedIds)} /> :
+      {loading ? <div className="rounded-2xl border border-slate-800 bg-[#111827] p-10 text-center text-sm text-slate-400">Loading player props…</div> : loadError ? (
+        <div role="alert" className="rounded-2xl border border-slate-800 bg-[#111827] p-6 text-center text-sm text-slate-300">
+          Player props could not load. <button type="button" className="text-cyan-300 underline" onClick={() => { setLoading(true); setLoadError(false); setAttempt(value => value + 1); }}>Try again</button>
+        </div>
+      ) :
+        view === "props" ? <PropTable key={tableKey} rows={rows} onAdd={addToSheet} saved={new Set(savedIds)} /> :
         <div className="space-y-3">
           {rows.length === 0 ? <div className="rounded-2xl border border-slate-800 bg-[#111827] p-10 text-center text-sm text-slate-400">No 80% or 100% hit-rate trends are available for these filters yet.</div> :
-            <PropTable rows={rows} onAdd={addToSheet} saved={new Set(savedIds)} />}
+            <PropTable key={tableKey} rows={rows} onAdd={addToSheet} saved={new Set(savedIds)} />}
         </div>}
 
       {view === "props" && savedIds.length > 0 && (
