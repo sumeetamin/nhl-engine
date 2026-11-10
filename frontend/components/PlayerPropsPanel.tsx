@@ -17,6 +17,7 @@ type PlayerProp = {
   team: string;
   opponent: string;
   position?: string;
+  player_id?: number | string;
   market: string;
   market_label?: string;
   line?: number | null;
@@ -170,6 +171,8 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
   row: PlayerProp; open: boolean; saved: boolean; onToggle: () => void; onAdd: () => void;
 }) {
   const direction = row.side === "under" ? "Under" : row.side === "over" ? "Over" : "Both";
+  const defensiveRank = row.defense_rank == null ? null : Math.round(row.defense_rank);
+  const playerHeadshot = row.player_id == null ? null : `https://assets.nhle.com/mugs/nhl/20262027/${row.player_id}.png`;
   const books = row.books?.map((book) => `${book.book}: O ${odds(book.over)} / U ${odds(book.under)}`).join(" · ");
   return (
     <>
@@ -182,13 +185,14 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
         </td>
         <td className="px-3 py-3">
           <button type="button" className="text-left" aria-expanded={open}>
-            <span className="block font-bold text-white">{row.player}</span>
+            <span className="flex items-center gap-2 font-bold text-white">{playerHeadshot && <img src={playerHeadshot} alt="" loading="lazy" className="h-9 w-9 rounded-full bg-slate-800 object-cover" />} {row.player}</span>
+            {defensiveRank != null && <span className="mt-1 inline-flex rounded-md border border-slate-700 bg-slate-900 px-2 py-0.5 text-[10px] font-bold text-cyan-200">DEF vs {row.position || "POS"} #{defensiveRank}</span>}
             <span className="mt-1 block text-[10px] text-slate-400">{row.team} vs {row.opponent} · {row.market_label || row.market} {row.line == null ? "" : `${direction} ${row.line}`}</span>
             {row.projection != null && <span className="block text-xs text-cyan-300">Model projection {row.projection.toFixed(2)}</span>}
           </button>
         </td>
         <td className="px-3 py-3 font-semibold text-cyan-300">{percent(row.confidence)}</td>
-        <td className="px-3 py-3 text-slate-300">{row.best_book ? <span>{row.best_book}<br />{row.side === "under" ? "U" : "O"} {odds(row.price ?? (row.side === "under" ? row.under_odds : row.over_odds))}</span> : odds(row.price)}</td>
+        <td className="px-3 py-3 text-slate-300">{row.best_book && row.price != null ? <span>{row.best_book}<br />{row.side === "under" ? "U" : "O"} {odds(row.price)}</span> : row.books?.length ? <span>{row.books.map((book) => `${book.book} O ${odds(book.over)} / U ${odds(book.under)}`).join(" · ")}</span> : odds(row.price)}</td>
         <td className="px-3 py-3">{record(row.history?.l5)}</td>
         <td className="px-3 py-3">{record(row.history?.l10)}</td>
         <td className="px-3 py-3">{record(row.history?.h2h)}</td>
@@ -201,7 +205,7 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
               <div><span className="text-slate-500">Model projection</span><p className="mt-1 text-base font-bold text-white">{row.projection == null ? "—" : row.projection.toFixed(2)} projected · line {row.line ?? "—"}</p></div>
               <div><span className="text-slate-500">Model probabilities</span><p className="mt-1">{row.side === "under" ? "Under" : "Over"} {percent(row.probability ?? (row.side === "under" ? row.under_probability : row.over_probability))}{row.side ? "" : ` · Under ${percent(row.under_probability)}`} · Push {percent(row.push_probability)}</p></div>
               <div><span className="text-slate-500">Edge vs book</span><p className="mt-1">{row.edge_pct == null ? "Unavailable" : `${row.edge_pct.toFixed(1)} percentage points`}</p></div>
-              <div><span className="text-slate-500">Defense vs position</span><p className="mt-1">{row.defense_rank == null ? "Rank unavailable" : `Rank #${row.defense_rank}`} {row.defense_allowed == null ? "" : `· ${row.defense_allowed.toFixed(1)} allowed`}</p></div>
+              <div><span className="text-slate-500">Defense vs position</span><p className="mt-1">{row.defense_rank == null ? "Rank unavailable" : `DEF vs ${row.position || "POS"} #${Math.round(row.defense_rank)}`} {row.defense_allowed == null ? "" : `· ${row.defense_allowed.toFixed(1)} allowed`}</p></div>
               <div><span className="text-slate-500">Recent TOI</span><p className="mt-1">{row.toi_minutes == null ? "Unavailable" : `${row.toi_minutes.toFixed(1)} min`}</p></div>
               <div><span className="text-slate-500">Team pace</span><p className="mt-1">{row.team_pace == null ? "Unavailable" : `${row.team_pace.toFixed(1)} SOG/game`} {row.opponent_pace == null ? "" : `· opponent ${row.opponent_pace.toFixed(1)}`}</p></div>
               <div><span className="text-slate-500">Goalie</span><p className="mt-1">{row.goalie_name || "Not announced"}{row.goalie_status ? ` · ${row.goalie_status}` : ""}</p></div>
