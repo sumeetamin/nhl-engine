@@ -186,7 +186,7 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
           <button type="button" className="text-left" aria-expanded={open}>
             <span className="flex items-center gap-2 font-bold text-white">{playerHeadshot && <img src={playerHeadshot} alt="" loading="lazy" className="h-9 w-9 rounded-full bg-slate-800 object-cover" />} {row.player}</span>
             {defensiveRank != null && <span className="mt-1 inline-flex rounded-md border border-slate-700 bg-slate-900 px-2 py-0.5 text-[10px] font-bold text-cyan-200">DEF vs {row.position || "POS"} #{defensiveRank}</span>}
-            <span className={`mt-1 block ${row.market === "player_shots_on_goal" && row.side === "under" && row.line === 4.5 ? "text-sm font-extrabold text-white" : "text-[10px] text-slate-400"}`}>{row.team} vs {row.opponent} · {row.market_label || row.market} {row.line == null ? "" : `${direction} ${row.line}`}</span>
+            <span className="mt-1 block text-[10px] text-slate-400">{row.team} vs {row.opponent}</span><span className="mt-1 block text-sm font-extrabold uppercase text-white">{row.line == null ? (row.market_label || row.market) : `${direction} ${row.line} ${row.market_label || row.market}`}</span>
             {row.projection != null && <span className="block text-xs text-cyan-300">Model projection {row.projection.toFixed(2)}</span>}
           </button>
         </td>
