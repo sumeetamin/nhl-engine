@@ -74,4 +74,7 @@ jobs:
           git add frontend/public/player_props.json
           git add frontend/public/player_props_odds_snapshot.json
           git diff --cached --quiet || git commit -m "Update scheduled NHL player props feed"
+          # Refreshes can overlap with another workflow updating main. Rebase the
+          # generated JSON commit before pushing so the feed isn't left stale.
+          git pull --rebase origin main
           git push origin HEAD:main
