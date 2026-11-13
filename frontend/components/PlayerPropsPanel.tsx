@@ -287,6 +287,7 @@ export default function PlayerPropsPanel({ view }: Props) {
       return matchesSearch && matchesGame && matchesMarket && matchesSide && matchesWindow;
     });
     return filtered.sort((a, b) => {
+      if (sort === "projection") return (b.projection ?? -Infinity) - (a.projection ?? -Infinity);
       if (sort === "edge") return (b.edge_pct ?? -Infinity) - (a.edge_pct ?? -Infinity);
       if (sort === "defense") return (a.defense_rank ?? Infinity) - (b.defense_rank ?? Infinity);
       return (b.confidence ?? -Infinity) - (a.confidence ?? -Infinity);
@@ -360,7 +361,7 @@ export default function PlayerPropsPanel({ view }: Props) {
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Games<select value={selectedGame} onChange={(event) => setSelectedGame(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="all">All games</option>{(feed.games || []).map((game) => <option key={game.game_id} value={game.game_id}>{game.game_label}</option>)}</select></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Props<select value={market} onChange={(event) => setMarket(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white">{MARKETS.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Over / Under<select value={side} onChange={(event) => setSide(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="both">Both</option><option value="over">Over</option><option value="under">Under</option></select></label>
-          <label className="text-[10px] uppercase tracking-wide text-slate-500">Sort by<select value={sort} onChange={(event) => setSort(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="confidence">Confidence</option><option value="edge">Edge</option><option value="defense">Defense rank</option></select></label>
+          <label className="text-[10px] uppercase tracking-wide text-slate-500">Sort by<select value={sort} onChange={(event) => setSort(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="confidence">Confidence</option><option value="projection">Highest projection</option><option value="edge">Edge</option><option value="defense">Defense rank</option></select></label>
         </div>
       ) : (
         <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-slate-800 bg-[#111827] p-3 text-xs text-slate-300">
