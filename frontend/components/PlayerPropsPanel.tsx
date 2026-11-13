@@ -81,6 +81,22 @@ function record(split?: Split) {
   if (!split || split.total == null || split.total === 0) return "—";
   return `${percent(split.hit_rate)} ${split.hits ?? 0}/${split.total}`;
 }
+
+function easternDateKey(value?: string | null) {
+  if (!value) return null;
+  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(value)) return value;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit",
+  }).formatToParts(date);
+  const part = (type: string) => parts.find((item) => item.type === type)?.value || "";
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
+function todayEasternDate() {
+  return easternDateKey(new Date().toISOString());
+}
+
 function localDate(value?: string | null) {
   if (!value) return "Not updated yet";
   const date = new Date(value);
@@ -232,6 +248,7 @@ export default function PlayerPropsPanel({ view }: Props) {
   const [attempt, setAttempt] = useState(0);
   const [search, setSearch] = useState("");
   const [selectedGame, setSelectedGame] = useState("all");
+  const [todayOnly, setTodayOnly] = useState(false);
   const [market, setMarket] = useState("All props");
   const [side, setSide] = useState("both");
   const [windowFilter, setWindowFilter] = useState("all");
@@ -275,6 +292,9 @@ export default function PlayerPropsPanel({ view }: Props) {
     const filtered = source.filter((row) => {
       const matchesSearch = `${row.player} ${row.team} ${row.opponent}`.toLowerCase().includes(search.toLowerCase());
       const matchesGame = selectedGame === "all" || row.game_id === selectedGame;
+      const game = (feed.games || []).find((item) => item.game_id === row.game_id);
+      const gameDate = easternDateKey(row.commence_time || game?.commence_time || row.game_date || game?.game_date);
+      const matchesToday = !todayOnly || (gameDate != null && gameDate === todayEasternDate());
       const matchesMarket = market === "All props" || row.market_label === market ||
         (market === "Shots on Goal" && row.market === "player_shots_on_goal") ||
         (market === "Points" && row.market === "player_points") ||
@@ -284,7 +304,7 @@ export default function PlayerPropsPanel({ view }: Props) {
         (market === "Team Shots" && row.market === "team_shots_on_goal");
       const matchesSide = side === "both" || row.side === side;
       const matchesWindow = view !== "cheat" || windowFilter === "all" || row.window === windowFilter;
-      return matchesSearch && matchesGame && matchesMarket && matchesSide && matchesWindow;
+      return matchesSearch && matchesGame && matchesToday && matchesMarket && matchesSide && matchesWindow;
     });
     return filtered.sort((a, b) => {
       if (sort === "projection") return (b.projection ?? -Infinity) - (a.projection ?? -Infinity);
@@ -292,7 +312,7 @@ export default function PlayerPropsPanel({ view }: Props) {
       if (sort === "defense") return (a.defense_rank ?? Infinity) - (b.defense_rank ?? Infinity);
       return (b.confidence ?? -Infinity) - (a.confidence ?? -Infinity);
     });
-  }, [feed, view, search, selectedGame, market, side, windowFilter, sort]);
+  }, [feed, view, search, selectedGame, todayOnly, market, side, windowFilter, sort]);
 
   const persistSheet = (items: PlayerProp[]) => {
     setSavedProps(items);
@@ -315,7 +335,7 @@ export default function PlayerPropsPanel({ view }: Props) {
     persistSheet(current.filter((item) => item.prop_id !== id));
   };
 
-  const tableKey = JSON.stringify([view, search, selectedGame, market, side, windowFilter, sort]);
+  const tableKey = JSON.stringify([view, search, selectedGame, todayOnly, market, side, windowFilter, sort]);
   const propRows = feed.props || [];
   const pricedPropCount = propRows.filter((row) => row.line != null && row.best_book != null).length;
   const tracker = feed.tracker || [];
@@ -358,7 +378,7 @@ export default function PlayerPropsPanel({ view }: Props) {
       {view === "props" ? (
         <div className="grid gap-2 rounded-2xl border border-slate-800 bg-[#111827] p-3 sm:grid-cols-2 lg:grid-cols-5">
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Search players<input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Player or team" className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /></label>
-          <label className="text-[10px] uppercase tracking-wide text-slate-500">Games<select value={selectedGame} onChange={(event) => setSelectedGame(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="all">All games</option>{(feed.games || []).map((game) => <option key={game.game_id} value={game.game_id}>{game.game_label}</option>)}</select></label>
+          <label className="text-[10px] uppercase tracking-wide text-slate-500">Games<select value={selectedGame} onChange={(event) => setSelectedGame(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="all">All games</option>{(feed.games || []).map((game) => <option key={game.game_id} value={game.game_id}>{game.game_label}</option>)}</select><span className="mt-2 flex items-center gap-2 normal-case tracking-normal text-slate-300"><input type="checkbox" checked={todayOnly} onChange={(event) => setTodayOnly(event.target.checked)} className="h-4 w-4 accent-indigo-500" />Today only (ET)</span></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Props<select value={market} onChange={(event) => setMarket(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white">{MARKETS.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Over / Under<select value={side} onChange={(event) => setSide(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="both">Both</option><option value="over">Over</option><option value="under">Under</option></select></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Sort by<select value={sort} onChange={(event) => setSort(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="confidence">Confidence</option><option value="projection">Highest projection</option><option value="edge">Edge</option><option value="defense">Defense rank</option></select></label>
