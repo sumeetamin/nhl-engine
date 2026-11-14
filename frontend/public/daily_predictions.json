@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-11-14T16:17:08.778857+00:00",
+    "generated_at": "2026-11-14T20:34:25.860135+00:00",
     "games_by_date": {
         "2026-11-12": [
             {
@@ -98,6 +98,12 @@
                     "recent_logs": {
                         "away": [
                             {
+                                "date": "11/14/26",
+                                "opp": "vs SEA",
+                                "result": "W",
+                                "score": "5-1"
+                            },
+                            {
                                 "date": "11/12/26",
                                 "opp": "@SEA",
                                 "result": "W",
@@ -150,15 +156,15 @@
                                 "opp": "@EDM",
                                 "result": "L",
                                 "score": "5-6"
-                            },
-                            {
-                                "date": "10/20/26",
-                                "opp": "@VAN",
-                                "result": "W",
-                                "score": "6-3"
                             }
                         ],
                         "home": [
+                            {
+                                "date": "11/14/26",
+                                "opp": "@CAR",
+                                "result": "L",
+                                "score": "1-5"
+                            },
                             {
                                 "date": "11/12/26",
                                 "opp": "vs CAR",
@@ -212,12 +218,6 @@
                                 "opp": "@FLA",
                                 "result": "L",
                                 "score": "3-8"
-                            },
-                            {
-                                "date": "10/15/26",
-                                "opp": "@TBL",
-                                "result": "L",
-                                "score": "3-4"
                             }
                         ],
                         "h2h": [
@@ -1548,28 +1548,28 @@
                                 "score": "4-3"
                             },
                             {
-                                "date": "10/30/26",
-                                "opp": "@VGK",
-                                "result": "W",
-                                "score": "5-2"
+                                "date": "04/14/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "0-4"
                             },
                             {
-                                "date": "10/28/26",
-                                "opp": "@COL",
+                                "date": "04/12/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "04/11/26",
+                                "opp": "@DET",
+                                "result": "W",
+                                "score": "5-3"
+                            },
+                            {
+                                "date": "04/09/26",
+                                "opp": "vs PIT",
                                 "result": "L",
                                 "score": "2-5"
-                            },
-                            {
-                                "date": "10/27/26",
-                                "opp": "@DAL",
-                                "result": "W",
-                                "score": "5-1"
-                            },
-                            {
-                                "date": "10/24/26",
-                                "opp": "vs LAK",
-                                "result": "W",
-                                "score": "3-1"
                             }
                         ],
                         "h2h": []
@@ -3133,6 +3133,12 @@
                     "recent_logs": {
                         "away": [
                             {
+                                "date": "11/14/26",
+                                "opp": "@CAR",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
                                 "date": "11/12/26",
                                 "opp": "vs CAR",
                                 "result": "L",
@@ -3185,15 +3191,15 @@
                                 "opp": "@FLA",
                                 "result": "L",
                                 "score": "3-8"
-                            },
-                            {
-                                "date": "10/15/26",
-                                "opp": "@TBL",
-                                "result": "L",
-                                "score": "3-4"
                             }
                         ],
                         "home": [
+                            {
+                                "date": "11/14/26",
+                                "opp": "vs SEA",
+                                "result": "W",
+                                "score": "5-1"
+                            },
                             {
                                 "date": "11/12/26",
                                 "opp": "@SEA",
@@ -3247,12 +3253,6 @@
                                 "opp": "@EDM",
                                 "result": "L",
                                 "score": "5-6"
-                            },
-                            {
-                                "date": "10/20/26",
-                                "opp": "@VAN",
-                                "result": "W",
-                                "score": "6-3"
                             }
                         ],
                         "h2h": []
@@ -3513,21 +3513,21 @@
                     "record_overall": "14-3-4",
                     "record_split": "9-3-2",
                     "record_l10": "8-0-2",
-                    "ml": "-118",
-                    "proj": "3.2"
+                    "ml": "-130",
+                    "proj": "3.3"
                 },
                 "home": {
                     "name": "BOS",
                     "record_overall": "13-5-1",
                     "record_split": "8-2-0",
                     "record_l10": "6-3-1",
-                    "ml": "-102",
-                    "proj": "2.8"
+                    "ml": "+110",
+                    "proj": "2.7"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "52.8%",
-                "home_win_prob": 47.2,
-                "away_win_prob": 52.8,
+                "prob": "55.2%",
+                "home_win_prob": 44.8,
+                "away_win_prob": 55.2,
                 "predicted_winner": "MIN",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -3585,17 +3585,17 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+0.4%",
-                "ai_score": 3.6,
+                "edge": "+2.8%",
+                "ai_score": 4.2,
                 "details": {
                     "period_60": {
-                        "p1_winner": "MIN (45%)",
+                        "p1_winner": "MIN (47%)",
                         "p1_over_1_5": "51%",
-                        "min_60_tie": "21%"
+                        "min_60_tie": "19%"
                     },
                     "period_scores": {
                         "p1": "MIN 1.0 - BOS 0.8",
-                        "p2": "MIN 1.1 - BOS 1.0",
+                        "p2": "MIN 1.2 - BOS 0.9",
                         "p3": "MIN 1.1 - BOS 1.0"
                     },
                     "recent_logs": {
@@ -3732,12 +3732,12 @@
                     },
                     "notes": [
                         "Goalie Edge: MIN starting Jesper Wallstedt (Expected) vs BOS starting Jeremy Swayman (Expected).",
-                        "Engine calculates MIN win probability at 52.8% based on V5 goalie adjustments.",
+                        "Engine calculates MIN win probability at 55.2% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 29 points."
                     ],
                     "best_angle": {
                         "play": "MIN MONEYLINE",
-                        "edge": "+0.4%"
+                        "edge": "+2.8%"
                     },
                     "gift_stats": {
                         "away": {
@@ -3800,7 +3800,7 @@
                         "rating": 0.75
                     }
                 },
-                "game_score": 92
+                "game_score": 90
             },
             {
                 "away": {
@@ -4042,21 +4042,21 @@
                     "record_overall": "11-6-3",
                     "record_split": "4-5-1",
                     "record_l10": "6-2-2",
-                    "ml": "+100",
-                    "proj": "3.1"
+                    "ml": "+112",
+                    "proj": "2.9"
                 },
                 "home": {
                     "name": "MTL",
                     "record_overall": "12-3-4",
                     "record_split": "5-2-3",
                     "record_l10": "8-0-2",
-                    "ml": "-120",
-                    "proj": "3.5"
+                    "ml": "-134",
+                    "proj": "3.7"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "53.0%",
-                "home_win_prob": 53.0,
-                "away_win_prob": 47.0,
+                "prob": "55.5%",
+                "home_win_prob": 55.5,
+                "away_win_prob": 44.5,
                 "predicted_winner": "MTL",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -4114,18 +4114,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+0.6%",
-                "ai_score": 3.7,
+                "edge": "+3.1%",
+                "ai_score": 4.2,
                 "details": {
                     "period_60": {
-                        "p1_winner": "MTL (45%)",
+                        "p1_winner": "MTL (47%)",
                         "p1_over_1_5": "55%",
-                        "min_60_tie": "21%"
+                        "min_60_tie": "19%"
                     },
                     "period_scores": {
                         "p1": "COL 0.9 - MTL 1.1",
-                        "p2": "COL 1.1 - MTL 1.2",
-                        "p3": "COL 1.1 - MTL 1.2"
+                        "p2": "COL 1.0 - MTL 1.3",
+                        "p3": "COL 1.0 - MTL 1.3"
                     },
                     "recent_logs": {
                         "away": [
@@ -4261,12 +4261,12 @@
                     },
                     "notes": [
                         "Goalie Edge: COL starting Mackenzie Blackwood (Expected) vs MTL starting Jacob Fowler (Expected).",
-                        "Engine calculates MTL win probability at 53.0% based on V5 goalie adjustments.",
+                        "Engine calculates MTL win probability at 55.5% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 106 points."
                     ],
                     "best_angle": {
                         "play": "MTL MONEYLINE",
-                        "edge": "+0.6%"
+                        "edge": "+3.1%"
                     },
                     "gift_stats": {
                         "away": {
@@ -4329,7 +4329,7 @@
                         "rating": 0.51
                     }
                 },
-                "game_score": 92
+                "game_score": 90
             },
             {
                 "away": {
@@ -4510,21 +4510,21 @@
                     "record_overall": "12-6-2",
                     "record_split": "5-4-1",
                     "record_l10": "5-3-2",
-                    "ml": "-130",
-                    "proj": "3.8"
+                    "ml": "-135",
+                    "proj": "3.9"
                 },
                 "home": {
                     "name": "PIT",
                     "record_overall": "7-10-2",
                     "record_split": "4-3-1",
                     "record_l10": "4-5-1",
-                    "ml": "+110",
-                    "proj": "3.1"
+                    "ml": "+114",
+                    "proj": "3.0"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "55.4%",
-                "home_win_prob": 44.6,
-                "away_win_prob": 55.4,
+                "prob": "56.2%",
+                "home_win_prob": 43.8,
+                "away_win_prob": 56.2,
                 "predicted_winner": "OTT",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -4582,18 +4582,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+3.0%",
-                "ai_score": 4.2,
+                "edge": "+3.8%",
+                "ai_score": 4.4,
                 "details": {
                     "period_60": {
-                        "p1_winner": "OTT (47%)",
+                        "p1_winner": "OTT (48%)",
                         "p1_over_1_5": "56%",
                         "min_60_tie": "19%"
                     },
                     "period_scores": {
-                        "p1": "OTT 1.1 - PIT 0.9",
-                        "p2": "OTT 1.3 - PIT 1.1",
-                        "p3": "OTT 1.4 - PIT 1.1"
+                        "p1": "OTT 1.2 - PIT 0.9",
+                        "p2": "OTT 1.4 - PIT 1.0",
+                        "p3": "OTT 1.3 - PIT 1.1"
                     },
                     "recent_logs": {
                         "away": [
@@ -4668,12 +4668,12 @@
                     },
                     "notes": [
                         "Goalie Edge: OTT starting Samuel Ersson (Expected) vs PIT starting Arturs Silovs (Expected).",
-                        "Engine calculates OTT win probability at 55.4% based on V5 goalie adjustments.",
+                        "Engine calculates OTT win probability at 56.2% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 26 points."
                     ],
                     "best_angle": {
                         "play": "OTT MONEYLINE",
-                        "edge": "+3.0%"
+                        "edge": "+3.8%"
                     },
                     "gift_stats": {
                         "away": {
@@ -4736,7 +4736,7 @@
                         "rating": -0.09
                     }
                 },
-                "game_score": 68
+                "game_score": 67
             },
             {
                 "away": {
@@ -4744,7 +4744,7 @@
                     "record_overall": "14-6-0",
                     "record_split": "5-4-0",
                     "record_l10": "8-2-0",
-                    "ml": "-130",
+                    "ml": "-135",
                     "proj": "3.8"
                 },
                 "home": {
@@ -4752,13 +4752,13 @@
                     "record_overall": "10-7-0",
                     "record_split": "7-4-0",
                     "record_l10": "6-4-0",
-                    "ml": "+110",
+                    "ml": "+114",
                     "proj": "3.0"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "55.2%",
-                "home_win_prob": 44.8,
-                "away_win_prob": 55.2,
+                "prob": "56.0%",
+                "home_win_prob": 44.0,
+                "away_win_prob": 56.0,
                 "predicted_winner": "NJD",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -4816,11 +4816,11 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+2.8%",
-                "ai_score": 4.2,
+                "edge": "+3.6%",
+                "ai_score": 4.3,
                 "details": {
                     "period_60": {
-                        "p1_winner": "NJD (47%)",
+                        "p1_winner": "NJD (48%)",
                         "p1_over_1_5": "54%",
                         "min_60_tie": "19%"
                     },
@@ -4868,28 +4868,28 @@
                                 "score": "4-3"
                             },
                             {
-                                "date": "10/30/26",
-                                "opp": "@VGK",
-                                "result": "W",
-                                "score": "5-2"
+                                "date": "04/14/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "0-4"
                             },
                             {
-                                "date": "10/28/26",
-                                "opp": "@COL",
+                                "date": "04/12/26",
+                                "opp": "vs OTT",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "04/11/26",
+                                "opp": "@DET",
+                                "result": "W",
+                                "score": "5-3"
+                            },
+                            {
+                                "date": "04/09/26",
+                                "opp": "vs PIT",
                                 "result": "L",
                                 "score": "2-5"
-                            },
-                            {
-                                "date": "10/27/26",
-                                "opp": "@DAL",
-                                "result": "W",
-                                "score": "5-1"
-                            },
-                            {
-                                "date": "10/24/26",
-                                "opp": "vs LAK",
-                                "result": "W",
-                                "score": "3-1"
                             }
                         ],
                         "home": [
@@ -4963,12 +4963,12 @@
                     },
                     "notes": [
                         "Goalie Edge: NJD starting Jake Allen (Expected) vs WSH starting Logan Thompson (Expected).",
-                        "Engine calculates NJD win probability at 55.2% based on V5 goalie adjustments.",
+                        "Engine calculates NJD win probability at 56.0% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 34 points."
                     ],
                     "best_angle": {
                         "play": "NJD MONEYLINE",
-                        "edge": "+2.8%"
+                        "edge": "+3.6%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5212,21 +5212,21 @@
                     "record_overall": "11-7-2",
                     "record_split": "6-5-2",
                     "record_l10": "6-4-0",
-                    "ml": "-115",
-                    "proj": "2.9"
+                    "ml": "-108",
+                    "proj": "2.8"
                 },
                 "home": {
                     "name": "STL",
                     "record_overall": "9-8-2",
                     "record_split": "5-2-1",
                     "record_l10": "5-4-1",
-                    "ml": "-105",
-                    "proj": "3.3"
+                    "ml": "-112",
+                    "proj": "3.2"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "50.0%",
-                "home_win_prob": 50.0,
-                "away_win_prob": 50.0,
+                "prob": "51.4%",
+                "home_win_prob": 51.4,
+                "away_win_prob": 48.6,
                 "predicted_winner": "STL",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -5284,17 +5284,17 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+-2.4%",
-                "ai_score": 3.0,
+                "edge": "+-1.0%",
+                "ai_score": 3.3,
                 "details": {
                     "period_60": {
-                        "p1_winner": "STL (43%)",
+                        "p1_winner": "STL (44%)",
                         "p1_over_1_5": "51%",
-                        "min_60_tie": "22%"
+                        "min_60_tie": "21%"
                     },
                     "period_scores": {
-                        "p1": "FLA 0.9 - STL 1.0",
-                        "p2": "FLA 1.0 - STL 1.2",
+                        "p1": "FLA 0.8 - STL 1.0",
+                        "p2": "FLA 1.0 - STL 1.1",
                         "p3": "FLA 1.0 - STL 1.1"
                     },
                     "recent_logs": {
@@ -5305,16 +5305,16 @@
                     "covers": {
                         "best_ml": "STL ML",
                         "best_spread": "PASS",
-                        "best_ou": "OVER 5.5"
+                        "best_ou": "PASS"
                     },
                     "notes": [
                         "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs STL starting Joel Hofer (Expected).",
-                        "Engine calculates STL win probability at 50.0% based on V5 goalie adjustments.",
+                        "Engine calculates STL win probability at 51.4% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 62 points."
                     ],
                     "best_angle": {
                         "play": "STL MONEYLINE",
-                        "edge": "+-2.4%"
+                        "edge": "+-1.0%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5377,7 +5377,7 @@
                         "rating": -0.07
                     }
                 },
-                "game_score": 69
+                "game_score": 68
             },
             {
                 "away": {
@@ -5558,21 +5558,21 @@
                     "record_overall": "8-11-2",
                     "record_split": "4-6-1",
                     "record_l10": "2-7-1",
-                    "ml": "+170",
-                    "proj": "2.3"
+                    "ml": "+154",
+                    "proj": "2.4"
                 },
                 "home": {
                     "name": "UTA",
                     "record_overall": "10-8-2",
                     "record_split": "4-2-1",
                     "record_l10": "3-5-2",
-                    "ml": "-205",
-                    "proj": "3.9"
+                    "ml": "-185",
+                    "proj": "3.7"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "63.0%",
-                "home_win_prob": 63.0,
-                "away_win_prob": 37.0,
+                "prob": "60.9%",
+                "home_win_prob": 60.9,
+                "away_win_prob": 39.1,
                 "predicted_winner": "UTA",
                 "time": "9:00 PM EST",
                 "tier": "NONE",
@@ -5630,37 +5630,98 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+10.6%",
-                "ai_score": 5.9,
+                "edge": "+8.5%",
+                "ai_score": 5.4,
                 "details": {
                     "period_60": {
-                        "p1_winner": "UTA (54%)",
+                        "p1_winner": "UTA (52%)",
                         "p1_over_1_5": "55%",
-                        "min_60_tie": "15%"
+                        "min_60_tie": "17%"
                     },
                     "period_scores": {
-                        "p1": "SJS 0.7 - UTA 1.2",
-                        "p2": "SJS 0.8 - UTA 1.4",
-                        "p3": "SJS 0.8 - UTA 1.3"
+                        "p1": "SJS 0.7 - UTA 1.1",
+                        "p2": "SJS 0.8 - UTA 1.3",
+                        "p3": "SJS 0.9 - UTA 1.3"
                     },
                     "recent_logs": {
-                        "away": [],
+                        "away": [
+                            {
+                                "date": "10/31/26",
+                                "opp": "vs OTT",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs BUF",
+                                "result": "L",
+                                "score": "0-2"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "4-6"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@OTT",
+                                "result": "W",
+                                "score": "6-2"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "@MTL",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "10/19/26",
+                                "opp": "@TOR",
+                                "result": "L",
+                                "score": "1-3"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "@DET",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "10/15/26",
+                                "opp": "@NSH",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/13/26",
+                                "opp": "vs BOS",
+                                "result": "L",
+                                "score": "3-6"
+                            }
+                        ],
                         "home": [],
                         "h2h": []
                     },
                     "covers": {
                         "best_ml": "UTA ML",
-                        "best_spread": "UTA -1.5",
-                        "best_ou": "OVER 5.5"
+                        "best_spread": "PASS",
+                        "best_ou": "PASS"
                     },
                     "notes": [
                         "Goalie Edge: SJS starting Yaroslav Askarov (Expected) vs UTA starting Karel Vejmelka (Expected).",
-                        "Engine calculates UTA win probability at 63.0% based on V5 goalie adjustments.",
+                        "Engine calculates UTA win probability at 60.9% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 113 points."
                     ],
                     "best_angle": {
                         "play": "UTA MONEYLINE",
-                        "edge": "+10.6%"
+                        "edge": "+8.5%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5723,7 +5784,7 @@
                         "rating": 0.0
                     }
                 },
-                "game_score": 48
+                "game_score": 50
             },
             {
                 "away": {
@@ -5731,22 +5792,22 @@
                     "record_overall": "8-6-4",
                     "record_split": "4-3-2",
                     "record_l10": "4-3-3",
-                    "ml": "-105",
-                    "proj": "3.8"
+                    "ml": "-112",
+                    "proj": "4.1"
                 },
                 "home": {
                     "name": "ANA",
                     "record_overall": "10-8-1",
                     "record_split": "3-5-1",
                     "record_l10": "6-3-1",
-                    "ml": "-115",
-                    "proj": "4.2"
+                    "ml": "-108",
+                    "proj": "3.7"
                 },
                 "ou_total": "O/U 8.0",
-                "prob": "50.0%",
-                "home_win_prob": 50.0,
-                "away_win_prob": 50.0,
-                "predicted_winner": "ANA",
+                "prob": "51.4%",
+                "home_win_prob": 48.6,
+                "away_win_prob": 51.4,
+                "predicted_winner": "NYI",
                 "time": "10:00 PM EST",
                 "tier": "NONE",
                 "goal_ladders": {
@@ -5803,18 +5864,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+-2.4%",
-                "ai_score": 3.0,
+                "edge": "+-1.0%",
+                "ai_score": 3.3,
                 "details": {
                     "period_60": {
-                        "p1_winner": "ANA (43%)",
+                        "p1_winner": "NYI (44%)",
                         "p1_over_1_5": "55%",
-                        "min_60_tie": "22%"
+                        "min_60_tie": "21%"
                     },
                     "period_scores": {
-                        "p1": "NYI 1.1 - ANA 1.3",
-                        "p2": "NYI 1.3 - ANA 1.5",
-                        "p3": "NYI 1.4 - ANA 1.4"
+                        "p1": "NYI 1.2 - ANA 1.1",
+                        "p2": "NYI 1.4 - ANA 1.3",
+                        "p3": "NYI 1.5 - ANA 1.3"
                     },
                     "recent_logs": {
                         "away": [],
@@ -5822,18 +5883,18 @@
                         "h2h": []
                     },
                     "covers": {
-                        "best_ml": "ANA ML",
+                        "best_ml": "NYI ML",
                         "best_spread": "PASS",
                         "best_ou": "OVER 5.5"
                     },
                     "notes": [
                         "Goalie Edge: NYI starting Ilya Sorokin (Expected) vs ANA starting Lukas Dostal (Expected).",
-                        "Engine calculates ANA win probability at 50.0% based on V5 goalie adjustments.",
+                        "Engine calculates NYI win probability at 51.4% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 75 points."
                     ],
                     "best_angle": {
-                        "play": "ANA MONEYLINE",
-                        "edge": "+-2.4%"
+                        "play": "NYI MONEYLINE",
+                        "edge": "+-1.0%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5896,7 +5957,7 @@
                         "rating": -0.13
                     }
                 },
-                "game_score": 66
+                "game_score": 65
             },
             {
                 "away": {
@@ -6079,24 +6140,24 @@
                     "record_overall": "14-3-3",
                     "record_split": "7-0-1",
                     "record_l10": "6-2-2",
-                    "ml": "-361",
-                    "proj": "4.8"
+                    "ml": "-155",
+                    "proj": "3.6"
                 },
                 "home": {
                     "name": "PHI",
                     "record_overall": "5-10-6",
                     "record_split": "3-4-3",
                     "record_l10": "3-4-3",
-                    "ml": "+361",
-                    "proj": "1.3"
+                    "ml": "+130",
+                    "proj": "2.5"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "78.3%",
-                "home_win_prob": 21.7,
-                "away_win_prob": 78.3,
+                "prob": "59.3%",
+                "home_win_prob": 40.7,
+                "away_win_prob": 59.3,
                 "predicted_winner": "EDM",
                 "time": "7:30 PM EST",
-                "tier": "BIG",
+                "tier": "NONE",
                 "goal_ladders": {
                     "away": {
                         "xg": 3.38,
@@ -6151,18 +6212,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+25.9%",
-                "ai_score": 9.3,
+                "edge": "+6.9%",
+                "ai_score": 5.1,
                 "details": {
                     "period_60": {
-                        "p1_winner": "EDM (67%)",
+                        "p1_winner": "EDM (50%)",
                         "p1_over_1_5": "53%",
-                        "min_60_tie": "8%"
+                        "min_60_tie": "17%"
                     },
                     "period_scores": {
-                        "p1": "EDM 1.4 - PHI 0.4",
-                        "p2": "EDM 1.7 - PHI 0.5",
-                        "p3": "EDM 1.7 - PHI 0.4"
+                        "p1": "EDM 1.1 - PHI 0.8",
+                        "p2": "EDM 1.3 - PHI 0.9",
+                        "p3": "EDM 1.2 - PHI 0.8"
                     },
                     "recent_logs": {
                         "away": [],
@@ -6171,17 +6232,17 @@
                     },
                     "covers": {
                         "best_ml": "EDM ML",
-                        "best_spread": "EDM -1.5",
+                        "best_spread": "PASS",
                         "best_ou": "PASS"
                     },
                     "notes": [
                         "Goalie Edge: EDM starting Tristan Jarry (Expected) vs PHI starting Dan Vladar (Expected).",
-                        "Engine calculates EDM win probability at 78.3% based on V5 goalie adjustments.",
+                        "Engine calculates EDM win probability at 59.3% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 47 points."
                     ],
                     "best_angle": {
                         "play": "EDM MONEYLINE",
-                        "edge": "+25.9%"
+                        "edge": "+6.9%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6244,7 +6305,7 @@
                         "rating": -0.38
                     }
                 },
-                "game_score": 49
+                "game_score": 64
             },
             {
                 "away": {
@@ -6252,24 +6313,24 @@
                     "record_overall": "11-7-2",
                     "record_split": "6-5-2",
                     "record_l10": "6-4-0",
-                    "ml": "-222",
-                    "proj": "4.6"
+                    "ml": "+114",
+                    "proj": "3.0"
                 },
                 "home": {
                     "name": "DAL",
                     "record_overall": "10-6-2",
                     "record_split": "6-5-0",
                     "record_l10": "6-3-1",
-                    "ml": "+222",
-                    "proj": "2.0"
+                    "ml": "-135",
+                    "proj": "3.6"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "69.0%",
-                "home_win_prob": 31.0,
-                "away_win_prob": 69.0,
-                "predicted_winner": "FLA",
+                "prob": "53.9%",
+                "home_win_prob": 53.9,
+                "away_win_prob": 46.1,
+                "predicted_winner": "DAL",
                 "time": "8:00 PM EST",
-                "tier": "EDGE",
+                "tier": "NONE",
                 "goal_ladders": {
                     "away": {
                         "xg": 2.86,
@@ -6324,18 +6385,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+16.6%",
-                "ai_score": 7.2,
+                "edge": "+1.5%",
+                "ai_score": 3.9,
                 "details": {
                     "period_60": {
-                        "p1_winner": "FLA (59%)",
+                        "p1_winner": "DAL (46%)",
                         "p1_over_1_5": "52%",
-                        "min_60_tie": "13%"
+                        "min_60_tie": "20%"
                     },
                     "period_scores": {
-                        "p1": "FLA 1.4 - DAL 0.6",
-                        "p2": "FLA 1.6 - DAL 0.7",
-                        "p3": "FLA 1.6 - DAL 0.7"
+                        "p1": "FLA 0.9 - DAL 1.1",
+                        "p2": "FLA 1.0 - DAL 1.3",
+                        "p3": "FLA 1.1 - DAL 1.2"
                     },
                     "recent_logs": {
                         "away": [],
@@ -6343,18 +6404,18 @@
                         "h2h": []
                     },
                     "covers": {
-                        "best_ml": "FLA ML",
-                        "best_spread": "FLA -1.5",
+                        "best_ml": "DAL ML",
+                        "best_spread": "PASS",
                         "best_ou": "OVER 5.5"
                     },
                     "notes": [
                         "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs DAL starting Jake Oettinger (Expected).",
-                        "Engine calculates FLA win probability at 69.0% based on V5 goalie adjustments.",
+                        "Engine calculates DAL win probability at 53.9% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 85 points."
                     ],
                     "best_angle": {
-                        "play": "FLA MONEYLINE",
-                        "edge": "+16.6%"
+                        "play": "DAL MONEYLINE",
+                        "edge": "+1.5%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6417,7 +6478,7 @@
                         "rating": 0.25
                     }
                 },
-                "game_score": 61
+                "game_score": 73
             },
             {
                 "away": {
@@ -6425,24 +6486,24 @@
                     "record_overall": "8-10-1",
                     "record_split": "2-5-1",
                     "record_l10": "5-4-1",
-                    "ml": "+240",
-                    "proj": "2.1"
+                    "ml": "+130",
+                    "proj": "2.9"
                 },
                 "home": {
                     "name": "ANA",
                     "record_overall": "10-8-1",
                     "record_split": "3-5-1",
                     "record_l10": "6-3-1",
-                    "ml": "-240",
-                    "proj": "5.0"
+                    "ml": "-155",
+                    "proj": "4.2"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "70.7%",
-                "home_win_prob": 70.7,
-                "away_win_prob": 29.3,
+                "prob": "58.9%",
+                "home_win_prob": 58.9,
+                "away_win_prob": 41.1,
                 "predicted_winner": "ANA",
                 "time": "8:00 PM EST",
-                "tier": "EDGE",
+                "tier": "NONE",
                 "goal_ladders": {
                     "away": {
                         "xg": 2.95,
@@ -6497,18 +6558,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+18.3%",
-                "ai_score": 7.6,
+                "edge": "+6.5%",
+                "ai_score": 5.0,
                 "details": {
                     "period_60": {
-                        "p1_winner": "ANA (60%)",
+                        "p1_winner": "ANA (50%)",
                         "p1_over_1_5": "55%",
-                        "min_60_tie": "12%"
+                        "min_60_tie": "18%"
                     },
                     "period_scores": {
-                        "p1": "CGY 0.6 - ANA 1.5",
-                        "p2": "CGY 0.7 - ANA 1.8",
-                        "p3": "CGY 0.8 - ANA 1.7"
+                        "p1": "CGY 0.9 - ANA 1.3",
+                        "p2": "CGY 1.0 - ANA 1.5",
+                        "p3": "CGY 1.0 - ANA 1.4"
                     },
                     "recent_logs": {
                         "away": [],
@@ -6517,17 +6578,17 @@
                     },
                     "covers": {
                         "best_ml": "ANA ML",
-                        "best_spread": "ANA -1.5",
+                        "best_spread": "PASS",
                         "best_ou": "OVER 5.5"
                     },
                     "notes": [
                         "Goalie Edge: CGY starting Dustin Wolf (Expected) vs ANA starting Lukas Dostal (Expected).",
-                        "Engine calculates ANA win probability at 70.7% based on V5 goalie adjustments.",
+                        "Engine calculates ANA win probability at 58.9% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 97 points."
                     ],
                     "best_angle": {
                         "play": "ANA MONEYLINE",
-                        "edge": "+18.3%"
+                        "edge": "+6.5%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6590,7 +6651,7 @@
                         "rating": -0.13
                     }
                 },
-                "game_score": 38
+                "game_score": 47
             },
             {
                 "away": {
@@ -6598,21 +6659,21 @@
                     "record_overall": "3-17-1",
                     "record_split": "2-8-1",
                     "record_l10": "1-9-0",
-                    "ml": "+1619",
-                    "proj": "0.4"
+                    "ml": "+320",
+                    "proj": "1.3"
                 },
                 "home": {
                     "name": "VGK",
                     "record_overall": "13-5-3",
                     "record_split": "7-3-1",
                     "record_l10": "5-2-3",
-                    "ml": "-1619",
-                    "proj": "5.7"
+                    "ml": "-410",
+                    "proj": "4.8"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "94.2%",
-                "home_win_prob": 94.2,
-                "away_win_prob": 5.8,
+                "prob": "78.0%",
+                "home_win_prob": 78.0,
+                "away_win_prob": 22.0,
                 "predicted_winner": "VGK",
                 "time": "9:00 PM EST",
                 "tier": "BIG",
@@ -6670,18 +6731,18 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+41.8%",
-                "ai_score": 10.0,
+                "edge": "+25.6%",
+                "ai_score": 9.2,
                 "details": {
                     "period_60": {
-                        "p1_winner": "VGK (80%)",
+                        "p1_winner": "VGK (66%)",
                         "p1_over_1_5": "56%",
-                        "min_60_tie": "0%"
+                        "min_60_tie": "8%"
                     },
                     "period_scores": {
-                        "p1": "VAN 0.1 - VGK 1.7",
-                        "p2": "VAN 0.1 - VGK 2.0",
-                        "p3": "VAN 0.2 - VGK 2.0"
+                        "p1": "VAN 0.4 - VGK 1.4",
+                        "p2": "VAN 0.5 - VGK 1.7",
+                        "p3": "VAN 0.4 - VGK 1.7"
                     },
                     "recent_logs": {
                         "away": [],
@@ -6695,12 +6756,12 @@
                     },
                     "notes": [
                         "Goalie Edge: VAN starting Leevi Meril\u00e4inen (Expected) vs VGK starting Carter Hart (Expected).",
-                        "Engine calculates VGK win probability at 94.2% based on V5 goalie adjustments.",
+                        "Engine calculates VGK win probability at 78.0% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 354 points."
                     ],
                     "best_angle": {
                         "play": "VGK MONEYLINE",
-                        "edge": "+41.8%"
+                        "edge": "+25.6%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6763,7 +6824,7 @@
                         "rating": 0.44
                     }
                 },
-                "game_score": 27
+                "game_score": 40
             },
             {
                 "away": {
@@ -6771,24 +6832,24 @@
                     "record_overall": "11-4-5",
                     "record_split": "5-1-3",
                     "record_l10": "8-1-1",
-                    "ml": "-375",
-                    "proj": "4.6"
+                    "ml": "-170",
+                    "proj": "3.6"
                 },
                 "home": {
                     "name": "SJS",
                     "record_overall": "8-11-2",
                     "record_split": "4-5-1",
                     "record_l10": "2-7-1",
-                    "ml": "+375",
-                    "proj": "1.2"
+                    "ml": "+142",
+                    "proj": "2.2"
                 },
                 "ou_total": "O/U 6.0",
-                "prob": "79.0%",
-                "home_win_prob": 21.0,
-                "away_win_prob": 79.0,
+                "prob": "61.3%",
+                "home_win_prob": 38.7,
+                "away_win_prob": 61.3,
                 "predicted_winner": "NSH",
                 "time": "9:00 PM EST",
-                "tier": "BIG",
+                "tier": "NONE",
                 "goal_ladders": {
                     "away": {
                         "xg": 3.31,
@@ -6843,37 +6904,98 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+26.6%",
-                "ai_score": 9.4,
+                "edge": "+8.9%",
+                "ai_score": 5.5,
                 "details": {
                     "period_60": {
-                        "p1_winner": "NSH (67%)",
+                        "p1_winner": "NSH (52%)",
                         "p1_over_1_5": "53%",
-                        "min_60_tie": "8%"
+                        "min_60_tie": "16%"
                     },
                     "period_scores": {
-                        "p1": "NSH 1.4 - SJS 0.4",
-                        "p2": "NSH 1.6 - SJS 0.4",
-                        "p3": "NSH 1.6 - SJS 0.4"
+                        "p1": "NSH 1.1 - SJS 0.7",
+                        "p2": "NSH 1.3 - SJS 0.8",
+                        "p3": "NSH 1.2 - SJS 0.7"
                     },
                     "recent_logs": {
                         "away": [],
-                        "home": [],
+                        "home": [
+                            {
+                                "date": "10/31/26",
+                                "opp": "vs OTT",
+                                "result": "L",
+                                "score": "1-5"
+                            },
+                            {
+                                "date": "10/29/26",
+                                "opp": "vs VAN",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "vs BUF",
+                                "result": "L",
+                                "score": "0-2"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "@BOS",
+                                "result": "L",
+                                "score": "4-6"
+                            },
+                            {
+                                "date": "10/22/26",
+                                "opp": "@OTT",
+                                "result": "W",
+                                "score": "6-2"
+                            },
+                            {
+                                "date": "10/20/26",
+                                "opp": "@MTL",
+                                "result": "W",
+                                "score": "4-3"
+                            },
+                            {
+                                "date": "10/19/26",
+                                "opp": "@TOR",
+                                "result": "L",
+                                "score": "1-3"
+                            },
+                            {
+                                "date": "10/17/26",
+                                "opp": "@DET",
+                                "result": "L",
+                                "score": "3-4"
+                            },
+                            {
+                                "date": "10/15/26",
+                                "opp": "@NSH",
+                                "result": "W",
+                                "score": "3-2"
+                            },
+                            {
+                                "date": "10/13/26",
+                                "opp": "vs BOS",
+                                "result": "L",
+                                "score": "3-6"
+                            }
+                        ],
                         "h2h": []
                     },
                     "covers": {
                         "best_ml": "NSH ML",
-                        "best_spread": "NSH -1.5",
+                        "best_spread": "PASS",
                         "best_ou": "PASS"
                     },
                     "notes": [
                         "Goalie Edge: NSH starting Juuse Saros (Expected) vs SJS starting Yaroslav Askarov (Expected).",
-                        "Engine calculates NSH win probability at 79.0% based on V5 goalie adjustments.",
+                        "Engine calculates NSH win probability at 61.3% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 66 points."
                     ],
                     "best_angle": {
                         "play": "NSH MONEYLINE",
-                        "edge": "+26.6%"
+                        "edge": "+8.9%"
                     },
                     "gift_stats": {
                         "away": {
@@ -6936,7 +7058,7 @@
                         "rating": -0.85
                     }
                 },
-                "game_score": 40
+                "game_score": 54
             }
         ],
         "2026-11-16": [
@@ -7444,6 +7566,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/14/26",
+                            "opp": "vs SEA",
+                            "result": "W",
+                            "score": "5-1"
+                        },
+                        {
                             "date": "11/12/26",
                             "opp": "@SEA",
                             "result": "W",
@@ -7496,15 +7624,15 @@
                             "opp": "@EDM",
                             "result": "L",
                             "score": "5-6"
-                        },
-                        {
-                            "date": "10/20/26",
-                            "opp": "@VAN",
-                            "result": "W",
-                            "score": "6-3"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "11/14/26",
+                            "opp": "@CAR",
+                            "result": "L",
+                            "score": "1-5"
+                        },
                         {
                             "date": "11/12/26",
                             "opp": "vs CAR",
@@ -7558,12 +7686,6 @@
                             "opp": "@FLA",
                             "result": "L",
                             "score": "3-8"
-                        },
-                        {
-                            "date": "10/15/26",
-                            "opp": "@TBL",
-                            "result": "L",
-                            "score": "3-4"
                         }
                     ],
                     "h2h": [
@@ -8894,28 +9016,28 @@
                             "score": "4-3"
                         },
                         {
-                            "date": "10/30/26",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "5-2"
+                            "date": "04/14/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "0-4"
                         },
                         {
-                            "date": "10/28/26",
-                            "opp": "@COL",
+                            "date": "04/12/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "04/11/26",
+                            "opp": "@DET",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
+                            "date": "04/09/26",
+                            "opp": "vs PIT",
                             "result": "L",
                             "score": "2-5"
-                        },
-                        {
-                            "date": "10/27/26",
-                            "opp": "@DAL",
-                            "result": "W",
-                            "score": "5-1"
-                        },
-                        {
-                            "date": "10/24/26",
-                            "opp": "vs LAK",
-                            "result": "W",
-                            "score": "3-1"
                         }
                     ],
                     "h2h": []
@@ -10479,6 +10601,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/14/26",
+                            "opp": "@CAR",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
                             "date": "11/12/26",
                             "opp": "vs CAR",
                             "result": "L",
@@ -10531,15 +10659,15 @@
                             "opp": "@FLA",
                             "result": "L",
                             "score": "3-8"
-                        },
-                        {
-                            "date": "10/15/26",
-                            "opp": "@TBL",
-                            "result": "L",
-                            "score": "3-4"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "11/14/26",
+                            "opp": "vs SEA",
+                            "result": "W",
+                            "score": "5-1"
+                        },
                         {
                             "date": "11/12/26",
                             "opp": "@SEA",
@@ -10593,12 +10721,6 @@
                             "opp": "@EDM",
                             "result": "L",
                             "score": "5-6"
-                        },
-                        {
-                            "date": "10/20/26",
-                            "opp": "@VAN",
-                            "result": "W",
-                            "score": "6-3"
                         }
                     ],
                     "h2h": []
@@ -10859,21 +10981,21 @@
                 "record_overall": "14-3-4",
                 "record_split": "9-3-2",
                 "record_l10": "8-0-2",
-                "ml": "-118",
-                "proj": "3.2"
+                "ml": "-130",
+                "proj": "3.3"
             },
             "home": {
                 "name": "BOS",
                 "record_overall": "13-5-1",
                 "record_split": "8-2-0",
                 "record_l10": "6-3-1",
-                "ml": "-102",
-                "proj": "2.8"
+                "ml": "+110",
+                "proj": "2.7"
             },
             "ou_total": "O/U 6.0",
-            "prob": "52.8%",
-            "home_win_prob": 47.2,
-            "away_win_prob": 52.8,
+            "prob": "55.2%",
+            "home_win_prob": 44.8,
+            "away_win_prob": 55.2,
             "predicted_winner": "MIN",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -10931,17 +11053,17 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+0.4%",
-            "ai_score": 3.6,
+            "edge": "+2.8%",
+            "ai_score": 4.2,
             "details": {
                 "period_60": {
-                    "p1_winner": "MIN (45%)",
+                    "p1_winner": "MIN (47%)",
                     "p1_over_1_5": "51%",
-                    "min_60_tie": "21%"
+                    "min_60_tie": "19%"
                 },
                 "period_scores": {
                     "p1": "MIN 1.0 - BOS 0.8",
-                    "p2": "MIN 1.1 - BOS 1.0",
+                    "p2": "MIN 1.2 - BOS 0.9",
                     "p3": "MIN 1.1 - BOS 1.0"
                 },
                 "recent_logs": {
@@ -11078,12 +11200,12 @@
                 },
                 "notes": [
                     "Goalie Edge: MIN starting Jesper Wallstedt (Expected) vs BOS starting Jeremy Swayman (Expected).",
-                    "Engine calculates MIN win probability at 52.8% based on V5 goalie adjustments.",
+                    "Engine calculates MIN win probability at 55.2% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 29 points."
                 ],
                 "best_angle": {
                     "play": "MIN MONEYLINE",
-                    "edge": "+0.4%"
+                    "edge": "+2.8%"
                 },
                 "gift_stats": {
                     "away": {
@@ -11146,7 +11268,7 @@
                     "rating": 0.75
                 }
             },
-            "game_score": 92
+            "game_score": 90
         },
         {
             "away": {
@@ -11388,21 +11510,21 @@
                 "record_overall": "11-6-3",
                 "record_split": "4-5-1",
                 "record_l10": "6-2-2",
-                "ml": "+100",
-                "proj": "3.1"
+                "ml": "+112",
+                "proj": "2.9"
             },
             "home": {
                 "name": "MTL",
                 "record_overall": "12-3-4",
                 "record_split": "5-2-3",
                 "record_l10": "8-0-2",
-                "ml": "-120",
-                "proj": "3.5"
+                "ml": "-134",
+                "proj": "3.7"
             },
             "ou_total": "O/U 6.5",
-            "prob": "53.0%",
-            "home_win_prob": 53.0,
-            "away_win_prob": 47.0,
+            "prob": "55.5%",
+            "home_win_prob": 55.5,
+            "away_win_prob": 44.5,
             "predicted_winner": "MTL",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -11460,18 +11582,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+0.6%",
-            "ai_score": 3.7,
+            "edge": "+3.1%",
+            "ai_score": 4.2,
             "details": {
                 "period_60": {
-                    "p1_winner": "MTL (45%)",
+                    "p1_winner": "MTL (47%)",
                     "p1_over_1_5": "55%",
-                    "min_60_tie": "21%"
+                    "min_60_tie": "19%"
                 },
                 "period_scores": {
                     "p1": "COL 0.9 - MTL 1.1",
-                    "p2": "COL 1.1 - MTL 1.2",
-                    "p3": "COL 1.1 - MTL 1.2"
+                    "p2": "COL 1.0 - MTL 1.3",
+                    "p3": "COL 1.0 - MTL 1.3"
                 },
                 "recent_logs": {
                     "away": [
@@ -11607,12 +11729,12 @@
                 },
                 "notes": [
                     "Goalie Edge: COL starting Mackenzie Blackwood (Expected) vs MTL starting Jacob Fowler (Expected).",
-                    "Engine calculates MTL win probability at 53.0% based on V5 goalie adjustments.",
+                    "Engine calculates MTL win probability at 55.5% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 106 points."
                 ],
                 "best_angle": {
                     "play": "MTL MONEYLINE",
-                    "edge": "+0.6%"
+                    "edge": "+3.1%"
                 },
                 "gift_stats": {
                     "away": {
@@ -11675,7 +11797,7 @@
                     "rating": 0.51
                 }
             },
-            "game_score": 92
+            "game_score": 90
         },
         {
             "away": {
@@ -11856,21 +11978,21 @@
                 "record_overall": "12-6-2",
                 "record_split": "5-4-1",
                 "record_l10": "5-3-2",
-                "ml": "-130",
-                "proj": "3.8"
+                "ml": "-135",
+                "proj": "3.9"
             },
             "home": {
                 "name": "PIT",
                 "record_overall": "7-10-2",
                 "record_split": "4-3-1",
                 "record_l10": "4-5-1",
-                "ml": "+110",
-                "proj": "3.1"
+                "ml": "+114",
+                "proj": "3.0"
             },
             "ou_total": "O/U 7.0",
-            "prob": "55.4%",
-            "home_win_prob": 44.6,
-            "away_win_prob": 55.4,
+            "prob": "56.2%",
+            "home_win_prob": 43.8,
+            "away_win_prob": 56.2,
             "predicted_winner": "OTT",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -11928,18 +12050,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+3.0%",
-            "ai_score": 4.2,
+            "edge": "+3.8%",
+            "ai_score": 4.4,
             "details": {
                 "period_60": {
-                    "p1_winner": "OTT (47%)",
+                    "p1_winner": "OTT (48%)",
                     "p1_over_1_5": "56%",
                     "min_60_tie": "19%"
                 },
                 "period_scores": {
-                    "p1": "OTT 1.1 - PIT 0.9",
-                    "p2": "OTT 1.3 - PIT 1.1",
-                    "p3": "OTT 1.4 - PIT 1.1"
+                    "p1": "OTT 1.2 - PIT 0.9",
+                    "p2": "OTT 1.4 - PIT 1.0",
+                    "p3": "OTT 1.3 - PIT 1.1"
                 },
                 "recent_logs": {
                     "away": [
@@ -12014,12 +12136,12 @@
                 },
                 "notes": [
                     "Goalie Edge: OTT starting Samuel Ersson (Expected) vs PIT starting Arturs Silovs (Expected).",
-                    "Engine calculates OTT win probability at 55.4% based on V5 goalie adjustments.",
+                    "Engine calculates OTT win probability at 56.2% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 26 points."
                 ],
                 "best_angle": {
                     "play": "OTT MONEYLINE",
-                    "edge": "+3.0%"
+                    "edge": "+3.8%"
                 },
                 "gift_stats": {
                     "away": {
@@ -12082,7 +12204,7 @@
                     "rating": -0.09
                 }
             },
-            "game_score": 68
+            "game_score": 67
         },
         {
             "away": {
@@ -12090,7 +12212,7 @@
                 "record_overall": "14-6-0",
                 "record_split": "5-4-0",
                 "record_l10": "8-2-0",
-                "ml": "-130",
+                "ml": "-135",
                 "proj": "3.8"
             },
             "home": {
@@ -12098,13 +12220,13 @@
                 "record_overall": "10-7-0",
                 "record_split": "7-4-0",
                 "record_l10": "6-4-0",
-                "ml": "+110",
+                "ml": "+114",
                 "proj": "3.0"
             },
             "ou_total": "O/U 7.0",
-            "prob": "55.2%",
-            "home_win_prob": 44.8,
-            "away_win_prob": 55.2,
+            "prob": "56.0%",
+            "home_win_prob": 44.0,
+            "away_win_prob": 56.0,
             "predicted_winner": "NJD",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -12162,11 +12284,11 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+2.8%",
-            "ai_score": 4.2,
+            "edge": "+3.6%",
+            "ai_score": 4.3,
             "details": {
                 "period_60": {
-                    "p1_winner": "NJD (47%)",
+                    "p1_winner": "NJD (48%)",
                     "p1_over_1_5": "54%",
                     "min_60_tie": "19%"
                 },
@@ -12214,28 +12336,28 @@
                             "score": "4-3"
                         },
                         {
-                            "date": "10/30/26",
-                            "opp": "@VGK",
-                            "result": "W",
-                            "score": "5-2"
+                            "date": "04/14/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "0-4"
                         },
                         {
-                            "date": "10/28/26",
-                            "opp": "@COL",
+                            "date": "04/12/26",
+                            "opp": "vs OTT",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "04/11/26",
+                            "opp": "@DET",
+                            "result": "W",
+                            "score": "5-3"
+                        },
+                        {
+                            "date": "04/09/26",
+                            "opp": "vs PIT",
                             "result": "L",
                             "score": "2-5"
-                        },
-                        {
-                            "date": "10/27/26",
-                            "opp": "@DAL",
-                            "result": "W",
-                            "score": "5-1"
-                        },
-                        {
-                            "date": "10/24/26",
-                            "opp": "vs LAK",
-                            "result": "W",
-                            "score": "3-1"
                         }
                     ],
                     "home": [
@@ -12309,12 +12431,12 @@
                 },
                 "notes": [
                     "Goalie Edge: NJD starting Jake Allen (Expected) vs WSH starting Logan Thompson (Expected).",
-                    "Engine calculates NJD win probability at 55.2% based on V5 goalie adjustments.",
+                    "Engine calculates NJD win probability at 56.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 34 points."
                 ],
                 "best_angle": {
                     "play": "NJD MONEYLINE",
-                    "edge": "+2.8%"
+                    "edge": "+3.6%"
                 },
                 "gift_stats": {
                     "away": {
@@ -12558,21 +12680,21 @@
                 "record_overall": "11-7-2",
                 "record_split": "6-5-2",
                 "record_l10": "6-4-0",
-                "ml": "-115",
-                "proj": "2.9"
+                "ml": "-108",
+                "proj": "2.8"
             },
             "home": {
                 "name": "STL",
                 "record_overall": "9-8-2",
                 "record_split": "5-2-1",
                 "record_l10": "5-4-1",
-                "ml": "-105",
-                "proj": "3.3"
+                "ml": "-112",
+                "proj": "3.2"
             },
             "ou_total": "O/U 6.0",
-            "prob": "50.0%",
-            "home_win_prob": 50.0,
-            "away_win_prob": 50.0,
+            "prob": "51.4%",
+            "home_win_prob": 51.4,
+            "away_win_prob": 48.6,
             "predicted_winner": "STL",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -12630,17 +12752,17 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+-2.4%",
-            "ai_score": 3.0,
+            "edge": "+-1.0%",
+            "ai_score": 3.3,
             "details": {
                 "period_60": {
-                    "p1_winner": "STL (43%)",
+                    "p1_winner": "STL (44%)",
                     "p1_over_1_5": "51%",
-                    "min_60_tie": "22%"
+                    "min_60_tie": "21%"
                 },
                 "period_scores": {
-                    "p1": "FLA 0.9 - STL 1.0",
-                    "p2": "FLA 1.0 - STL 1.2",
+                    "p1": "FLA 0.8 - STL 1.0",
+                    "p2": "FLA 1.0 - STL 1.1",
                     "p3": "FLA 1.0 - STL 1.1"
                 },
                 "recent_logs": {
@@ -12651,16 +12773,16 @@
                 "covers": {
                     "best_ml": "STL ML",
                     "best_spread": "PASS",
-                    "best_ou": "OVER 5.5"
+                    "best_ou": "PASS"
                 },
                 "notes": [
                     "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs STL starting Joel Hofer (Expected).",
-                    "Engine calculates STL win probability at 50.0% based on V5 goalie adjustments.",
+                    "Engine calculates STL win probability at 51.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 62 points."
                 ],
                 "best_angle": {
                     "play": "STL MONEYLINE",
-                    "edge": "+-2.4%"
+                    "edge": "+-1.0%"
                 },
                 "gift_stats": {
                     "away": {
@@ -12723,7 +12845,7 @@
                     "rating": -0.07
                 }
             },
-            "game_score": 69
+            "game_score": 68
         },
         {
             "away": {
@@ -12904,21 +13026,21 @@
                 "record_overall": "8-11-2",
                 "record_split": "4-6-1",
                 "record_l10": "2-7-1",
-                "ml": "+170",
-                "proj": "2.3"
+                "ml": "+154",
+                "proj": "2.4"
             },
             "home": {
                 "name": "UTA",
                 "record_overall": "10-8-2",
                 "record_split": "4-2-1",
                 "record_l10": "3-5-2",
-                "ml": "-205",
-                "proj": "3.9"
+                "ml": "-185",
+                "proj": "3.7"
             },
             "ou_total": "O/U 6.0",
-            "prob": "63.0%",
-            "home_win_prob": 63.0,
-            "away_win_prob": 37.0,
+            "prob": "60.9%",
+            "home_win_prob": 60.9,
+            "away_win_prob": 39.1,
             "predicted_winner": "UTA",
             "time": "9:00 PM EST",
             "tier": "NONE",
@@ -12976,37 +13098,98 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+10.6%",
-            "ai_score": 5.9,
+            "edge": "+8.5%",
+            "ai_score": 5.4,
             "details": {
                 "period_60": {
-                    "p1_winner": "UTA (54%)",
+                    "p1_winner": "UTA (52%)",
                     "p1_over_1_5": "55%",
-                    "min_60_tie": "15%"
+                    "min_60_tie": "17%"
                 },
                 "period_scores": {
-                    "p1": "SJS 0.7 - UTA 1.2",
-                    "p2": "SJS 0.8 - UTA 1.4",
-                    "p3": "SJS 0.8 - UTA 1.3"
+                    "p1": "SJS 0.7 - UTA 1.1",
+                    "p2": "SJS 0.8 - UTA 1.3",
+                    "p3": "SJS 0.9 - UTA 1.3"
                 },
                 "recent_logs": {
-                    "away": [],
+                    "away": [
+                        {
+                            "date": "10/31/26",
+                            "opp": "vs OTT",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs BUF",
+                            "result": "L",
+                            "score": "0-2"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "4-6"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@OTT",
+                            "result": "W",
+                            "score": "6-2"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "@MTL",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "10/19/26",
+                            "opp": "@TOR",
+                            "result": "L",
+                            "score": "1-3"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "@DET",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "10/15/26",
+                            "opp": "@NSH",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/13/26",
+                            "opp": "vs BOS",
+                            "result": "L",
+                            "score": "3-6"
+                        }
+                    ],
                     "home": [],
                     "h2h": []
                 },
                 "covers": {
                     "best_ml": "UTA ML",
-                    "best_spread": "UTA -1.5",
-                    "best_ou": "OVER 5.5"
+                    "best_spread": "PASS",
+                    "best_ou": "PASS"
                 },
                 "notes": [
                     "Goalie Edge: SJS starting Yaroslav Askarov (Expected) vs UTA starting Karel Vejmelka (Expected).",
-                    "Engine calculates UTA win probability at 63.0% based on V5 goalie adjustments.",
+                    "Engine calculates UTA win probability at 60.9% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 113 points."
                 ],
                 "best_angle": {
                     "play": "UTA MONEYLINE",
-                    "edge": "+10.6%"
+                    "edge": "+8.5%"
                 },
                 "gift_stats": {
                     "away": {
@@ -13069,7 +13252,7 @@
                     "rating": 0.0
                 }
             },
-            "game_score": 48
+            "game_score": 50
         },
         {
             "away": {
@@ -13077,22 +13260,22 @@
                 "record_overall": "8-6-4",
                 "record_split": "4-3-2",
                 "record_l10": "4-3-3",
-                "ml": "-105",
-                "proj": "3.8"
+                "ml": "-112",
+                "proj": "4.1"
             },
             "home": {
                 "name": "ANA",
                 "record_overall": "10-8-1",
                 "record_split": "3-5-1",
                 "record_l10": "6-3-1",
-                "ml": "-115",
-                "proj": "4.2"
+                "ml": "-108",
+                "proj": "3.7"
             },
             "ou_total": "O/U 8.0",
-            "prob": "50.0%",
-            "home_win_prob": 50.0,
-            "away_win_prob": 50.0,
-            "predicted_winner": "ANA",
+            "prob": "51.4%",
+            "home_win_prob": 48.6,
+            "away_win_prob": 51.4,
+            "predicted_winner": "NYI",
             "time": "10:00 PM EST",
             "tier": "NONE",
             "goal_ladders": {
@@ -13149,18 +13332,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+-2.4%",
-            "ai_score": 3.0,
+            "edge": "+-1.0%",
+            "ai_score": 3.3,
             "details": {
                 "period_60": {
-                    "p1_winner": "ANA (43%)",
+                    "p1_winner": "NYI (44%)",
                     "p1_over_1_5": "55%",
-                    "min_60_tie": "22%"
+                    "min_60_tie": "21%"
                 },
                 "period_scores": {
-                    "p1": "NYI 1.1 - ANA 1.3",
-                    "p2": "NYI 1.3 - ANA 1.5",
-                    "p3": "NYI 1.4 - ANA 1.4"
+                    "p1": "NYI 1.2 - ANA 1.1",
+                    "p2": "NYI 1.4 - ANA 1.3",
+                    "p3": "NYI 1.5 - ANA 1.3"
                 },
                 "recent_logs": {
                     "away": [],
@@ -13168,18 +13351,18 @@
                     "h2h": []
                 },
                 "covers": {
-                    "best_ml": "ANA ML",
+                    "best_ml": "NYI ML",
                     "best_spread": "PASS",
                     "best_ou": "OVER 5.5"
                 },
                 "notes": [
                     "Goalie Edge: NYI starting Ilya Sorokin (Expected) vs ANA starting Lukas Dostal (Expected).",
-                    "Engine calculates ANA win probability at 50.0% based on V5 goalie adjustments.",
+                    "Engine calculates NYI win probability at 51.4% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 75 points."
                 ],
                 "best_angle": {
-                    "play": "ANA MONEYLINE",
-                    "edge": "+-2.4%"
+                    "play": "NYI MONEYLINE",
+                    "edge": "+-1.0%"
                 },
                 "gift_stats": {
                     "away": {
@@ -13242,7 +13425,7 @@
                     "rating": -0.13
                 }
             },
-            "game_score": 66
+            "game_score": 65
         },
         {
             "away": {
@@ -13425,24 +13608,24 @@
                 "record_overall": "14-3-3",
                 "record_split": "7-0-1",
                 "record_l10": "6-2-2",
-                "ml": "-361",
-                "proj": "4.8"
+                "ml": "-155",
+                "proj": "3.6"
             },
             "home": {
                 "name": "PHI",
                 "record_overall": "5-10-6",
                 "record_split": "3-4-3",
                 "record_l10": "3-4-3",
-                "ml": "+361",
-                "proj": "1.3"
+                "ml": "+130",
+                "proj": "2.5"
             },
             "ou_total": "O/U 6.0",
-            "prob": "78.3%",
-            "home_win_prob": 21.7,
-            "away_win_prob": 78.3,
+            "prob": "59.3%",
+            "home_win_prob": 40.7,
+            "away_win_prob": 59.3,
             "predicted_winner": "EDM",
             "time": "7:30 PM EST",
-            "tier": "BIG",
+            "tier": "NONE",
             "goal_ladders": {
                 "away": {
                     "xg": 3.38,
@@ -13497,18 +13680,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+25.9%",
-            "ai_score": 9.3,
+            "edge": "+6.9%",
+            "ai_score": 5.1,
             "details": {
                 "period_60": {
-                    "p1_winner": "EDM (67%)",
+                    "p1_winner": "EDM (50%)",
                     "p1_over_1_5": "53%",
-                    "min_60_tie": "8%"
+                    "min_60_tie": "17%"
                 },
                 "period_scores": {
-                    "p1": "EDM 1.4 - PHI 0.4",
-                    "p2": "EDM 1.7 - PHI 0.5",
-                    "p3": "EDM 1.7 - PHI 0.4"
+                    "p1": "EDM 1.1 - PHI 0.8",
+                    "p2": "EDM 1.3 - PHI 0.9",
+                    "p3": "EDM 1.2 - PHI 0.8"
                 },
                 "recent_logs": {
                     "away": [],
@@ -13517,17 +13700,17 @@
                 },
                 "covers": {
                     "best_ml": "EDM ML",
-                    "best_spread": "EDM -1.5",
+                    "best_spread": "PASS",
                     "best_ou": "PASS"
                 },
                 "notes": [
                     "Goalie Edge: EDM starting Tristan Jarry (Expected) vs PHI starting Dan Vladar (Expected).",
-                    "Engine calculates EDM win probability at 78.3% based on V5 goalie adjustments.",
+                    "Engine calculates EDM win probability at 59.3% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 47 points."
                 ],
                 "best_angle": {
                     "play": "EDM MONEYLINE",
-                    "edge": "+25.9%"
+                    "edge": "+6.9%"
                 },
                 "gift_stats": {
                     "away": {
@@ -13590,7 +13773,7 @@
                     "rating": -0.38
                 }
             },
-            "game_score": 49
+            "game_score": 64
         },
         {
             "away": {
@@ -13598,24 +13781,24 @@
                 "record_overall": "11-7-2",
                 "record_split": "6-5-2",
                 "record_l10": "6-4-0",
-                "ml": "-222",
-                "proj": "4.6"
+                "ml": "+114",
+                "proj": "3.0"
             },
             "home": {
                 "name": "DAL",
                 "record_overall": "10-6-2",
                 "record_split": "6-5-0",
                 "record_l10": "6-3-1",
-                "ml": "+222",
-                "proj": "2.0"
+                "ml": "-135",
+                "proj": "3.6"
             },
             "ou_total": "O/U 6.5",
-            "prob": "69.0%",
-            "home_win_prob": 31.0,
-            "away_win_prob": 69.0,
-            "predicted_winner": "FLA",
+            "prob": "53.9%",
+            "home_win_prob": 53.9,
+            "away_win_prob": 46.1,
+            "predicted_winner": "DAL",
             "time": "8:00 PM EST",
-            "tier": "EDGE",
+            "tier": "NONE",
             "goal_ladders": {
                 "away": {
                     "xg": 2.86,
@@ -13670,18 +13853,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+16.6%",
-            "ai_score": 7.2,
+            "edge": "+1.5%",
+            "ai_score": 3.9,
             "details": {
                 "period_60": {
-                    "p1_winner": "FLA (59%)",
+                    "p1_winner": "DAL (46%)",
                     "p1_over_1_5": "52%",
-                    "min_60_tie": "13%"
+                    "min_60_tie": "20%"
                 },
                 "period_scores": {
-                    "p1": "FLA 1.4 - DAL 0.6",
-                    "p2": "FLA 1.6 - DAL 0.7",
-                    "p3": "FLA 1.6 - DAL 0.7"
+                    "p1": "FLA 0.9 - DAL 1.1",
+                    "p2": "FLA 1.0 - DAL 1.3",
+                    "p3": "FLA 1.1 - DAL 1.2"
                 },
                 "recent_logs": {
                     "away": [],
@@ -13689,18 +13872,18 @@
                     "h2h": []
                 },
                 "covers": {
-                    "best_ml": "FLA ML",
-                    "best_spread": "FLA -1.5",
+                    "best_ml": "DAL ML",
+                    "best_spread": "PASS",
                     "best_ou": "OVER 5.5"
                 },
                 "notes": [
                     "Goalie Edge: FLA starting Jacob Markstrom (Expected) vs DAL starting Jake Oettinger (Expected).",
-                    "Engine calculates FLA win probability at 69.0% based on V5 goalie adjustments.",
+                    "Engine calculates DAL win probability at 53.9% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 85 points."
                 ],
                 "best_angle": {
-                    "play": "FLA MONEYLINE",
-                    "edge": "+16.6%"
+                    "play": "DAL MONEYLINE",
+                    "edge": "+1.5%"
                 },
                 "gift_stats": {
                     "away": {
@@ -13763,7 +13946,7 @@
                     "rating": 0.25
                 }
             },
-            "game_score": 61
+            "game_score": 73
         },
         {
             "away": {
@@ -13771,24 +13954,24 @@
                 "record_overall": "8-10-1",
                 "record_split": "2-5-1",
                 "record_l10": "5-4-1",
-                "ml": "+240",
-                "proj": "2.1"
+                "ml": "+130",
+                "proj": "2.9"
             },
             "home": {
                 "name": "ANA",
                 "record_overall": "10-8-1",
                 "record_split": "3-5-1",
                 "record_l10": "6-3-1",
-                "ml": "-240",
-                "proj": "5.0"
+                "ml": "-155",
+                "proj": "4.2"
             },
             "ou_total": "O/U 7.0",
-            "prob": "70.7%",
-            "home_win_prob": 70.7,
-            "away_win_prob": 29.3,
+            "prob": "58.9%",
+            "home_win_prob": 58.9,
+            "away_win_prob": 41.1,
             "predicted_winner": "ANA",
             "time": "8:00 PM EST",
-            "tier": "EDGE",
+            "tier": "NONE",
             "goal_ladders": {
                 "away": {
                     "xg": 2.95,
@@ -13843,18 +14026,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+18.3%",
-            "ai_score": 7.6,
+            "edge": "+6.5%",
+            "ai_score": 5.0,
             "details": {
                 "period_60": {
-                    "p1_winner": "ANA (60%)",
+                    "p1_winner": "ANA (50%)",
                     "p1_over_1_5": "55%",
-                    "min_60_tie": "12%"
+                    "min_60_tie": "18%"
                 },
                 "period_scores": {
-                    "p1": "CGY 0.6 - ANA 1.5",
-                    "p2": "CGY 0.7 - ANA 1.8",
-                    "p3": "CGY 0.8 - ANA 1.7"
+                    "p1": "CGY 0.9 - ANA 1.3",
+                    "p2": "CGY 1.0 - ANA 1.5",
+                    "p3": "CGY 1.0 - ANA 1.4"
                 },
                 "recent_logs": {
                     "away": [],
@@ -13863,17 +14046,17 @@
                 },
                 "covers": {
                     "best_ml": "ANA ML",
-                    "best_spread": "ANA -1.5",
+                    "best_spread": "PASS",
                     "best_ou": "OVER 5.5"
                 },
                 "notes": [
                     "Goalie Edge: CGY starting Dustin Wolf (Expected) vs ANA starting Lukas Dostal (Expected).",
-                    "Engine calculates ANA win probability at 70.7% based on V5 goalie adjustments.",
+                    "Engine calculates ANA win probability at 58.9% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 97 points."
                 ],
                 "best_angle": {
                     "play": "ANA MONEYLINE",
-                    "edge": "+18.3%"
+                    "edge": "+6.5%"
                 },
                 "gift_stats": {
                     "away": {
@@ -13936,7 +14119,7 @@
                     "rating": -0.13
                 }
             },
-            "game_score": 38
+            "game_score": 47
         },
         {
             "away": {
@@ -13944,21 +14127,21 @@
                 "record_overall": "3-17-1",
                 "record_split": "2-8-1",
                 "record_l10": "1-9-0",
-                "ml": "+1619",
-                "proj": "0.4"
+                "ml": "+320",
+                "proj": "1.3"
             },
             "home": {
                 "name": "VGK",
                 "record_overall": "13-5-3",
                 "record_split": "7-3-1",
                 "record_l10": "5-2-3",
-                "ml": "-1619",
-                "proj": "5.7"
+                "ml": "-410",
+                "proj": "4.8"
             },
             "ou_total": "O/U 6.0",
-            "prob": "94.2%",
-            "home_win_prob": 94.2,
-            "away_win_prob": 5.8,
+            "prob": "78.0%",
+            "home_win_prob": 78.0,
+            "away_win_prob": 22.0,
             "predicted_winner": "VGK",
             "time": "9:00 PM EST",
             "tier": "BIG",
@@ -14016,18 +14199,18 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+41.8%",
-            "ai_score": 10.0,
+            "edge": "+25.6%",
+            "ai_score": 9.2,
             "details": {
                 "period_60": {
-                    "p1_winner": "VGK (80%)",
+                    "p1_winner": "VGK (66%)",
                     "p1_over_1_5": "56%",
-                    "min_60_tie": "0%"
+                    "min_60_tie": "8%"
                 },
                 "period_scores": {
-                    "p1": "VAN 0.1 - VGK 1.7",
-                    "p2": "VAN 0.1 - VGK 2.0",
-                    "p3": "VAN 0.2 - VGK 2.0"
+                    "p1": "VAN 0.4 - VGK 1.4",
+                    "p2": "VAN 0.5 - VGK 1.7",
+                    "p3": "VAN 0.4 - VGK 1.7"
                 },
                 "recent_logs": {
                     "away": [],
@@ -14041,12 +14224,12 @@
                 },
                 "notes": [
                     "Goalie Edge: VAN starting Leevi Meril\u00e4inen (Expected) vs VGK starting Carter Hart (Expected).",
-                    "Engine calculates VGK win probability at 94.2% based on V5 goalie adjustments.",
+                    "Engine calculates VGK win probability at 78.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 354 points."
                 ],
                 "best_angle": {
                     "play": "VGK MONEYLINE",
-                    "edge": "+41.8%"
+                    "edge": "+25.6%"
                 },
                 "gift_stats": {
                     "away": {
@@ -14109,7 +14292,7 @@
                     "rating": 0.44
                 }
             },
-            "game_score": 27
+            "game_score": 40
         },
         {
             "away": {
@@ -14117,24 +14300,24 @@
                 "record_overall": "11-4-5",
                 "record_split": "5-1-3",
                 "record_l10": "8-1-1",
-                "ml": "-375",
-                "proj": "4.6"
+                "ml": "-170",
+                "proj": "3.6"
             },
             "home": {
                 "name": "SJS",
                 "record_overall": "8-11-2",
                 "record_split": "4-5-1",
                 "record_l10": "2-7-1",
-                "ml": "+375",
-                "proj": "1.2"
+                "ml": "+142",
+                "proj": "2.2"
             },
             "ou_total": "O/U 6.0",
-            "prob": "79.0%",
-            "home_win_prob": 21.0,
-            "away_win_prob": 79.0,
+            "prob": "61.3%",
+            "home_win_prob": 38.7,
+            "away_win_prob": 61.3,
             "predicted_winner": "NSH",
             "time": "9:00 PM EST",
-            "tier": "BIG",
+            "tier": "NONE",
             "goal_ladders": {
                 "away": {
                     "xg": 3.31,
@@ -14189,37 +14372,98 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+26.6%",
-            "ai_score": 9.4,
+            "edge": "+8.9%",
+            "ai_score": 5.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "NSH (67%)",
+                    "p1_winner": "NSH (52%)",
                     "p1_over_1_5": "53%",
-                    "min_60_tie": "8%"
+                    "min_60_tie": "16%"
                 },
                 "period_scores": {
-                    "p1": "NSH 1.4 - SJS 0.4",
-                    "p2": "NSH 1.6 - SJS 0.4",
-                    "p3": "NSH 1.6 - SJS 0.4"
+                    "p1": "NSH 1.1 - SJS 0.7",
+                    "p2": "NSH 1.3 - SJS 0.8",
+                    "p3": "NSH 1.2 - SJS 0.7"
                 },
                 "recent_logs": {
                     "away": [],
-                    "home": [],
+                    "home": [
+                        {
+                            "date": "10/31/26",
+                            "opp": "vs OTT",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
+                            "date": "10/29/26",
+                            "opp": "vs VAN",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "vs BUF",
+                            "result": "L",
+                            "score": "0-2"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "@BOS",
+                            "result": "L",
+                            "score": "4-6"
+                        },
+                        {
+                            "date": "10/22/26",
+                            "opp": "@OTT",
+                            "result": "W",
+                            "score": "6-2"
+                        },
+                        {
+                            "date": "10/20/26",
+                            "opp": "@MTL",
+                            "result": "W",
+                            "score": "4-3"
+                        },
+                        {
+                            "date": "10/19/26",
+                            "opp": "@TOR",
+                            "result": "L",
+                            "score": "1-3"
+                        },
+                        {
+                            "date": "10/17/26",
+                            "opp": "@DET",
+                            "result": "L",
+                            "score": "3-4"
+                        },
+                        {
+                            "date": "10/15/26",
+                            "opp": "@NSH",
+                            "result": "W",
+                            "score": "3-2"
+                        },
+                        {
+                            "date": "10/13/26",
+                            "opp": "vs BOS",
+                            "result": "L",
+                            "score": "3-6"
+                        }
+                    ],
                     "h2h": []
                 },
                 "covers": {
                     "best_ml": "NSH ML",
-                    "best_spread": "NSH -1.5",
+                    "best_spread": "PASS",
                     "best_ou": "PASS"
                 },
                 "notes": [
                     "Goalie Edge: NSH starting Juuse Saros (Expected) vs SJS starting Yaroslav Askarov (Expected).",
-                    "Engine calculates NSH win probability at 79.0% based on V5 goalie adjustments.",
+                    "Engine calculates NSH win probability at 61.3% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 66 points."
                 ],
                 "best_angle": {
                     "play": "NSH MONEYLINE",
-                    "edge": "+26.6%"
+                    "edge": "+8.9%"
                 },
                 "gift_stats": {
                     "away": {
@@ -14282,7 +14526,7 @@
                     "rating": -0.85
                 }
             },
-            "game_score": 40
+            "game_score": 54
         }
     ],
     "day_after_tomorrow": [
@@ -14790,6 +15034,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/14/26",
+                            "opp": "@CAR",
+                            "result": "L",
+                            "score": "1-5"
+                        },
+                        {
                             "date": "11/12/26",
                             "opp": "vs CAR",
                             "result": "L",
@@ -14842,15 +15092,15 @@
                             "opp": "@FLA",
                             "result": "L",
                             "score": "3-8"
-                        },
-                        {
-                            "date": "10/15/26",
-                            "opp": "@TBL",
-                            "result": "L",
-                            "score": "3-4"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "11/14/26",
+                            "opp": "vs SEA",
+                            "result": "W",
+                            "score": "5-1"
+                        },
                         {
                             "date": "11/12/26",
                             "opp": "@SEA",
@@ -14904,12 +15154,6 @@
                             "opp": "@EDM",
                             "result": "L",
                             "score": "5-6"
-                        },
-                        {
-                            "date": "10/20/26",
-                            "opp": "@VAN",
-                            "result": "W",
-                            "score": "6-3"
                         }
                     ],
                     "h2h": []
