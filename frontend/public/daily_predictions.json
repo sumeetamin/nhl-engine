@@ -1,13 +1,13 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-11-14T20:34:25.860135+00:00",
+    "generated_at": "2026-11-15T01:28:11.781075+00:00",
     "games_by_date": {
         "2026-11-12": [
             {
                 "away": {
                     "name": "CAR",
-                    "record_overall": "15-3-2",
+                    "record_overall": "16-3-2",
                     "record_split": "9-2-1",
                     "record_l10": "8-1-1",
                     "ml": "-315",
@@ -15,9 +15,9 @@
                 },
                 "home": {
                     "name": "SEA",
-                    "record_overall": "9-7-1",
+                    "record_overall": "9-8-1",
                     "record_split": "5-4-0",
-                    "record_l10": "4-5-1",
+                    "record_l10": "4-6-0",
                     "ml": "+250",
                     "proj": "1.9"
                 },
@@ -66,17 +66,17 @@
                         "name": "Pyotr Kochetkov",
                         "status": "Expected",
                         "sv_pct": 0.92,
-                        "gp": 12,
-                        "gaa": 1.67,
+                        "gp": 13,
+                        "gaa": 1.62,
                         "prev_sv_pct": 0.899,
                         "rating": "good"
                     },
                     "home": {
                         "name": "Philipp Grubauer",
                         "status": "Expected",
-                        "sv_pct": 0.887,
-                        "gp": 11,
-                        "gaa": 3.17,
+                        "sv_pct": 0.893,
+                        "gp": 12,
+                        "gaa": 3.11,
                         "prev_sv_pct": 0.909,
                         "rating": "good"
                     },
@@ -1548,28 +1548,28 @@
                                 "score": "4-3"
                             },
                             {
-                                "date": "04/14/26",
-                                "opp": "@BOS",
-                                "result": "L",
-                                "score": "0-4"
-                            },
-                            {
-                                "date": "04/12/26",
-                                "opp": "vs OTT",
+                                "date": "10/30/26",
+                                "opp": "@VGK",
                                 "result": "W",
-                                "score": "4-3"
+                                "score": "5-2"
                             },
                             {
-                                "date": "04/11/26",
-                                "opp": "@DET",
-                                "result": "W",
-                                "score": "5-3"
-                            },
-                            {
-                                "date": "04/09/26",
-                                "opp": "vs PIT",
+                                "date": "10/28/26",
+                                "opp": "@COL",
                                 "result": "L",
                                 "score": "2-5"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "@DAL",
+                                "result": "W",
+                                "score": "5-1"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "vs LAK",
+                                "result": "W",
+                                "score": "3-1"
                             }
                         ],
                         "h2h": []
@@ -2008,9 +2008,9 @@
                 },
                 "home": {
                     "name": "CHI",
-                    "record_overall": "5-13-1",
-                    "record_split": "5-5-0",
-                    "record_l10": "2-7-1",
+                    "record_overall": "5-13-2",
+                    "record_split": "5-5-1",
+                    "record_l10": "2-6-2",
                     "ml": "+130",
                     "proj": "2.5"
                 },
@@ -2067,9 +2067,9 @@
                     "home": {
                         "name": "Spencer Knight",
                         "status": "Expected",
-                        "sv_pct": 0.883,
-                        "gp": 15,
-                        "gaa": 3.53,
+                        "sv_pct": 0.882,
+                        "gp": 16,
+                        "gaa": 3.55,
                         "prev_sv_pct": 0.902,
                         "rating": "average"
                     },
@@ -2173,9 +2173,9 @@
             {
                 "away": {
                     "name": "WPG",
-                    "record_overall": "9-8-3",
-                    "record_split": "4-4-2",
-                    "record_l10": "5-5-0",
+                    "record_overall": "10-8-3",
+                    "record_split": "5-4-2",
+                    "record_l10": "6-4-0",
                     "ml": "+138",
                     "proj": "2.8"
                 },
@@ -2231,9 +2231,9 @@
                     "away": {
                         "name": "Stuart Skinner",
                         "status": "Expected",
-                        "sv_pct": 0.886,
-                        "gp": 14,
-                        "gaa": 3.24,
+                        "sv_pct": 0.88,
+                        "gp": 15,
+                        "gaa": 3.38,
                         "prev_sv_pct": 0.888,
                         "rating": "poor"
                     },
@@ -3042,16 +3042,16 @@
             {
                 "away": {
                     "name": "SEA",
-                    "record_overall": "9-7-1",
-                    "record_split": "4-3-1",
-                    "record_l10": "4-5-1",
+                    "record_overall": "9-8-1",
+                    "record_split": "4-4-1",
+                    "record_l10": "4-6-0",
                     "ml": "+330",
                     "proj": "1.6"
                 },
                 "home": {
                     "name": "CAR",
-                    "record_overall": "15-3-2",
-                    "record_split": "6-1-1",
+                    "record_overall": "16-3-2",
+                    "record_split": "7-1-1",
                     "record_l10": "8-1-1",
                     "ml": "-420",
                     "proj": "5.3"
@@ -3100,9 +3100,9 @@
                     "away": {
                         "name": "Philipp Grubauer",
                         "status": "Expected",
-                        "sv_pct": 0.887,
-                        "gp": 11,
-                        "gaa": 3.17,
+                        "sv_pct": 0.893,
+                        "gp": 12,
+                        "gaa": 3.11,
                         "prev_sv_pct": 0.909,
                         "rating": "good"
                     },
@@ -3110,8 +3110,8 @@
                         "name": "Pyotr Kochetkov",
                         "status": "Expected",
                         "sv_pct": 0.92,
-                        "gp": 12,
-                        "gaa": 1.67,
+                        "gp": 13,
+                        "gaa": 1.62,
                         "prev_sv_pct": 0.899,
                         "rating": "good"
                     },
@@ -3337,17 +3337,17 @@
             {
                 "away": {
                     "name": "WPG",
-                    "record_overall": "9-8-3",
-                    "record_split": "4-4-2",
-                    "record_l10": "5-5-0",
+                    "record_overall": "10-8-3",
+                    "record_split": "5-4-2",
+                    "record_l10": "6-4-0",
                     "ml": "-162",
                     "proj": "4.1"
                 },
                 "home": {
                     "name": "CHI",
-                    "record_overall": "5-13-1",
-                    "record_split": "5-5-0",
-                    "record_l10": "2-7-1",
+                    "record_overall": "5-13-2",
+                    "record_split": "5-5-1",
+                    "record_l10": "2-6-2",
                     "ml": "+136",
                     "proj": "2.7"
                 },
@@ -3395,18 +3395,18 @@
                     "away": {
                         "name": "Stuart Skinner",
                         "status": "Expected",
-                        "sv_pct": 0.886,
-                        "gp": 14,
-                        "gaa": 3.24,
+                        "sv_pct": 0.88,
+                        "gp": 15,
+                        "gaa": 3.38,
                         "prev_sv_pct": 0.888,
                         "rating": "poor"
                     },
                     "home": {
                         "name": "Spencer Knight",
                         "status": "Expected",
-                        "sv_pct": 0.883,
-                        "gp": 15,
-                        "gaa": 3.53,
+                        "sv_pct": 0.882,
+                        "gp": 16,
+                        "gaa": 3.55,
                         "prev_sv_pct": 0.902,
                         "rating": "average"
                     },
@@ -4868,28 +4868,28 @@
                                 "score": "4-3"
                             },
                             {
-                                "date": "04/14/26",
-                                "opp": "@BOS",
-                                "result": "L",
-                                "score": "0-4"
-                            },
-                            {
-                                "date": "04/12/26",
-                                "opp": "vs OTT",
+                                "date": "10/30/26",
+                                "opp": "@VGK",
                                 "result": "W",
-                                "score": "4-3"
+                                "score": "5-2"
                             },
                             {
-                                "date": "04/11/26",
-                                "opp": "@DET",
-                                "result": "W",
-                                "score": "5-3"
-                            },
-                            {
-                                "date": "04/09/26",
-                                "opp": "vs PIT",
+                                "date": "10/28/26",
+                                "opp": "@COL",
                                 "result": "L",
                                 "score": "2-5"
+                            },
+                            {
+                                "date": "10/27/26",
+                                "opp": "@DAL",
+                                "result": "W",
+                                "score": "5-1"
+                            },
+                            {
+                                "date": "10/24/26",
+                                "opp": "vs LAK",
+                                "result": "W",
+                                "score": "3-1"
                             }
                         ],
                         "home": [
@@ -5644,68 +5644,7 @@
                         "p3": "SJS 0.9 - UTA 1.3"
                     },
                     "recent_logs": {
-                        "away": [
-                            {
-                                "date": "10/31/26",
-                                "opp": "vs OTT",
-                                "result": "L",
-                                "score": "1-5"
-                            },
-                            {
-                                "date": "10/29/26",
-                                "opp": "vs VAN",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "10/27/26",
-                                "opp": "vs BUF",
-                                "result": "L",
-                                "score": "0-2"
-                            },
-                            {
-                                "date": "10/24/26",
-                                "opp": "@BOS",
-                                "result": "L",
-                                "score": "4-6"
-                            },
-                            {
-                                "date": "10/22/26",
-                                "opp": "@OTT",
-                                "result": "W",
-                                "score": "6-2"
-                            },
-                            {
-                                "date": "10/20/26",
-                                "opp": "@MTL",
-                                "result": "W",
-                                "score": "4-3"
-                            },
-                            {
-                                "date": "10/19/26",
-                                "opp": "@TOR",
-                                "result": "L",
-                                "score": "1-3"
-                            },
-                            {
-                                "date": "10/17/26",
-                                "opp": "@DET",
-                                "result": "L",
-                                "score": "3-4"
-                            },
-                            {
-                                "date": "10/15/26",
-                                "opp": "@NSH",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "10/13/26",
-                                "opp": "vs BOS",
-                                "result": "L",
-                                "score": "3-6"
-                            }
-                        ],
+                        "away": [],
                         "home": [],
                         "h2h": []
                     },
@@ -6919,68 +6858,7 @@
                     },
                     "recent_logs": {
                         "away": [],
-                        "home": [
-                            {
-                                "date": "10/31/26",
-                                "opp": "vs OTT",
-                                "result": "L",
-                                "score": "1-5"
-                            },
-                            {
-                                "date": "10/29/26",
-                                "opp": "vs VAN",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "10/27/26",
-                                "opp": "vs BUF",
-                                "result": "L",
-                                "score": "0-2"
-                            },
-                            {
-                                "date": "10/24/26",
-                                "opp": "@BOS",
-                                "result": "L",
-                                "score": "4-6"
-                            },
-                            {
-                                "date": "10/22/26",
-                                "opp": "@OTT",
-                                "result": "W",
-                                "score": "6-2"
-                            },
-                            {
-                                "date": "10/20/26",
-                                "opp": "@MTL",
-                                "result": "W",
-                                "score": "4-3"
-                            },
-                            {
-                                "date": "10/19/26",
-                                "opp": "@TOR",
-                                "result": "L",
-                                "score": "1-3"
-                            },
-                            {
-                                "date": "10/17/26",
-                                "opp": "@DET",
-                                "result": "L",
-                                "score": "3-4"
-                            },
-                            {
-                                "date": "10/15/26",
-                                "opp": "@NSH",
-                                "result": "W",
-                                "score": "3-2"
-                            },
-                            {
-                                "date": "10/13/26",
-                                "opp": "vs BOS",
-                                "result": "L",
-                                "score": "3-6"
-                            }
-                        ],
+                        "home": [],
                         "h2h": []
                     },
                     "covers": {
@@ -7475,7 +7353,7 @@
         {
             "away": {
                 "name": "CAR",
-                "record_overall": "15-3-2",
+                "record_overall": "16-3-2",
                 "record_split": "9-2-1",
                 "record_l10": "8-1-1",
                 "ml": "-315",
@@ -7483,9 +7361,9 @@
             },
             "home": {
                 "name": "SEA",
-                "record_overall": "9-7-1",
+                "record_overall": "9-8-1",
                 "record_split": "5-4-0",
-                "record_l10": "4-5-1",
+                "record_l10": "4-6-0",
                 "ml": "+250",
                 "proj": "1.9"
             },
@@ -7534,17 +7412,17 @@
                     "name": "Pyotr Kochetkov",
                     "status": "Expected",
                     "sv_pct": 0.92,
-                    "gp": 12,
-                    "gaa": 1.67,
+                    "gp": 13,
+                    "gaa": 1.62,
                     "prev_sv_pct": 0.899,
                     "rating": "good"
                 },
                 "home": {
                     "name": "Philipp Grubauer",
                     "status": "Expected",
-                    "sv_pct": 0.887,
-                    "gp": 11,
-                    "gaa": 3.17,
+                    "sv_pct": 0.893,
+                    "gp": 12,
+                    "gaa": 3.11,
                     "prev_sv_pct": 0.909,
                     "rating": "good"
                 },
@@ -9016,28 +8894,28 @@
                             "score": "4-3"
                         },
                         {
-                            "date": "04/14/26",
-                            "opp": "@BOS",
-                            "result": "L",
-                            "score": "0-4"
-                        },
-                        {
-                            "date": "04/12/26",
-                            "opp": "vs OTT",
+                            "date": "10/30/26",
+                            "opp": "@VGK",
                             "result": "W",
-                            "score": "4-3"
+                            "score": "5-2"
                         },
                         {
-                            "date": "04/11/26",
-                            "opp": "@DET",
-                            "result": "W",
-                            "score": "5-3"
-                        },
-                        {
-                            "date": "04/09/26",
-                            "opp": "vs PIT",
+                            "date": "10/28/26",
+                            "opp": "@COL",
                             "result": "L",
                             "score": "2-5"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "@DAL",
+                            "result": "W",
+                            "score": "5-1"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "vs LAK",
+                            "result": "W",
+                            "score": "3-1"
                         }
                     ],
                     "h2h": []
@@ -9476,9 +9354,9 @@
             },
             "home": {
                 "name": "CHI",
-                "record_overall": "5-13-1",
-                "record_split": "5-5-0",
-                "record_l10": "2-7-1",
+                "record_overall": "5-13-2",
+                "record_split": "5-5-1",
+                "record_l10": "2-6-2",
                 "ml": "+130",
                 "proj": "2.5"
             },
@@ -9535,9 +9413,9 @@
                 "home": {
                     "name": "Spencer Knight",
                     "status": "Expected",
-                    "sv_pct": 0.883,
-                    "gp": 15,
-                    "gaa": 3.53,
+                    "sv_pct": 0.882,
+                    "gp": 16,
+                    "gaa": 3.55,
                     "prev_sv_pct": 0.902,
                     "rating": "average"
                 },
@@ -9641,9 +9519,9 @@
         {
             "away": {
                 "name": "WPG",
-                "record_overall": "9-8-3",
-                "record_split": "4-4-2",
-                "record_l10": "5-5-0",
+                "record_overall": "10-8-3",
+                "record_split": "5-4-2",
+                "record_l10": "6-4-0",
                 "ml": "+138",
                 "proj": "2.8"
             },
@@ -9699,9 +9577,9 @@
                 "away": {
                     "name": "Stuart Skinner",
                     "status": "Expected",
-                    "sv_pct": 0.886,
-                    "gp": 14,
-                    "gaa": 3.24,
+                    "sv_pct": 0.88,
+                    "gp": 15,
+                    "gaa": 3.38,
                     "prev_sv_pct": 0.888,
                     "rating": "poor"
                 },
@@ -10510,16 +10388,16 @@
         {
             "away": {
                 "name": "SEA",
-                "record_overall": "9-7-1",
-                "record_split": "4-3-1",
-                "record_l10": "4-5-1",
+                "record_overall": "9-8-1",
+                "record_split": "4-4-1",
+                "record_l10": "4-6-0",
                 "ml": "+330",
                 "proj": "1.6"
             },
             "home": {
                 "name": "CAR",
-                "record_overall": "15-3-2",
-                "record_split": "6-1-1",
+                "record_overall": "16-3-2",
+                "record_split": "7-1-1",
                 "record_l10": "8-1-1",
                 "ml": "-420",
                 "proj": "5.3"
@@ -10568,9 +10446,9 @@
                 "away": {
                     "name": "Philipp Grubauer",
                     "status": "Expected",
-                    "sv_pct": 0.887,
-                    "gp": 11,
-                    "gaa": 3.17,
+                    "sv_pct": 0.893,
+                    "gp": 12,
+                    "gaa": 3.11,
                     "prev_sv_pct": 0.909,
                     "rating": "good"
                 },
@@ -10578,8 +10456,8 @@
                     "name": "Pyotr Kochetkov",
                     "status": "Expected",
                     "sv_pct": 0.92,
-                    "gp": 12,
-                    "gaa": 1.67,
+                    "gp": 13,
+                    "gaa": 1.62,
                     "prev_sv_pct": 0.899,
                     "rating": "good"
                 },
@@ -10805,17 +10683,17 @@
         {
             "away": {
                 "name": "WPG",
-                "record_overall": "9-8-3",
-                "record_split": "4-4-2",
-                "record_l10": "5-5-0",
+                "record_overall": "10-8-3",
+                "record_split": "5-4-2",
+                "record_l10": "6-4-0",
                 "ml": "-162",
                 "proj": "4.1"
             },
             "home": {
                 "name": "CHI",
-                "record_overall": "5-13-1",
-                "record_split": "5-5-0",
-                "record_l10": "2-7-1",
+                "record_overall": "5-13-2",
+                "record_split": "5-5-1",
+                "record_l10": "2-6-2",
                 "ml": "+136",
                 "proj": "2.7"
             },
@@ -10863,18 +10741,18 @@
                 "away": {
                     "name": "Stuart Skinner",
                     "status": "Expected",
-                    "sv_pct": 0.886,
-                    "gp": 14,
-                    "gaa": 3.24,
+                    "sv_pct": 0.88,
+                    "gp": 15,
+                    "gaa": 3.38,
                     "prev_sv_pct": 0.888,
                     "rating": "poor"
                 },
                 "home": {
                     "name": "Spencer Knight",
                     "status": "Expected",
-                    "sv_pct": 0.883,
-                    "gp": 15,
-                    "gaa": 3.53,
+                    "sv_pct": 0.882,
+                    "gp": 16,
+                    "gaa": 3.55,
                     "prev_sv_pct": 0.902,
                     "rating": "average"
                 },
@@ -12336,28 +12214,28 @@
                             "score": "4-3"
                         },
                         {
-                            "date": "04/14/26",
-                            "opp": "@BOS",
-                            "result": "L",
-                            "score": "0-4"
-                        },
-                        {
-                            "date": "04/12/26",
-                            "opp": "vs OTT",
+                            "date": "10/30/26",
+                            "opp": "@VGK",
                             "result": "W",
-                            "score": "4-3"
+                            "score": "5-2"
                         },
                         {
-                            "date": "04/11/26",
-                            "opp": "@DET",
-                            "result": "W",
-                            "score": "5-3"
-                        },
-                        {
-                            "date": "04/09/26",
-                            "opp": "vs PIT",
+                            "date": "10/28/26",
+                            "opp": "@COL",
                             "result": "L",
                             "score": "2-5"
+                        },
+                        {
+                            "date": "10/27/26",
+                            "opp": "@DAL",
+                            "result": "W",
+                            "score": "5-1"
+                        },
+                        {
+                            "date": "10/24/26",
+                            "opp": "vs LAK",
+                            "result": "W",
+                            "score": "3-1"
                         }
                     ],
                     "home": [
@@ -13112,68 +12990,7 @@
                     "p3": "SJS 0.9 - UTA 1.3"
                 },
                 "recent_logs": {
-                    "away": [
-                        {
-                            "date": "10/31/26",
-                            "opp": "vs OTT",
-                            "result": "L",
-                            "score": "1-5"
-                        },
-                        {
-                            "date": "10/29/26",
-                            "opp": "vs VAN",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/27/26",
-                            "opp": "vs BUF",
-                            "result": "L",
-                            "score": "0-2"
-                        },
-                        {
-                            "date": "10/24/26",
-                            "opp": "@BOS",
-                            "result": "L",
-                            "score": "4-6"
-                        },
-                        {
-                            "date": "10/22/26",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "6-2"
-                        },
-                        {
-                            "date": "10/20/26",
-                            "opp": "@MTL",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "10/19/26",
-                            "opp": "@TOR",
-                            "result": "L",
-                            "score": "1-3"
-                        },
-                        {
-                            "date": "10/17/26",
-                            "opp": "@DET",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "10/15/26",
-                            "opp": "@NSH",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/13/26",
-                            "opp": "vs BOS",
-                            "result": "L",
-                            "score": "3-6"
-                        }
-                    ],
+                    "away": [],
                     "home": [],
                     "h2h": []
                 },
@@ -14387,68 +14204,7 @@
                 },
                 "recent_logs": {
                     "away": [],
-                    "home": [
-                        {
-                            "date": "10/31/26",
-                            "opp": "vs OTT",
-                            "result": "L",
-                            "score": "1-5"
-                        },
-                        {
-                            "date": "10/29/26",
-                            "opp": "vs VAN",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/27/26",
-                            "opp": "vs BUF",
-                            "result": "L",
-                            "score": "0-2"
-                        },
-                        {
-                            "date": "10/24/26",
-                            "opp": "@BOS",
-                            "result": "L",
-                            "score": "4-6"
-                        },
-                        {
-                            "date": "10/22/26",
-                            "opp": "@OTT",
-                            "result": "W",
-                            "score": "6-2"
-                        },
-                        {
-                            "date": "10/20/26",
-                            "opp": "@MTL",
-                            "result": "W",
-                            "score": "4-3"
-                        },
-                        {
-                            "date": "10/19/26",
-                            "opp": "@TOR",
-                            "result": "L",
-                            "score": "1-3"
-                        },
-                        {
-                            "date": "10/17/26",
-                            "opp": "@DET",
-                            "result": "L",
-                            "score": "3-4"
-                        },
-                        {
-                            "date": "10/15/26",
-                            "opp": "@NSH",
-                            "result": "W",
-                            "score": "3-2"
-                        },
-                        {
-                            "date": "10/13/26",
-                            "opp": "vs BOS",
-                            "result": "L",
-                            "score": "3-6"
-                        }
-                    ],
+                    "home": [],
                     "h2h": []
                 },
                 "covers": {
@@ -14943,16 +14699,16 @@
         {
             "away": {
                 "name": "SEA",
-                "record_overall": "9-7-1",
-                "record_split": "4-3-1",
-                "record_l10": "4-5-1",
+                "record_overall": "9-8-1",
+                "record_split": "4-4-1",
+                "record_l10": "4-6-0",
                 "ml": "+330",
                 "proj": "1.6"
             },
             "home": {
                 "name": "CAR",
-                "record_overall": "15-3-2",
-                "record_split": "6-1-1",
+                "record_overall": "16-3-2",
+                "record_split": "7-1-1",
                 "record_l10": "8-1-1",
                 "ml": "-420",
                 "proj": "5.3"
@@ -15001,9 +14757,9 @@
                 "away": {
                     "name": "Philipp Grubauer",
                     "status": "Expected",
-                    "sv_pct": 0.887,
-                    "gp": 11,
-                    "gaa": 3.17,
+                    "sv_pct": 0.893,
+                    "gp": 12,
+                    "gaa": 3.11,
                     "prev_sv_pct": 0.909,
                     "rating": "good"
                 },
@@ -15011,8 +14767,8 @@
                     "name": "Pyotr Kochetkov",
                     "status": "Expected",
                     "sv_pct": 0.92,
-                    "gp": 12,
-                    "gaa": 1.67,
+                    "gp": 13,
+                    "gaa": 1.62,
                     "prev_sv_pct": 0.899,
                     "rating": "good"
                 },
@@ -15414,14 +15170,14 @@
             "rank": 1,
             "team": "CAR",
             "power": 1.29,
-            "overall": "15-3-2",
+            "overall": "16-3-2",
             "l10": "8-1-1",
-            "points": 32,
-            "gp": 20,
-            "gd": 36,
+            "points": 34,
+            "gp": 21,
+            "gd": 40,
             "division": "M",
             "conference": "E",
-            "streak": "W3"
+            "streak": "W4"
         },
         {
             "rank": 2,
@@ -15687,14 +15443,14 @@
             "rank": 22,
             "team": "WPG",
             "power": -0.15,
-            "overall": "9-8-3",
-            "l10": "5-5-0",
-            "points": 21,
-            "gp": 20,
-            "gd": -7,
+            "overall": "10-8-3",
+            "l10": "6-4-0",
+            "points": 23,
+            "gp": 21,
+            "gd": -6,
             "division": "C",
             "conference": "W",
-            "streak": "W5"
+            "streak": "W6"
         },
         {
             "rank": 23,
@@ -15739,14 +15495,14 @@
             "rank": 26,
             "team": "SEA",
             "power": -0.42,
-            "overall": "9-7-1",
-            "l10": "4-5-1",
+            "overall": "9-8-1",
+            "l10": "4-6-0",
             "points": 19,
-            "gp": 17,
-            "gd": -3,
+            "gp": 18,
+            "gd": -7,
             "division": "P",
             "conference": "W",
-            "streak": "L2"
+            "streak": "L3"
         },
         {
             "rank": 27,
@@ -15804,14 +15560,14 @@
             "rank": 31,
             "team": "CHI",
             "power": -1.28,
-            "overall": "5-13-1",
-            "l10": "2-7-1",
-            "points": 11,
-            "gp": 19,
-            "gd": -36,
+            "overall": "5-13-2",
+            "l10": "2-6-2",
+            "points": 12,
+            "gp": 20,
+            "gd": -37,
             "division": "C",
             "conference": "W",
-            "streak": "W1"
+            "streak": "OT1"
         },
         {
             "rank": 32,
