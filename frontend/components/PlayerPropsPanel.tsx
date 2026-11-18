@@ -6,6 +6,7 @@ import { publicFile } from "../lib/basePath";
 type Split = { hits?: number; total?: number; hit_rate?: number | null };
 type HistorySplits = { l5?: Split; l10?: Split; h2h?: Split; season?: Split };
 type HitGame = { date: string; opponent: string; value: number; hit: boolean | null };
+type TeamShotHistoryGame = { date: string; opponent: string; value: number };
 type PlayerProp = {
   prop_id: string;
   game_id: string;
@@ -38,6 +39,8 @@ type PlayerProp = {
   defense_allowed?: number | null;
   history?: HistorySplits;
   hit_chart?: HitGame[];
+  team_shot_history?: TeamShotHistoryGame[];
+  goalie_status_source?: string | null;
   toi_minutes?: number | null;
   team_pace?: number | null;
   opponent_pace?: number | null;
@@ -80,6 +83,27 @@ function odds(value?: number | null) {
 function record(split?: Split) {
   if (!split || split.total == null || split.total === 0) return "—";
   return `${percent(split.hit_rate)} ${split.hits ?? 0}/${split.total}`;
+}
+function teamShotSplit(games: TeamShotHistoryGame[], line: number): Split {
+  const settled = games.filter((game) => game.value !== line);
+  const hits = settled.filter((game) => game.value > line).length;
+  return { hits, total: settled.length, hit_rate: settled.length ? 100 * hits / settled.length : null };
+}
+function withTeamShotHitRates(row: PlayerProp, line: number): PlayerProp {
+  const games = (row.team_shot_history || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+  const h2h = games.filter((game) => game.opponent === row.opponent);
+  return {
+    ...row,
+    line,
+    side: "over",
+    history: {
+      l5: teamShotSplit(games.slice(0, 5), line),
+      l10: teamShotSplit(games.slice(0, 10), line),
+      h2h: teamShotSplit(h2h, line),
+      season: teamShotSplit(games, line),
+    },
+    hit_chart: games.slice(0, 10).map((game) => ({ ...game, hit: game.value > line ? true : game.value < line ? false : null })),
+  };
 }
 
 function easternDateKey(value?: string | null) {
@@ -208,6 +232,7 @@ function FragmentRow({ row, open, saved, onToggle, onAdd }: {
           <button type="button" className="text-left" aria-expanded={open}>
             <span className="flex items-center gap-2 font-bold text-white">{playerHeadshot && <img src={playerHeadshot} alt="" loading="lazy" className="h-9 w-9 rounded-full bg-slate-800 object-cover" />} {row.player}</span>
             {defensiveRank != null && <span className="mt-1 inline-flex rounded-md border border-slate-700 bg-slate-900 px-2 py-0.5 text-[10px] font-bold text-cyan-200">DEF vs {row.position || "POS"} #{defensiveRank}</span>}
+            {row.market === "goalie_saves" && row.goalie_status && <span className="mt-1 inline-flex rounded-md border border-amber-800 bg-amber-950/40 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-200">Starter {row.goalie_status}</span>}
             <span className="mt-1 block text-[10px] text-slate-400">{row.team} vs {row.opponent}</span><span className="mt-1 block text-sm font-extrabold uppercase text-white">{row.line == null ? (row.market_label || row.market) : `${direction} ${row.line} ${row.market_label || row.market}`}</span>
             {row.projection != null && <span className="block text-xs text-cyan-300">Model projection {row.projection.toFixed(2)}</span>}
           </button>
@@ -256,6 +281,7 @@ export default function PlayerPropsPanel({ view }: Props) {
   const [selectedGames, setSelectedGames] = useState<string[]>([]);
   const [selectedDays, setSelectedDays] = useState<Array<"today" | "tomorrow">>([]);
   const [market, setMarket] = useState("All props");
+  const [teamShotLine, setTeamShotLine] = useState("25.5");
   const [side, setSide] = useState("both");
   const [windowFilter, setWindowFilter] = useState("all");
   const [sort, setSort] = useState("confidence");
@@ -309,17 +335,21 @@ export default function PlayerPropsPanel({ view }: Props) {
         (market === "Goals" && row.market === "player_goals") ||
         (market === "Goalie Saves" && row.market === "goalie_saves") ||
         (market === "Team Shots" && row.market === "team_shots_on_goal");
-      const matchesSide = side === "both" || row.side === side;
+      const matchesSide = row.market === "team_shots_on_goal" ? side !== "under" : side === "both" || row.side === side;
       const matchesWindow = view !== "cheat" || windowFilter === "all" || row.window === windowFilter;
       return matchesSearch && matchesGame && matchesDay && matchesMarket && matchesSide && matchesWindow;
     });
-    return filtered.sort((a, b) => {
+    const sorted = filtered.sort((a, b) => {
       if (sort === "projection") return (b.projection ?? -Infinity) - (a.projection ?? -Infinity);
       if (sort === "edge") return (b.edge_pct ?? -Infinity) - (a.edge_pct ?? -Infinity);
       if (sort === "defense") return (a.defense_rank ?? Infinity) - (b.defense_rank ?? Infinity);
       return (b.confidence ?? -Infinity) - (a.confidence ?? -Infinity);
     });
-  }, [feed, view, search, selectedGames, selectedDays, market, side, windowFilter, sort]);
+    const line = Number(teamShotLine);
+    return market !== "Team Shots" || !Number.isFinite(line) || line <= 0
+      ? sorted
+      : sorted.map((row) => row.market === "team_shots_on_goal" ? withTeamShotHitRates(row, line) : row);
+  }, [feed, view, search, selectedGames, selectedDays, market, teamShotLine, side, windowFilter, sort]);
 
   const persistSheet = (items: PlayerProp[]) => {
     setSavedProps(items);
@@ -342,7 +372,7 @@ export default function PlayerPropsPanel({ view }: Props) {
     persistSheet(current.filter((item) => item.prop_id !== id));
   };
 
-  const tableKey = JSON.stringify([view, search, selectedGames, selectedDays, market, side, windowFilter, sort]);
+  const tableKey = JSON.stringify([view, search, selectedGames, selectedDays, market, teamShotLine, side, windowFilter, sort]);
   const propRows = feed.props || [];
   const pricedPropCount = propRows.filter((row) => row.line != null && row.best_book != null).length;
   const tracker = feed.tracker || [];
@@ -387,6 +417,7 @@ export default function PlayerPropsPanel({ view }: Props) {
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Search players<input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Player or team" className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /></label>
           <div className="text-[10px] uppercase tracking-wide text-slate-500"><span>Games</span><details className="group relative mt-1"><summary className="flex cursor-pointer list-none items-center justify-between rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs normal-case text-white"><span>{selectedDays.length === 0 && selectedGames.length === 0 ? "All games" : "Custom selection"}</span><span aria-hidden="true">▾</span></summary><div className="absolute left-0 top-full z-30 mt-1 max-h-80 w-72 overflow-y-auto rounded-xl border border-slate-700 bg-slate-950 p-3 text-xs text-white shadow-xl"><div className="mb-2 flex items-center justify-between"><span className="font-bold text-slate-300">Filter games</span><button type="button" onClick={() => { setSelectedDays([]); setSelectedGames([]); }} className="text-cyan-300 hover:text-white">Clear</button></div><div className="space-y-2 border-b border-slate-800 pb-3"><label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedDays.includes("today")} onChange={(event) => setSelectedDays((days) => event.target.checked ? [...days, "today"] : days.filter((day) => day !== "today"))} className="h-4 w-4 accent-indigo-500" />Today (ET)</label><label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedDays.includes("tomorrow")} onChange={(event) => setSelectedDays((days) => event.target.checked ? [...days, "tomorrow"] : days.filter((day) => day !== "tomorrow"))} className="h-4 w-4 accent-indigo-500" />Tomorrow (ET)</label></div><div className="mt-2 space-y-2">{(feed.games || []).map((game) => <label key={game.game_id} className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedGames.includes(game.game_id)} onChange={(event) => setSelectedGames((games) => event.target.checked ? [...games, game.game_id] : games.filter((id) => id !== game.game_id))} className="h-4 w-4 accent-indigo-500" /><span className="truncate">{game.game_label}</span></label>)}</div></div></details></div>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Props<select value={market} onChange={(event) => setMarket(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white">{MARKETS.map((item) => <option key={item}>{item}</option>)}</select></label>
+          {market === "Team Shots" && <label className="text-[10px] uppercase tracking-wide text-slate-500">Hit-rate line<input type="number" min="0.5" step="0.5" value={teamShotLine} onChange={(event) => setTeamShotLine(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /><span className="mt-1 block normal-case tracking-normal text-slate-400">Over hit rate at this threshold; not sportsbook odds.</span></label>}
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Over / Under<select value={side} onChange={(event) => setSide(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="both">Both</option><option value="over">Over</option><option value="under">Under</option></select></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Sort by<select value={sort} onChange={(event) => setSort(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="confidence">Confidence</option><option value="projection">Highest projection</option><option value="edge">Edge</option><option value="defense">Defense rank</option></select></label>
         </div>
