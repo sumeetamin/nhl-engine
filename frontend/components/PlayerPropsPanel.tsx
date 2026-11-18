@@ -84,25 +84,25 @@ function record(split?: Split) {
   if (!split || split.total == null || split.total === 0) return "—";
   return `${percent(split.hit_rate)} ${split.hits ?? 0}/${split.total}`;
 }
-function teamShotSplit(games: TeamShotHistoryGame[], line: number): Split {
+function teamShotSplit(games: TeamShotHistoryGame[], line: number, side: "over" | "under"): Split {
   const settled = games.filter((game) => game.value !== line);
-  const hits = settled.filter((game) => game.value > line).length;
+  const hits = settled.filter((game) => side === "over" ? game.value > line : game.value < line).length;
   return { hits, total: settled.length, hit_rate: settled.length ? 100 * hits / settled.length : null };
 }
-function withTeamShotHitRates(row: PlayerProp, line: number): PlayerProp {
+function withTeamShotHitRates(row: PlayerProp, line: number, side: "over" | "under"): PlayerProp {
   const games = (row.team_shot_history || []).slice().sort((a, b) => b.date.localeCompare(a.date));
   const h2h = games.filter((game) => game.opponent === row.opponent);
   return {
     ...row,
     line,
-    side: "over",
+    side,
     history: {
-      l5: teamShotSplit(games.slice(0, 5), line),
-      l10: teamShotSplit(games.slice(0, 10), line),
-      h2h: teamShotSplit(h2h, line),
-      season: teamShotSplit(games, line),
+      l5: teamShotSplit(games.slice(0, 5), line, side),
+      l10: teamShotSplit(games.slice(0, 10), line, side),
+      h2h: teamShotSplit(h2h, line, side),
+      season: teamShotSplit(games, line, side),
     },
-    hit_chart: games.slice(0, 10).map((game) => ({ ...game, hit: game.value > line ? true : game.value < line ? false : null })),
+    hit_chart: games.slice(0, 10).map((game) => ({ ...game, hit: game.value === line ? null : side === "over" ? game.value > line : game.value < line })),
   };
 }
 
@@ -335,7 +335,7 @@ export default function PlayerPropsPanel({ view }: Props) {
         (market === "Goals" && row.market === "player_goals") ||
         (market === "Goalie Saves" && row.market === "goalie_saves") ||
         (market === "Team Shots" && row.market === "team_shots_on_goal");
-      const matchesSide = row.market === "team_shots_on_goal" ? side !== "under" : side === "both" || row.side === side;
+      const matchesSide = row.market === "team_shots_on_goal" || side === "both" || row.side === side;
       const matchesWindow = view !== "cheat" || windowFilter === "all" || row.window === windowFilter;
       return matchesSearch && matchesGame && matchesDay && matchesMarket && matchesSide && matchesWindow;
     });
@@ -348,7 +348,7 @@ export default function PlayerPropsPanel({ view }: Props) {
     const line = Number(teamShotLine);
     return market !== "Team Shots" || !Number.isFinite(line) || line <= 0
       ? sorted
-      : sorted.map((row) => row.market === "team_shots_on_goal" ? withTeamShotHitRates(row, line) : row);
+      : sorted.map((row) => row.market === "team_shots_on_goal" ? withTeamShotHitRates(row, line, side === "under" ? "under" : "over") : row);
   }, [feed, view, search, selectedGames, selectedDays, market, teamShotLine, side, windowFilter, sort]);
 
   const persistSheet = (items: PlayerProp[]) => {
@@ -417,7 +417,7 @@ export default function PlayerPropsPanel({ view }: Props) {
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Search players<input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Player or team" className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /></label>
           <div className="text-[10px] uppercase tracking-wide text-slate-500"><span>Games</span><details className="group relative mt-1"><summary className="flex cursor-pointer list-none items-center justify-between rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs normal-case text-white"><span>{selectedDays.length === 0 && selectedGames.length === 0 ? "All games" : "Custom selection"}</span><span aria-hidden="true">▾</span></summary><div className="absolute left-0 top-full z-30 mt-1 max-h-80 w-72 overflow-y-auto rounded-xl border border-slate-700 bg-slate-950 p-3 text-xs text-white shadow-xl"><div className="mb-2 flex items-center justify-between"><span className="font-bold text-slate-300">Filter games</span><button type="button" onClick={() => { setSelectedDays([]); setSelectedGames([]); }} className="text-cyan-300 hover:text-white">Clear</button></div><div className="space-y-2 border-b border-slate-800 pb-3"><label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedDays.includes("today")} onChange={(event) => setSelectedDays((days) => event.target.checked ? [...days, "today"] : days.filter((day) => day !== "today"))} className="h-4 w-4 accent-indigo-500" />Today (ET)</label><label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedDays.includes("tomorrow")} onChange={(event) => setSelectedDays((days) => event.target.checked ? [...days, "tomorrow"] : days.filter((day) => day !== "tomorrow"))} className="h-4 w-4 accent-indigo-500" />Tomorrow (ET)</label></div><div className="mt-2 space-y-2">{(feed.games || []).map((game) => <label key={game.game_id} className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedGames.includes(game.game_id)} onChange={(event) => setSelectedGames((games) => event.target.checked ? [...games, game.game_id] : games.filter((id) => id !== game.game_id))} className="h-4 w-4 accent-indigo-500" /><span className="truncate">{game.game_label}</span></label>)}</div></div></details></div>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Props<select value={market} onChange={(event) => setMarket(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white">{MARKETS.map((item) => <option key={item}>{item}</option>)}</select></label>
-          {market === "Team Shots" && <label className="text-[10px] uppercase tracking-wide text-slate-500">Hit-rate line<input type="number" min="0.5" step="0.5" value={teamShotLine} onChange={(event) => setTeamShotLine(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /><span className="mt-1 block normal-case tracking-normal text-slate-400">Over hit rate at this threshold; not sportsbook odds.</span></label>}
+          {market === "Team Shots" && <label className="text-[10px] uppercase tracking-wide text-slate-500">Hit-rate line<input type="number" min="0.5" step="0.5" value={teamShotLine} onChange={(event) => setTeamShotLine(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /><span className="mt-1 block normal-case tracking-normal text-slate-400">{side === "under" ? "Under" : "Over"} hit rate at this threshold; not sportsbook odds.</span></label>}
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Over / Under<select value={side} onChange={(event) => setSide(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="both">Both</option><option value="over">Over</option><option value="under">Under</option></select></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Sort by<select value={sort} onChange={(event) => setSort(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="confidence">Confidence</option><option value="projection">Highest projection</option><option value="edge">Edge</option><option value="defense">Defense rank</option></select></label>
         </div>
