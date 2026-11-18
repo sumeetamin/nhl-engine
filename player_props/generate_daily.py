@@ -541,6 +541,8 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
             for game in games:
                 for team, opponent, side in ((game["home_team"], game["away_team"], "home"),
                                              (game["away_team"], game["home_team"], "away")):
+                    start = int(game["game_date"][:4]) if int(game["game_date"][5:7]) >= 9 else int(game["game_date"][:4]) - 1
+                    season = int(f"{start}{start + 1}")
                     roster_goalies = rosters.get(team, {}).get("goalies", [])
                     goalie = goalie_status.get((game["game_date"], team))
                     matched = next(
@@ -550,8 +552,7 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                     if matched is None:
                         goalie = projected_goalie_from_history(
                             history, team, game["game_date"],
-                            int(f"{int(game['game_date'][:4]) if int(game['game_date'][5:7]) >= 9 else int(game['game_date'][:4]) - 1}"
-                                f"{(int(game['game_date'][:4]) if int(game['game_date'][5:7]) >= 9 else int(game['game_date'][:4]) - 1) + 1}"),
+                            season,
                             roster_goalies,
                         )
                         if goalie is None:
@@ -559,10 +560,9 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                         matched = next((p for p in roster_goalies if int(p["player_id"]) == int(goalie["player_id"])), None)
                     if matched is None:
                         continue
-                    start = int(game["game_date"][:4]) if int(game["game_date"][5:7]) >= 9 else int(game["game_date"][:4]) - 1
                     candidates.append({
                         "game_id": game["game_id"], "game_date": game["game_date"],
-                        "season": int(f"{start}{start + 1}"), "team_abbrev": team,
+                        "season": season, "team_abbrev": team,
                         "opponent_abbrev": opponent, "home_away": side,
                         "candidate_id": f"{game['game_id']}:{matched['player_id']}",
                         "player_id": matched["player_id"], "player": matched["player"],
