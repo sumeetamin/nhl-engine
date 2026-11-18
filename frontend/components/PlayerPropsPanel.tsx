@@ -84,7 +84,7 @@ function record(split?: Split) {
 
 function easternDateKey(value?: string | null) {
   if (!value) return null;
-  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(value)) return value;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
   const parts = new Intl.DateTimeFormat("en-CA", {
@@ -95,6 +95,12 @@ function easternDateKey(value?: string | null) {
 }
 function todayEasternDate() {
   return easternDateKey(new Date().toISOString());
+}
+function easternDateOffset(days: number) {
+  const today = todayEasternDate();
+  if (!today) return null;
+  const [year, month, day] = today.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, day + days)).toISOString().slice(0, 10);
 }
 
 function localDate(value?: string | null) {
@@ -247,8 +253,8 @@ export default function PlayerPropsPanel({ view }: Props) {
   const [loadError, setLoadError] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [search, setSearch] = useState("");
-  const [selectedGame, setSelectedGame] = useState("all");
-  const [todayOnly, setTodayOnly] = useState(false);
+  const [selectedGames, setSelectedGames] = useState<string[]>([]);
+  const [selectedDays, setSelectedDays] = useState<Array<"today" | "tomorrow">>([]);
   const [market, setMarket] = useState("All props");
   const [side, setSide] = useState("both");
   const [windowFilter, setWindowFilter] = useState("all");
@@ -291,10 +297,11 @@ export default function PlayerPropsPanel({ view }: Props) {
     const source = view === "cheat" ? feed.cheat_sheets || [] : feed.props || [];
     const filtered = source.filter((row) => {
       const matchesSearch = `${row.player} ${row.team} ${row.opponent}`.toLowerCase().includes(search.toLowerCase());
-      const matchesGame = selectedGame === "all" || row.game_id === selectedGame;
+      const matchesGame = selectedGames.length === 0 || selectedGames.includes(row.game_id);
       const game = (feed.games || []).find((item) => item.game_id === row.game_id);
       const gameDate = easternDateKey(row.commence_time || game?.commence_time || row.game_date || game?.game_date);
-      const matchesToday = !todayOnly || (gameDate != null && gameDate === todayEasternDate());
+      const selectedDateKeys = selectedDays.map((day) => easternDateOffset(day === "today" ? 0 : 1)).filter(Boolean);
+      const matchesDay = selectedDays.length === 0 || (gameDate != null && selectedDateKeys.includes(gameDate));
       const matchesMarket = market === "All props" || row.market_label === market ||
         (market === "Shots on Goal" && row.market === "player_shots_on_goal") ||
         (market === "Points" && row.market === "player_points") ||
@@ -304,7 +311,7 @@ export default function PlayerPropsPanel({ view }: Props) {
         (market === "Team Shots" && row.market === "team_shots_on_goal");
       const matchesSide = side === "both" || row.side === side;
       const matchesWindow = view !== "cheat" || windowFilter === "all" || row.window === windowFilter;
-      return matchesSearch && matchesGame && matchesToday && matchesMarket && matchesSide && matchesWindow;
+      return matchesSearch && matchesGame && matchesDay && matchesMarket && matchesSide && matchesWindow;
     });
     return filtered.sort((a, b) => {
       if (sort === "projection") return (b.projection ?? -Infinity) - (a.projection ?? -Infinity);
@@ -312,7 +319,7 @@ export default function PlayerPropsPanel({ view }: Props) {
       if (sort === "defense") return (a.defense_rank ?? Infinity) - (b.defense_rank ?? Infinity);
       return (b.confidence ?? -Infinity) - (a.confidence ?? -Infinity);
     });
-  }, [feed, view, search, selectedGame, todayOnly, market, side, windowFilter, sort]);
+  }, [feed, view, search, selectedGames, selectedDays, market, side, windowFilter, sort]);
 
   const persistSheet = (items: PlayerProp[]) => {
     setSavedProps(items);
@@ -335,7 +342,7 @@ export default function PlayerPropsPanel({ view }: Props) {
     persistSheet(current.filter((item) => item.prop_id !== id));
   };
 
-  const tableKey = JSON.stringify([view, search, selectedGame, todayOnly, market, side, windowFilter, sort]);
+  const tableKey = JSON.stringify([view, search, selectedGames, selectedDays, market, side, windowFilter, sort]);
   const propRows = feed.props || [];
   const pricedPropCount = propRows.filter((row) => row.line != null && row.best_book != null).length;
   const tracker = feed.tracker || [];
@@ -378,7 +385,7 @@ export default function PlayerPropsPanel({ view }: Props) {
       {view === "props" ? (
         <div className="grid gap-2 rounded-2xl border border-slate-800 bg-[#111827] p-3 sm:grid-cols-2 lg:grid-cols-5">
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Search players<input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Player or team" className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white" /></label>
-          <label className="text-[10px] uppercase tracking-wide text-slate-500">Games<select value={selectedGame} onChange={(event) => setSelectedGame(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="all">All games</option>{(feed.games || []).map((game) => <option key={game.game_id} value={game.game_id}>{game.game_label}</option>)}</select><span className="mt-2 flex items-center gap-2 normal-case tracking-normal text-slate-300"><input type="checkbox" checked={todayOnly} onChange={(event) => setTodayOnly(event.target.checked)} className="h-4 w-4 accent-indigo-500" />Today only (ET)</span></label>
+          <div className="text-[10px] uppercase tracking-wide text-slate-500"><span>Games</span><details className="group relative mt-1"><summary className="flex cursor-pointer list-none items-center justify-between rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs normal-case text-white"><span>{selectedDays.length === 0 && selectedGames.length === 0 ? "All games" : "Custom selection"}</span><span aria-hidden="true">▾</span></summary><div className="absolute left-0 top-full z-30 mt-1 max-h-80 w-72 overflow-y-auto rounded-xl border border-slate-700 bg-slate-950 p-3 text-xs text-white shadow-xl"><div className="mb-2 flex items-center justify-between"><span className="font-bold text-slate-300">Filter games</span><button type="button" onClick={() => { setSelectedDays([]); setSelectedGames([]); }} className="text-cyan-300 hover:text-white">Clear</button></div><div className="space-y-2 border-b border-slate-800 pb-3"><label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedDays.includes("today")} onChange={(event) => setSelectedDays((days) => event.target.checked ? [...days, "today"] : days.filter((day) => day !== "today"))} className="h-4 w-4 accent-indigo-500" />Today (ET)</label><label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedDays.includes("tomorrow")} onChange={(event) => setSelectedDays((days) => event.target.checked ? [...days, "tomorrow"] : days.filter((day) => day !== "tomorrow"))} className="h-4 w-4 accent-indigo-500" />Tomorrow (ET)</label></div><div className="mt-2 space-y-2">{(feed.games || []).map((game) => <label key={game.game_id} className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={selectedGames.includes(game.game_id)} onChange={(event) => setSelectedGames((games) => event.target.checked ? [...games, game.game_id] : games.filter((id) => id !== game.game_id))} className="h-4 w-4 accent-indigo-500" /><span className="truncate">{game.game_label}</span></label>)}</div></div></details></div>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Props<select value={market} onChange={(event) => setMarket(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white">{MARKETS.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Over / Under<select value={side} onChange={(event) => setSide(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="both">Both</option><option value="over">Over</option><option value="under">Under</option></select></label>
           <label className="text-[10px] uppercase tracking-wide text-slate-500">Sort by<select value={sort} onChange={(event) => setSort(event.target.value)} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"><option value="confidence">Confidence</option><option value="projection">Highest projection</option><option value="edge">Edge</option><option value="defense">Defense rank</option></select></label>
