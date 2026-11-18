@@ -453,6 +453,51 @@ def odds_lines(snapshot: dict[str, Any], games: list[dict[str, Any]],
             result[key] = group
     return result
 
+def projected_goalie_from_history(
+    history: dict[str, pd.DataFrame], team: str, game_date: str,
+    season: int, roster_goalies: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    """Choose a rostered goalie from recent start usage; always label this estimate projected."""
+    frame = history.get("goalies")
+    if frame is None or frame.empty or not roster_goalies:
+        return None
+    prior = frame[
+        (frame["team_abbrev"] == team) &
+        (frame["game_date"] < pd.Timestamp(game_date)) &
+        frame["started"].fillna(False).astype(bool)
+    ].copy()
+    if prior.empty:
+        return None
+    roster_ids = {str(player["player_id"]) for player in roster_goalies}
+    prior = prior[prior["player_id"].astype(str).isin(roster_ids)]
+    if prior.empty:
+        return None
+    # Prefer this season's starts; when the slate is at the start of a season,
+    # use the most recent rostered starter history as a tentative estimate.
+    season_start = int(season) // 10000
+    current = prior[prior["season_start"] == season_start]
+    if not current.empty:
+        prior = current
+    usage = (
+        prior.groupby(["player_id", "player_name"], as_index=False)
+        .agg(starts=("started", "sum"), last_start=("game_date", "max"))
+        .sort_values(["starts", "last_start"], ascending=[False, False])
+    )
+    if usage.empty:
+        return None
+    selected = usage.iloc[0]
+    player_id = int(selected["player_id"])
+    roster_player = next((item for item in roster_goalies if int(item["player_id"]) == player_id), None)
+    if roster_player is None:
+        return None
+    return {
+        "player_id": player_id,
+        "name": roster_player["player"],
+        "confirmed": False,
+        "source": "recent_starts_projection",
+    }
+
+
 def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: list[dict[str, Any]],
                rosters: dict[str, dict[str, Any]], goalie_status: dict[tuple[str, str], dict[str, Any]],
                snapshot: dict[str, Any]) -> dict[str, Any]:
@@ -496,21 +541,33 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
             for game in games:
                 for team, opponent, side in ((game["home_team"], game["away_team"], "home"),
                                              (game["away_team"], game["home_team"], "away")):
-                    goalie = goalie_status.get((game["game_date"], team))
-                    if not goalie:
-                        continue
-                    roster_goalies = rosters.get(team, {}).get("goalies", [])
-                    matched = next((p for p in roster_goalies if normalize_name(p["player"]) == normalize_name(goalie.get("name"))), None)
-                    if not matched:
-                        continue
                     start = int(game["game_date"][:4]) if int(game["game_date"][5:7]) >= 9 else int(game["game_date"][:4]) - 1
+                    season = int(f"{start}{start + 1}")
+                    roster_goalies = rosters.get(team, {}).get("goalies", [])
+                    goalie = goalie_status.get((game["game_date"], team))
+                    matched = next(
+                        (p for p in roster_goalies if normalize_name(p["player"]) == normalize_name((goalie or {}).get("name"))),
+                        None,
+                    )
+                    if matched is None:
+                        goalie = projected_goalie_from_history(
+                            history, team, game["game_date"],
+                            season,
+                            roster_goalies,
+                        )
+                        if goalie is None:
+                            continue
+                        matched = next((p for p in roster_goalies if int(p["player_id"]) == int(goalie["player_id"])), None)
+                    if matched is None:
+                        continue
                     candidates.append({
                         "game_id": game["game_id"], "game_date": game["game_date"],
-                        "season": int(f"{start}{start + 1}"), "team_abbrev": team,
+                        "season": season, "team_abbrev": team,
                         "opponent_abbrev": opponent, "home_away": side,
                         "candidate_id": f"{game['game_id']}:{matched['player_id']}",
                         "player_id": matched["player_id"], "player": matched["player"],
                         "position": "G", "goalie_status": "confirmed" if goalie.get("confirmed") else "projected",
+                        "goalie_status_source": goalie.get("source"),
                     })
         else:
             candidates = []
@@ -548,6 +605,7 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                 "best_book": None, "edge_pct": None, "over_probability": None,
                 "under_probability": None, "probability": None, "books": [],
                 "goalie_status": candidate.get("goalie_status"),
+                "goalie_status_source": candidate.get("goalie_status_source"),
                 "goalie_name": candidate.get("player") if market == "goalie_saves" else None,
                 "availability_status": candidate.get("availability_status"),
             }
@@ -575,6 +633,19 @@ def build_feed(history: dict[str, pd.DataFrame], bundle: dict[str, Any], games: 
                 ].sort_values("game_date")
                 base_prop["team_pace"] = round(float(prior_team.tail(10)["team_shots_on_goal"].mean()), 1) if not prior_team.empty else None
                 base_prop["opponent_pace"] = round(float(prior_opp.tail(10)["team_shots_on_goal"].mean()), 1) if not prior_opp.empty else None
+                season_start = int(candidate["season"]) // 10000
+                season_team = prior_team[prior_team["season_start"] == season_start].sort_values(
+                    "game_date", ascending=False
+                )
+                base_prop["team_shot_history"] = [
+                    {
+                        "date": pd.Timestamp(row["game_date"]).date().isoformat(),
+                        "opponent": str(row.get("opponent_abbrev") or ""),
+                        "value": float(row["team_shots_on_goal"]),
+                    }
+                    for _, row in season_team.iterrows()
+                    if safe_float(row.get("team_shots_on_goal")) is not None
+                ]
 
             groups = [value for key, value in line_map.items()
                       if key[0] == candidate["game_id"] and key[1] == str(candidate.get("player_id")) and key[2] == market] if candidate.get("player_id") is not None else []
