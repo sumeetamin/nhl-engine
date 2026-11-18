@@ -84,7 +84,7 @@ function record(split?: Split) {
 
 function easternDateKey(value?: string | null) {
   if (!value) return null;
-  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(value)) return value;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
   const parts = new Intl.DateTimeFormat("en-CA", {
