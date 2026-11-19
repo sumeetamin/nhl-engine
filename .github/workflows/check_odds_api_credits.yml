@@ -1,0 +1,43 @@
+name: Check Odds API Credits
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-credits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read quota headers without exposing the API key
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          import urllib.error
+          import urllib.request
+
+          key = os.environ.get("ODDS_API_KEY", "")
+          if not key:
+              print("ODDS_API_KEY secret is missing or empty.")
+              raise SystemExit(1)
+
+          request = urllib.request.Request(
+              "https://api.the-odds-api.com/v4/sports",
+              headers={"x-api-key": key, "Accept": "application/json"},
+          )
+          try:
+              response = urllib.request.urlopen(request, timeout=30)
+          except urllib.error.HTTPError as exc:
+              response = exc
+
+          headers = response.headers
+          print(f"HTTP status: {response.code}")
+          for name in ("x-requests-remaining", "x-requests-used", "x-requests-last"):
+              print(f"{name}: {headers.get(name, 'not provided')}")
+          if response.code != 200:
+              print("The provider rejected the request; inspect key validity/access in its dashboard.")
+              raise SystemExit(1)
+          PY
