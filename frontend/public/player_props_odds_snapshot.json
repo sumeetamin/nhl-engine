@@ -2751,5 +2751,6 @@
   "bookmakers": [
     "draftkings",
     "fanduel"
-  ]
+  ],
+  "fallback_reason": "The latest odds fetch had no usable approved-book player markets; the last usable snapshot is retained and labeled with its timestamp."
 }
