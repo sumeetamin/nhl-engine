@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-11-20T22:36:36.260788+00:00",
+    "generated_at": "2026-11-21T02:57:34.900435+00:00",
     "games_by_date": {
         "2026-11-18": [
             {
@@ -4830,7 +4830,7 @@
                     "record_overall": "9-9-4",
                     "record_split": "5-3-4",
                     "record_l10": "4-5-1",
-                    "ml": "+133",
+                    "ml": "+132",
                     "proj": "2.8"
                 },
                 "home": {
@@ -4838,13 +4838,13 @@
                     "record_overall": "12-8-3",
                     "record_split": "5-3-0",
                     "record_l10": "5-4-1",
-                    "ml": "-159",
-                    "proj": "3.8"
+                    "ml": "-157",
+                    "proj": "3.7"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "57.3%",
-                "home_win_prob": 57.3,
-                "away_win_prob": 42.7,
+                "prob": "57.1%",
+                "home_win_prob": 57.1,
+                "away_win_prob": 42.9,
                 "predicted_winner": "FLA",
                 "time": "6:00 PM EST",
                 "tier": "NONE",
@@ -4902,7 +4902,7 @@
                     },
                     "league_sv_pct": 0.892
                 },
-                "edge": "+4.9%",
+                "edge": "+4.7%",
                 "ai_score": 4.6,
                 "details": {
                     "period_60": {
@@ -4913,7 +4913,7 @@
                     "period_scores": {
                         "p1": "BUF 0.8 - FLA 1.1",
                         "p2": "BUF 1.0 - FLA 1.3",
-                        "p3": "BUF 1.0 - FLA 1.4"
+                        "p3": "BUF 1.0 - FLA 1.3"
                     },
                     "recent_logs": {
                         "away": [
@@ -4988,12 +4988,12 @@
                     },
                     "notes": [
                         "Goalie Edge: BUF starting Ukko-Pekka Luukkonen (Expected) vs FLA starting Jacob Markstrom (Expected).",
-                        "Engine calculates FLA win probability at 57.3% based on V5 goalie adjustments.",
+                        "Engine calculates FLA win probability at 57.1% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 38 points."
                     ],
                     "best_angle": {
                         "play": "FLA MONEYLINE",
-                        "edge": "+4.9%"
+                        "edge": "+4.7%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5064,7 +5064,7 @@
                     "record_overall": "7-12-2",
                     "record_split": "3-7-1",
                     "record_l10": "3-6-1",
-                    "ml": "+117",
+                    "ml": "+123",
                     "proj": "2.8"
                 },
                 "home": {
@@ -5072,13 +5072,13 @@
                     "record_overall": "11-6-5",
                     "record_split": "6-3-2",
                     "record_l10": "7-3-0",
-                    "ml": "-139",
-                    "proj": "3.4"
+                    "ml": "-148",
+                    "proj": "3.5"
                 },
-                "ou_total": "O/U 6.0",
-                "prob": "54.7%",
-                "home_win_prob": 54.7,
-                "away_win_prob": 45.3,
+                "ou_total": "O/U 6.5",
+                "prob": "55.9%",
+                "home_win_prob": 55.9,
+                "away_win_prob": 44.1,
                 "predicted_winner": "NSH",
                 "time": "6:00 PM EST",
                 "tier": "NONE",
@@ -5136,16 +5136,16 @@
                     },
                     "league_sv_pct": 0.892
                 },
-                "edge": "+2.3%",
-                "ai_score": 4.0,
+                "edge": "+3.5%",
+                "ai_score": 4.3,
                 "details": {
                     "period_60": {
-                        "p1_winner": "NSH (46%)",
+                        "p1_winner": "NSH (48%)",
                         "p1_over_1_5": "55%",
-                        "min_60_tie": "20%"
+                        "min_60_tie": "19%"
                     },
                     "period_scores": {
-                        "p1": "PIT 0.8 - NSH 1.0",
+                        "p1": "PIT 0.8 - NSH 1.1",
                         "p2": "PIT 1.0 - NSH 1.2",
                         "p3": "PIT 1.0 - NSH 1.2"
                     },
@@ -5222,12 +5222,12 @@
                     },
                     "notes": [
                         "Goalie Edge: PIT starting Arturs Silovs (Expected) vs NSH starting Juuse Saros (Expected).",
-                        "Engine calculates NSH win probability at 54.7% based on V5 goalie adjustments.",
+                        "Engine calculates NSH win probability at 55.9% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 126 points."
                     ],
                     "best_angle": {
                         "play": "NSH MONEYLINE",
-                        "edge": "+2.3%"
+                        "edge": "+3.5%"
                     },
                     "gift_stats": {
                         "away": {
@@ -5290,7 +5290,7 @@
                         "rating": 0.09
                     }
                 },
-                "game_score": 62
+                "game_score": 61
             },
             {
                 "away": {
@@ -6122,21 +6122,21 @@
                     "record_overall": "7-11-2",
                     "record_split": "5-3-2",
                     "record_l10": "4-6-0",
-                    "ml": "+150",
-                    "proj": "2.4"
+                    "ml": "+148",
+                    "proj": "2.5"
                 },
                 "home": {
                     "name": "OTT",
                     "record_overall": "14-6-3",
                     "record_split": "7-2-2",
                     "record_l10": "6-1-3",
-                    "ml": "-180",
-                    "proj": "3.9"
+                    "ml": "-177",
+                    "proj": "3.8"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "61.2%",
-                "home_win_prob": 61.2,
-                "away_win_prob": 38.8,
+                "prob": "60.9%",
+                "home_win_prob": 60.9,
+                "away_win_prob": 39.1,
                 "predicted_winner": "OTT",
                 "time": "7:00 PM EST",
                 "tier": "EDGE",
@@ -6194,18 +6194,18 @@
                     },
                     "league_sv_pct": 0.892
                 },
-                "edge": "+8.8%",
-                "ai_score": 5.5,
+                "edge": "+8.5%",
+                "ai_score": 5.4,
                 "details": {
                     "period_60": {
                         "p1_winner": "OTT (52%)",
                         "p1_over_1_5": "51%",
-                        "min_60_tie": "16%"
+                        "min_60_tie": "17%"
                     },
                     "period_scores": {
-                        "p1": "LAK 0.7 - OTT 1.2",
-                        "p2": "LAK 0.8 - OTT 1.4",
-                        "p3": "LAK 0.9 - OTT 1.3"
+                        "p1": "LAK 0.8 - OTT 1.1",
+                        "p2": "LAK 0.9 - OTT 1.3",
+                        "p3": "LAK 0.8 - OTT 1.4"
                     },
                     "recent_logs": {
                         "away": [
@@ -6336,17 +6336,17 @@
                     },
                     "covers": {
                         "best_ml": "OTT ML",
-                        "best_spread": "OTT -1.5",
+                        "best_spread": "PASS",
                         "best_ou": "OVER 5.5"
                     },
                     "notes": [
                         "Goalie Edge: LAK starting Darcy Kuemper (Expected) vs OTT starting Linus Ullmark (Expected).",
-                        "Engine calculates OTT win probability at 61.2% based on V5 goalie adjustments.",
+                        "Engine calculates OTT win probability at 60.9% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 189 points."
                     ],
                     "best_angle": {
                         "play": "OTT MONEYLINE",
-                        "edge": "+8.8%"
+                        "edge": "+8.5%"
                     },
                     "gift_stats": {
                         "away": {
@@ -13877,7 +13877,7 @@
                 "record_overall": "9-9-4",
                 "record_split": "5-3-4",
                 "record_l10": "4-5-1",
-                "ml": "+133",
+                "ml": "+132",
                 "proj": "2.8"
             },
             "home": {
@@ -13885,13 +13885,13 @@
                 "record_overall": "12-8-3",
                 "record_split": "5-3-0",
                 "record_l10": "5-4-1",
-                "ml": "-159",
-                "proj": "3.8"
+                "ml": "-157",
+                "proj": "3.7"
             },
             "ou_total": "O/U 6.5",
-            "prob": "57.3%",
-            "home_win_prob": 57.3,
-            "away_win_prob": 42.7,
+            "prob": "57.1%",
+            "home_win_prob": 57.1,
+            "away_win_prob": 42.9,
             "predicted_winner": "FLA",
             "time": "6:00 PM EST",
             "tier": "NONE",
@@ -13949,7 +13949,7 @@
                 },
                 "league_sv_pct": 0.892
             },
-            "edge": "+4.9%",
+            "edge": "+4.7%",
             "ai_score": 4.6,
             "details": {
                 "period_60": {
@@ -13960,7 +13960,7 @@
                 "period_scores": {
                     "p1": "BUF 0.8 - FLA 1.1",
                     "p2": "BUF 1.0 - FLA 1.3",
-                    "p3": "BUF 1.0 - FLA 1.4"
+                    "p3": "BUF 1.0 - FLA 1.3"
                 },
                 "recent_logs": {
                     "away": [
@@ -14035,12 +14035,12 @@
                 },
                 "notes": [
                     "Goalie Edge: BUF starting Ukko-Pekka Luukkonen (Expected) vs FLA starting Jacob Markstrom (Expected).",
-                    "Engine calculates FLA win probability at 57.3% based on V5 goalie adjustments.",
+                    "Engine calculates FLA win probability at 57.1% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 38 points."
                 ],
                 "best_angle": {
                     "play": "FLA MONEYLINE",
-                    "edge": "+4.9%"
+                    "edge": "+4.7%"
                 },
                 "gift_stats": {
                     "away": {
@@ -14111,7 +14111,7 @@
                 "record_overall": "7-12-2",
                 "record_split": "3-7-1",
                 "record_l10": "3-6-1",
-                "ml": "+117",
+                "ml": "+123",
                 "proj": "2.8"
             },
             "home": {
@@ -14119,13 +14119,13 @@
                 "record_overall": "11-6-5",
                 "record_split": "6-3-2",
                 "record_l10": "7-3-0",
-                "ml": "-139",
-                "proj": "3.4"
+                "ml": "-148",
+                "proj": "3.5"
             },
-            "ou_total": "O/U 6.0",
-            "prob": "54.7%",
-            "home_win_prob": 54.7,
-            "away_win_prob": 45.3,
+            "ou_total": "O/U 6.5",
+            "prob": "55.9%",
+            "home_win_prob": 55.9,
+            "away_win_prob": 44.1,
             "predicted_winner": "NSH",
             "time": "6:00 PM EST",
             "tier": "NONE",
@@ -14183,16 +14183,16 @@
                 },
                 "league_sv_pct": 0.892
             },
-            "edge": "+2.3%",
-            "ai_score": 4.0,
+            "edge": "+3.5%",
+            "ai_score": 4.3,
             "details": {
                 "period_60": {
-                    "p1_winner": "NSH (46%)",
+                    "p1_winner": "NSH (48%)",
                     "p1_over_1_5": "55%",
-                    "min_60_tie": "20%"
+                    "min_60_tie": "19%"
                 },
                 "period_scores": {
-                    "p1": "PIT 0.8 - NSH 1.0",
+                    "p1": "PIT 0.8 - NSH 1.1",
                     "p2": "PIT 1.0 - NSH 1.2",
                     "p3": "PIT 1.0 - NSH 1.2"
                 },
@@ -14269,12 +14269,12 @@
                 },
                 "notes": [
                     "Goalie Edge: PIT starting Arturs Silovs (Expected) vs NSH starting Juuse Saros (Expected).",
-                    "Engine calculates NSH win probability at 54.7% based on V5 goalie adjustments.",
+                    "Engine calculates NSH win probability at 55.9% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 126 points."
                 ],
                 "best_angle": {
                     "play": "NSH MONEYLINE",
-                    "edge": "+2.3%"
+                    "edge": "+3.5%"
                 },
                 "gift_stats": {
                     "away": {
@@ -14337,7 +14337,7 @@
                     "rating": 0.09
                 }
             },
-            "game_score": 62
+            "game_score": 61
         },
         {
             "away": {
@@ -15169,21 +15169,21 @@
                 "record_overall": "7-11-2",
                 "record_split": "5-3-2",
                 "record_l10": "4-6-0",
-                "ml": "+150",
-                "proj": "2.4"
+                "ml": "+148",
+                "proj": "2.5"
             },
             "home": {
                 "name": "OTT",
                 "record_overall": "14-6-3",
                 "record_split": "7-2-2",
                 "record_l10": "6-1-3",
-                "ml": "-180",
-                "proj": "3.9"
+                "ml": "-177",
+                "proj": "3.8"
             },
             "ou_total": "O/U 6.5",
-            "prob": "61.2%",
-            "home_win_prob": 61.2,
-            "away_win_prob": 38.8,
+            "prob": "60.9%",
+            "home_win_prob": 60.9,
+            "away_win_prob": 39.1,
             "predicted_winner": "OTT",
             "time": "7:00 PM EST",
             "tier": "EDGE",
@@ -15241,18 +15241,18 @@
                 },
                 "league_sv_pct": 0.892
             },
-            "edge": "+8.8%",
-            "ai_score": 5.5,
+            "edge": "+8.5%",
+            "ai_score": 5.4,
             "details": {
                 "period_60": {
                     "p1_winner": "OTT (52%)",
                     "p1_over_1_5": "51%",
-                    "min_60_tie": "16%"
+                    "min_60_tie": "17%"
                 },
                 "period_scores": {
-                    "p1": "LAK 0.7 - OTT 1.2",
-                    "p2": "LAK 0.8 - OTT 1.4",
-                    "p3": "LAK 0.9 - OTT 1.3"
+                    "p1": "LAK 0.8 - OTT 1.1",
+                    "p2": "LAK 0.9 - OTT 1.3",
+                    "p3": "LAK 0.8 - OTT 1.4"
                 },
                 "recent_logs": {
                     "away": [
@@ -15383,17 +15383,17 @@
                 },
                 "covers": {
                     "best_ml": "OTT ML",
-                    "best_spread": "OTT -1.5",
+                    "best_spread": "PASS",
                     "best_ou": "OVER 5.5"
                 },
                 "notes": [
                     "Goalie Edge: LAK starting Darcy Kuemper (Expected) vs OTT starting Linus Ullmark (Expected).",
-                    "Engine calculates OTT win probability at 61.2% based on V5 goalie adjustments.",
+                    "Engine calculates OTT win probability at 60.9% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 189 points."
                 ],
                 "best_angle": {
                     "play": "OTT MONEYLINE",
-                    "edge": "+8.8%"
+                    "edge": "+8.5%"
                 },
                 "gift_stats": {
                     "away": {
