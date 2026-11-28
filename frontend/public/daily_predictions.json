@@ -1,14 +1,14 @@
 {
     "schema_version": 2,
     "timezone": "America/New_York",
-    "generated_at": "2026-11-28T00:00:31.191061+00:00",
+    "generated_at": "2026-11-28T03:40:53.191739+00:00",
     "games_by_date": {
         "2026-11-25": [
             {
                 "away": {
                     "name": "WPG",
-                    "record_overall": "13-9-4",
-                    "record_split": "6-4-2",
+                    "record_overall": "14-9-4",
+                    "record_split": "7-4-2",
                     "record_l10": "8-1-1",
                     "ml": "+141",
                     "proj": "2.9"
@@ -98,6 +98,12 @@
                     "recent_logs": {
                         "away": [
                             {
+                                "date": "11/27/26",
+                                "opp": "@NYI",
+                                "result": "W",
+                                "score": "3-1"
+                            },
+                            {
                                 "date": "11/25/26",
                                 "opp": "@BOS",
                                 "result": "W",
@@ -150,12 +156,6 @@
                                 "opp": "vs TBL",
                                 "result": "W",
                                 "score": "4-3"
-                            },
-                            {
-                                "date": "11/05/26",
-                                "opp": "vs VAN",
-                                "result": "W",
-                                "score": "6-2"
                             }
                         ],
                         "home": [
@@ -339,8 +339,8 @@
             {
                 "away": {
                     "name": "NYR",
-                    "record_overall": "13-10-1",
-                    "record_split": "4-7-1",
+                    "record_overall": "13-11-1",
+                    "record_split": "4-8-1",
                     "record_l10": "6-4-0",
                     "ml": "+118",
                     "proj": "2.6"
@@ -397,9 +397,9 @@
                     "away": {
                         "name": "Dylan Garand",
                         "status": "Expected",
-                        "sv_pct": 0.909,
-                        "gp": 16,
-                        "gaa": 2.49,
+                        "sv_pct": 0.906,
+                        "gp": 17,
+                        "gaa": 2.46,
                         "prev_sv_pct": 0.948,
                         "rating": "good"
                     },
@@ -429,6 +429,12 @@
                     },
                     "recent_logs": {
                         "away": [
+                            {
+                                "date": "11/27/26",
+                                "opp": "@CHI",
+                                "result": "L",
+                                "score": "1-2"
+                            },
                             {
                                 "date": "11/25/26",
                                 "opp": "@BUF",
@@ -482,12 +488,6 @@
                                 "opp": "vs STL",
                                 "result": "W",
                                 "score": "3-1"
-                            },
-                            {
-                                "date": "11/01/26",
-                                "opp": "vs EDM",
-                                "result": "L",
-                                "score": "1-4"
                             }
                         ],
                         "home": [
@@ -1409,8 +1409,8 @@
                 },
                 "home": {
                     "name": "NYI",
-                    "record_overall": "12-7-5",
-                    "record_split": "6-4-2",
+                    "record_overall": "12-8-5",
+                    "record_split": "6-5-2",
                     "record_l10": "5-2-3",
                     "ml": "-138",
                     "proj": "3.8"
@@ -1554,6 +1554,12 @@
                         ],
                         "home": [
                             {
+                                "date": "11/27/26",
+                                "opp": "vs WPG",
+                                "result": "L",
+                                "score": "1-3"
+                            },
+                            {
                                 "date": "11/25/26",
                                 "opp": "vs STL",
                                 "result": "W",
@@ -1606,12 +1612,6 @@
                                 "opp": "vs NJD",
                                 "result": "L",
                                 "score": "4-5"
-                            },
-                            {
-                                "date": "11/05/26",
-                                "opp": "vs CAR",
-                                "result": "L",
-                                "score": "3-5"
                             }
                         ],
                         "h2h": [
@@ -2946,9 +2946,9 @@
                     "home": {
                         "name": "Jesper Wallstedt",
                         "status": "Expected",
-                        "sv_pct": 0.92,
-                        "gp": 23,
-                        "gaa": 2.08,
+                        "sv_pct": 0.919,
+                        "gp": 24,
+                        "gaa": 2.11,
                         "prev_sv_pct": 0.916,
                         "rating": "good"
                     },
@@ -3119,9 +3119,9 @@
                     "home": {
                         "name": "Mackenzie Blackwood",
                         "status": "Expected",
-                        "sv_pct": 0.91,
-                        "gp": 18,
-                        "gaa": 2.41,
+                        "sv_pct": 0.908,
+                        "gp": 19,
+                        "gaa": 2.44,
                         "prev_sv_pct": 0.904,
                         "rating": "good"
                     },
@@ -3225,9 +3225,9 @@
             {
                 "away": {
                     "name": "CHI",
-                    "record_overall": "9-14-2",
+                    "record_overall": "10-14-2",
                     "record_split": "3-8-1",
-                    "record_l10": "5-4-1",
+                    "record_l10": "6-3-1",
                     "ml": "+130",
                     "proj": "2.9"
                 },
@@ -3283,9 +3283,9 @@
                     "away": {
                         "name": "Spencer Knight",
                         "status": "Expected",
-                        "sv_pct": 0.891,
-                        "gp": 20,
-                        "gaa": 3.32,
+                        "sv_pct": 0.895,
+                        "gp": 21,
+                        "gaa": 3.21,
                         "prev_sv_pct": 0.902,
                         "rating": "average"
                     },
@@ -3456,9 +3456,9 @@
                     "away": {
                         "name": "Yaroslav Askarov",
                         "status": "Expected",
-                        "sv_pct": 0.889,
-                        "gp": 17,
-                        "gaa": 3.27,
+                        "sv_pct": 0.893,
+                        "gp": 18,
+                        "gaa": 3.15,
                         "prev_sv_pct": 0.884,
                         "rating": "poor"
                     },
@@ -5504,18 +5504,18 @@
                     "away": {
                         "name": "Mackenzie Blackwood",
                         "status": "Expected",
-                        "sv_pct": 0.91,
-                        "gp": 18,
-                        "gaa": 2.41,
+                        "sv_pct": 0.908,
+                        "gp": 19,
+                        "gaa": 2.44,
                         "prev_sv_pct": 0.904,
                         "rating": "good"
                     },
                     "home": {
                         "name": "Jesper Wallstedt",
                         "status": "Expected",
-                        "sv_pct": 0.92,
-                        "gp": 23,
-                        "gaa": 2.08,
+                        "sv_pct": 0.919,
+                        "gp": 24,
+                        "gaa": 2.11,
                         "prev_sv_pct": 0.916,
                         "rating": "good"
                     },
@@ -5678,7 +5678,7 @@
                         "name": "Darcy Kuemper",
                         "status": "Expected",
                         "sv_pct": 0.891,
-                        "gp": 14,
+                        "gp": 15,
                         "gaa": 3.05,
                         "prev_sv_pct": 0.891,
                         "rating": "average"
@@ -5850,18 +5850,18 @@
                     "away": {
                         "name": "Carter Hart",
                         "status": "Expected",
-                        "sv_pct": 0.885,
-                        "gp": 14,
-                        "gaa": 2.83,
+                        "sv_pct": 0.887,
+                        "gp": 15,
+                        "gaa": 2.85,
                         "prev_sv_pct": 0.891,
                         "rating": "average"
                     },
                     "home": {
                         "name": "Yaroslav Askarov",
                         "status": "Expected",
-                        "sv_pct": 0.889,
-                        "gp": 17,
-                        "gaa": 3.27,
+                        "sv_pct": 0.893,
+                        "gp": 18,
+                        "gaa": 3.15,
                         "prev_sv_pct": 0.884,
                         "rating": "poor"
                     },
@@ -5965,17 +5965,17 @@
             {
                 "away": {
                     "name": "NYR",
-                    "record_overall": "13-10-1",
-                    "record_split": "4-7-1",
+                    "record_overall": "13-11-1",
+                    "record_split": "4-8-1",
                     "record_l10": "6-4-0",
                     "ml": "-186",
                     "proj": "3.9"
                 },
                 "home": {
                     "name": "CHI",
-                    "record_overall": "9-14-2",
-                    "record_split": "6-6-1",
-                    "record_l10": "5-4-1",
+                    "record_overall": "10-14-2",
+                    "record_split": "7-6-1",
+                    "record_l10": "6-3-1",
                     "ml": "+155",
                     "proj": "2.3"
                 },
@@ -6023,18 +6023,18 @@
                     "away": {
                         "name": "Dylan Garand",
                         "status": "Expected",
-                        "sv_pct": 0.909,
-                        "gp": 16,
-                        "gaa": 2.49,
+                        "sv_pct": 0.906,
+                        "gp": 17,
+                        "gaa": 2.46,
                         "prev_sv_pct": 0.948,
                         "rating": "good"
                     },
                     "home": {
                         "name": "Spencer Knight",
                         "status": "Expected",
-                        "sv_pct": 0.891,
-                        "gp": 20,
-                        "gaa": 3.32,
+                        "sv_pct": 0.895,
+                        "gp": 21,
+                        "gaa": 3.21,
                         "prev_sv_pct": 0.902,
                         "rating": "average"
                     },
@@ -6055,6 +6055,12 @@
                     },
                     "recent_logs": {
                         "away": [
+                            {
+                                "date": "11/27/26",
+                                "opp": "@CHI",
+                                "result": "L",
+                                "score": "1-2"
+                            },
                             {
                                 "date": "11/25/26",
                                 "opp": "@BUF",
@@ -6108,12 +6114,6 @@
                                 "opp": "vs STL",
                                 "result": "W",
                                 "score": "3-1"
-                            },
-                            {
-                                "date": "11/01/26",
-                                "opp": "vs EDM",
-                                "result": "L",
-                                "score": "1-4"
                             }
                         ],
                         "home": [],
@@ -6199,16 +6199,16 @@
             {
                 "away": {
                     "name": "WPG",
-                    "record_overall": "13-9-4",
-                    "record_split": "6-4-2",
+                    "record_overall": "14-9-4",
+                    "record_split": "7-4-2",
                     "record_l10": "8-1-1",
                     "ml": "+107",
                     "proj": "3.3"
                 },
                 "home": {
                     "name": "NYI",
-                    "record_overall": "12-7-5",
-                    "record_split": "6-4-2",
+                    "record_overall": "12-8-5",
+                    "record_split": "6-5-2",
                     "record_l10": "5-2-3",
                     "ml": "-127",
                     "proj": "3.6"
@@ -6290,6 +6290,12 @@
                     "recent_logs": {
                         "away": [
                             {
+                                "date": "11/27/26",
+                                "opp": "@NYI",
+                                "result": "W",
+                                "score": "3-1"
+                            },
+                            {
                                 "date": "11/25/26",
                                 "opp": "@BOS",
                                 "result": "W",
@@ -6342,15 +6348,15 @@
                                 "opp": "vs TBL",
                                 "result": "W",
                                 "score": "4-3"
-                            },
-                            {
-                                "date": "11/05/26",
-                                "opp": "vs VAN",
-                                "result": "W",
-                                "score": "6-2"
                             }
                         ],
                         "home": [
+                            {
+                                "date": "11/27/26",
+                                "opp": "vs WPG",
+                                "result": "L",
+                                "score": "1-3"
+                            },
                             {
                                 "date": "11/25/26",
                                 "opp": "vs STL",
@@ -6404,12 +6410,6 @@
                                 "opp": "vs NJD",
                                 "result": "L",
                                 "score": "4-5"
-                            },
-                            {
-                                "date": "11/05/26",
-                                "opp": "vs CAR",
-                                "result": "L",
-                                "score": "3-5"
                             }
                         ],
                         "h2h": []
@@ -7031,9 +7031,9 @@
                     "home": {
                         "name": "Carter Hart",
                         "status": "Expected",
-                        "sv_pct": 0.885,
-                        "gp": 14,
-                        "gaa": 2.83,
+                        "sv_pct": 0.887,
+                        "gp": 15,
+                        "gaa": 2.85,
                         "prev_sv_pct": 0.891,
                         "rating": "average"
                     },
@@ -7140,21 +7140,21 @@
                     "record_overall": "15-8-2",
                     "record_split": "5-4-2",
                     "record_l10": "5-5-0",
-                    "ml": "-112",
-                    "proj": "3.4"
+                    "ml": "-105",
+                    "proj": "3.5"
                 },
                 "home": {
                     "name": "FLA",
                     "record_overall": "15-8-3",
                     "record_split": "7-3-0",
                     "record_l10": "6-3-1",
-                    "ml": "-108",
-                    "proj": "3.0"
+                    "ml": "-115",
+                    "proj": "3.1"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "51.6%",
-                "home_win_prob": 48.4,
-                "away_win_prob": 51.6,
+                "prob": "50.2%",
+                "home_win_prob": 49.8,
+                "away_win_prob": 50.2,
                 "predicted_winner": "TBL",
                 "time": "6:00 PM EST",
                 "tier": "NONE",
@@ -7212,17 +7212,17 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+-0.8%",
-                "ai_score": 3.4,
+                "edge": "+-2.2%",
+                "ai_score": 3.0,
                 "details": {
                     "period_60": {
-                        "p1_winner": "TBL (44%)",
+                        "p1_winner": "TBL (43%)",
                         "p1_over_1_5": "54%",
-                        "min_60_tie": "21%"
+                        "min_60_tie": "22%"
                     },
                     "period_scores": {
-                        "p1": "TBL 1.0 - FLA 0.9",
-                        "p2": "TBL 1.2 - FLA 1.0",
+                        "p1": "TBL 1.1 - FLA 0.9",
+                        "p2": "TBL 1.2 - FLA 1.1",
                         "p3": "TBL 1.2 - FLA 1.1"
                     },
                     "recent_logs": {
@@ -7359,12 +7359,12 @@
                     },
                     "notes": [
                         "Goalie Edge: TBL starting Andrei Vasilevskiy (Expected) vs FLA starting Jacob Markstrom (Expected).",
-                        "Engine calculates TBL win probability at 51.6% based on V5 goalie adjustments.",
+                        "Engine calculates TBL win probability at 50.2% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 2 points."
                     ],
                     "best_angle": {
                         "play": "TBL MONEYLINE",
-                        "edge": "+-0.8%"
+                        "edge": "+-2.2%"
                     },
                     "gift_stats": {
                         "away": {
@@ -7427,7 +7427,7 @@
                         "rating": 0.06
                     }
                 },
-                "game_score": 81
+                "game_score": 82
             },
             {
                 "away": {
@@ -7605,8 +7605,8 @@
             {
                 "away": {
                     "name": "WPG",
-                    "record_overall": "13-9-4",
-                    "record_split": "6-4-2",
+                    "record_overall": "14-9-4",
+                    "record_split": "7-4-2",
                     "record_l10": "8-1-1",
                     "ml": "+170",
                     "proj": "2.7"
@@ -7696,6 +7696,12 @@
                     "recent_logs": {
                         "away": [
                             {
+                                "date": "11/27/26",
+                                "opp": "@NYI",
+                                "result": "W",
+                                "score": "3-1"
+                            },
+                            {
                                 "date": "11/25/26",
                                 "opp": "@BOS",
                                 "result": "W",
@@ -7748,12 +7754,6 @@
                                 "opp": "vs TBL",
                                 "result": "W",
                                 "score": "4-3"
-                            },
-                            {
-                                "date": "11/05/26",
-                                "opp": "vs VAN",
-                                "result": "W",
-                                "score": "6-2"
                             }
                         ],
                         "home": [],
@@ -7842,21 +7842,21 @@
                     "record_overall": "11-14-2",
                     "record_split": "5-8-1",
                     "record_l10": "4-5-1",
-                    "ml": "+160",
+                    "ml": "+154",
                     "proj": "2.2"
                 },
                 "home": {
                     "name": "NYR",
-                    "record_overall": "13-10-1",
+                    "record_overall": "13-11-1",
                     "record_split": "9-3-0",
                     "record_l10": "6-4-0",
-                    "ml": "-192",
+                    "ml": "-185",
                     "proj": "3.5"
                 },
                 "ou_total": "O/U 5.5",
-                "prob": "61.8%",
-                "home_win_prob": 61.8,
-                "away_win_prob": 38.2,
+                "prob": "61.0%",
+                "home_win_prob": 61.0,
+                "away_win_prob": 39.0,
                 "predicted_winner": "NYR",
                 "time": "7:00 PM EST",
                 "tier": "NONE",
@@ -7906,19 +7906,19 @@
                     "home": {
                         "name": "Dylan Garand",
                         "status": "Expected",
-                        "sv_pct": 0.909,
-                        "gp": 16,
-                        "gaa": 2.49,
+                        "sv_pct": 0.906,
+                        "gp": 17,
+                        "gaa": 2.46,
                         "prev_sv_pct": 0.948,
                         "rating": "good"
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+9.4%",
-                "ai_score": 5.6,
+                "edge": "+8.6%",
+                "ai_score": 5.5,
                 "details": {
                     "period_60": {
-                        "p1_winner": "NYR (53%)",
+                        "p1_winner": "NYR (52%)",
                         "p1_over_1_5": "48%",
                         "min_60_tie": "16%"
                     },
@@ -7992,6 +7992,12 @@
                         ],
                         "home": [
                             {
+                                "date": "11/27/26",
+                                "opp": "@CHI",
+                                "result": "L",
+                                "score": "1-2"
+                            },
+                            {
                                 "date": "11/25/26",
                                 "opp": "@BUF",
                                 "result": "L",
@@ -8044,12 +8050,6 @@
                                 "opp": "vs STL",
                                 "result": "W",
                                 "score": "3-1"
-                            },
-                            {
-                                "date": "11/01/26",
-                                "opp": "vs EDM",
-                                "result": "L",
-                                "score": "1-4"
                             }
                         ],
                         "h2h": []
@@ -8061,12 +8061,12 @@
                     },
                     "notes": [
                         "Goalie Edge: CGY starting Dustin Wolf (Expected) vs NYR starting Dylan Garand (Expected).",
-                        "Engine calculates NYR win probability at 61.8% based on V5 goalie adjustments.",
+                        "Engine calculates NYR win probability at 61.0% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 94 points."
                     ],
                     "best_angle": {
                         "play": "NYR MONEYLINE",
-                        "edge": "+9.4%"
+                        "edge": "+8.6%"
                     },
                     "gift_stats": {
                         "away": {
@@ -8129,7 +8129,7 @@
                         "rating": -0.09
                     }
                 },
-                "game_score": 45
+                "game_score": 46
             },
             {
                 "away": {
@@ -8958,10 +8958,10 @@
             {
                 "away": {
                     "name": "NYI",
-                    "record_overall": "12-7-5",
+                    "record_overall": "12-8-5",
                     "record_split": "6-3-3",
                     "record_l10": "5-2-3",
-                    "ml": "-122",
+                    "ml": "-118",
                     "proj": "3.6"
                 },
                 "home": {
@@ -8969,13 +8969,13 @@
                     "record_overall": "10-12-6",
                     "record_split": "5-5-3",
                     "record_l10": "6-2-2",
-                    "ml": "+102",
+                    "ml": "-102",
                     "proj": "3.2"
                 },
                 "ou_total": "O/U 7.0",
-                "prob": "53.6%",
-                "home_win_prob": 46.4,
-                "away_win_prob": 53.6,
+                "prob": "52.7%",
+                "home_win_prob": 47.3,
+                "away_win_prob": 52.7,
                 "predicted_winner": "NYI",
                 "time": "7:30 PM EST",
                 "tier": "NONE",
@@ -9033,13 +9033,13 @@
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+1.2%",
-                "ai_score": 3.8,
+                "edge": "+0.3%",
+                "ai_score": 3.6,
                 "details": {
                     "period_60": {
-                        "p1_winner": "NYI (46%)",
+                        "p1_winner": "NYI (45%)",
                         "p1_over_1_5": "49%",
-                        "min_60_tie": "20%"
+                        "min_60_tie": "21%"
                     },
                     "period_scores": {
                         "p1": "NYI 1.1 - PHI 1.0",
@@ -9048,6 +9048,12 @@
                     },
                     "recent_logs": {
                         "away": [
+                            {
+                                "date": "11/27/26",
+                                "opp": "vs WPG",
+                                "result": "L",
+                                "score": "1-3"
+                            },
                             {
                                 "date": "11/25/26",
                                 "opp": "vs STL",
@@ -9101,12 +9107,6 @@
                                 "opp": "vs NJD",
                                 "result": "L",
                                 "score": "4-5"
-                            },
-                            {
-                                "date": "11/05/26",
-                                "opp": "vs CAR",
-                                "result": "L",
-                                "score": "3-5"
                             }
                         ],
                         "home": [
@@ -9180,12 +9180,12 @@
                     },
                     "notes": [
                         "Goalie Edge: NYI starting Ilya Sorokin (Expected) vs PHI starting Dan Vladar (Expected).",
-                        "Engine calculates NYI win probability at 53.6% based on V5 goalie adjustments.",
+                        "Engine calculates NYI win probability at 52.7% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 48 points."
                     ],
                     "best_angle": {
                         "play": "NYI MONEYLINE",
-                        "edge": "+1.2%"
+                        "edge": "+0.3%"
                     },
                     "gift_stats": {
                         "away": {
@@ -9248,7 +9248,7 @@
                         "rating": -0.38
                     }
                 },
-                "game_score": 62
+                "game_score": 63
             },
             {
                 "away": {
@@ -9429,21 +9429,21 @@
                     "record_overall": "12-14-2",
                     "record_split": "5-7-1",
                     "record_l10": "5-4-1",
-                    "ml": "+225",
-                    "proj": "1.9"
+                    "ml": "+210",
+                    "proj": "2.0"
                 },
                 "home": {
                     "name": "COL",
                     "record_overall": "15-7-3",
                     "record_split": "9-1-2",
                     "record_l10": "6-2-2",
-                    "ml": "-278",
-                    "proj": "4.5"
+                    "ml": "-258",
+                    "proj": "4.4"
                 },
                 "ou_total": "O/U 6.5",
-                "prob": "70.1%",
-                "home_win_prob": 70.1,
-                "away_win_prob": 29.9,
+                "prob": "68.7%",
+                "home_win_prob": 68.7,
+                "away_win_prob": 31.3,
                 "predicted_winner": "COL",
                 "time": "9:00 PM EST",
                 "tier": "EDGE",
@@ -9484,35 +9484,35 @@
                     "away": {
                         "name": "Yaroslav Askarov",
                         "status": "Expected",
-                        "sv_pct": 0.889,
-                        "gp": 17,
-                        "gaa": 3.27,
+                        "sv_pct": 0.893,
+                        "gp": 18,
+                        "gaa": 3.15,
                         "prev_sv_pct": 0.884,
                         "rating": "poor"
                     },
                     "home": {
                         "name": "Mackenzie Blackwood",
                         "status": "Expected",
-                        "sv_pct": 0.91,
-                        "gp": 18,
-                        "gaa": 2.41,
+                        "sv_pct": 0.908,
+                        "gp": 19,
+                        "gaa": 2.44,
                         "prev_sv_pct": 0.904,
                         "rating": "good"
                     },
                     "league_sv_pct": 0.891
                 },
-                "edge": "+17.7%",
-                "ai_score": 7.5,
+                "edge": "+16.3%",
+                "ai_score": 7.2,
                 "details": {
                     "period_60": {
-                        "p1_winner": "COL (60%)",
+                        "p1_winner": "COL (58%)",
                         "p1_over_1_5": "56%",
-                        "min_60_tie": "12%"
+                        "min_60_tie": "13%"
                     },
                     "period_scores": {
                         "p1": "SJS 0.6 - COL 1.3",
-                        "p2": "SJS 0.7 - COL 1.6",
-                        "p3": "SJS 0.6 - COL 1.6"
+                        "p2": "SJS 0.7 - COL 1.5",
+                        "p3": "SJS 0.7 - COL 1.6"
                     },
                     "recent_logs": {
                         "away": [],
@@ -9526,12 +9526,12 @@
                     },
                     "notes": [
                         "Goalie Edge: SJS starting Yaroslav Askarov (Expected) vs COL starting Mackenzie Blackwood (Expected).",
-                        "Engine calculates COL win probability at 70.1% based on V5 goalie adjustments.",
+                        "Engine calculates COL win probability at 68.7% based on V5 goalie adjustments.",
                         "Matchup features an active Elo rating gap of 187 points."
                     ],
                     "best_angle": {
                         "play": "COL MONEYLINE",
-                        "edge": "+17.7%"
+                        "edge": "+16.3%"
                     },
                     "gift_stats": {
                         "away": {
@@ -9594,7 +9594,7 @@
                         "rating": 1.13
                     }
                 },
-                "game_score": 54
+                "game_score": 55
             },
             {
                 "away": {
@@ -9667,7 +9667,7 @@
                         "name": "Darcy Kuemper",
                         "status": "Expected",
                         "sv_pct": 0.891,
-                        "gp": 14,
+                        "gp": 15,
                         "gaa": 3.05,
                         "prev_sv_pct": 0.891,
                         "rating": "average"
@@ -9955,9 +9955,9 @@
                 },
                 "home": {
                     "name": "CHI",
-                    "record_overall": "9-14-2",
-                    "record_split": "6-6-1",
-                    "record_l10": "5-4-1",
+                    "record_overall": "10-14-2",
+                    "record_split": "7-6-1",
+                    "record_l10": "6-3-1",
                     "ml": "+537",
                     "proj": "1.1"
                 },
@@ -10005,18 +10005,18 @@
                     "away": {
                         "name": "Jesper Wallstedt",
                         "status": "Expected",
-                        "sv_pct": 0.92,
-                        "gp": 23,
-                        "gaa": 2.08,
+                        "sv_pct": 0.919,
+                        "gp": 24,
+                        "gaa": 2.11,
                         "prev_sv_pct": 0.916,
                         "rating": "good"
                     },
                     "home": {
                         "name": "Spencer Knight",
                         "status": "Expected",
-                        "sv_pct": 0.891,
-                        "gp": 20,
-                        "gaa": 3.32,
+                        "sv_pct": 0.895,
+                        "gp": 21,
+                        "gaa": 3.21,
                         "prev_sv_pct": 0.902,
                         "rating": "average"
                     },
@@ -10357,8 +10357,8 @@
         {
             "away": {
                 "name": "WPG",
-                "record_overall": "13-9-4",
-                "record_split": "6-4-2",
+                "record_overall": "14-9-4",
+                "record_split": "7-4-2",
                 "record_l10": "8-1-1",
                 "ml": "+141",
                 "proj": "2.9"
@@ -10448,6 +10448,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/27/26",
+                            "opp": "@NYI",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
                             "date": "11/25/26",
                             "opp": "@BOS",
                             "result": "W",
@@ -10500,12 +10506,6 @@
                             "opp": "vs TBL",
                             "result": "W",
                             "score": "4-3"
-                        },
-                        {
-                            "date": "11/05/26",
-                            "opp": "vs VAN",
-                            "result": "W",
-                            "score": "6-2"
                         }
                     ],
                     "home": [
@@ -10689,8 +10689,8 @@
         {
             "away": {
                 "name": "NYR",
-                "record_overall": "13-10-1",
-                "record_split": "4-7-1",
+                "record_overall": "13-11-1",
+                "record_split": "4-8-1",
                 "record_l10": "6-4-0",
                 "ml": "+118",
                 "proj": "2.6"
@@ -10747,9 +10747,9 @@
                 "away": {
                     "name": "Dylan Garand",
                     "status": "Expected",
-                    "sv_pct": 0.909,
-                    "gp": 16,
-                    "gaa": 2.49,
+                    "sv_pct": 0.906,
+                    "gp": 17,
+                    "gaa": 2.46,
                     "prev_sv_pct": 0.948,
                     "rating": "good"
                 },
@@ -10779,6 +10779,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "11/27/26",
+                            "opp": "@CHI",
+                            "result": "L",
+                            "score": "1-2"
+                        },
                         {
                             "date": "11/25/26",
                             "opp": "@BUF",
@@ -10832,12 +10838,6 @@
                             "opp": "vs STL",
                             "result": "W",
                             "score": "3-1"
-                        },
-                        {
-                            "date": "11/01/26",
-                            "opp": "vs EDM",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "home": [
@@ -11759,8 +11759,8 @@
             },
             "home": {
                 "name": "NYI",
-                "record_overall": "12-7-5",
-                "record_split": "6-4-2",
+                "record_overall": "12-8-5",
+                "record_split": "6-5-2",
                 "record_l10": "5-2-3",
                 "ml": "-138",
                 "proj": "3.8"
@@ -11904,6 +11904,12 @@
                     ],
                     "home": [
                         {
+                            "date": "11/27/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "1-3"
+                        },
+                        {
                             "date": "11/25/26",
                             "opp": "vs STL",
                             "result": "W",
@@ -11956,12 +11962,6 @@
                             "opp": "vs NJD",
                             "result": "L",
                             "score": "4-5"
-                        },
-                        {
-                            "date": "11/05/26",
-                            "opp": "vs CAR",
-                            "result": "L",
-                            "score": "3-5"
                         }
                     ],
                     "h2h": [
@@ -13296,9 +13296,9 @@
                 "home": {
                     "name": "Jesper Wallstedt",
                     "status": "Expected",
-                    "sv_pct": 0.92,
-                    "gp": 23,
-                    "gaa": 2.08,
+                    "sv_pct": 0.919,
+                    "gp": 24,
+                    "gaa": 2.11,
                     "prev_sv_pct": 0.916,
                     "rating": "good"
                 },
@@ -13469,9 +13469,9 @@
                 "home": {
                     "name": "Mackenzie Blackwood",
                     "status": "Expected",
-                    "sv_pct": 0.91,
-                    "gp": 18,
-                    "gaa": 2.41,
+                    "sv_pct": 0.908,
+                    "gp": 19,
+                    "gaa": 2.44,
                     "prev_sv_pct": 0.904,
                     "rating": "good"
                 },
@@ -13575,9 +13575,9 @@
         {
             "away": {
                 "name": "CHI",
-                "record_overall": "9-14-2",
+                "record_overall": "10-14-2",
                 "record_split": "3-8-1",
-                "record_l10": "5-4-1",
+                "record_l10": "6-3-1",
                 "ml": "+130",
                 "proj": "2.9"
             },
@@ -13633,9 +13633,9 @@
                 "away": {
                     "name": "Spencer Knight",
                     "status": "Expected",
-                    "sv_pct": 0.891,
-                    "gp": 20,
-                    "gaa": 3.32,
+                    "sv_pct": 0.895,
+                    "gp": 21,
+                    "gaa": 3.21,
                     "prev_sv_pct": 0.902,
                     "rating": "average"
                 },
@@ -13806,9 +13806,9 @@
                 "away": {
                     "name": "Yaroslav Askarov",
                     "status": "Expected",
-                    "sv_pct": 0.889,
-                    "gp": 17,
-                    "gaa": 3.27,
+                    "sv_pct": 0.893,
+                    "gp": 18,
+                    "gaa": 3.15,
                     "prev_sv_pct": 0.884,
                     "rating": "poor"
                 },
@@ -15854,18 +15854,18 @@
                 "away": {
                     "name": "Mackenzie Blackwood",
                     "status": "Expected",
-                    "sv_pct": 0.91,
-                    "gp": 18,
-                    "gaa": 2.41,
+                    "sv_pct": 0.908,
+                    "gp": 19,
+                    "gaa": 2.44,
                     "prev_sv_pct": 0.904,
                     "rating": "good"
                 },
                 "home": {
                     "name": "Jesper Wallstedt",
                     "status": "Expected",
-                    "sv_pct": 0.92,
-                    "gp": 23,
-                    "gaa": 2.08,
+                    "sv_pct": 0.919,
+                    "gp": 24,
+                    "gaa": 2.11,
                     "prev_sv_pct": 0.916,
                     "rating": "good"
                 },
@@ -16028,7 +16028,7 @@
                     "name": "Darcy Kuemper",
                     "status": "Expected",
                     "sv_pct": 0.891,
-                    "gp": 14,
+                    "gp": 15,
                     "gaa": 3.05,
                     "prev_sv_pct": 0.891,
                     "rating": "average"
@@ -16200,18 +16200,18 @@
                 "away": {
                     "name": "Carter Hart",
                     "status": "Expected",
-                    "sv_pct": 0.885,
-                    "gp": 14,
-                    "gaa": 2.83,
+                    "sv_pct": 0.887,
+                    "gp": 15,
+                    "gaa": 2.85,
                     "prev_sv_pct": 0.891,
                     "rating": "average"
                 },
                 "home": {
                     "name": "Yaroslav Askarov",
                     "status": "Expected",
-                    "sv_pct": 0.889,
-                    "gp": 17,
-                    "gaa": 3.27,
+                    "sv_pct": 0.893,
+                    "gp": 18,
+                    "gaa": 3.15,
                     "prev_sv_pct": 0.884,
                     "rating": "poor"
                 },
@@ -16315,17 +16315,17 @@
         {
             "away": {
                 "name": "NYR",
-                "record_overall": "13-10-1",
-                "record_split": "4-7-1",
+                "record_overall": "13-11-1",
+                "record_split": "4-8-1",
                 "record_l10": "6-4-0",
                 "ml": "-186",
                 "proj": "3.9"
             },
             "home": {
                 "name": "CHI",
-                "record_overall": "9-14-2",
-                "record_split": "6-6-1",
-                "record_l10": "5-4-1",
+                "record_overall": "10-14-2",
+                "record_split": "7-6-1",
+                "record_l10": "6-3-1",
                 "ml": "+155",
                 "proj": "2.3"
             },
@@ -16373,18 +16373,18 @@
                 "away": {
                     "name": "Dylan Garand",
                     "status": "Expected",
-                    "sv_pct": 0.909,
-                    "gp": 16,
-                    "gaa": 2.49,
+                    "sv_pct": 0.906,
+                    "gp": 17,
+                    "gaa": 2.46,
                     "prev_sv_pct": 0.948,
                     "rating": "good"
                 },
                 "home": {
                     "name": "Spencer Knight",
                     "status": "Expected",
-                    "sv_pct": 0.891,
-                    "gp": 20,
-                    "gaa": 3.32,
+                    "sv_pct": 0.895,
+                    "gp": 21,
+                    "gaa": 3.21,
                     "prev_sv_pct": 0.902,
                     "rating": "average"
                 },
@@ -16405,6 +16405,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "11/27/26",
+                            "opp": "@CHI",
+                            "result": "L",
+                            "score": "1-2"
+                        },
                         {
                             "date": "11/25/26",
                             "opp": "@BUF",
@@ -16458,12 +16464,6 @@
                             "opp": "vs STL",
                             "result": "W",
                             "score": "3-1"
-                        },
-                        {
-                            "date": "11/01/26",
-                            "opp": "vs EDM",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "home": [],
@@ -16549,16 +16549,16 @@
         {
             "away": {
                 "name": "WPG",
-                "record_overall": "13-9-4",
-                "record_split": "6-4-2",
+                "record_overall": "14-9-4",
+                "record_split": "7-4-2",
                 "record_l10": "8-1-1",
                 "ml": "+107",
                 "proj": "3.3"
             },
             "home": {
                 "name": "NYI",
-                "record_overall": "12-7-5",
-                "record_split": "6-4-2",
+                "record_overall": "12-8-5",
+                "record_split": "6-5-2",
                 "record_l10": "5-2-3",
                 "ml": "-127",
                 "proj": "3.6"
@@ -16640,6 +16640,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/27/26",
+                            "opp": "@NYI",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
                             "date": "11/25/26",
                             "opp": "@BOS",
                             "result": "W",
@@ -16692,15 +16698,15 @@
                             "opp": "vs TBL",
                             "result": "W",
                             "score": "4-3"
-                        },
-                        {
-                            "date": "11/05/26",
-                            "opp": "vs VAN",
-                            "result": "W",
-                            "score": "6-2"
                         }
                     ],
                     "home": [
+                        {
+                            "date": "11/27/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "1-3"
+                        },
                         {
                             "date": "11/25/26",
                             "opp": "vs STL",
@@ -16754,12 +16760,6 @@
                             "opp": "vs NJD",
                             "result": "L",
                             "score": "4-5"
-                        },
-                        {
-                            "date": "11/05/26",
-                            "opp": "vs CAR",
-                            "result": "L",
-                            "score": "3-5"
                         }
                     ],
                     "h2h": []
@@ -17381,9 +17381,9 @@
                 "home": {
                     "name": "Carter Hart",
                     "status": "Expected",
-                    "sv_pct": 0.885,
-                    "gp": 14,
-                    "gaa": 2.83,
+                    "sv_pct": 0.887,
+                    "gp": 15,
+                    "gaa": 2.85,
                     "prev_sv_pct": 0.891,
                     "rating": "average"
                 },
@@ -17490,21 +17490,21 @@
                 "record_overall": "15-8-2",
                 "record_split": "5-4-2",
                 "record_l10": "5-5-0",
-                "ml": "-112",
-                "proj": "3.4"
+                "ml": "-105",
+                "proj": "3.5"
             },
             "home": {
                 "name": "FLA",
                 "record_overall": "15-8-3",
                 "record_split": "7-3-0",
                 "record_l10": "6-3-1",
-                "ml": "-108",
-                "proj": "3.0"
+                "ml": "-115",
+                "proj": "3.1"
             },
             "ou_total": "O/U 6.5",
-            "prob": "51.6%",
-            "home_win_prob": 48.4,
-            "away_win_prob": 51.6,
+            "prob": "50.2%",
+            "home_win_prob": 49.8,
+            "away_win_prob": 50.2,
             "predicted_winner": "TBL",
             "time": "6:00 PM EST",
             "tier": "NONE",
@@ -17562,17 +17562,17 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+-0.8%",
-            "ai_score": 3.4,
+            "edge": "+-2.2%",
+            "ai_score": 3.0,
             "details": {
                 "period_60": {
-                    "p1_winner": "TBL (44%)",
+                    "p1_winner": "TBL (43%)",
                     "p1_over_1_5": "54%",
-                    "min_60_tie": "21%"
+                    "min_60_tie": "22%"
                 },
                 "period_scores": {
-                    "p1": "TBL 1.0 - FLA 0.9",
-                    "p2": "TBL 1.2 - FLA 1.0",
+                    "p1": "TBL 1.1 - FLA 0.9",
+                    "p2": "TBL 1.2 - FLA 1.1",
                     "p3": "TBL 1.2 - FLA 1.1"
                 },
                 "recent_logs": {
@@ -17709,12 +17709,12 @@
                 },
                 "notes": [
                     "Goalie Edge: TBL starting Andrei Vasilevskiy (Expected) vs FLA starting Jacob Markstrom (Expected).",
-                    "Engine calculates TBL win probability at 51.6% based on V5 goalie adjustments.",
+                    "Engine calculates TBL win probability at 50.2% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 2 points."
                 ],
                 "best_angle": {
                     "play": "TBL MONEYLINE",
-                    "edge": "+-0.8%"
+                    "edge": "+-2.2%"
                 },
                 "gift_stats": {
                     "away": {
@@ -17777,7 +17777,7 @@
                     "rating": 0.06
                 }
             },
-            "game_score": 81
+            "game_score": 82
         },
         {
             "away": {
@@ -17955,8 +17955,8 @@
         {
             "away": {
                 "name": "WPG",
-                "record_overall": "13-9-4",
-                "record_split": "6-4-2",
+                "record_overall": "14-9-4",
+                "record_split": "7-4-2",
                 "record_l10": "8-1-1",
                 "ml": "+170",
                 "proj": "2.7"
@@ -18046,6 +18046,12 @@
                 "recent_logs": {
                     "away": [
                         {
+                            "date": "11/27/26",
+                            "opp": "@NYI",
+                            "result": "W",
+                            "score": "3-1"
+                        },
+                        {
                             "date": "11/25/26",
                             "opp": "@BOS",
                             "result": "W",
@@ -18098,12 +18104,6 @@
                             "opp": "vs TBL",
                             "result": "W",
                             "score": "4-3"
-                        },
-                        {
-                            "date": "11/05/26",
-                            "opp": "vs VAN",
-                            "result": "W",
-                            "score": "6-2"
                         }
                     ],
                     "home": [],
@@ -18192,21 +18192,21 @@
                 "record_overall": "11-14-2",
                 "record_split": "5-8-1",
                 "record_l10": "4-5-1",
-                "ml": "+160",
+                "ml": "+154",
                 "proj": "2.2"
             },
             "home": {
                 "name": "NYR",
-                "record_overall": "13-10-1",
+                "record_overall": "13-11-1",
                 "record_split": "9-3-0",
                 "record_l10": "6-4-0",
-                "ml": "-192",
+                "ml": "-185",
                 "proj": "3.5"
             },
             "ou_total": "O/U 5.5",
-            "prob": "61.8%",
-            "home_win_prob": 61.8,
-            "away_win_prob": 38.2,
+            "prob": "61.0%",
+            "home_win_prob": 61.0,
+            "away_win_prob": 39.0,
             "predicted_winner": "NYR",
             "time": "7:00 PM EST",
             "tier": "NONE",
@@ -18256,19 +18256,19 @@
                 "home": {
                     "name": "Dylan Garand",
                     "status": "Expected",
-                    "sv_pct": 0.909,
-                    "gp": 16,
-                    "gaa": 2.49,
+                    "sv_pct": 0.906,
+                    "gp": 17,
+                    "gaa": 2.46,
                     "prev_sv_pct": 0.948,
                     "rating": "good"
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+9.4%",
-            "ai_score": 5.6,
+            "edge": "+8.6%",
+            "ai_score": 5.5,
             "details": {
                 "period_60": {
-                    "p1_winner": "NYR (53%)",
+                    "p1_winner": "NYR (52%)",
                     "p1_over_1_5": "48%",
                     "min_60_tie": "16%"
                 },
@@ -18342,6 +18342,12 @@
                     ],
                     "home": [
                         {
+                            "date": "11/27/26",
+                            "opp": "@CHI",
+                            "result": "L",
+                            "score": "1-2"
+                        },
+                        {
                             "date": "11/25/26",
                             "opp": "@BUF",
                             "result": "L",
@@ -18394,12 +18400,6 @@
                             "opp": "vs STL",
                             "result": "W",
                             "score": "3-1"
-                        },
-                        {
-                            "date": "11/01/26",
-                            "opp": "vs EDM",
-                            "result": "L",
-                            "score": "1-4"
                         }
                     ],
                     "h2h": []
@@ -18411,12 +18411,12 @@
                 },
                 "notes": [
                     "Goalie Edge: CGY starting Dustin Wolf (Expected) vs NYR starting Dylan Garand (Expected).",
-                    "Engine calculates NYR win probability at 61.8% based on V5 goalie adjustments.",
+                    "Engine calculates NYR win probability at 61.0% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 94 points."
                 ],
                 "best_angle": {
                     "play": "NYR MONEYLINE",
-                    "edge": "+9.4%"
+                    "edge": "+8.6%"
                 },
                 "gift_stats": {
                     "away": {
@@ -18479,7 +18479,7 @@
                     "rating": -0.09
                 }
             },
-            "game_score": 45
+            "game_score": 46
         },
         {
             "away": {
@@ -19308,10 +19308,10 @@
         {
             "away": {
                 "name": "NYI",
-                "record_overall": "12-7-5",
+                "record_overall": "12-8-5",
                 "record_split": "6-3-3",
                 "record_l10": "5-2-3",
-                "ml": "-122",
+                "ml": "-118",
                 "proj": "3.6"
             },
             "home": {
@@ -19319,13 +19319,13 @@
                 "record_overall": "10-12-6",
                 "record_split": "5-5-3",
                 "record_l10": "6-2-2",
-                "ml": "+102",
+                "ml": "-102",
                 "proj": "3.2"
             },
             "ou_total": "O/U 7.0",
-            "prob": "53.6%",
-            "home_win_prob": 46.4,
-            "away_win_prob": 53.6,
+            "prob": "52.7%",
+            "home_win_prob": 47.3,
+            "away_win_prob": 52.7,
             "predicted_winner": "NYI",
             "time": "7:30 PM EST",
             "tier": "NONE",
@@ -19383,13 +19383,13 @@
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+1.2%",
-            "ai_score": 3.8,
+            "edge": "+0.3%",
+            "ai_score": 3.6,
             "details": {
                 "period_60": {
-                    "p1_winner": "NYI (46%)",
+                    "p1_winner": "NYI (45%)",
                     "p1_over_1_5": "49%",
-                    "min_60_tie": "20%"
+                    "min_60_tie": "21%"
                 },
                 "period_scores": {
                     "p1": "NYI 1.1 - PHI 1.0",
@@ -19398,6 +19398,12 @@
                 },
                 "recent_logs": {
                     "away": [
+                        {
+                            "date": "11/27/26",
+                            "opp": "vs WPG",
+                            "result": "L",
+                            "score": "1-3"
+                        },
                         {
                             "date": "11/25/26",
                             "opp": "vs STL",
@@ -19451,12 +19457,6 @@
                             "opp": "vs NJD",
                             "result": "L",
                             "score": "4-5"
-                        },
-                        {
-                            "date": "11/05/26",
-                            "opp": "vs CAR",
-                            "result": "L",
-                            "score": "3-5"
                         }
                     ],
                     "home": [
@@ -19530,12 +19530,12 @@
                 },
                 "notes": [
                     "Goalie Edge: NYI starting Ilya Sorokin (Expected) vs PHI starting Dan Vladar (Expected).",
-                    "Engine calculates NYI win probability at 53.6% based on V5 goalie adjustments.",
+                    "Engine calculates NYI win probability at 52.7% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 48 points."
                 ],
                 "best_angle": {
                     "play": "NYI MONEYLINE",
-                    "edge": "+1.2%"
+                    "edge": "+0.3%"
                 },
                 "gift_stats": {
                     "away": {
@@ -19598,7 +19598,7 @@
                     "rating": -0.38
                 }
             },
-            "game_score": 62
+            "game_score": 63
         },
         {
             "away": {
@@ -19779,21 +19779,21 @@
                 "record_overall": "12-14-2",
                 "record_split": "5-7-1",
                 "record_l10": "5-4-1",
-                "ml": "+225",
-                "proj": "1.9"
+                "ml": "+210",
+                "proj": "2.0"
             },
             "home": {
                 "name": "COL",
                 "record_overall": "15-7-3",
                 "record_split": "9-1-2",
                 "record_l10": "6-2-2",
-                "ml": "-278",
-                "proj": "4.5"
+                "ml": "-258",
+                "proj": "4.4"
             },
             "ou_total": "O/U 6.5",
-            "prob": "70.1%",
-            "home_win_prob": 70.1,
-            "away_win_prob": 29.9,
+            "prob": "68.7%",
+            "home_win_prob": 68.7,
+            "away_win_prob": 31.3,
             "predicted_winner": "COL",
             "time": "9:00 PM EST",
             "tier": "EDGE",
@@ -19834,35 +19834,35 @@
                 "away": {
                     "name": "Yaroslav Askarov",
                     "status": "Expected",
-                    "sv_pct": 0.889,
-                    "gp": 17,
-                    "gaa": 3.27,
+                    "sv_pct": 0.893,
+                    "gp": 18,
+                    "gaa": 3.15,
                     "prev_sv_pct": 0.884,
                     "rating": "poor"
                 },
                 "home": {
                     "name": "Mackenzie Blackwood",
                     "status": "Expected",
-                    "sv_pct": 0.91,
-                    "gp": 18,
-                    "gaa": 2.41,
+                    "sv_pct": 0.908,
+                    "gp": 19,
+                    "gaa": 2.44,
                     "prev_sv_pct": 0.904,
                     "rating": "good"
                 },
                 "league_sv_pct": 0.891
             },
-            "edge": "+17.7%",
-            "ai_score": 7.5,
+            "edge": "+16.3%",
+            "ai_score": 7.2,
             "details": {
                 "period_60": {
-                    "p1_winner": "COL (60%)",
+                    "p1_winner": "COL (58%)",
                     "p1_over_1_5": "56%",
-                    "min_60_tie": "12%"
+                    "min_60_tie": "13%"
                 },
                 "period_scores": {
                     "p1": "SJS 0.6 - COL 1.3",
-                    "p2": "SJS 0.7 - COL 1.6",
-                    "p3": "SJS 0.6 - COL 1.6"
+                    "p2": "SJS 0.7 - COL 1.5",
+                    "p3": "SJS 0.7 - COL 1.6"
                 },
                 "recent_logs": {
                     "away": [],
@@ -19876,12 +19876,12 @@
                 },
                 "notes": [
                     "Goalie Edge: SJS starting Yaroslav Askarov (Expected) vs COL starting Mackenzie Blackwood (Expected).",
-                    "Engine calculates COL win probability at 70.1% based on V5 goalie adjustments.",
+                    "Engine calculates COL win probability at 68.7% based on V5 goalie adjustments.",
                     "Matchup features an active Elo rating gap of 187 points."
                 ],
                 "best_angle": {
                     "play": "COL MONEYLINE",
-                    "edge": "+17.7%"
+                    "edge": "+16.3%"
                 },
                 "gift_stats": {
                     "away": {
@@ -19944,7 +19944,7 @@
                     "rating": 1.13
                 }
             },
-            "game_score": 54
+            "game_score": 55
         },
         {
             "away": {
@@ -20017,7 +20017,7 @@
                     "name": "Darcy Kuemper",
                     "status": "Expected",
                     "sv_pct": 0.891,
-                    "gp": 14,
+                    "gp": 15,
                     "gaa": 3.05,
                     "prev_sv_pct": 0.891,
                     "rating": "average"
@@ -20305,9 +20305,9 @@
             },
             "home": {
                 "name": "CHI",
-                "record_overall": "9-14-2",
-                "record_split": "6-6-1",
-                "record_l10": "5-4-1",
+                "record_overall": "10-14-2",
+                "record_split": "7-6-1",
+                "record_l10": "6-3-1",
                 "ml": "+537",
                 "proj": "1.1"
             },
@@ -20355,18 +20355,18 @@
                 "away": {
                     "name": "Jesper Wallstedt",
                     "status": "Expected",
-                    "sv_pct": 0.92,
-                    "gp": 23,
-                    "gaa": 2.08,
+                    "sv_pct": 0.919,
+                    "gp": 24,
+                    "gaa": 2.11,
                     "prev_sv_pct": 0.916,
                     "rating": "good"
                 },
                 "home": {
                     "name": "Spencer Knight",
                     "status": "Expected",
-                    "sv_pct": 0.891,
-                    "gp": 20,
-                    "gaa": 3.32,
+                    "sv_pct": 0.895,
+                    "gp": 21,
+                    "gaa": 3.21,
                     "prev_sv_pct": 0.902,
                     "rating": "average"
                 },
@@ -21233,18 +21233,18 @@
                 "away": {
                     "name": "Carter Hart",
                     "status": "Expected",
-                    "sv_pct": 0.885,
-                    "gp": 14,
-                    "gaa": 2.83,
+                    "sv_pct": 0.887,
+                    "gp": 15,
+                    "gaa": 2.85,
                     "prev_sv_pct": 0.891,
                     "rating": "average"
                 },
                 "home": {
                     "name": "Yaroslav Askarov",
                     "status": "Expected",
-                    "sv_pct": 0.889,
-                    "gp": 17,
-                    "gaa": 3.27,
+                    "sv_pct": 0.893,
+                    "gp": 18,
+                    "gaa": 3.15,
                     "prev_sv_pct": 0.884,
                     "rating": "poor"
                 },
@@ -21520,14 +21520,14 @@
             "rank": 14,
             "team": "NYI",
             "power": 0.12,
-            "overall": "12-7-5",
+            "overall": "12-8-5",
             "l10": "5-2-3",
             "points": 29,
-            "gp": 24,
-            "gd": 7,
+            "gp": 25,
+            "gd": 5,
             "division": "M",
             "conference": "E",
-            "streak": "W1"
+            "streak": "L1"
         },
         {
             "rank": 15,
@@ -21559,14 +21559,14 @@
             "rank": 17,
             "team": "WPG",
             "power": 0.01,
-            "overall": "13-9-4",
+            "overall": "14-9-4",
             "l10": "8-1-1",
-            "points": 30,
-            "gp": 26,
-            "gd": -3,
+            "points": 32,
+            "gp": 27,
+            "gd": -1,
             "division": "C",
             "conference": "W",
-            "streak": "W2"
+            "streak": "W3"
         },
         {
             "rank": 18,
@@ -21598,14 +21598,14 @@
             "rank": 20,
             "team": "NYR",
             "power": -0.09,
-            "overall": "13-10-1",
+            "overall": "13-11-1",
             "l10": "6-4-0",
             "points": 27,
-            "gp": 24,
-            "gd": 2,
+            "gp": 25,
+            "gd": 1,
             "division": "M",
             "conference": "E",
-            "streak": "L2"
+            "streak": "L3"
         },
         {
             "rank": 21,
@@ -21728,14 +21728,14 @@
             "rank": 30,
             "team": "CHI",
             "power": -0.89,
-            "overall": "9-14-2",
-            "l10": "5-4-1",
-            "points": 20,
-            "gp": 25,
-            "gd": -30,
+            "overall": "10-14-2",
+            "l10": "6-3-1",
+            "points": 22,
+            "gp": 26,
+            "gd": -29,
             "division": "C",
             "conference": "W",
-            "streak": "W3"
+            "streak": "W4"
         },
         {
             "rank": 31,
